@@ -4,6 +4,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { motion } from "framer-motion";
+import { MotionWrapper } from "@/components/ui/motion-wrapper";
 
 const faqs = [
   {
@@ -34,30 +36,37 @@ const FAQSection = () => {
       <div className="absolute inset-0 bg-glow opacity-20" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
+        <MotionWrapper className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Frequently Asked <span className="gradient-text">Questions</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Got questions? We've got answers.
           </p>
-        </div>
+        </MotionWrapper>
         
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem
+              <motion.div
                 key={index}
-                value={`item-${index}`}
-                className="glass-card rounded-xl px-6 border border-border/50 data-[state=open]:border-primary/50 transition-colors"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
               >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary transition-colors py-5">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
+                <AccordionItem
+                  value={`item-${index}`}
+                  className="glass-card rounded-xl px-6 border border-border/50 data-[state=open]:border-primary/50 transition-colors"
+                >
+                  <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary transition-colors py-5">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             ))}
           </Accordion>
         </div>

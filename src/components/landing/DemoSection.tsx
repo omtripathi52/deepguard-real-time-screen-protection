@@ -1,4 +1,6 @@
 import { CheckCircle, AlertCircle, AlertTriangle } from "lucide-react";
+import { motion } from "framer-motion";
+import { MotionWrapper } from "@/components/ui/motion-wrapper";
 
 const DemoSection = () => {
   return (
@@ -6,16 +8,22 @@ const DemoSection = () => {
       <div className="absolute inset-0 bg-glow opacity-20" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
+        <MotionWrapper className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             See It In <span className="gradient-text">Action</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             DeepGuard running while browsing Instagram Reels
           </p>
-        </div>
+        </MotionWrapper>
         
-        <div className="max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="max-w-4xl mx-auto"
+        >
           {/* Demo mockup */}
           <div className="glass-card rounded-3xl p-6 shadow-2xl">
             {/* Browser chrome */}
@@ -33,63 +41,105 @@ const DemoSection = () => {
             {/* Content grid */}
             <div className="grid grid-cols-3 gap-4">
               {/* Reel 1 - Safe */}
-              <div className="relative aspect-[9/16] bg-secondary/30 rounded-xl overflow-hidden group">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+                className="relative aspect-[9/16] bg-secondary/30 rounded-xl overflow-hidden group"
+              >
                 <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/50">
                   <span className="text-xs">Video Content</span>
                 </div>
-                <div className="absolute top-3 right-3 glass-card rounded-lg p-2 glow-safe">
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.5 }}
+                  className="absolute top-3 right-3 glass-card rounded-lg p-2 glow-safe"
+                >
                   <div className="flex items-center gap-1.5">
                     <CheckCircle className="w-4 h-4 text-safe" />
                     <span className="text-xs font-semibold text-safe">REAL</span>
                   </div>
-                </div>
+                </motion.div>
                 <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-background/80 to-transparent">
                   <div className="h-2 w-16 bg-muted/50 rounded mb-1" />
                   <div className="h-2 w-24 bg-muted/30 rounded" />
                 </div>
-              </div>
+              </motion.div>
               
               {/* Reel 2 - Danger */}
-              <div className="relative aspect-[9/16] bg-secondary/30 rounded-xl overflow-hidden group">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.3 }}
+                className="relative aspect-[9/16] bg-secondary/30 rounded-xl overflow-hidden group"
+              >
                 <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/50">
                   <span className="text-xs">Video Content</span>
                 </div>
-                <div className="absolute top-3 right-3 glass-card rounded-lg p-2 glow-danger">
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.6 }}
+                  className="absolute top-3 right-3 glass-card rounded-lg p-2 glow-danger"
+                >
                   <div className="flex items-center gap-1.5">
                     <AlertTriangle className="w-4 h-4 text-danger" />
                     <span className="text-xs font-semibold text-danger">FAKE</span>
                   </div>
-                </div>
+                </motion.div>
                 <div className="absolute inset-0 border-2 border-danger/50 rounded-xl pointer-events-none" />
                 <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-background/80 to-transparent">
                   <div className="h-2 w-20 bg-muted/50 rounded mb-1" />
                   <div className="h-2 w-16 bg-muted/30 rounded" />
                 </div>
-              </div>
+              </motion.div>
               
               {/* Reel 3 - Uncertain */}
-              <div className="relative aspect-[9/16] bg-secondary/30 rounded-xl overflow-hidden group">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.4 }}
+                className="relative aspect-[9/16] bg-secondary/30 rounded-xl overflow-hidden group"
+              >
                 <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/50">
                   <span className="text-xs">Video Content</span>
                 </div>
-                <div className="absolute top-3 right-3 glass-card rounded-lg p-2">
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.7 }}
+                  className="absolute top-3 right-3 glass-card rounded-lg p-2"
+                >
                   <div className="flex items-center gap-1.5">
                     <AlertCircle className="w-4 h-4 text-warning" />
                     <span className="text-xs font-semibold text-warning">UNSURE</span>
                   </div>
-                </div>
+                </motion.div>
                 <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-background/80 to-transparent">
                   <div className="h-2 w-14 bg-muted/50 rounded mb-1" />
                   <div className="h-2 w-20 bg-muted/30 rounded" />
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
           
-          <p className="text-center text-sm text-muted-foreground mt-6">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="text-center text-sm text-muted-foreground mt-6"
+          >
             Real-time detection while scrolling through social media content
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </div>
     </section>
   );

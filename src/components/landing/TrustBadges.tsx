@@ -1,4 +1,5 @@
 import { Lock, Monitor, EyeOff, Zap } from "lucide-react";
+import { motion } from "framer-motion";
 
 const badges = [
   {
@@ -29,8 +30,12 @@ const TrustBadges = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {badges.map((badge, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex flex-col items-center text-center gap-3 group"
             >
               <div className="w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
@@ -40,7 +45,7 @@ const TrustBadges = () => {
                 <h3 className="font-semibold text-foreground">{badge.title}</h3>
                 <p className="text-sm text-muted-foreground">{badge.description}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
