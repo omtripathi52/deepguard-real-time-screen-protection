@@ -1,10 +1,16 @@
 import { Shield, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border/30">
+    <motion.header
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border/30"
+    >
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group">
           <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center group-hover:shadow-lg group-hover:shadow-primary/25 transition-all duration-300">
@@ -30,7 +36,7 @@ const Header = () => {
           Download
         </Button>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

@@ -1,5 +1,6 @@
 import { Download, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const CTASection = () => {
   return (
@@ -9,29 +10,66 @@ const CTASection = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/20 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-primary/60 mb-8 glow-effect">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="max-w-3xl mx-auto text-center"
+        >
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-primary/60 mb-8 glow-effect"
+          >
             <Shield className="w-10 h-10 text-foreground" />
-          </div>
+          </motion.div>
           
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
+          >
             Protect Yourself from{" "}
             <span className="gradient-text">Deepfakes</span>
-          </h2>
+          </motion.h2>
           
-          <p className="text-xl text-muted-foreground mb-10">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-xl text-muted-foreground mb-10"
+          >
             Free. Private. No signup required.
-          </p>
+          </motion.p>
           
-          <Button variant="download" size="xl" className="gap-3 text-lg">
-            <Download className="w-6 h-6" />
-            Download for Windows
-          </Button>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <Button variant="download" size="xl" className="gap-3 text-lg">
+              <Download className="w-6 h-6" />
+              Download for Windows
+            </Button>
+          </motion.div>
           
-          <p className="text-sm text-muted-foreground mt-6">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="text-sm text-muted-foreground mt-6"
+          >
             Version 1.0.0 | 150MB | Windows 10/11
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </div>
     </section>
   );
