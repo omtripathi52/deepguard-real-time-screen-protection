@@ -1,6 +1,9 @@
 import { CheckCircle, AlertCircle, AlertTriangle } from "lucide-react";
 import { motion } from "framer-motion";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
+import demoRealVideo from "@/assets/demo-real-video.jpg";
+import demoFakeVideo from "@/assets/demo-fake-video.jpg";
+import demoUnsureVideo from "@/assets/demo-unsure-video.jpg";
 
 const DemoSection = () => {
   return (
@@ -48,9 +51,11 @@ const DemoSection = () => {
                 transition={{ duration: 0.4, delay: 0.2 }}
                 className="relative aspect-[9/16] bg-secondary/30 rounded-xl overflow-hidden group"
               >
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/50">
-                  <span className="text-xs">Video Content</span>
-                </div>
+                <img 
+                  src={demoRealVideo} 
+                  alt="Real video content" 
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -77,9 +82,11 @@ const DemoSection = () => {
                 transition={{ duration: 0.4, delay: 0.3 }}
                 className="relative aspect-[9/16] bg-secondary/30 rounded-xl overflow-hidden group"
               >
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/50">
-                  <span className="text-xs">Video Content</span>
-                </div>
+                <img 
+                  src={demoFakeVideo} 
+                  alt="Deepfake video content" 
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -107,9 +114,11 @@ const DemoSection = () => {
                 transition={{ duration: 0.4, delay: 0.4 }}
                 className="relative aspect-[9/16] bg-secondary/30 rounded-xl overflow-hidden group"
               >
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/50">
-                  <span className="text-xs">Video Content</span>
-                </div>
+                <img 
+                  src={demoUnsureVideo} 
+                  alt="Uncertain video content" 
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
