@@ -31,7 +31,7 @@ const features = [
   {
     icon: Feather,
     title: "Lightweight",
-    description: "Minimal CPU usage. DeepGuard won't slow down your PC or drain your battery.",
+    description: "Minimal CPU usage. ScreenSentinel won't slow down your PC or drain your battery.",
   },
 ];
 

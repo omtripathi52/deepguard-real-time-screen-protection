@@ -1,4 +1,4 @@
-import { Shield, Github, Twitter, Linkedin } from "lucide-react";
+import { Shield, Github, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -19,10 +19,10 @@ const Footer = () => {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
                 <Shield className="w-4 h-4 text-foreground" />
               </div>
-              <span className="font-bold text-foreground">DeepGuard</span>
+              <span className="font-bold text-foreground">ScreenSentinel</span>
             </div>
             <span className="text-sm text-muted-foreground">
-              © 2026 DeepGuard. Built by Om Tripathi
+              © 2026 ScreenSentinel. Built by Om Tripathi
             </span>
           </div>
           
@@ -41,7 +41,7 @@ const Footer = () => {
               Terms
             </Link>
             <a
-              href="mailto:contact@deepguard.app"
+              href="mailto:screensentinel.ai@gmail.com"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               Contact
@@ -51,7 +51,7 @@ const Footer = () => {
           {/* Right - Social Icons */}
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com"
+              href="https://github.com/omtripathi52"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
@@ -59,15 +59,7 @@ const Footer = () => {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
-            >
-              <Twitter className="w-5 h-5" />
-            </a>
-            <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/om-tripathi-287a5a383"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"

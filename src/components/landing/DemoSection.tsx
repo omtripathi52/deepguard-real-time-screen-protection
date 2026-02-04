@@ -16,7 +16,7 @@ const DemoSection = () => {
             See It In <span className="gradient-text">Action</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            DeepGuard running while browsing Instagram Reels
+            ScreenSentinel running while browsing Instagram Reels
           </p>
         </MotionWrapper>
         

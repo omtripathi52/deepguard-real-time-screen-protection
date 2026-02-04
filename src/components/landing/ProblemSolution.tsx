@@ -9,7 +9,7 @@ const problems = [
 ];
 
 const solutions = [
-  "DeepGuard watches your screen automatically",
+  "ScreenSentinel watches your screen automatically",
   "Instant visual feedback as you scroll",
   "No friction, no interruption",
 ];
@@ -20,7 +20,7 @@ const ProblemSolution = () => {
       <div className="container mx-auto px-4">
         <MotionWrapper className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Why <span className="gradient-text">DeepGuard</span>?
+            Why <span className="gradient-text">ScreenSentinel</span>?
           </h2>
         </MotionWrapper>
         

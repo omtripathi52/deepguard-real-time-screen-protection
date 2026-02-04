@@ -9,12 +9,12 @@ import { MotionWrapper } from "@/components/ui/motion-wrapper";
 
 const faqs = [
   {
-    question: "Is DeepGuard free?",
-    answer: "Yes, DeepGuard is completely free to download and use. No hidden costs, no premium tiers, no subscriptions.",
+    question: "Is ScreenSentinel free?",
+    answer: "Yes, ScreenSentinel is completely free to download and use. No hidden costs, no premium tiers, no subscriptions.",
   },
   {
     question: "Does it send my data anywhere?",
-    answer: "No. DeepGuard runs 100% offline on your computer. No data is ever uploaded or transmitted. Your privacy is guaranteed because there's simply no network communication.",
+    answer: "No. ScreenSentinel runs 100% offline on your computer. No data is ever uploaded or transmitted. Your privacy is guaranteed because there's simply no network communication.",
   },
   {
     question: "What platforms are supported?",
@@ -22,11 +22,11 @@ const faqs = [
   },
   {
     question: "How accurate is it?",
-    answer: "DeepGuard uses machine learning models trained on large deepfake datasets. It provides confidence levels rather than absolute answers, because no detector is perfect. You'll see Real, Likely Real, Uncertain, Likely Fake, or Deepfake based on the model's confidence.",
+    answer: "ScreenSentinel uses machine learning models trained on large deepfake datasets. It provides confidence levels rather than absolute answers, because no detector is perfect. You'll see Real, Likely Real, Uncertain, Likely Fake, or Deepfake based on the model's confidence.",
   },
   {
     question: "Does it slow down my computer?",
-    answer: "No. DeepGuard is optimized for real-time performance with minimal resource usage. It runs efficiently in the background without affecting your normal computer usage.",
+    answer: "No. ScreenSentinel is optimized for real-time performance with minimal resource usage. It runs efficiently in the background without affecting your normal computer usage.",
   },
 ];
 

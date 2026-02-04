@@ -13,7 +13,7 @@ const steps = [
     number: "02",
     icon: Globe,
     title: "Browse Normally",
-    description: "Use Instagram, YouTube, TikTok, or any app as usual. DeepGuard works silently in the background.",
+    description: "Use Instagram, YouTube, TikTok, or any app as usual. ScreenSentinel works silently in the background.",
   },
   {
     number: "03",
