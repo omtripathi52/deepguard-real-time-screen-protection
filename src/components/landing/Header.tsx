@@ -16,7 +16,7 @@ const Header = () => {
           <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center group-hover:shadow-lg group-hover:shadow-primary/25 transition-all duration-300">
             <Shield className="w-5 h-5 text-foreground" />
           </div>
-          <span className="text-xl font-bold text-foreground">DeepGuard</span>
+          <span className="text-xl font-bold text-foreground">ScreenSentinel</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">

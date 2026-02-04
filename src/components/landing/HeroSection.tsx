@@ -42,7 +42,7 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0"
             >
-              DeepGuard scans your screen in real-time and alerts you when deepfakes appear.{" "}
+              ScreenSentinel scans your screen in real-time and alerts you when deepfakes appear.{" "}
               <span className="text-foreground font-medium">No uploads. No cloud. 100% private.</span>
             </motion.p>
             
