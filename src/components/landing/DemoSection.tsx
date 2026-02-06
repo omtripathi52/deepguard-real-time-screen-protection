@@ -28,9 +28,9 @@ const DemoSection = () => {
           className="max-w-4xl mx-auto"
         >
           {/* Demo mockup */}
-          <div className="glass-card rounded-3xl p-6 shadow-2xl">
+          <div className="glass-card rounded-3xl p-3 sm:p-6 shadow-2xl">
             {/* Browser chrome */}
-            <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border/50">
+            <div className="hidden sm:flex items-center gap-3 mb-6 pb-4 border-b border-border/50">
               <div className="flex gap-2">
                 <div className="w-3 h-3 rounded-full bg-danger/60" />
                 <div className="w-3 h-3 rounded-full bg-warning/60" />
@@ -42,7 +42,7 @@ const DemoSection = () => {
             </div>
             
             {/* Content grid */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {/* Reel 1 - Safe */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}

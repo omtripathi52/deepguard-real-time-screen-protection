@@ -113,7 +113,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, scale: 0.8, x: 20 }}
                 animate={{ opacity: 1, scale: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute -right-4 top-1/3 glass-card rounded-xl p-3 shadow-xl glow-safe animate-pulse-slow"
+                className="absolute -right-4 top-1/3 glass-card rounded-xl p-3 shadow-xl glow-safe animate-pulse-slow hidden sm:block"
               >
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-lg bg-safe flex items-center justify-center">
@@ -131,7 +131,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, scale: 0.8, x: -20 }}
                 animate={{ opacity: 0.7, scale: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 1.0 }}
-                className="absolute -left-8 bottom-1/4 glass-card rounded-xl p-3 shadow-xl glow-danger"
+                className="absolute -left-8 bottom-1/4 glass-card rounded-xl p-3 shadow-xl glow-danger hidden sm:block"
               >
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-lg bg-danger flex items-center justify-center">

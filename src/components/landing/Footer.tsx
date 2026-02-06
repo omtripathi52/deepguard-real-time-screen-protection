@@ -12,9 +12,9 @@ const Footer = () => {
       className="py-12 border-t border-border/30"
     >
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Left - Logo & Copyright */}
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
                 <Shield className="w-4 h-4 text-foreground" />
@@ -22,7 +22,7 @@ const Footer = () => {
               <span className="font-bold text-foreground">ScreenSentinel</span>
             </div>
             <span className="text-sm text-muted-foreground">
-              © 2026 ScreenSentinel. Built by Om Tripathi
+              © 2026 Built by Om Tripathi
             </span>
           </div>
           
