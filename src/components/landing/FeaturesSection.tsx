@@ -37,7 +37,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section id="features" className="py-24 bg-secondary/20">
+    <section id="features" className="py-12 sm:py-24 bg-secondary/20">
       <div className="container mx-auto px-4">
         <MotionWrapper className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">

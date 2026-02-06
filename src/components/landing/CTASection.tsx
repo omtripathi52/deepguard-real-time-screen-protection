@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const CTASection = () => {
   return (
-    <section className="py-24 bg-secondary/30 relative overflow-hidden">
+    <section className="py-12 sm:py-24 bg-secondary/30 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-glow" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/20 rounded-full blur-3xl" />
