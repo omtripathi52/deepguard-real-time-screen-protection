@@ -4,16 +4,16 @@ import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+    <section className="relative min-h-0 sm:min-h-screen flex items-start sm:items-center justify-center pt-20 sm:pt-16 overflow-hidden">
       {/* Background glow effects */}
       <div className="absolute inset-0 bg-glow opacity-50" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-safe/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 left-1/4 w-48 sm:w-96 h-48 sm:h-96 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-48 sm:w-96 h-48 sm:h-96 bg-safe/10 rounded-full blur-3xl" />
       
-      <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto px-4 py-10 sm:py-20 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left content */}
-          <div className="text-center lg:text-left space-y-8">
+          <div className="text-center lg:text-left space-y-5 sm:space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -28,7 +28,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight"
             >
               Know What's{" "}
               <span className="gradient-text">Real.</span>
@@ -40,7 +40,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0"
+              className="text-base sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0"
             >
               ScreenSentinel scans your screen in real-time and alerts you when deepfakes appear.{" "}
               <span className="text-foreground font-medium">No uploads. No cloud. 100% private.</span>
@@ -79,7 +79,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 50, scale: 0.95 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="relative flex justify-center lg:justify-end"
+            className="relative hidden lg:flex justify-center lg:justify-end"
           >
             <div className="relative animate-float">
               {/* Desktop mockup */}

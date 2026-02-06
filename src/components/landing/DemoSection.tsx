@@ -7,7 +7,7 @@ import demoUnsureVideo from "@/assets/demo-unsure-video.jpg";
 
 const DemoSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-12 sm:py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-glow opacity-20" />
       
       <div className="container mx-auto px-4 relative z-10">
