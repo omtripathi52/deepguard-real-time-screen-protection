@@ -68,10 +68,6 @@ const DemoSection = () => {
                     <span className="text-xs font-semibold text-safe">REAL</span>
                   </div>
                 </motion.div>
-                <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-background/80 to-transparent">
-                  <div className="h-2 w-16 bg-muted/50 rounded mb-1" />
-                  <div className="h-2 w-24 bg-muted/30 rounded" />
-                </div>
               </motion.div>
               
               {/* Reel 2 - Danger */}
@@ -100,10 +96,6 @@ const DemoSection = () => {
                   </div>
                 </motion.div>
                 <div className="absolute inset-0 border-2 border-danger/50 rounded-xl pointer-events-none" />
-                <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-background/80 to-transparent">
-                  <div className="h-2 w-20 bg-muted/50 rounded mb-1" />
-                  <div className="h-2 w-16 bg-muted/30 rounded" />
-                </div>
               </motion.div>
               
               {/* Reel 3 - Uncertain */}
@@ -131,10 +123,6 @@ const DemoSection = () => {
                     <span className="text-xs font-semibold text-warning">UNSURE</span>
                   </div>
                 </motion.div>
-                <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-background/80 to-transparent">
-                  <div className="h-2 w-14 bg-muted/50 rounded mb-1" />
-                  <div className="h-2 w-20 bg-muted/30 rounded" />
-                </div>
               </motion.div>
             </div>
           </div>
