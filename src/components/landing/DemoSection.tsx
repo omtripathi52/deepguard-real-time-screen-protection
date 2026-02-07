@@ -10,12 +10,12 @@ const DemoSection = () => {
     <section className="py-12 sm:py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-glow opacity-20" />
       
-      <div className="container mx-auto px-4 relative z-10">
-        <MotionWrapper className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+      <div className="container mx-auto px-5 sm:px-4 relative z-10">
+        <MotionWrapper className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
             See It In <span className="gradient-text">Action</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             ScreenSentinel running while browsing Instagram Reels
           </p>
         </MotionWrapper>

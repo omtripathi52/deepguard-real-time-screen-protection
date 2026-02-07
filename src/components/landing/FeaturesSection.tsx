@@ -38,17 +38,17 @@ const features = [
 const FeaturesSection = () => {
   return (
     <section id="features" className="py-12 sm:py-24 bg-secondary/20">
-      <div className="container mx-auto px-4">
-        <MotionWrapper className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+      <div className="container mx-auto px-5 sm:px-4">
+        <MotionWrapper className="text-center mb-10 sm:mb-16">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
             Powerful <span className="gradient-text">Features</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Everything you need to stay protected from deepfakes, built into one simple app.
           </p>
         </MotionWrapper>
         
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -57,7 +57,7 @@ const FeaturesSection = () => {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="glass-card rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 group"
+              className="glass-card rounded-xl sm:rounded-2xl p-5 sm:p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 group"
             >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                 <feature.icon className="w-6 h-6 text-primary" />

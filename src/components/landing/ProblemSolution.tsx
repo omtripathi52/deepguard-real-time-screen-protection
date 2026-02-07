@@ -17,21 +17,21 @@ const solutions = [
 const ProblemSolution = () => {
   return (
     <section className="py-12 sm:py-24 bg-secondary/20">
-      <div className="container mx-auto px-4">
-        <MotionWrapper className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+      <div className="container mx-auto px-5 sm:px-4">
+        <MotionWrapper className="text-center mb-10 sm:mb-16">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
             Why <span className="gradient-text">ScreenSentinel</span>?
           </h2>
         </MotionWrapper>
         
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-16 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 lg:gap-16 max-w-5xl mx-auto">
           {/* Problem side */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
-            className="glass-card rounded-2xl p-8 border-danger/20"
+            className="glass-card rounded-xl sm:rounded-2xl p-5 sm:p-8 border-danger/20"
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-xl bg-danger/20 flex items-center justify-center">
@@ -65,7 +65,7 @@ const ProblemSolution = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="glass-card rounded-2xl p-8 border-safe/20 glow-safe"
+            className="glass-card rounded-xl sm:rounded-2xl p-5 sm:p-8 border-safe/20 glow-safe"
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-xl bg-safe/20 flex items-center justify-center">
