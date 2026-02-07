@@ -22,7 +22,7 @@ const Footer = () => {
               <span className="font-bold text-foreground">ScreenSentinel</span>
             </div>
             <span className="text-sm text-muted-foreground">
-              © 2026 Built by Om Tripathi
+              © 2025 Built by Om Tripathi
             </span>
           </div>
           
