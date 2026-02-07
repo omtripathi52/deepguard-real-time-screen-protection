@@ -31,7 +31,7 @@ const Terms = () => {
           <div className="prose prose-invert max-w-none space-y-8">
             <section>
               <p className="text-lg text-muted-foreground mb-8">
-                Last updated: January 2026
+                Last updated: January 2025
               </p>
               
               <p className="text-muted-foreground leading-relaxed">
@@ -117,7 +117,7 @@ const Terms = () => {
       {/* Simple Footer */}
       <footer className="py-8 border-t border-border/30">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          © 2026 ScreenSentinel. Built by Om Tripathi
+          © 2025 ScreenSentinel. Built by Om Tripathi
         </div>
       </footer>
     </div>
