@@ -4,16 +4,16 @@ import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-0 sm:min-h-screen flex items-start sm:items-center justify-center pt-20 sm:pt-16 overflow-hidden">
+    <section className="relative min-h-0 sm:min-h-screen flex items-start sm:items-center justify-center pt-16 sm:pt-16 overflow-hidden">
       {/* Background glow effects */}
       <div className="absolute inset-0 bg-glow opacity-50" />
       <div className="absolute top-1/4 left-1/4 w-48 sm:w-96 h-48 sm:h-96 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-1/4 w-48 sm:w-96 h-48 sm:h-96 bg-safe/10 rounded-full blur-3xl" />
       
-        <div className="container mx-auto px-4 py-10 sm:py-20 relative z-10">
+        <div className="container mx-auto px-5 py-6 sm:py-20 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left content */}
-          <div className="text-center lg:text-left space-y-5 sm:space-y-8">
+          <div className="text-center lg:text-left space-y-4 sm:space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-base sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0"
+              className="text-sm sm:text-xl text-muted-foreground max-w-md sm:max-w-xl mx-auto lg:mx-0 px-2 sm:px-0"
             >
               ScreenSentinel scans your screen in real-time and alerts you when deepfakes appear.{" "}
               <span className="text-foreground font-medium">No uploads. No cloud. 100% private.</span>
@@ -50,14 +50,14 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start px-2 sm:px-0"
             >
-              <Button variant="download" size="xl" className="gap-3">
+              <Button variant="download" size="xl" className="gap-3 text-sm sm:text-base">
                 <Download className="w-5 h-5" />
                 Download for Windows (Free)
               </Button>
               <a href="#how-it-works">
-                <Button variant="outline" size="xl" className="gap-2 w-full sm:w-auto">
+                <Button variant="outline" size="xl" className="gap-2 w-full sm:w-auto text-sm sm:text-base">
                   See how it works
                   <ChevronDown className="w-4 h-4" />
                 </Button>
@@ -68,7 +68,7 @@ const HeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="text-sm text-muted-foreground"
+              className="text-xs sm:text-sm text-muted-foreground"
             >
               Version 1.0.0 • Windows 10/11 • 150MB
             </motion.p>
