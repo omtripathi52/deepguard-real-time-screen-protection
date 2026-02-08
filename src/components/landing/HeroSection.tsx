@@ -52,10 +52,12 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start px-2 sm:px-0"
             >
-              <Button variant="download" size="xl" className="gap-3 text-sm sm:text-base">
-                <Download className="w-5 h-5" />
-                Download for Windows (Free)
-              </Button>
+              <a href="https://github.com/omtripathi52/ScreenSentinel/releases/download/v1.0.0/ScreenSentinel_Setup_v1.0.0.exe">
+                <Button variant="download" size="xl" className="gap-3 text-sm sm:text-base w-full">
+                  <Download className="w-5 h-5" />
+                  Download for Windows (Free)
+                </Button>
+              </a>
               <a href="#how-it-works">
                 <Button variant="outline" size="xl" className="gap-2 w-full sm:w-auto text-sm sm:text-base">
                   See how it works
@@ -70,7 +72,7 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="text-xs sm:text-sm text-muted-foreground"
             >
-              Version 1.0.0 • Windows 10/11 • 150MB
+              Version 1.0.0 • Windows 10/11 • 250MB
             </motion.p>
           </div>
           

@@ -54,10 +54,12 @@ const CTASection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <Button variant="download" size="xl" className="gap-3 text-base sm:text-lg">
-              <Download className="w-6 h-6" />
-              Download for Windows
-            </Button>
+            <a href="https://github.com/omtripathi52/ScreenSentinel/releases/download/v1.0.0/ScreenSentinel_Setup_v1.0.0.exe">
+              <Button variant="download" size="xl" className="gap-3 text-base sm:text-lg">
+                <Download className="w-6 h-6" />
+                Download for Windows
+              </Button>
+            </a>
           </motion.div>
           
           <motion.p
@@ -67,7 +69,7 @@ const CTASection = () => {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="text-sm text-muted-foreground mt-6"
           >
-            Version 1.0.0 | 150MB | Windows 10/11
+            Version 1.0.0 | 250MB | Windows 10/11
           </motion.p>
         </motion.div>
       </div>

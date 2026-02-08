@@ -1,4 +1,4 @@
-import { Shield, Download, Menu, X } from "lucide-react";
+import { Shield, Download, Menu, X, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -42,10 +42,23 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button variant="hero" size="sm" className="gap-2 hidden sm:inline-flex">
-            <Download className="w-4 h-4" />
-            Download
-          </Button>
+          <a
+            href="https://ko-fi.com/screensentinel"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex"
+          >
+            <Button variant="outline" size="sm" className="gap-2">
+              <Heart className="w-4 h-4 text-danger" />
+              Support
+            </Button>
+          </a>
+          <a href="https://github.com/omtripathi52/ScreenSentinel/releases/download/v1.0.0/ScreenSentinel_Setup_v1.0.0.exe">
+            <Button variant="hero" size="sm" className="gap-2 hidden sm:inline-flex">
+              <Download className="w-4 h-4" />
+              Download
+            </Button>
+          </a>
 
           {/* Mobile menu toggle */}
           <button
@@ -79,11 +92,19 @@ const Header = () => {
                   {link.label}
                 </a>
               ))}
-              <div className="pt-2 sm:hidden">
-                <Button variant="hero" size="sm" className="gap-2 w-full">
-                  <Download className="w-4 h-4" />
-                  Download
-                </Button>
+              <div className="pt-2 sm:hidden flex flex-col gap-2">
+                <a href="https://github.com/omtripathi52/ScreenSentinel/releases/download/v1.0.0/ScreenSentinel_Setup_v1.0.0.exe">
+                  <Button variant="hero" size="sm" className="gap-2 w-full">
+                    <Download className="w-4 h-4" />
+                    Download
+                  </Button>
+                </a>
+                <a href="https://ko-fi.com/screensentinel" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="sm" className="gap-2 w-full">
+                    <Heart className="w-4 h-4 text-danger" />
+                    Support on Ko-fi
+                  </Button>
+                </a>
               </div>
             </nav>
           </motion.div>
