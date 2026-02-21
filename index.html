@@ -1,26 +1,54 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" sizes="any">
-    <meta name="google-site-verification" content="dSTf7u5lxBsIzDNfp5DaGrg4sA-Z3nMlWkrv5apD3Ek" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ScreenSentinel - Real-Time Deepfake Detection</title>
+    
+    <title>ScreenSentinel | Real-Time Endpoint Deepfake Defense</title>
     <link rel="canonical" href="https://www.screensentinel.me/" />
-    <meta name="description" content="Free, offline deepfake detection app. Protect yourself from AI-generated fake videos with real-time screen analysis. 100% private, runs locally." />
-    <meta name="author" content="Om Tripathi" />
+    
+    <meta name="description" content="Privacy-first desktop utility that analyzes live video feeds using local AI inference. Continuous monitoring, zero network egress, air-gap ready." />
+    <meta name="author" content="ScreenSentinel" />
 
-    <meta property="og:title" content="ScreenSentinel - Real-Time Deepfake Detection" />
-    <meta property="og:description" content="Free, offline deepfake detection app. Protect yourself from AI-generated fake videos with real-time screen analysis." />
+    <meta property="og:title" content="ScreenSentinel Endpoint Defense" />
+    <meta property="og:description" content="Real-time synthetic media detection for Windows endpoints. 100% local processing." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:url" content="https://www.screensentinel.me/" />
+    <meta property="og:image" content="https://www.screensentinel.me/og-image.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+    <meta name="twitter:title" content="ScreenSentinel Endpoint Defense" />
+    <meta name="twitter:description" content="Real-time synthetic media detection for Windows endpoints. 100% local processing." />
 
-  <body>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ScreenSentinel",
+      "operatingSystem": "Windows 10, Windows 11",
+      "applicationCategory": "SecurityApplication",
+      "description": "Real-time deepfake detection software for Windows that runs locally and protects users from AI-generated fake videos.",
+      "url": "https://www.screensentinel.me",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "ScreenSentinel",
+        "url": "https://www.screensentinel.me",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "support@screensentinel.me",
+          "contactType": "customer support"
+        }
+      }
+    }
+    </script>
+  </head>
+  <body class="bg-background text-foreground antialiased selection:bg-primary/30">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,107 +1,42 @@
-import { Shield, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-
-const Privacy = () => {
+export default function Privacy() {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border/30">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
-              <Shield className="w-5 h-5 text-foreground" />
-            </div>
-            <span className="text-xl font-bold text-foreground">ScreenSentinel</span>
-          </Link>
-          <Link to="/">
-            <Button variant="ghost" size="sm" className="gap-2">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Home
-            </Button>
-          </Link>
-        </div>
-      </header>
+    <div className="container mx-auto px-4 py-20 max-w-3xl prose prose-invert">
+      <h1 className="text-4xl font-bold text-zinc-50 mb-8">Privacy Policy</h1>
+      <p className="text-zinc-400 mb-8">Last Updated: February 2026</p>
+      
+      <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-6 mb-8 not-prose">
+        <h2 className="text-xl font-bold mb-2 text-emerald-400">The Short Version</h2>
+        <p className="text-emerald-100/80">
+          ScreenSentinel collects absolutely no data. Zero. None. Your screen content, analysis results, and usage patterns stay on your computer and are never transmitted anywhere.
+        </p>
+      </div>
 
-      {/* Content */}
-      <main className="pt-32 pb-20">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
-          
-          <div className="prose prose-invert max-w-none space-y-8">
-            <section>
-              <p className="text-lg text-muted-foreground mb-8">
-                Last updated: January 2025
-              </p>
-              
-              <p className="text-muted-foreground leading-relaxed">
-                At ScreenSentinel, your privacy is our top priority. This policy explains how ScreenSentinel handles your data—or more accurately, how we don't handle it at all.
-              </p>
-            </section>
+      <h2 className="text-2xl font-semibold text-zinc-100 mt-8 mb-4">1. Data We Collect</h2>
+      <p className="text-zinc-400 leading-relaxed">
+        <strong>None.</strong> ScreenSentinel runs entirely offline on your local machine. We do not collect, store, transmit, or process any of your data. This explicitly includes:
+      </p>
+      <ul className="text-zinc-400">
+        <li>Screen content or screenshots</li>
+        <li>Analysis results or detection history</li>
+        <li>Usage statistics or analytics</li>
+        <li>Personal information of any kind</li>
+        <li>Device information or identifiers</li>
+      </ul>
 
-            <section className="glass-card rounded-2xl p-8 border-safe/20">
-              <h2 className="text-2xl font-bold mb-4 text-safe">The Short Version</h2>
-              <p className="text-foreground text-lg">
-                ScreenSentinel collects absolutely no data. Zero. None. Your screen content, analysis results, and usage patterns stay on your computer and are never transmitted anywhere.
-              </p>
-            </section>
+      <h2 className="text-2xl font-semibold text-zinc-100 mt-8 mb-4">2. No Network Communication</h2>
+      <p className="text-zinc-400 leading-relaxed">
+        ScreenSentinel does not require an internet connection to function. It makes no network requests, sends no data to external servers, and has no backend infrastructure. Your privacy is guaranteed by design. The only exception is an optional, anonymous ping to our public GitHub repository exclusively to check the <code>version.json</code> manifest for software updates.
+      </p>
 
-            <section>
-              <h2 className="text-2xl font-bold mb-4">Data We Collect</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">None.</strong> ScreenSentinel runs entirely offline on your local machine. We do not collect, store, transmit, or process any of your data. This includes:
-              </p>
-              <ul className="mt-4 space-y-2 text-muted-foreground">
-                <li>• Screen content or screenshots</li>
-                <li>• Analysis results or detection history</li>
-                <li>• Usage statistics or analytics</li>
-                <li>• Personal information of any kind</li>
-                <li>• Device information or identifiers</li>
-              </ul>
-            </section>
+      <h2 className="text-2xl font-semibold text-zinc-100 mt-8 mb-4">3. Website Data</h2>
+      <p className="text-zinc-400 leading-relaxed">
+        When visiting our promotional website (screensentinel.me), standard web server logs (such as IP address and browser type) are temporarily processed for security and hosting purposes via our infrastructure providers (Vercel).
+      </p>
 
-            <section>
-              <h2 className="text-2xl font-bold mb-4">How ScreenSentinel Works</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                ScreenSentinel analyzes your screen content using machine learning models that run locally on your computer. The analysis happens in real-time, and the results are displayed immediately without any data leaving your device.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">No Network Communication</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                ScreenSentinel does not require an internet connection to function. It makes no network requests, sends no data to external servers, and has no backend infrastructure. Your privacy is guaranteed by design.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">Updates</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Software updates are distributed through our website. When you download an update, no personal data is transmitted. The download is a one-way transfer of the application files to your computer.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">Contact</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                If you have any questions about this Privacy Policy, please contact us at{" "}
-                <a href="mailto:screensentinel.ai@gmail.com" className="text-primary hover:underline">
-                  screensentinel.ai@gmail.com
-                </a>
-              </p>
-            </section>
-          </div>
-        </div>
-      </main>
-
-      {/* Simple Footer */}
-      <footer className="py-8 border-t border-border/30">
-        <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          © 2025 ScreenSentinel. Built by Om Tripathi
-        </div>
-      </footer>
+      <h2 className="text-2xl font-semibold text-zinc-100 mt-8 mb-4">4. Contact Us</h2>
+      <p className="text-zinc-400 leading-relaxed">
+        If you have any questions about this Privacy Policy, please contact us at <a href="mailto:screensentinel.ai@gmail.com" className="text-emerald-400 hover:text-emerald-300">screensentinel.ai@gmail.com</a>.
+      </p>
     </div>
   );
-};
-
-export default Privacy;
+}
