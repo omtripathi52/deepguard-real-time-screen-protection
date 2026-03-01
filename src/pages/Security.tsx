@@ -66,10 +66,7 @@ export default function Security() {
               <div className="mt-6 space-y-4">
                 <div className="bg-zinc-950 p-4 rounded-md border border-zinc-800">
                   <p className="text-xs font-semibold text-zinc-500 mb-1 uppercase tracking-wider">ScreenSentinel_Setup_v1.0.0.exe</p>
-                  <code className="text-emerald-400 text-sm break-all">
-                    {/* Placeholder Hash - You can update this with your actual v1.0.0 hash later if you want */}
-                    Awaiting generation for current release...
-                  </code>
+                  <p className="text-xs text-zinc-500 italic">SHA-256 hash will be published here once the signed release build is finalized. Check the <a href="https://github.com/omtripathi52/ScreenSentinel/releases/latest" className="text-emerald-400 hover:text-emerald-300 underline">GitHub Release</a> page for the latest verified hash.</p>
                 </div>
               </div>
             </div>
