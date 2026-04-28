@@ -91,25 +91,25 @@ export default function Index() {
                   </div>
                 </div>
 
-                {/* The ScreenSentinel Overlay (Moved to Left & Scaled Down) */}
-                <div className="absolute top-4 left-4 w-52 bg-zinc-950/90 backdrop-blur-md border border-zinc-700 rounded-lg p-3 shadow-xl">
+                {/* The ScreenSentinel Overlay (Responsive Mobile Sizing) */}
+                <div className="absolute top-2 left-2 md:top-4 md:left-4 w-[130px] md:w-44 lg:w-52 bg-zinc-950/90 backdrop-blur-md border border-zinc-700 rounded-lg p-2 md:p-3 shadow-xl">
                   
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-semibold text-zinc-400 tracking-wider">
+                  <div className="flex items-center justify-between mb-1.5 md:mb-2">
+                    <span className="text-[8px] md:text-[10px] font-semibold text-zinc-400 tracking-wider">
                       SCREENSENTINEL
                     </span>
                     <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                   </div>
 
-                  <div className="flex items-center gap-2.5 mb-2.5">
-                    <div className="p-1.5 bg-emerald-500/20 rounded-md border border-emerald-500/30">
-                      <ShieldCheck className="h-4 w-4 text-emerald-400" />
+                  <div className="flex items-center gap-2 md:gap-2.5 mb-2 md:mb-2.5">
+                    <div className="p-1 md:p-1.5 bg-emerald-500/20 rounded-md border border-emerald-500/30 shrink-0">
+                      <ShieldCheck className="h-3 w-3 md:h-4 md:w-4 text-emerald-400" />
                     </div>
-                    <div>
-                      <h4 className="text-emerald-400 font-bold text-sm leading-none">
+                    <div className="min-w-0">
+                      <h4 className="text-emerald-400 font-bold text-[10px] md:text-sm leading-none whitespace-nowrap">
                         ✓ REAL
                       </h4>
-                      <p className="text-[9px] text-zinc-500 mt-0.5">
+                      <p className="text-[7px] md:text-[9px] text-zinc-500 mt-0.5 whitespace-nowrap">
                         Status: Stable
                       </p>
                     </div>
@@ -119,7 +119,7 @@ export default function Index() {
                     <div className="bg-emerald-500 h-1 rounded-full w-[94%]"></div>
                   </div>
 
-                  <p className="text-[9px] text-zinc-400 mt-2 leading-relaxed">
+                  <p className="text-[7px] md:text-[9px] text-zinc-400 mt-1.5 md:mt-2 leading-tight md:leading-relaxed line-clamp-2 md:line-clamp-none">
                     No manipulation detected in current frame window.
                   </p>
                 </div>
@@ -136,17 +136,17 @@ export default function Index() {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-zinc-50 mb-4">How it works behind the scenes.</h2>
-            <p className="text-zinc-400">ScreenSentinel is not a cloud API. It is a local engine that processes frames entirely on your hardware to guarantee absolute privacy.</p>
+            <p className="text-zinc-400">ScreenSentinel runs entirely on your device. Your screen data never leaves your computer, ensuring absolute privacy and zero lag.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
             <div className="hidden md:block absolute top-1/2 left-0 w-full h-px bg-zinc-800 -z-10 -translate-y-1/2"></div>
             {[
-              { icon: <Monitor className="h-6 w-6 text-emerald-500 mb-3" />, title: "Secure Capture", text: "Reads your display securely without invasive webcam permissions." },
-              { icon: <Eye className="h-6 w-6 text-emerald-500 mb-3" />, title: "Smart Tracking", text: "Isolates faces during live streams while filtering noise." },
-              { icon: <Cpu className="h-6 w-6 text-emerald-500 mb-3" />, title: "Offline AI Analysis", text: "Neural network scans facial textures locally on your CPU." },
-              { icon: <Layers className="h-6 w-6 text-emerald-500 mb-3" />, title: "Signal Smoothing", text: "Analyzes consecutive frames to prevent false alarms." },
-              { icon: <AlertTriangle className="h-6 w-6 text-emerald-500 mb-3" />, title: "Visual Overlay", text: "Projects a clean, color-coded trust score on your screen." },
+              { icon: <Monitor className="h-6 w-6 text-emerald-500 mb-3" />, title: "Secure Capture", text: "Monitors your screen instantly without needing camera permissions." },
+              { icon: <Eye className="h-6 w-6 text-emerald-500 mb-3" />, title: "Smart Tracking", text: "Automatically isolates faces during live streams and video calls." },
+              { icon: <Cpu className="h-6 w-6 text-emerald-500 mb-3" />, title: "Offline Analysis", text: "Advanced algorithms scan for deepfake artifacts locally." },
+              { icon: <Layers className="h-6 w-6 text-emerald-500 mb-3" />, title: "Signal Smoothing", text: "Analyzes movements continuously to prevent false alarms." },
+              { icon: <AlertTriangle className="h-6 w-6 text-emerald-500 mb-3" />, title: "Visual Overlay", text: "Projects a clean, color-coded safety score on your screen." },
             ].map((step, index) => (
               <div key={index} className="bg-zinc-950 border border-zinc-800 p-6 rounded-xl flex flex-col items-center text-center relative">
                 <div className="h-12 w-12 bg-zinc-900 border border-zinc-700 rounded-full flex items-center justify-center mb-4 text-zinc-300 z-10">{index + 1}</div>
@@ -164,33 +164,33 @@ export default function Index() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-12 items-center">
             <div className="flex-1">
-              <h2 className="text-3xl font-bold text-zinc-50 mb-4">Building a Serious Security Startup.</h2>
+              <h2 className="text-3xl font-bold text-zinc-50 mb-4">The Future of Everyday Security.</h2>
               <p className="text-zinc-400 mb-6">
-                ScreenSentinel V1 is a powerful proof-of-concept for offline deepfake defense. But we are just getting started. We are actively engineering V2 to solve current CPU loads and increase forensic accuracy.
+                ScreenSentinel is just the beginning. We're actively building the next generation of internet safety tools to protect everyday users from AI manipulation and online scams.
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <ArrowRight className="h-5 w-5 text-emerald-500 shrink-0" />
-                  <span className="text-zinc-300 text-sm"><strong>Performance Modes:</strong> Upgrading from MTCNN to BlazeFace/MediaPipe to reduce thermal impact.</span>
+                  <span className="text-zinc-300 text-sm"><strong>Optimized Performance:</strong> Running seamlessly in the background with zero impact on your computer's speed.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <ArrowRight className="h-5 w-5 text-emerald-500 shrink-0" />
-                  <span className="text-zinc-300 text-sm"><strong>Model Upgrades:</strong> Transitioning from MesoNet to an EfficientNet-based classifier for higher accuracy.</span>
+                  <span className="text-zinc-300 text-sm"><strong>Enhanced Detection:</strong> Continuously improving our core technology to catch even the newest forms of AI deception.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <ArrowRight className="h-5 w-5 text-emerald-500 shrink-0" />
-                  <span className="text-zinc-300 text-sm"><strong>Hardware Acceleration:</strong> Adding optional local GPU support for seamless high-FPS analysis.</span>
+                  <span className="text-zinc-300 text-sm"><strong>Wider Compatibility:</strong> Ensuring smooth protection directly across all your devices and online platforms.</span>
                 </li>
               </ul>
             </div>
             
             <div className="flex-1 bg-zinc-900/50 border border-zinc-800 p-6 rounded-xl">
-              <h3 className="text-zinc-100 font-semibold mb-4 border-b border-zinc-800 pb-2">Installation Guide & UAC</h3>
+              <h3 className="text-zinc-100 font-semibold mb-4 border-b border-zinc-800 pb-2">Installation Guide</h3>
               <div className="space-y-4 text-sm text-zinc-400">
-                <p><strong>Installer vs. Portable:</strong> The <code>Installer (.exe)</code> is available now. The isolated <code>Portable (.zip)</code> version is currently in development and will be released in an upcoming patch.</p>
+                <p><strong>Standard Installer:</strong> The setup file is available to download and install today.</p>
                 <div className="bg-zinc-950 p-4 rounded-md border border-zinc-800">
-                  <p className="text-amber-500 font-semibold mb-1">Windows SmartScreen Note</p>
-                  <p className="text-xs">As an early-stage startup, our installer is currently self-published. Windows may show an "Unknown Publisher" warning. A CA code-signing certificate is planned for our upcoming V2 release.</p>
+                  <p className="text-amber-500 font-semibold mb-1">Windows SmartScreen Warning</p>
+                  <p className="text-xs">As a new tool, Windows may show an "Unknown Publisher" warning during installation. Simply click "More info" and "Run anyway" to proceed safely.</p>
                 </div>
               </div>
             </div>

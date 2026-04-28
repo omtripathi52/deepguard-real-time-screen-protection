@@ -69,7 +69,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="container mx-auto px-4 mt-12 pt-8 border-t border-zinc-900/50 text-xs text-zinc-600 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p>© {new Date().getFullYear()} ScreenSentinel. Built by Om Tripathi.</p>
+        <p>&copy; 2026 ScreenSentinel.</p>
         <p>Windows is a registered trademark of Microsoft Corporation.</p>
       </div>
     </footer>
