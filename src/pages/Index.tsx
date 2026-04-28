@@ -33,16 +33,15 @@ export default function Index() {
             </div>
 
             <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-zinc-50 leading-tight">
-              Real-Time Deepfake Detection{" "}
+              Real-time safety layer{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500">
-                Overlay for Windows.
+                as you scroll.
               </span>
             </h1>
 
             <p className="text-lg text-zinc-400 leading-relaxed max-w-xl">
-              Visual, privacy-first detection that runs entirely on your local machine.
-              Get instant, always-on alerts for suspected deepfakes right on your
-              screen—no cloud upload required.
+              Get instant, always-on protection from scams and deepfakes right on your
+              screen. Visual, privacy-first detection that keeps you safe during video calls and everyday browsing.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -68,7 +67,7 @@ export default function Index() {
           </div>
 
           {/* Right Column: Realistic Overlay Mockup */}
-          <div className="relative z-10 hidden lg:block">
+          <div className="relative z-10 w-full mt-12 lg:mt-0">
             <div className="relative rounded-xl border border-zinc-800 bg-zinc-950 p-2 shadow-2xl overflow-hidden">
               
               <div className="aspect-video bg-zinc-950 rounded-lg relative border border-zinc-800 overflow-hidden">
