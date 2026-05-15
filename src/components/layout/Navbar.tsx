@@ -41,7 +41,7 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8 text-sm font-medium text-zinc-400">
           <Link to="/technology" onClick={() => handleNavClick('/technology')} className="hover:text-zinc-50 transition-colors">How It Works</Link>
-          <Link to="/security" onClick={() => handleNavClick('/security')} className="hover:text-zinc-50 transition-colors">Security</Link>
+          <Link to="/privacy" onClick={() => handleNavClick('/privacy')} className="hover:text-zinc-50 transition-colors">Privacy</Link>
           <Link to="/about" onClick={() => handleNavClick('/about')} className="hover:text-zinc-50 transition-colors">About</Link>
           <Link to="/contact" onClick={() => handleNavClick('/contact')} className="hover:text-zinc-50 transition-colors">Contact</Link>
         </nav>
@@ -70,7 +70,7 @@ export default function Navbar() {
         <div className="md:hidden border-t border-zinc-900 bg-zinc-950 px-4 py-6 space-y-6 shadow-2xl">
           <nav className="flex flex-col gap-4 text-sm font-medium text-zinc-400">
             <Link to="/technology" onClick={() => handleNavClick('/technology')} className="hover:text-zinc-50">How It Works</Link>
-            <Link to="/security" onClick={() => handleNavClick('/security')} className="hover:text-zinc-50">Privacy & Security</Link>
+            <Link to="/privacy" onClick={() => handleNavClick('/privacy')} className="hover:text-zinc-50">Privacy</Link>
             <Link to="/about" onClick={() => handleNavClick('/about')} className="hover:text-zinc-50">About Us</Link>
             <Link to="/contact" onClick={() => handleNavClick('/contact')} className="hover:text-zinc-50">Contact Support</Link>
           </nav>

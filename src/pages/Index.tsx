@@ -38,7 +38,7 @@ export default function Index() {
     <div className="flex flex-col w-full">
       
       {/* 1. HERO SECTION */}
-      <section className="relative pt-12 pb-20 overflow-hidden border-b border-zinc-900">
+      <section className="relative pt-12 pb-12 sm:pb-20 overflow-hidden border-b border-zinc-900">
         <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start lg:items-center">
           
           <div className="flex flex-col space-y-8 z-10">
@@ -142,7 +142,7 @@ export default function Index() {
       </section>
 
       {/* 4. FAQ & CTA */}
-      <section className="py-20">
+      <section className="py-12 sm:py-20">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-bold text-zinc-50">Quick FAQ</h2>
@@ -174,7 +174,7 @@ export default function Index() {
       </section>
 
       {/* 2. HOW IT WORKS */}
-      <section className="py-20 bg-zinc-950/50 border-b border-zinc-900">
+      <section className="py-12 sm:py-20 bg-zinc-950/50 border-b border-zinc-900">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-zinc-50 mb-4">How it works</h2>
@@ -202,7 +202,7 @@ export default function Index() {
       </section>
 
       {/* 3. ROADMAP */}
-      <section className="py-20 border-b border-zinc-900">
+      <section className="py-12 sm:py-20 border-b border-zinc-900">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-12 items-center">
             <div className="flex-1">
