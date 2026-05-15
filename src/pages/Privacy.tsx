@@ -7,7 +7,7 @@ export default function Privacy() {
       <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-6 mb-8 not-prose">
         <h2 className="text-xl font-bold mb-2 text-emerald-400">The Short Version</h2>
         <p className="text-emerald-100/80">
-          ScreenSentinel collects absolutely no data. Zero. None. Your screen content, analysis results, and usage patterns stay on your computer and are never transmitted anywhere.
+          ScreenSentinel is designed to keep analysis on your device. By default we do not send your video or detection results to any servers. A minimal, optional check for updates may contact our release endpoint.
         </p>
       </div>
 

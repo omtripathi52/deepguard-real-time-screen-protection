@@ -33,15 +33,12 @@ export default function Index() {
             </div>
 
             <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-zinc-50 leading-tight">
-              Real-time safety layer{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500">
-                as you scroll.
-              </span>
+              Spot deepfakes instantly —
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500"> right on your screen.</span>
             </h1>
 
             <p className="text-lg text-zinc-400 leading-relaxed max-w-xl">
-              Get instant, always-on protection from scams and deepfakes right on your
-              screen. Visual, privacy-first detection that keeps you safe during video calls and everyday browsing.
+              Get an immediate alert when a video looks manipulated, so you can act before it spreads. No uploads, no extra steps — just protection while you watch.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -131,22 +128,54 @@ export default function Index() {
         </div>
       </section>
 
+      {/* 4. FAQ & CTA */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl font-bold text-zinc-50">Quick FAQ</h2>
+            <p className="text-zinc-400 mt-2">Short answers to the most common questions.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="bg-zinc-950 border border-zinc-800 p-6 rounded-xl">
+              <h4 className="text-zinc-100 font-semibold mb-2">Do you upload videos?</h4>
+              <p className="text-zinc-400 text-sm">No — all analysis happens on your PC by default. We do not send your videos to the cloud.</p>
+            </div>
+            <div className="bg-zinc-950 border border-zinc-800 p-6 rounded-xl">
+              <h4 className="text-zinc-100 font-semibold mb-2">Will it use my webcam?</h4>
+              <p className="text-zinc-400 text-sm">No. ScreenSentinel only looks at the pixels of videos playing on your screen.</p>
+            </div>
+            <div className="bg-zinc-950 border border-zinc-800 p-6 rounded-xl">
+              <h4 className="text-zinc-100 font-semibold mb-2">What if the alert is wrong?</h4>
+              <p className="text-zinc-400 text-sm">Click the alert to report it. This helps us improve the detector and reduces future false positives.</p>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <a href={exeLink} className="inline-flex items-center gap-3 bg-emerald-500 text-zinc-900 font-semibold px-6 py-3 rounded-md shadow hover:bg-emerald-400">
+              <Download className="w-4 h-4" /> Download free trial
+            </a>
+            <a href="/technology" className="ml-4 inline-flex items-center gap-2 border border-zinc-800 text-zinc-300 px-5 py-3 rounded-md hover:bg-zinc-900">Learn how it works</a>
+          </div>
+        </div>
+      </section>
+
       {/* 2. HOW IT WORKS */}
       <section className="py-20 bg-zinc-950/50 border-b border-zinc-900">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-zinc-50 mb-4">How it works behind the scenes.</h2>
-            <p className="text-zinc-400">ScreenSentinel runs entirely on your device. Your screen data never leaves your computer, ensuring absolute privacy and zero lag.</p>
+            <h2 className="text-3xl font-bold text-zinc-50 mb-4">How it works</h2>
+            <p className="text-zinc-400">ScreenSentinel quietly checks the video on your screen and warns you if something looks manipulated — all on your device, with no uploads.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
             <div className="hidden md:block absolute top-1/2 left-0 w-full h-px bg-zinc-800 -z-10 -translate-y-1/2"></div>
             {[
-              { icon: <Monitor className="h-6 w-6 text-emerald-500 mb-3" />, title: "Secure Capture", text: "Monitors your screen instantly without needing camera permissions." },
-              { icon: <Eye className="h-6 w-6 text-emerald-500 mb-3" />, title: "Smart Tracking", text: "Automatically isolates faces during live streams and video calls." },
-              { icon: <Cpu className="h-6 w-6 text-emerald-500 mb-3" />, title: "Offline Analysis", text: "Advanced algorithms scan for deepfake artifacts locally." },
-              { icon: <Layers className="h-6 w-6 text-emerald-500 mb-3" />, title: "Signal Smoothing", text: "Analyzes movements continuously to prevent false alarms." },
-              { icon: <AlertTriangle className="h-6 w-6 text-emerald-500 mb-3" />, title: "Visual Overlay", text: "Projects a clean, color-coded safety score on your screen." },
+              { icon: <Monitor className="h-6 w-6 text-emerald-500 mb-3" />, title: "Instant checks", text: "Detects likely fakes in seconds while you watch." },
+              { icon: <Eye className="h-6 w-6 text-emerald-500 mb-3" />, title: "No camera access", text: "Only analyzes the video on your screen — it never uses your webcam." },
+              { icon: <Cpu className="h-6 w-6 text-emerald-500 mb-3" />, title: "Local and private", text: "All analysis runs on your PC; nothing is uploaded." },
+              { icon: <Layers className="h-6 w-6 text-emerald-500 mb-3" />, title: "Stable alerts", text: "We check a short frame window so alerts stay steady and useful." },
+              { icon: <AlertTriangle className="h-6 w-6 text-emerald-500 mb-3" />, title: "Clear guidance", text: "When alerted, get a simple explanation and next steps." },
             ].map((step, index) => (
               <div key={index} className="bg-zinc-950 border border-zinc-800 p-6 rounded-xl flex flex-col items-center text-center relative">
                 <div className="h-12 w-12 bg-zinc-900 border border-zinc-700 rounded-full flex items-center justify-center mb-4 text-zinc-300 z-10">{index + 1}</div>
@@ -189,8 +218,8 @@ export default function Index() {
               <div className="space-y-4 text-sm text-zinc-400">
                 <p><strong>Standard Installer:</strong> The setup file is available to download and install today.</p>
                 <div className="bg-zinc-950 p-4 rounded-md border border-zinc-800">
-                  <p className="text-amber-500 font-semibold mb-1">Windows SmartScreen Warning</p>
-                  <p className="text-xs">As a new tool, Windows may show an "Unknown Publisher" warning during installation. Simply click "More info" and "Run anyway" to proceed safely.</p>
+                  <p className="text-amber-500 font-semibold mb-1">Windows SmartScreen</p>
+                  <p className="text-xs">Early builds are self-published and may show an "Unknown publisher" warning. Click "More info" then "Run anyway" to install, or wait for a signed build.</p>
                 </div>
               </div>
             </div>
