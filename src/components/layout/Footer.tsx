@@ -25,15 +25,7 @@ export default function Footer() {
           <ul className="space-y-3">
             <li><a href={exeLink} className="hover:text-emerald-400 transition-colors">Windows Installer (.exe)</a></li>
             <li><span className="text-zinc-600 cursor-not-allowed">Portable Version (.zip) - Soon</span></li>
-            <li>
-              <Link 
-                to="/security#signatures" 
-                onClick={() => handleSamePageScroll('/security', 'signatures')}
-                className="hover:text-emerald-400 transition-colors"
-              >
-                Security Signatures
-              </Link>
-            </li>
+            {/* Security signatures removed per product preference */}
           </ul>
         </div>
         <div>

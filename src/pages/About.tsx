@@ -6,11 +6,11 @@ export default function About() {
       <ShieldCheck className="h-16 w-16 text-emerald-500 mx-auto mb-6" />
       <h1 className="text-4xl md:text-5xl font-bold text-zinc-50 mb-6">About ScreenSentinel</h1>
       <p className="text-lg text-zinc-400 leading-relaxed mb-8 text-left">
-        ScreenSentinel was founded to address a critical vulnerability in modern digital communication: the rapid rise of real-time synthetic media and deepfakes. 
+        ScreenSentinel helps you spot manipulated video in real time — right on your computer. It watches the pixels on your screen and alerts you when something looks suspicious, without uploading anything off your device.
         <br/><br/>
-        As AI generation tools become widely accessible, traditional cloud-based security tools are inherently flawed – they require users to upload their private video calls to remote servers for analysis. We believe security should never compromise privacy. 
+        Our mission is to make powerful, privacy-first deepfake detection accessible to journalists, creators, and everyday users. By running detection locally, ScreenSentinel keeps your data private while giving you fast, useful alerts.
         <br/><br/>
-        Based in Lucknow, India, our mission is to build enterprise-grade, localized AI defenses that run entirely on the endpoint. By shifting inference to the user's hardware, we provide journalists, creators, and professionals with an air-gapped layer of visual verification.
+        Made in Lucknow, India — free to download and easy to use.
       </p>
     </div>
   );
