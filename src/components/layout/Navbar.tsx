@@ -8,8 +8,8 @@ export default function Navbar() {
   const exeLink = release?.exeUrl || "https://github.com/omtripathi52/ScreenSentinel/releases/latest";
   
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [logoSrc, setLogoSrc] = useState('/logo.svg');
-  const [logoFailed, setLogoFailed] = useState(false);
+  const candidates = ['/logo.svg', '/logo.png', '/logo 512x512.png', '/favicon.ico'];
+  const [logoIndex, setLogoIndex] = useState(0);
 
   // Helper function to handle clicks on links
   const handleNavClick = (path: string) => {
@@ -25,16 +25,12 @@ export default function Navbar() {
         
         {/* Logo: prefer /logo.svg in public, fallback to icon */}
         <Link to="/" className="flex items-center gap-2 text-zinc-50" onClick={() => handleNavClick('/')}>
-          {!logoFailed ? (
+          {logoIndex < candidates.length ? (
             <img
-              src={logoSrc}
+              src={candidates[logoIndex]}
               alt="ScreenSentinel"
               className="h-6 w-6 object-contain"
-              onError={(e) => {
-                // try favicon if logo fails once, otherwise mark failed
-                if (logoSrc.endsWith('/logo.svg')) setLogoSrc('/favicon.ico');
-                else setLogoFailed(true);
-              }}
+              onError={() => setLogoIndex((i) => i + 1)}
             />
           ) : (
             <ShieldAlert className="h-5 w-5 text-emerald-500" />
