@@ -26,12 +26,12 @@ export default function Index() {
     titleLine1: 'Is that video real?',
     titleLine2: 'Get an instant on-screen check',
     sub: 'A lightweight app that flags likely deepfakes while you watch — private, local, and easy to use.',
-    cta: 'Try it free'
+    cta: 'Download — Free'
   } : {
     titleLine1: 'Spot deepfakes instantly —',
     titleLine2: ' right on your screen.',
     sub: 'Get an immediate alert when a video looks manipulated, so you can act before it spreads. No uploads, no extra steps — just protection while you watch.',
-    cta: 'Download free trial'
+    cta: 'Download — Free'
   };
 
   return (
@@ -166,7 +166,7 @@ export default function Index() {
 
           <div className="text-center">
             <a href={exeLink} className="inline-flex items-center gap-3 bg-emerald-500 text-zinc-900 font-semibold px-6 py-3 rounded-md shadow hover:bg-emerald-400">
-              <Download className="w-4 h-4" /> Download free trial
+              <Download className="w-4 h-4" /> Download — Free
             </a>
             <a href="/technology" className="ml-4 inline-flex items-center gap-2 border border-zinc-800 text-zinc-300 px-5 py-3 rounded-md hover:bg-zinc-900">Learn how it works</a>
           </div>
