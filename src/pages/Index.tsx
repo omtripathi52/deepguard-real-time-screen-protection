@@ -18,6 +18,21 @@ export default function Index() {
   
   const exeLink = release?.exeUrl || "https://github.com/omtripathi52/ScreenSentinel/releases/latest";
   const versionText = isLoading ? "Checking..." : (release?.version || "v1.0.0");
+  // Support simple A/B hero variants: ?variant=b for alternative copy
+  const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : new URLSearchParams('');
+  const variant = params.get('variant') || 'a';
+
+  const hero = variant === 'b' ? {
+    titleLine1: 'Is that video real?',
+    titleLine2: 'Get an instant on-screen check',
+    sub: 'A lightweight app that flags likely deepfakes while you watch — private, local, and easy to use.',
+    cta: 'Try it free'
+  } : {
+    titleLine1: 'Spot deepfakes instantly —',
+    titleLine2: ' right on your screen.',
+    sub: 'Get an immediate alert when a video looks manipulated, so you can act before it spreads. No uploads, no extra steps — just protection while you watch.',
+    cta: 'Download free trial'
+  };
 
   return (
     <div className="flex flex-col w-full">
@@ -33,13 +48,11 @@ export default function Index() {
             </div>
 
             <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-zinc-50 leading-tight">
-              Spot deepfakes instantly —
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500"> right on your screen.</span>
+              {hero.titleLine1}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500">{hero.titleLine2}</span>
             </h1>
 
-            <p className="text-lg text-zinc-400 leading-relaxed max-w-xl">
-              Get an immediate alert when a video looks manipulated, so you can act before it spreads. No uploads, no extra steps — just protection while you watch.
-            </p>
+            <p className="text-lg text-zinc-400 leading-relaxed max-w-xl">{hero.sub}</p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a 
@@ -47,7 +60,7 @@ export default function Index() {
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-zinc-50 px-8 font-semibold text-zinc-950 shadow transition-colors hover:bg-zinc-200"
               >
                 <Download className="h-4 w-4" />
-                Download Installer
+                {hero.cta}
               </a>
               {/* DISABLED ZIP BUTTON */}
               <button 
