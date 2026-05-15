@@ -5,7 +5,6 @@ import Layout from "@/components/layout/Layout";
 import ScrollToTop from "@/components/ScrollToTop";
 
 import Index from "@/pages/Index";
-import Security from "@/pages/Security";
 import Technology from "@/pages/Technology";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
@@ -25,7 +24,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/technology" element={<Technology />} />
-            <Route path="/security" element={<Security />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/about" element={<About />} />
