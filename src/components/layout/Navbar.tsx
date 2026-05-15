@@ -21,8 +21,9 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-md">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         
-        {/* Logo */}
+        {/* Logo: prefer /logo.svg in public, fallback to icon */}
         <Link to="/" className="flex items-center gap-2 text-zinc-50" onClick={() => handleNavClick('/')}>
+          <img src="/logo.svg" alt="ScreenSentinel" className="h-6 w-6 object-contain" onError={(e)=>{(e.target as HTMLImageElement).style.display='none'}} />
           <ShieldAlert className="h-5 w-5 text-emerald-500" />
           <span className="font-bold tracking-wide">ScreenSentinel</span>
         </Link>
@@ -41,7 +42,7 @@ export default function Navbar() {
             href={exeLink} 
             className="inline-flex h-9 items-center justify-center rounded-md bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-950 shadow transition-colors hover:bg-zinc-200"
           >
-            Download for Windows
+            Download — Free
           </a>
         </div>
 
@@ -70,7 +71,7 @@ export default function Navbar() {
               className="flex w-full h-10 items-center justify-center rounded-md bg-emerald-500 px-4 text-sm font-bold text-zinc-950 shadow transition-colors hover:bg-emerald-400"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Download for Windows (.exe)
+              Download — Free
             </a>
           </div>
         </div>
