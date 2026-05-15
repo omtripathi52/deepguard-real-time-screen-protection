@@ -23,13 +23,13 @@ export default function Index() {
   const variant = params.get('variant') || 'a';
 
   const hero = variant === 'b' ? {
-    titleLine1: 'Is that video real?',
-    titleLine2: 'Get an instant on-screen check',
+    titleLine1: 'Is That Video Real?',
+    titleLine2: 'Get an Instant On-Screen Check',
     sub: 'A lightweight app that flags likely deepfakes while you watch — private, local, and easy to use.',
     cta: 'Download — Free'
   } : {
-    titleLine1: 'Spot deepfakes instantly —',
-    titleLine2: ' right on your screen.',
+    titleLine1: 'Spot Deepfakes Instantly —',
+    titleLine2: ' Right on Your Screen.',
     sub: 'Get an immediate alert when a video looks manipulated, so you can act before it spreads. No uploads, no extra steps — just protection while you watch.',
     cta: 'Download — Free'
   };
