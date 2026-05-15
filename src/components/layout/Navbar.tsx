@@ -8,7 +8,7 @@ export default function Navbar() {
   const exeLink = release?.exeUrl || "https://github.com/omtripathi52/ScreenSentinel/releases/latest";
   
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const candidates = ['/logo.svg', '/logo.png', '/logo 512x512.png', '/favicon.ico'];
+  const candidates = ['/logo 512x512.png', '/logo.svg', '/logo.png', '/favicon.ico'];
   const [logoIndex, setLogoIndex] = useState(0);
 
   // Helper function to handle clicks on links
@@ -27,7 +27,7 @@ export default function Navbar() {
         <Link to="/" className="flex items-center gap-2 text-zinc-50" onClick={() => handleNavClick('/')}>
           {logoIndex < candidates.length ? (
             <img
-              src={candidates[logoIndex]}
+              src={encodeURI(candidates[logoIndex])}
               alt="ScreenSentinel"
               className="h-6 w-6 object-contain"
               onError={() => setLogoIndex((i) => i + 1)}
