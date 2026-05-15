@@ -1,3 +1,15 @@
 {
+  "redirects": [
+    {
+      "source": "/security",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/security/:path*",
+      "destination": "/privacy",
+      "permanent": true
+    }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
