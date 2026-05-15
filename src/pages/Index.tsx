@@ -39,7 +39,7 @@ export default function Index() {
       
       {/* 1. HERO SECTION */}
       <section className="relative pt-12 pb-20 overflow-hidden border-b border-zinc-900">
-        <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start lg:items-center">
           
           <div className="flex flex-col space-y-8 z-10">
             <div className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-sm text-emerald-400 w-fit">
@@ -77,10 +77,10 @@ export default function Index() {
           </div>
 
           {/* Right Column: Realistic Overlay Mockup */}
-          <div className="relative z-10 w-full mt-12 lg:mt-0">
+          <div className="relative z-10 w-full mt-6 lg:mt-0">
             <div className="relative rounded-xl border border-zinc-800 bg-zinc-950 p-2 shadow-2xl overflow-hidden">
               
-              <div className="aspect-video bg-zinc-950 rounded-lg relative border border-zinc-800 overflow-hidden">
+              <div className="aspect-video bg-zinc-950 rounded-lg relative border border-zinc-800 overflow-hidden max-h-[320px] sm:max-h-none">
                 {/* Realistic Background Image (Face-Centered) */}
                 <img 
                   src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&crop=faces&w=800&h=450&q=80" 
