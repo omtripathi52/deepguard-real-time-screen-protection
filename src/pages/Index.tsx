@@ -136,7 +136,7 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] sm:w-[500px] sm:h-[500px] bg-gradient-to-r from-zinc-900/40 via-zinc-900/20 to-transparent blur-[60px] sm:blur-[100px] rounded-full -z-10 pointer-events-none"></div>
           </div>
         </div>
       </section>
