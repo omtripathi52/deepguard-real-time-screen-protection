@@ -17,7 +17,7 @@ export default function Index() {
   const { data: release, isLoading } = useGitHubRelease();
   
   const exeLink = release?.exeUrl || "https://github.com/omtripathi52/ScreenSentinel/releases/latest";
-  const versionText = isLoading ? "Checking..." : (release?.version || "v1.0.0");
+  const versionText = isLoading ? "Checking..." : (release?.version || "v2.0.0");
   // Support simple A/B hero variants: ?variant=b for alternative copy
   const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : new URLSearchParams('');
   const variant = params.get('variant') || 'a';
@@ -38,13 +38,13 @@ export default function Index() {
     <div className="flex flex-col w-full">
       
       {/* 1. HERO SECTION */}
-      <section className="relative pt-24 pb-20 overflow-hidden border-b border-zinc-900">
+      <section className="relative pt-12 pb-20 overflow-hidden border-b border-zinc-900">
         <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           <div className="flex flex-col space-y-8 z-10">
             <div className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-sm text-emerald-400 w-fit">
               <span className="flex h-2 w-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
-              Version 1.0 is Live
+              Version {versionText} is Live
             </div>
 
             <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-zinc-50 leading-tight">
