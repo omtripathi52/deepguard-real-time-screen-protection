@@ -42,7 +42,7 @@ export default function Navbar() {
             href={exeLink} 
             className="inline-flex h-9 items-center justify-center rounded-md bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-950 shadow transition-colors hover:bg-zinc-200"
           >
-            Download — Free
+            Download – Free
           </a>
         </div>
 
@@ -71,7 +71,7 @@ export default function Navbar() {
               className="flex w-full h-10 items-center justify-center rounded-md bg-emerald-500 px-4 text-sm font-bold text-zinc-950 shadow transition-colors hover:bg-emerald-400"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Download — Free
+              Download – Free
             </a>
           </div>
         </div>
