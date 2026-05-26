@@ -89,6 +89,10 @@
   .ss-container {
     @apply mx-auto w-full max-w-6xl px-6;
   }
+  .ss-container-nav {
+    @apply mx-auto w-full px-5 sm:px-6 lg:px-8;
+    max-width: 90rem;
+  }
   .ss-btn {
     @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-all;
   }

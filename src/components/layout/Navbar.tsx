@@ -59,9 +59,9 @@ export default function Navbar() {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="ss-container flex items-center h-[70px]">
+      <div className="ss-container-nav flex items-center h-[72px]">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5 flex-shrink-0">
+        <Link to="/" className="flex items-center gap-2.5 flex-shrink-0 pr-2 sm:pr-3">
           <div className="w-9 h-9 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center">
             <Shield size={18} className="text-primary" />
           </div>
@@ -69,7 +69,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden lg:flex items-center gap-1 ml-9">
+        <div className="hidden lg:flex flex-1 items-center justify-center gap-2 xl:gap-3">
           {nav.map((item) =>
             item.children ? (
               <div
