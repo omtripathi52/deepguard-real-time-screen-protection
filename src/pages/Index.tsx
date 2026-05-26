@@ -86,19 +86,21 @@ export default function Index() {
   return (
     <div style={{ paddingTop: 70 }}>
       {/* HERO */}
-      <section style={{ padding: "24px 0 0", overflow: "hidden", background: "var(--bg)" }}>
-        <div className="ss-hero-wrap">
+      <section style={{ padding: "20px 0 0", overflow: "hidden", background: "var(--bg)", position: "relative" }}>
+        <div className="ss-hero-bg" />
+        <div className="ss-grid-texture" />
+        <div className="ss-hero-wrap" style={{ position: "relative", zIndex: 1 }}>
           <div
             className="ss-two-col"
             style={{ alignItems: "center", gap: 56, gridTemplateColumns: "1fr 1.1fr", paddingBottom: 52 }}
           >
             <div>
-              <div className="ss-pill" style={{ marginBottom: 24 }}>
+              <div className="ss-pill" style={{ marginBottom: 20 }}>
                 {releaseText}
               </div>
               <h1
                 style={{
-                  fontSize: "clamp(38px,4.8vw,64px)",
+                  fontSize: "clamp(40px,4.9vw,66px)",
                   fontWeight: 800,
                   letterSpacing: "-0.045em",
                   lineHeight: 1.05,
@@ -110,7 +112,7 @@ export default function Index() {
                 <br />
                 <span style={{ color: "var(--accent)" }}>what you are watching?</span>
               </h1>
-              <p style={{ fontSize: 17, color: "var(--text-muted)", lineHeight: 1.75, maxWidth: 520, marginBottom: 34 }}>
+              <p style={{ fontSize: 17, color: "var(--text-muted)", lineHeight: 1.75, maxWidth: 540, marginBottom: 30 }}>
                 AI can create fake videos of real people saying and doing things they never did. ScreenSentinel watches your screen and tells you instantly if a video looks faked.
               </p>
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 32 }}>
@@ -140,11 +142,12 @@ export default function Index() {
                 <div className="ss-corner bl" />
                 <div className="ss-corner br" />
                 <div
+                  className="ss-float"
                   style={{
                     position: "absolute",
                     left: 16,
                     bottom: 16,
-                    background: "rgba(15,23,42,0.55)",
+                    background: "rgba(15,23,42,0.6)",
                     border: "1px solid rgba(255,255,255,0.16)",
                     borderRadius: 10,
                     padding: "8px 12px",
@@ -160,6 +163,27 @@ export default function Index() {
                   AI analysis active
                   <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#10b981" }} />
                   82% confidence
+                </div>
+                <div
+                  style={{
+                    position: "absolute",
+                    left: 16,
+                    top: 16,
+                    background: "rgba(15,23,42,0.5)",
+                    border: "1px solid rgba(255,255,255,0.16)",
+                    borderRadius: 10,
+                    padding: "6px 10px",
+                    color: "#fff",
+                    fontSize: 10,
+                    fontWeight: 600,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 8,
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  Live signal
+                  <span style={{ width: 36, height: 2, background: "linear-gradient(90deg, #10b981, transparent)", borderRadius: 999 }} />
                 </div>
               </div>
               <div style={{ position: "absolute", top: 16, right: 16, display: "flex", flexDirection: "column", gap: 10 }}>
@@ -181,6 +205,7 @@ export default function Index() {
                   style={{
                     background: "var(--surface)",
                     border: "1px solid var(--border)",
+        <div className="ss-soft-divider" />
                     borderRadius: 10,
                     padding: "8px 12px",
                     boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
