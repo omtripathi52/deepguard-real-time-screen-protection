@@ -1,91 +1,197 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { ShieldAlert, Menu, X } from "lucide-react";
-import { useGitHubRelease } from "@/hooks/use-github-release";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Shield, Menu, X, Sun, Moon, ChevronDown } from "lucide-react";
+
+type NavChild = { label: string; href: string; desc: string };
+type NavItem = { label: string; href?: string; children?: NavChild[] };
+
+const nav: NavItem[] = [
+  { label: "Product", href: "/product" },
+  { label: "Solutions", href: "/solutions" },
+  {
+    label: "Company",
+    children: [
+      { label: "About Us", href: "/about", desc: "Our story and mission" },
+      { label: "Careers", href: "/careers", desc: "Join the team in London" },
+      { label: "Events", href: "/events", desc: "Hackathons & workshops" },
+      { label: "Blog", href: "/blog", desc: "Research & insights" },
+    ],
+  },
+  { label: "Trust", href: "/trust" },
+];
 
 export default function Navbar() {
-  const { data: release } = useGitHubRelease();
-  const exeLink = release?.exeUrl || "https://github.com/omtripathi52/ScreenSentinel/releases/latest";
-  
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const candidates = ['/logo 512x512.png', '/logo.svg', '/logo.png', '/favicon.ico'];
-  const [logoIndex, setLogoIndex] = useState(0);
+  const [isDark, setIsDark] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [dropdown, setDropdown] = useState<string | null>(null);
+  const [mobileExp, setMobileExp] = useState<string | null>(null);
+  const location = useLocation();
 
-  // Helper function to handle clicks on links
-  const handleNavClick = (path: string) => {
-    setIsMobileMenuOpen(false); // Close mobile menu if it's open
-    if (window.location.pathname === path) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+  useEffect(() => {
+    const stored = localStorage.getItem("theme");
+    setIsDark(stored ? stored === "dark" : true);
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setOpen(false);
+    setDropdown(null);
+  }, [location.pathname]);
+
+  const toggleTheme = () => {
+    const next = !isDark;
+    setIsDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    localStorage.setItem("theme", next ? "dark" : "light");
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-md">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        
-        {/* Logo: prefer /logo.svg in public, fallback to icon */}
-        <Link to="/" className="flex items-center gap-2 text-zinc-50" onClick={() => handleNavClick('/')}>
-          {logoIndex < candidates.length ? (
-            <img
-              src={encodeURI(candidates[logoIndex])}
-              alt="ScreenSentinel"
-              className="h-6 w-6 object-contain"
-              onError={() => setLogoIndex((i) => i + 1)}
-            />
-          ) : (
-            <ShieldAlert className="h-5 w-5 text-emerald-500" />
-          )}
-          <span className="font-bold tracking-wide">ScreenSentinel</span>
+    <nav
+      className={`fixed inset-x-0 top-0 z-50 transition-all ${
+        scrolled
+          ? "bg-background/90 backdrop-blur-xl saturate-150 border-b border-border"
+          : "bg-transparent border-b border-transparent"
+      }`}
+    >
+      <div className="ss-container flex items-center h-[70px]">
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2.5 flex-shrink-0">
+          <div className="w-9 h-9 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center">
+            <Shield size={18} className="text-primary" />
+          </div>
+          <span className="text-[15px] font-bold tracking-tight">ScreenSentinel</span>
         </Link>
-        
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-8 text-sm font-medium text-zinc-400">
-          <Link to="/technology" onClick={() => handleNavClick('/technology')} className="hover:text-zinc-50 transition-colors">How It Works</Link>
-          <Link to="/privacy" onClick={() => handleNavClick('/privacy')} className="hover:text-zinc-50 transition-colors">Privacy</Link>
-          <Link to="/about" onClick={() => handleNavClick('/about')} className="hover:text-zinc-50 transition-colors">About</Link>
-          <Link to="/contact" onClick={() => handleNavClick('/contact')} className="hover:text-zinc-50 transition-colors">Contact</Link>
-        </nav>
 
-        {/* Desktop Download Button */}
-        <div className="hidden md:flex items-center gap-4">
-          <a 
-            href={exeLink} 
-            className="inline-flex h-9 items-center justify-center rounded-md bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-950 shadow transition-colors hover:bg-zinc-200"
-          >
-            Download – Free
-          </a>
+        {/* Desktop links */}
+        <div className="hidden lg:flex items-center gap-1 ml-9">
+          {nav.map((item) =>
+            item.children ? (
+              <div
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => setDropdown(item.label)}
+                onMouseLeave={() => setDropdown(null)}
+              >
+                <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg transition-colors">
+                  {item.label}
+                  <ChevronDown
+                    size={13}
+                    className={`transition-transform ${dropdown === item.label ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {dropdown === item.label && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1.5 min-w-[220px] rounded-xl border border-border bg-popover p-1.5 shadow-2xl">
+                    {item.children.map((c) => (
+                      <Link
+                        key={c.label}
+                        to={c.href}
+                        className="block px-3 py-2.5 rounded-lg hover:bg-secondary transition-colors"
+                      >
+                        <div className="text-[13px] font-semibold text-foreground">{c.label}</div>
+                        <div className="text-[11px] text-muted-foreground mt-0.5">{c.desc}</div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                key={item.label}
+                to={item.href!}
+                className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg transition-colors"
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </div>
 
-        {/* Mobile Hamburger Button */}
-        <button 
-          className="md:hidden text-zinc-400 hover:text-zinc-50"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        {/* Right (desktop) */}
+        <div className="hidden lg:flex items-center gap-2.5 ml-auto">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="w-9 h-9 rounded-full bg-secondary border border-border flex items-center justify-center hover:bg-muted transition-colors"
+          >
+            {isDark ? <Sun size={15} className="text-muted-foreground" /> : <Moon size={15} className="text-muted-foreground" />}
+          </button>
+          <Link to="/contact" className="ss-btn ss-btn-primary text-[13px] px-5 py-2.5">
+            Get Started
+          </Link>
+        </div>
+
+        {/* Mobile toggles */}
+        <div className="flex lg:hidden items-center gap-2 ml-auto">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="w-9 h-9 rounded-full bg-secondary border border-border flex items-center justify-center"
+          >
+            {isDark ? <Sun size={14} className="text-muted-foreground" /> : <Moon size={14} className="text-muted-foreground" />}
+          </button>
+          <button
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+            className="w-9 h-9 rounded-lg bg-secondary border border-border flex items-center justify-center"
+          >
+            {open ? <X size={17} /> : <Menu size={17} />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-zinc-900 bg-zinc-950 px-4 py-6 space-y-6 shadow-2xl">
-          <nav className="flex flex-col gap-4 text-sm font-medium text-zinc-400">
-            <Link to="/technology" onClick={() => handleNavClick('/technology')} className="hover:text-zinc-50">How It Works</Link>
-            <Link to="/privacy" onClick={() => handleNavClick('/privacy')} className="hover:text-zinc-50">Privacy</Link>
-            <Link to="/about" onClick={() => handleNavClick('/about')} className="hover:text-zinc-50">About Us</Link>
-            <Link to="/contact" onClick={() => handleNavClick('/contact')} className="hover:text-zinc-50">Contact Support</Link>
-          </nav>
-          
-          <div className="pt-4 border-t border-zinc-900">
-            <a 
-              href={exeLink} 
-              className="flex w-full h-10 items-center justify-center rounded-md bg-emerald-500 px-4 text-sm font-bold text-zinc-950 shadow transition-colors hover:bg-emerald-400"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Download – Free
-            </a>
+      {/* Mobile menu */}
+      {open && (
+        <div className="lg:hidden bg-background/97 backdrop-blur-xl border-t border-border px-6 pb-6 pt-3">
+          {nav.map((item) =>
+            item.children ? (
+              <div key={item.label}>
+                <button
+                  onClick={() => setMobileExp(mobileExp === item.label ? null : item.label)}
+                  className="w-full flex justify-between items-center py-3.5 text-[15px] font-semibold text-foreground border-b border-border"
+                >
+                  {item.label}
+                  <ChevronDown
+                    size={15}
+                    className={`transition-transform ${mobileExp === item.label ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {mobileExp === item.label && (
+                  <div className="pl-3 pb-1">
+                    {item.children.map((c) => (
+                      <Link
+                        key={c.label}
+                        to={c.href}
+                        className="block py-2.5 text-sm text-muted-foreground border-b border-border"
+                      >
+                        {c.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                key={item.label}
+                to={item.href!}
+                className="block py-3.5 text-[15px] font-semibold text-foreground border-b border-border"
+              >
+                {item.label}
+              </Link>
+            )
+          )}
+          <div className="pt-4">
+            <Link to="/contact" className="ss-btn ss-btn-primary w-full justify-center">
+              Get Started
+            </Link>
           </div>
         </div>
       )}
-    </header>
+    </nav>
   );
 }

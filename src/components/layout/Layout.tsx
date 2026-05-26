@@ -1,13 +1,19 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 export default function Layout({ children }: { children: ReactNode }) {
+  // Default theme = dark; user can toggle via Navbar (persisted in localStorage)
+  useEffect(() => {
+    const stored = localStorage.getItem("theme");
+    const isDark = stored ? stored === "dark" : true;
+    document.documentElement.classList.toggle("dark", isDark);
+  }, []);
+
   return (
-    // Forces dark mode aesthetics by default: zinc-950 background, light text
-    <div className="min-h-screen bg-zinc-950 text-zinc-50 flex flex-col font-sans selection:bg-emerald-500/30">
+    <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-primary/30 selection:text-primary-foreground">
       <Navbar />
-      <main className="flex-1 flex flex-col">{children}</main>
+      <main className="flex-1 flex flex-col pt-[70px]">{children}</main>
       <Footer />
     </div>
   );
