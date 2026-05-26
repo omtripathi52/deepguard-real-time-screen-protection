@@ -98,7 +98,7 @@ export default function Index() {
                 <img
                   src={IMG.hero}
                   alt="Person on a video call"
-                  style={{ width: "100%", aspectRatio: "4/3", objectFit: "cover", display: "block" }}
+                  style={{ width: "100%", aspectRatio: "16/10", objectFit: "cover", objectPosition: "center 20%", display: "block" }}
                 />
               </div>
               <div style={{ position: "absolute", top: 16, right: 16, display: "flex", flexDirection: "column", gap: 10 }}>
