@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { useGitHubRelease } from "@/hooks/use-github-release";
 import { faqs, useCases } from "@/data/content";
 
@@ -40,7 +41,43 @@ const pillars = [
   },
 ];
 
+const useCaseCards = [
+  {
+    key: "Social",
+    title: useCases[0].title,
+    desc: useCases[0].description,
+    tone: "#3b82f6",
+    tag: "Live feed protection",
+    chips: ["Auto-flag suspicious clips", "Share-safe prompt", "Realtime scan"],
+  },
+  {
+    key: "Identity",
+    title: useCases[1].title,
+    desc: useCases[1].description,
+    tone: "#8b5cf6",
+    tag: "Identity defense",
+    chips: ["Biometric checks", "Consent alerts", "Low false alarms"],
+  },
+  {
+    key: "News",
+    title: useCases[2].title,
+    desc: useCases[2].description,
+    tone: "#f59e0b",
+    tag: "Verified footage",
+    chips: ["Broadcast safe", "Editorial review", "Provenance signals"],
+  },
+  {
+    key: "Enterprise",
+    title: useCases[3].title,
+    desc: useCases[3].description,
+    tone: "#10b981",
+    tag: "Workplace protection",
+    chips: ["Teams + Zoom", "Instant escalation", "Zero IT setup"],
+  },
+];
+
 export default function Index() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
   const { data: release, isLoading } = useGitHubRelease();
   const exeLink = release?.exeUrl || "https://github.com/omtripathi52/ScreenSentinel/releases/latest";
   const versionText = isLoading ? "Checking..." : (release?.version || "v2.0.0");
@@ -49,28 +86,31 @@ export default function Index() {
   return (
     <div style={{ paddingTop: 70 }}>
       {/* HERO */}
-      <section style={{ padding: "32px 0 0", overflow: "hidden", background: "var(--bg)" }}>
-        <div className="ss-container">
-          <div className="ss-two-col" style={{ alignItems: "flex-start", gap: 48, paddingBottom: 56 }}>
+      <section style={{ padding: "24px 0 0", overflow: "hidden", background: "var(--bg)" }}>
+        <div className="ss-hero-wrap">
+          <div
+            className="ss-two-col"
+            style={{ alignItems: "center", gap: 56, gridTemplateColumns: "1fr 1.1fr", paddingBottom: 52 }}
+          >
             <div>
               <div className="ss-pill" style={{ marginBottom: 24 }}>
                 {releaseText}
               </div>
               <h1
                 style={{
-                  fontSize: "clamp(36px,4.5vw,60px)",
+                  fontSize: "clamp(38px,4.8vw,64px)",
                   fontWeight: 800,
-                  letterSpacing: "-0.04em",
-                  lineHeight: 1.07,
+                  letterSpacing: "-0.045em",
+                  lineHeight: 1.05,
                   color: "var(--text)",
-                  marginBottom: 20,
+                  marginBottom: 18,
                 }}
               >
                 Can you trust
                 <br />
                 <span style={{ color: "var(--accent)" }}>what you are watching?</span>
               </h1>
-              <p style={{ fontSize: 17, color: "var(--text-muted)", lineHeight: 1.75, maxWidth: 460, marginBottom: 36 }}>
+              <p style={{ fontSize: 17, color: "var(--text-muted)", lineHeight: 1.75, maxWidth: 520, marginBottom: 34 }}>
                 AI can create fake videos of real people saying and doing things they never did. ScreenSentinel watches your screen and tells you instantly if a video looks faked.
               </p>
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 32 }}>
@@ -86,20 +126,41 @@ export default function Index() {
               </div>
             </div>
 
-            <div style={{ position: "relative", marginTop: 6 }}>
-              <div
-                style={{
-                  borderRadius: 20,
-                  overflow: "hidden",
-                  border: "1px solid var(--border)",
-                  boxShadow: "0 32px 80px rgba(0,0,0,0.25)",
-                }}
-              >
+            <div style={{ position: "relative" }}>
+              <div className="ss-hero-frame">
+                <div className="ss-hero-glow" />
                 <img
                   src={IMG.hero}
                   alt="Person on a video call"
-                  style={{ width: "100%", aspectRatio: "16/10", objectFit: "cover", objectPosition: "center 20%", display: "block" }}
+                  style={{ width: "100%", aspectRatio: "16/10", objectFit: "cover", objectPosition: "center 18%", display: "block" }}
                 />
+                <div className="ss-scanlines" />
+                <div className="ss-corner tl" />
+                <div className="ss-corner tr" />
+                <div className="ss-corner bl" />
+                <div className="ss-corner br" />
+                <div
+                  style={{
+                    position: "absolute",
+                    left: 16,
+                    bottom: 16,
+                    background: "rgba(15,23,42,0.55)",
+                    border: "1px solid rgba(255,255,255,0.16)",
+                    borderRadius: 10,
+                    padding: "8px 12px",
+                    color: "#fff",
+                    fontSize: 11,
+                    fontWeight: 600,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 8,
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  AI analysis active
+                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#10b981" }} />
+                  82% confidence
+                </div>
               </div>
               <div style={{ position: "absolute", top: 16, right: 16, display: "flex", flexDirection: "column", gap: 10 }}>
                 <div
@@ -154,6 +215,16 @@ export default function Index() {
             }}
           />
           <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 60,
+              background: "linear-gradient(to bottom, var(--bg), transparent)",
+            }}
+          />
+          <div
             style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}
           >
             <div
@@ -177,8 +248,8 @@ export default function Index() {
       </section>
 
       {/* LOGOS */}
-      <section style={{ padding: "44px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
-        <div className="ss-container">
+      <section style={{ padding: "40px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
+        <div className="ss-hero-wrap">
           <p
             style={{
               textAlign: "center",
@@ -192,9 +263,9 @@ export default function Index() {
           >
             Trusted by organizations across the world
           </p>
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 44, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 36, flexWrap: "wrap" }}>
             {logos.map((l) => (
-              <span key={l} style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.12em", color: "var(--text-subtle)", opacity: 0.55 }}>
+              <span key={l} style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.12em", color: "var(--text)", opacity: 0.75 }}>
                 {l}
               </span>
             ))}
@@ -225,15 +296,15 @@ export default function Index() {
       </section>
 
       {/* USE CASES */}
-      <section style={{ padding: "80px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
-        <div className="ss-container">
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 52, gap: 24, flexWrap: "wrap" }}>
+      <section className="ss-usecase-section" style={{ padding: "96px 0", borderTop: "1px solid var(--border)" }}>
+        <div className="ss-hero-wrap" style={{ position: "relative", zIndex: 1 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 36, gap: 24, flexWrap: "wrap" }}>
             <div>
-              <h2 style={{ fontSize: 34, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 10 }}>
-                Made to fit how you already work
+              <h2 style={{ fontSize: 36, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 10 }}>
+                AI protection for every video context
               </h2>
-              <p style={{ color: "var(--text-muted)", fontSize: 15, maxWidth: 460, lineHeight: 1.65 }}>
-                Different jobs face different risks. Here is what ScreenSentinel does for your specific situation.
+              <p style={{ color: "var(--text-muted)", fontSize: 15, maxWidth: 520, lineHeight: 1.65 }}>
+                ScreenSentinel adapts to where you watch video, so trust remains consistent from social feeds to boardrooms.
               </p>
             </div>
             <Link to="/solutions" className="ss-btn ss-btn-ghost">
@@ -241,106 +312,38 @@ export default function Index() {
             </Link>
           </div>
 
-          <div className="ss-row1" style={{ marginBottom: 14 }}>
-            <div style={{ borderRadius: 18, background: "rgba(59,130,246,0.05)", border: "1px solid rgba(59,130,246,0.18)", overflow: "hidden", padding: "44px 44px 36px", display: "flex", flexDirection: "column" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 32 }}>
-                <span style={{ fontSize: 48 }}>Social</span>
-                <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--border)", padding: "4px 12px", borderRadius: 999 }}>
-                  {useCases[0].stat}
-                </span>
-              </div>
-              <h2 style={{ fontSize: 28, fontWeight: 800, color: "var(--text)", marginBottom: 10, letterSpacing: "-0.03em", lineHeight: 1.2 }}>
-                {useCases[0].title}
-              </h2>
-              <p style={{ fontSize: 13, fontWeight: 700, color: "#3b82f6", marginBottom: 16 }}>
-                Stop misinformation before it spreads.
-              </p>
-              <p style={{ color: "var(--text-muted)", fontSize: 15, lineHeight: 1.75, flex: 1 }}>
-                {useCases[0].description}
-              </p>
-              <div style={{ marginTop: 28, paddingTop: 22, borderTop: "1px solid rgba(59,130,246,0.15)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-                <div style={{ display: "flex", gap: 18, flexWrap: "wrap" }}>
-                  {["Catches fakes instantly", "Works on any site", "No setup needed"].map((t) => (
-                    <span key={t} style={{ fontSize: 12, color: "var(--text-muted)", display: "flex", alignItems: "center", gap: 5 }}>
-                      <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#3b82f6", display: "inline-block" }} />
-                      {t}
-                    </span>
+          <div className="ss-usecase-grid">
+            {useCaseCards.map((card) => (
+              <div
+                key={card.key}
+                className="ss-usecase-card"
+                style={{ borderColor: `${card.tone}55`, boxShadow: `0 24px 60px ${card.tone}22` }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+                  <span style={{ fontSize: 14, fontWeight: 700, color: "var(--text)" }}>{card.key}</span>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: card.tone, background: `${card.tone}1A`, borderRadius: 999, padding: "4px 10px" }}>
+                    {card.tag}
+                  </span>
+                </div>
+                <h3 style={{ fontSize: 22, fontWeight: 800, color: "var(--text)", marginBottom: 10, letterSpacing: "-0.02em" }}>
+                  {card.title}
+                </h3>
+                <p style={{ color: "var(--text-muted)", fontSize: 14, lineHeight: 1.7, marginBottom: 20 }}>
+                  {card.desc}
+                </p>
+                <div style={{ display: "grid", gap: 10, marginBottom: 18 }}>
+                  {card.chips.map((chip) => (
+                    <div key={chip} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: "var(--text-muted)" }}>
+                      <span style={{ width: 7, height: 7, borderRadius: "50%", background: card.tone }} />
+                      {chip}
+                    </div>
                   ))}
                 </div>
-                <Link to="/contact" style={{ fontSize: 13, fontWeight: 700, color: "#3b82f6", textDecoration: "none", display: "flex", alignItems: "center", gap: 5 }}>
-                  Get started <ArrowRight size={13} />
-                </Link>
-              </div>
-            </div>
-
-            <div style={{ borderRadius: 18, background: "rgba(139,92,246,0.05)", border: "1px solid rgba(139,92,246,0.2)", overflow: "hidden", padding: "44px 36px 36px", display: "flex", flexDirection: "column" }}>
-              <span style={{ fontSize: 44, marginBottom: 28, display: "block" }}>Identity</span>
-              <h2 style={{ fontSize: 22, fontWeight: 800, color: "var(--text)", marginBottom: 8, letterSpacing: "-0.02em", lineHeight: 1.25 }}>
-                {useCases[1].title}
-              </h2>
-              <p style={{ fontSize: 13, fontWeight: 700, color: "#8b5cf6", marginBottom: 14 }}>
-                Your face. Your rules.
-              </p>
-              <p style={{ color: "var(--text-muted)", fontSize: 14, lineHeight: 1.75, flex: 1 }}>
-                {useCases[1].description}
-              </p>
-              <div style={{ marginTop: 24, display: "flex", alignItems: "center", gap: 10 }}>
-                <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--border)", padding: "4px 10px", borderRadius: 999 }}>
-                  {useCases[1].stat}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="ss-row2">
-            <div style={{ borderRadius: 18, background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.2)", overflow: "hidden", padding: "44px 36px 36px", display: "flex", flexDirection: "column" }}>
-              <span style={{ fontSize: 44, marginBottom: 28, display: "block" }}>News</span>
-              <h2 style={{ fontSize: 22, fontWeight: 800, color: "var(--text)", marginBottom: 8, letterSpacing: "-0.02em", lineHeight: 1.25 }}>
-                {useCases[2].title}
-              </h2>
-              <p style={{ fontSize: 13, fontWeight: 700, color: "#f59e0b", marginBottom: 14 }}>
-                Publish with confidence.
-              </p>
-              <p style={{ color: "var(--text-muted)", fontSize: 14, lineHeight: 1.75, flex: 1 }}>
-                {useCases[2].description}
-              </p>
-              <div style={{ marginTop: 24, display: "flex", alignItems: "center", gap: 10 }}>
-                <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--border)", padding: "4px 10px", borderRadius: 999 }}>
-                  {useCases[2].stat}
-                </span>
-              </div>
-            </div>
-
-            <div style={{ borderRadius: 18, background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", overflow: "hidden", padding: "44px 44px 36px", display: "flex", flexDirection: "column" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 32 }}>
-                <span style={{ fontSize: 48 }}>Enterprise</span>
-                <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--border)", padding: "4px 12px", borderRadius: 999 }}>
-                  {useCases[3].stat}
-                </span>
-              </div>
-              <h2 style={{ fontSize: 28, fontWeight: 800, color: "var(--text)", marginBottom: 10, letterSpacing: "-0.03em", lineHeight: 1.2 }}>
-                {useCases[3].title}
-              </h2>
-              <p style={{ fontSize: 13, fontWeight: 700, color: "#10b981", marginBottom: 16 }}>
-                Scammers now look and sound exactly like your boss.
-              </p>
-              <p style={{ color: "var(--text-muted)", fontSize: 15, lineHeight: 1.75, flex: 1 }}>
-                {useCases[3].description}
-              </p>
-              <div style={{ marginTop: 28, paddingTop: 22, borderTop: "1px solid rgba(16,185,129,0.15)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-                <div style={{ display: "flex", gap: 18, flexWrap: "wrap" }}>
-                  {["Works on Zoom and Teams", "Flags fakes in real time", "No IT setup needed"].map((t) => (
-                    <span key={t} style={{ fontSize: 12, color: "var(--text-muted)", display: "flex", alignItems: "center", gap: 5 }}>
-                      <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#10b981", display: "inline-block" }} />
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <Link to="/contact" style={{ fontSize: 13, fontWeight: 700, color: "#10b981", textDecoration: "none", display: "flex", alignItems: "center", gap: 5 }}>
+                <Link to="/contact" style={{ fontSize: 13, fontWeight: 700, color: card.tone, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6 }}>
                   Talk to us <ArrowRight size={13} />
                 </Link>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -395,76 +398,111 @@ export default function Index() {
       </section>
 
       {/* FAQ */}
-      <section style={{ padding: "80px 0", background: "var(--bg)" }}>
-        <div className="ss-container">
-          <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 12 }}>
-              Quick FAQ
-            </h2>
-            <p style={{ color: "var(--text-muted)", fontSize: 15 }}>
-              Short answers to the most common questions.
-            </p>
+      <section style={{ padding: "96px 0", background: "var(--bg)" }}>
+        <div className="ss-hero-wrap">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 24, flexWrap: "wrap", marginBottom: 32 }}>
+            <div>
+              <p className="ss-pill" style={{ marginBottom: 16 }}>
+                Trust answers
+              </p>
+              <h2 style={{ fontSize: 34, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 10 }}>
+                Clear answers to the questions you are already asking
+              </h2>
+              <p style={{ color: "var(--text-muted)", fontSize: 15, maxWidth: 520 }}>
+                Everything you need to know about privacy, detection accuracy, and how ScreenSentinel works day-to-day.
+              </p>
+            </div>
+            <Link to="/trust" className="ss-btn ss-btn-ghost">
+              Explore trust center <ArrowRight size={14} />
+            </Link>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16 }} className="ss-three-col">
-            {faqs.slice(0, 3).map((f) => (
-              <div key={f.question} className="ss-card" style={{ padding: "28px 24px" }}>
-                <h3 style={{ fontSize: 15, fontWeight: 700, color: "var(--text)", marginBottom: 10 }}>
-                  {f.question}
-                </h3>
-                <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.7 }}>
-                  {f.answer}
-                </p>
+
+          <div className="ss-faq-grid" style={{ marginBottom: 32 }}>
+            {faqs.slice(0, 4).map((f, idx) => (
+              <div key={f.question} className="ss-faq-card">
+                <button
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", gap: 14, background: "none", border: "none", padding: 0, textAlign: "left", cursor: "pointer" }}
+                >
+                  <span style={{ fontSize: 15, fontWeight: 700, color: "var(--text)" }}>{f.question}</span>
+                  <ChevronDown size={16} style={{ color: "var(--text-subtle)", transform: openFaq === idx ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s ease" }} />
+                </button>
+                {openFaq === idx && (
+                  <p style={{ marginTop: 12, fontSize: 13, color: "var(--text-muted)", lineHeight: 1.7 }}>
+                    {f.answer}
+                  </p>
+                )}
               </div>
             ))}
           </div>
-          <div style={{ textAlign: "center", marginTop: 32 }}>
-            <a href={exeLink} className="ss-btn ss-btn-primary">
-              Download free <ArrowRight size={14} />
-            </a>
-            <Link to="/product" className="ss-btn ss-btn-ghost" style={{ marginLeft: 10 }}>
-              Learn how it works
-            </Link>
+
+          <div style={{ borderRadius: 20, border: "1px solid var(--border)", background: "var(--bg2)", padding: "22px 26px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 14 }}>
+            <div>
+              <div style={{ fontSize: 15, fontWeight: 700, color: "var(--text)", marginBottom: 4 }}>
+                Ready to see it in action?
+              </div>
+              <div style={{ fontSize: 13, color: "var(--text-muted)" }}>
+                Download the latest Windows build or learn how detection works in detail.
+              </div>
+            </div>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+              <a href={exeLink} className="ss-btn ss-btn-primary">
+                Download free <ArrowRight size={14} />
+              </a>
+              <Link to="/product" className="ss-btn ss-btn-ghost">
+                Learn how it works
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* TEAM MOSAIC */}
-      <section style={{ padding: "0 0 96px", background: "var(--bg)" }}>
-        <div className="ss-container">
-          <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <p className="ss-pill" style={{ marginBottom: 16 }}>
+      {/* TEAM */}
+      <section className="ss-team-section" style={{ padding: "0 0 110px" }}>
+        <div className="ss-hero-wrap">
+          <div style={{ textAlign: "left", marginBottom: 36, maxWidth: 640 }}>
+            <p className="ss-pill" style={{ marginBottom: 14 }}>
               Our people
             </p>
-            <h2 style={{ fontSize: 38, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 14 }}>
+            <h2 style={{ fontSize: 38, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 12 }}>
               Real people, real mission
             </h2>
-            <p style={{ color: "var(--text-muted)", fontSize: 16, maxWidth: 500, margin: "0 auto", lineHeight: 1.65 }}>
-              We are a team of researchers, designers, and problem-solvers based in London.
+            <p style={{ color: "var(--text-muted)", fontSize: 16, lineHeight: 1.65 }}>
+              Researchers, designers, and engineers building trustworthy media detection from London.
             </p>
           </div>
-          <div className="ss-mosaic">
-            <div style={{ gridRow: "1/3", borderRadius: 16, overflow: "hidden" }}>
+
+          <div className="ss-team-grid">
+            <div style={{ borderRadius: 20, overflow: "hidden", border: "1px solid var(--border)" }}>
               <img src={IMG.meeting} alt="Team meeting" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
-            <div style={{ borderRadius: 16, overflow: "hidden" }}>
-              <img src={IMG.teamFun} alt="Team working" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            </div>
-            <div style={{ borderRadius: 16, overflow: "hidden" }}>
-              <img src={IMG.collab} alt="Collaboration" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            </div>
-            <div style={{ borderRadius: 16, overflow: "hidden" }}>
-              <img src={IMG.lunch} alt="Team lunch" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            </div>
-            <div style={{ borderRadius: 16, background: "var(--accent)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: 10, padding: 28, textAlign: "center" }}>
-              <div style={{ fontSize: 52, fontWeight: 800, color: "#fff", letterSpacing: "-0.04em" }}>18</div>
-              <div style={{ fontSize: 14, fontWeight: 600, color: "rgba(255,255,255,0.9)" }}>people on the team</div>
-              <div style={{ fontSize: 12, color: "rgba(255,255,255,0.65)", lineHeight: 1.5 }}>
-                All in London - engineers, researchers, designers, and more
+            <div className="ss-team-stack">
+              <div style={{ borderRadius: 18, overflow: "hidden", border: "1px solid var(--border)" }}>
+                <img src={IMG.collab} alt="Collaboration" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
-              <Link to="/careers" style={{ marginTop: 8, fontSize: 13, fontWeight: 700, color: "#fff", textDecoration: "underline", textUnderlineOffset: 3 }}>
-                We are hiring &rarr;
-              </Link>
+              <div style={{ borderRadius: 18, overflow: "hidden", border: "1px solid var(--border)" }}>
+                <img src={IMG.teamFun} alt="Team working" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+              <div className="ss-team-card">
+                <div style={{ fontSize: 12, textTransform: "uppercase", letterSpacing: "0.14em", opacity: 0.7, marginBottom: 10 }}>
+                  Team snapshot
+                </div>
+                <div style={{ fontSize: 42, fontWeight: 800, letterSpacing: "-0.03em", marginBottom: 6 }}>18</div>
+                <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 12 }}>Researchers and builders in London</div>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 8, fontSize: 12, opacity: 0.8, marginBottom: 14 }}>
+                  <span>AI research</span>
+                  <span>Product design</span>
+                  <span>Security ops</span>
+                </div>
+                <Link to="/careers" style={{ fontSize: 13, fontWeight: 700, color: "#fff", textDecoration: "none" }}>
+                  Meet the team &rarr;
+                </Link>
+              </div>
             </div>
+          </div>
+
+          <div style={{ marginTop: 18, borderRadius: 18, overflow: "hidden", border: "1px solid var(--border)" }}>
+            <img src={IMG.lunch} alt="Team lunch" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           </div>
         </div>
       </section>
