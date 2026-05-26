@@ -49,9 +49,9 @@ export default function Index() {
   return (
     <div style={{ paddingTop: 70 }}>
       {/* HERO */}
-      <section style={{ padding: "80px 0 0", overflow: "hidden", background: "var(--bg)" }}>
+      <section style={{ padding: "32px 0 0", overflow: "hidden", background: "var(--bg)" }}>
         <div className="ss-container">
-          <div className="ss-two-col" style={{ alignItems: "center", paddingBottom: 72 }}>
+          <div className="ss-two-col" style={{ alignItems: "flex-start", gap: 48, paddingBottom: 56 }}>
             <div>
               <div className="ss-pill" style={{ marginBottom: 24 }}>
                 {releaseText}
@@ -86,7 +86,7 @@ export default function Index() {
               </div>
             </div>
 
-            <div style={{ position: "relative" }}>
+            <div style={{ position: "relative", marginTop: 6 }}>
               <div
                 style={{
                   borderRadius: 20,
@@ -101,43 +101,39 @@ export default function Index() {
                   style={{ width: "100%", aspectRatio: "4/3", objectFit: "cover", display: "block" }}
                 />
               </div>
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: -12,
-                  left: -12,
-                  background: "var(--surface)",
-                  border: "1px solid var(--border)",
-                  borderRadius: 10,
-                  padding: "10px 14px",
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  maxWidth: 220,
-                }}
-              >
-                <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#dc2626" }} />
-                <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text)" }}>
+              <div style={{ position: "absolute", top: 16, right: 16, display: "flex", flexDirection: "column", gap: 10 }}>
+                <div
+                  style={{
+                    background: "rgba(16,185,129,0.15)",
+                    border: "1px solid rgba(16,185,129,0.3)",
+                    borderRadius: 10,
+                    padding: "8px 14px",
+                    backdropFilter: "blur(8px)",
+                    fontSize: 11,
+                    fontWeight: 600,
+                    color: "var(--accent)",
+                  }}
+                >
+                  Watching your screen
+                </div>
+                <div
+                  style={{
+                    background: "var(--surface)",
+                    border: "1px solid var(--border)",
+                    borderRadius: 10,
+                    padding: "8px 12px",
+                    boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 8,
+                    fontSize: 11,
+                    fontWeight: 700,
+                    color: "var(--text)",
+                  }}
+                >
+                  <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#dc2626" }} />
                   This looks fake
                 </div>
-              </div>
-              <div
-                style={{
-                  position: "absolute",
-                  top: 16,
-                  right: 16,
-                  background: "rgba(16,185,129,0.15)",
-                  border: "1px solid rgba(16,185,129,0.3)",
-                  borderRadius: 10,
-                  padding: "8px 14px",
-                  backdropFilter: "blur(8px)",
-                  fontSize: 11,
-                  fontWeight: 600,
-                  color: "var(--accent)",
-                }}
-              >
-                Watching your screen
               </div>
             </div>
           </div>
