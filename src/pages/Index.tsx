@@ -490,7 +490,7 @@ export default function Index() {
                 All in London - engineers, researchers, designers, and more
               </div>
               <Link to="/careers" style={{ marginTop: 8, fontSize: 13, fontWeight: 700, color: "#fff", textDecoration: "underline", textUnderlineOffset: 3 }}>
-                We are hiring ->
+                We are hiring &rarr;
               </Link>
             </div>
           </div>
