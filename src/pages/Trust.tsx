@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import { Shield, Lock, Eye, FileCheck, Server, KeyRound, ChevronDown } from "lucide-react";
 import { Lock, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const trustImage = "https://raw.createusercontent.com/39795801-ca82-403e-8b96-0ae8e8e28115/";
 
@@ -112,7 +110,7 @@ export default function Trust() {
             </div>
             <div style={{ borderTop: "1px solid var(--border)", paddingTop: 28, textAlign: "center" }}>
               <Link to="/privacy" style={{ fontSize: 14, fontWeight: 600, color: "var(--text)", textDecoration: "none" }}>
-                Read our full privacy policy ->
+                Read our full privacy policy &rarr;
               </Link>
             </div>
           </div>
@@ -129,43 +127,6 @@ export default function Trust() {
           </p>
           <Link to="/contact" className="ss-btn ss-btn-primary">
             Ask us anything <ArrowRight size={14} />
-          </Link>
-        </div>
-      </section>
-    </div>
-  );
-}
-        <div className="max-w-3xl mx-auto space-y-3">
-          {faqs.map((f, i) => (
-            <div key={i} className="rounded-2xl border border-border bg-card overflow-hidden">
-              <button
-                onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                className="w-full flex items-center justify-between text-left p-6 hover:bg-secondary/40 transition-colors"
-              >
-                <span className="text-[15px] font-semibold pr-4">{f.question}</span>
-                <ChevronDown
-                  size={18}
-                  className={`text-muted-foreground transition-transform shrink-0 ${openFaq === i ? "rotate-180" : ""}`}
-                />
-              </button>
-              {openFaq === i && (
-                <div className="px-6 pb-6 text-sm text-muted-foreground leading-relaxed border-t border-border pt-4">
-                  {f.answer}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="ss-container py-16">
-        <div className="rounded-3xl border border-primary/30 bg-primary/5 p-10 md:p-14 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">Security questions for your team?</h2>
-          <p className="text-muted-foreground mb-7 max-w-xl mx-auto">
-            We're happy to share our security documentation, audit reports, and architecture details with prospective customers.
-          </p>
-          <Link to="/contact" className="ss-btn ss-btn-primary px-7 h-12 text-[15px]">
-            Request security pack
           </Link>
         </div>
       </section>
