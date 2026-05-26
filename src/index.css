@@ -7,29 +7,29 @@
 @layer base {
   :root {
     /* Light theme */
-    --background: 0 0% 100%;
+    --background: 210 20% 98%;
     --foreground: 240 10% 4%;
-    --card: 0 0% 100%;
+    --card: 210 18% 99%;
     --card-foreground: 240 10% 4%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 4%;
     --primary: 158 84% 39%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 240 5% 96%;
+    --secondary: 210 16% 95%;
     --secondary-foreground: 240 10% 4%;
-    --muted: 240 5% 96%;
+    --muted: 210 16% 95%;
     --muted-foreground: 240 4% 46%;
     --accent: 158 84% 39%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
+    --border: 210 12% 88%;
+    --input: 210 12% 88%;
     --ring: 158 84% 39%;
 
     /* Surfaces */
-    --surface: 240 5% 98%;
-    --surface-2: 240 5% 95%;
+    --surface: 210 18% 99%;
+    --surface-2: 210 16% 95%;
 
     --safe: 158 84% 39%;
     --safe-foreground: 0 0% 100%;
