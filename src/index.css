@@ -370,6 +370,36 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
   }
+  .ss-faq-stack {
+    display: grid;
+    gap: 14px;
+  }
+  .ss-faq-item {
+    background: linear-gradient(150deg, rgba(255,255,255,0.82), rgba(255,255,255,0.5));
+    border: 1px solid color-mix(in srgb, var(--border), transparent 15%);
+    border-radius: 18px;
+    padding: 18px 22px;
+    box-shadow: 0 14px 34px rgba(15,23,42,0.08);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .dark .ss-faq-item {
+    background: linear-gradient(160deg, rgba(24,24,27,0.95), rgba(9,9,11,0.75));
+    border-color: rgba(255,255,255,0.08);
+  }
+  .ss-faq-item.is-open {
+    border-color: var(--accent-border);
+    box-shadow: 0 18px 48px rgba(15,23,42,0.12);
+  }
+  .ss-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.35s ease;
+    opacity: 0;
+  }
+  .ss-faq-answer.is-open {
+    max-height: 240px;
+    opacity: 1;
+  }
   .ss-faq-card {
     background: linear-gradient(150deg, rgba(255,255,255,0.8), rgba(255,255,255,0.5));
     border: 1px solid color-mix(in srgb, var(--border), transparent 15%);
@@ -390,22 +420,33 @@
   .ss-team-section {
     background: linear-gradient(180deg, transparent 0%, rgba(16,185,129,0.06) 40%, transparent 100%);
   }
-  .ss-team-grid {
+  .ss-team-editorial {
     display: grid;
-    grid-template-columns: 1.6fr 1fr;
+    grid-template-columns: 1.4fr 1fr;
     gap: 18px;
   }
-  .ss-team-stack {
+  .ss-team-side {
     display: grid;
     gap: 18px;
   }
-  .ss-team-card {
+  .ss-team-img {
     border-radius: 18px;
-    padding: 24px;
-    background: linear-gradient(150deg, rgba(16,185,129,0.12), rgba(15,23,42,0.2));
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 16px 40px rgba(15,23,42,0.1);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .ss-team-img:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 50px rgba(15,23,42,0.16);
+  }
+  .ss-team-stats {
+    border-radius: 18px;
+    padding: 22px 24px;
+    background: linear-gradient(140deg, rgba(16,185,129,0.16), rgba(15,23,42,0.28));
     color: #fff;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
     border: 1px solid rgba(16,185,129,0.35);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.18);
   }
   @media (max-width: 900px) {
     .ss-two-col,
@@ -417,7 +458,7 @@
     }
     .ss-usecase-grid,
     .ss-faq-grid,
-    .ss-team-grid {
+    .ss-team-editorial {
       grid-template-columns: 1fr;
     }
     .ss-three-col,

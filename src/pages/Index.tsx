@@ -417,23 +417,26 @@ export default function Index() {
             </Link>
           </div>
 
-          <div className="ss-faq-grid" style={{ marginBottom: 32 }}>
-            {faqs.slice(0, 4).map((f, idx) => (
-              <div key={f.question} className="ss-faq-card">
-                <button
-                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                  style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", gap: 14, background: "none", border: "none", padding: 0, textAlign: "left", cursor: "pointer" }}
-                >
-                  <span style={{ fontSize: 15, fontWeight: 700, color: "var(--text)" }}>{f.question}</span>
-                  <ChevronDown size={16} style={{ color: "var(--text-subtle)", transform: openFaq === idx ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s ease" }} />
-                </button>
-                {openFaq === idx && (
-                  <p style={{ marginTop: 12, fontSize: 13, color: "var(--text-muted)", lineHeight: 1.7 }}>
-                    {f.answer}
-                  </p>
-                )}
-              </div>
-            ))}
+          <div className="ss-faq-stack" style={{ marginBottom: 32 }}>
+            {faqs.slice(0, 5).map((f, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <div key={f.question} className={`ss-faq-item ${isOpen ? "is-open" : ""}`}>
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", gap: 14, background: "none", border: "none", padding: 0, textAlign: "left", cursor: "pointer" }}
+                  >
+                    <span style={{ fontSize: 16, fontWeight: 700, color: "var(--text)" }}>{f.question}</span>
+                    <ChevronDown size={16} style={{ color: "var(--text-subtle)", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.25s ease" }} />
+                  </button>
+                  <div className={`ss-faq-answer ${isOpen ? "is-open" : ""}`}>
+                    <p style={{ marginTop: 12, fontSize: 14, color: "var(--text-muted)", lineHeight: 1.75, maxWidth: 620 }}>
+                      {f.answer}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
           <div style={{ borderRadius: 20, border: "1px solid var(--border)", background: "var(--bg2)", padding: "22px 26px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 14 }}>
@@ -472,23 +475,23 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="ss-team-grid">
-            <div style={{ borderRadius: 20, overflow: "hidden", border: "1px solid var(--border)" }}>
+          <div className="ss-team-editorial">
+            <div className="ss-team-img" style={{ minHeight: 420 }}>
               <img src={IMG.meeting} alt="Team meeting" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
-            <div className="ss-team-stack">
-              <div style={{ borderRadius: 18, overflow: "hidden", border: "1px solid var(--border)" }}>
+            <div className="ss-team-side">
+              <div className="ss-team-img" style={{ minHeight: 200 }}>
                 <img src={IMG.collab} alt="Collaboration" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
-              <div style={{ borderRadius: 18, overflow: "hidden", border: "1px solid var(--border)" }}>
+              <div className="ss-team-img" style={{ minHeight: 200 }}>
                 <img src={IMG.teamFun} alt="Team working" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
-              <div className="ss-team-card">
-                <div style={{ fontSize: 12, textTransform: "uppercase", letterSpacing: "0.14em", opacity: 0.7, marginBottom: 10 }}>
+              <div className="ss-team-stats">
+                <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.18em", opacity: 0.7, marginBottom: 10 }}>
                   Team snapshot
                 </div>
-                <div style={{ fontSize: 42, fontWeight: 800, letterSpacing: "-0.03em", marginBottom: 6 }}>18</div>
-                <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 12 }}>Researchers and builders in London</div>
+                <div style={{ fontSize: 40, fontWeight: 800, letterSpacing: "-0.03em", marginBottom: 6 }}>18</div>
+                <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 10 }}>Researchers and builders in London</div>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 8, fontSize: 12, opacity: 0.8, marginBottom: 14 }}>
                   <span>AI research</span>
                   <span>Product design</span>
@@ -499,10 +502,6 @@ export default function Index() {
                 </Link>
               </div>
             </div>
-          </div>
-
-          <div style={{ marginTop: 18, borderRadius: 18, overflow: "hidden", border: "1px solid var(--border)" }}>
-            <img src={IMG.lunch} alt="Team lunch" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           </div>
         </div>
       </section>
