@@ -1,50 +1,158 @@
-import { Calendar, MapPin, ArrowRight } from "lucide-react";
+import { Calendar, MapPin, Users, Zap, Award, ArrowRight, Ticket } from "lucide-react";
 import { events } from "@/data/content";
+
+const IMG = {
+  hackathon: "https://raw.createusercontent.com/87f37f11-dceb-4517-aabf-2fff4cf24440/",
+  allHands: "https://raw.createusercontent.com/9e8b570a-0a03-4f98-8f5e-f177694f90b6/",
+};
+
+const highlights = [
+  {
+    Icon: Award,
+    title: "Prizes and grants",
+    desc: "We fund developers building open-source tools for media authenticity. 50k in prizes at our annual hackathon.",
+  },
+  {
+    Icon: Users,
+    title: "Community first",
+    desc: "Monthly meetups in London for AI researchers, journalists, and security professionals.",
+  },
+  {
+    Icon: Zap,
+    title: "On-demand learning",
+    desc: "Access recordings, research papers, and slides from all past events in our resource library.",
+  },
+];
+
+const typeColors: Record<string, { bg: string; text: string; dark: string; darkText: string }> = {
+  Hackathon: { bg: "#fef3c7", text: "#92400e", dark: "rgba(251,191,36,0.12)", darkText: "#fbbf24" },
+  Workshop: { bg: "#dbeafe", text: "#1e40af", dark: "rgba(96,165,250,0.12)", darkText: "#60a5fa" },
+  Conference: { bg: "#f3e8ff", text: "#7c3aed", dark: "rgba(167,139,250,0.12)", darkText: "#a78bfa" },
+};
 
 export default function Events() {
   return (
-    <div className="flex flex-col">
-      <section className="ss-container pt-20 pb-12 text-center">
-        <span className="accent-chip mx-auto">Events</span>
-        <h1 className="mt-6 text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05]">
-          Come build with us <span className="grad-text">in real life.</span>
-        </h1>
-        <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Hackathons, workshops, and conversations about AI, trust, and what comes next.
-        </p>
+    <div style={{ paddingTop: 70 }}>
+      <section style={{ padding: "80px 0", background: "var(--bg)" }}>
+        <div className="ss-container">
+          <div className="ss-two-col" style={{ alignItems: "center", marginBottom: 80 }}>
+            <div>
+              <p className="ss-pill" style={{ marginBottom: 22 }}>
+                Events and community
+              </p>
+              <h1 style={{ fontSize: "clamp(36px,4.5vw,58px)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.08, color: "var(--text)", marginBottom: 22 }}>
+                Shaping the future of truth, together.
+              </h1>
+              <p style={{ fontSize: 17, color: "var(--text-muted)", lineHeight: 1.7, marginBottom: 36 }}>
+                We host hackathons, workshops, and webinars in London and online to empower developers and professionals fighting synthetic misinformation.
+              </p>
+              <a href="#events" className="ss-btn ss-btn-primary">
+                View upcoming events <ArrowRight size={15} />
+              </a>
+            </div>
+            <div style={{ position: "relative" }}>
+              <div style={{ borderRadius: 18, overflow: "hidden", border: "1px solid var(--border)" }}>
+                <img src={IMG.hackathon} alt="Sentinel Hackathon 2026" style={{ width: "100%", aspectRatio: "16/10", objectFit: "cover", display: "block" }} />
+              </div>
+              <div style={{ position: "absolute", top: 16, right: 16, background: "var(--accent)", borderRadius: 999, padding: "8px 16px", display: "flex", alignItems: "center", gap: 6 }}>
+                <Ticket size={13} color="#fff" />
+                <span style={{ fontSize: 12, fontWeight: 700, color: "#fff" }}>Sentinel Hack 2026 - Open</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="ss-three-col">
+            {highlights.map(({ Icon, title, desc }) => (
+              <div key={title} className="ss-card" style={{ padding: "28px 24px", textAlign: "center" }}>
+                <div style={{ width: 48, height: 48, borderRadius: 14, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 18px" }}>
+                  <Icon size={20} color="var(--accent)" />
+                </div>
+                <h3 style={{ fontWeight: 700, fontSize: 15, color: "var(--text)", marginBottom: 8 }}>{title}</h3>
+                <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.65 }}>{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
-      <section className="ss-container py-10 space-y-5">
-        {events.map((e) => (
-          <article key={e.id} className="rounded-2xl border border-border bg-card p-8 hover:border-primary/40 transition-colors">
-            <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className="accent-chip">{e.type}</span>
-              {!e.registrationOpen && (
-                <span className="text-xs px-2.5 py-1 rounded-full bg-muted text-muted-foreground border border-border">
-                  Registration soon
-                </span>
-              )}
+      <section style={{ padding: "0 0 96px", background: "var(--bg)" }}>
+        <div className="ss-container">
+          <div style={{ border: "1px solid var(--accent-border)", borderRadius: 20, overflow: "hidden", display: "grid", gridTemplateColumns: "1fr 1fr" }} className="ss-two-col">
+            <div style={{ overflow: "hidden" }}>
+              <img src={IMG.allHands} alt="Sentinel community gathering" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", minHeight: 280 }} />
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">{e.title}</h2>
-            <p className="text-muted-foreground leading-relaxed mb-6 max-w-3xl">{e.description}</p>
-            <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 pt-5 border-t border-border">
-              <div className="flex items-center gap-2 text-sm">
-                <Calendar size={15} className="text-primary" />
-                <span className="text-muted-foreground">{e.date}</span>
+            <div style={{ padding: "48px 40px", background: "var(--accent-dim)" }}>
+              <div className="ss-pill" style={{ marginBottom: 20 }}>
+                Flagship event
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <MapPin size={15} className="text-primary" />
-                <span className="text-muted-foreground">{e.location}</span>
-              </div>
-              <button
-                disabled={!e.registrationOpen}
-                className={`md:ml-auto ss-btn ${e.registrationOpen ? "ss-btn-primary" : "ss-btn-ghost opacity-60 cursor-not-allowed"} px-5 h-10`}
-              >
-                {e.registrationOpen ? "Register" : "Notify me"} <ArrowRight size={14} />
-              </button>
+              <h2 style={{ fontSize: 28, fontWeight: 800, letterSpacing: "-0.03em", color: "var(--text)", marginBottom: 14 }}>
+                Sentinel Hackathon 2026
+              </h2>
+              <p style={{ color: "var(--text-muted)", fontSize: 14, lineHeight: 1.7, marginBottom: 24 }}>
+                48 hours. 3 tracks. 50k in prizes. Join us in London for the most important hackathon in AI-powered media authentication.
+              </p>
+              {[
+                ["Date", "August 12-14, 2026"],
+                ["Location", "London, UK + virtual stream"],
+                ["Prizes", "50,000 across 3 categories"],
+              ].map(([k, v]) => (
+                <div key={k} style={{ display: "flex", gap: 10, fontSize: 13, color: "var(--text-muted)", marginBottom: 8 }}>
+                  <strong style={{ color: "var(--text)", minWidth: 82 }}>{k}:</strong> {v}
+                </div>
+              ))}
+              <a href="#events" className="ss-btn ss-btn-primary" style={{ marginTop: 12 }}>
+                Apply now <ArrowRight size={14} />
+              </a>
             </div>
-          </article>
-        ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="events" style={{ padding: "96px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
+        <div className="ss-container">
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 12 }}>
+              Upcoming events
+            </h2>
+            <p style={{ color: "var(--text-muted)", fontSize: 15, maxWidth: 520, margin: "0 auto" }}>
+              Join us in person or online. Every event is designed to help people build safer media.
+            </p>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            {events.map((e) => {
+              const tint = typeColors[e.type as keyof typeof typeColors];
+              return (
+                <article key={e.id} style={{ border: "1px solid var(--border)", borderRadius: 18, background: "var(--bg)", padding: "28px 26px" }}>
+                  <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 10, marginBottom: 16 }}>
+                    <span style={{ padding: "6px 12px", borderRadius: 999, fontSize: 12, fontWeight: 700, background: tint?.dark ?? "var(--bg3)", color: tint?.darkText ?? "var(--text-muted)" }}>
+                      {e.type}
+                    </span>
+                    {!e.registrationOpen && (
+                      <span style={{ fontSize: 12, color: "var(--text-subtle)", border: "1px solid var(--border)", padding: "4px 10px", borderRadius: 999 }}>
+                        Registration soon
+                      </span>
+                    )}
+                  </div>
+                  <h3 style={{ fontSize: 22, fontWeight: 800, color: "var(--text)", marginBottom: 10 }}>
+                    {e.title}
+                  </h3>
+                  <p style={{ color: "var(--text-muted)", fontSize: 14, lineHeight: 1.7, marginBottom: 16 }}>{e.description}</p>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 18, alignItems: "center" }}>
+                    <span style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "var(--text-muted)" }}>
+                      <Calendar size={14} color="var(--accent)" /> {e.date}
+                    </span>
+                    <span style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "var(--text-muted)" }}>
+                      <MapPin size={14} color="var(--accent)" /> {e.location}
+                    </span>
+                    <button className="ss-btn" style={{ marginLeft: "auto", background: e.registrationOpen ? "var(--accent)" : "var(--bg3)", color: e.registrationOpen ? "#fff" : "var(--text-muted)", padding: "10px 18px", borderRadius: 999 }} disabled={!e.registrationOpen}>
+                      {e.registrationOpen ? "Register" : "Notify me"}
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
       </section>
     </div>
   );

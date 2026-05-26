@@ -1,238 +1,420 @@
-import {
-  ShieldCheck,
-  Download,
-  Monitor,
-  Cpu,
-  Eye,
-  ArrowRight,
-  AlertTriangle,
-  Layers,
-  Mic,
-  Video,
-  PhoneOff
-} from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { useGitHubRelease } from "@/hooks/use-github-release";
+import { faqs, useCases } from "@/data/content";
+
+const IMG = {
+  hero: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&crop=faces&w=1200&q=80",
+  london: "https://raw.createusercontent.com/ccd74725-e0d2-4cb4-8c32-f1b3fa0b8fad/",
+  teamFun: "https://raw.createusercontent.com/ca8cf7f9-95de-496c-9835-fc6dc686bda6/",
+  collab: "https://raw.createusercontent.com/46d2361b-241c-4514-b167-4614b864a206/",
+  lunch: "https://raw.createusercontent.com/85496808-8f95-40aa-aaf8-6a845631d802/",
+  meeting: "https://raw.createusercontent.com/da8d53c9-1735-44bf-9b47-6b7a0019424e/",
+};
+
+const stats = [
+  { v: "99/100", l: "Fake videos caught", sub: "We rarely miss one" },
+  { v: "Instant", l: "Warning speed", sub: "You are told right away" },
+  { v: "Zero", l: "Data sent to us", sub: "Complete privacy, always" },
+  { v: "4,000+", l: "People protected", sub: "And growing every day" },
+];
+
+const logos = ["JPMORGAN", "REUTERS", "KPMG", "DELOITTE", "THE GUARDIAN", "BBC NEWS"];
+
+const pillars = [
+  {
+    title: "Works on any video, anywhere",
+    desc: "Whether you are on a video call, watching the news, or scrolling social media, ScreenSentinel quietly watches alongside you.",
+  },
+  {
+    title: "Your screen stays private",
+    desc: "We never see what is on your screen. Everything is checked on your computer and nothing is sent to us.",
+  },
+  {
+    title: "Clear warnings, straight away",
+    desc: "The moment something looks fake, you get one simple alert you can act on.",
+  },
+  {
+    title: "So quiet you forget it is there",
+    desc: "Runs in the background and only speaks up when it matters. No slowdowns.",
+  },
+];
 
 export default function Index() {
   const { data: release, isLoading } = useGitHubRelease();
-  
   const exeLink = release?.exeUrl || "https://github.com/omtripathi52/ScreenSentinel/releases/latest";
   const versionText = isLoading ? "Checking..." : (release?.version || "v2.0.0");
-  // Support simple A/B hero variants: ?variant=b for alternative copy
-  const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : new URLSearchParams('');
-  const variant = params.get('variant') || 'a';
-
-  const hero = variant === 'b' ? {
-    titleLine1: 'Is That Video Real?',
-    titleLine2: 'Get an Instant On-Screen Check',
-    sub: 'A lightweight app that flags likely deepfakes while you watch – private, local, and easy to use.',
-    cta: 'Download – Free'
-  } : {
-    titleLine1: 'Spot Deepfakes Instantly –',
-    titleLine2: ' Right on Your Screen.',
-    sub: 'Get an immediate alert when a video looks manipulated, so you can act before it spreads. No uploads, no extra steps – just protection while you watch.',
-    cta: 'Download – Free'
-  };
 
   return (
-    <div className="flex flex-col w-full">
-      
-      {/* 1. HERO SECTION */}
-      <section className="relative pt-12 pb-12 sm:pb-20 overflow-hidden border-b border-zinc-900">
-        <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start lg:items-center">
-          
-          <div className="flex flex-col space-y-8 z-10">
-            <div className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-sm text-emerald-400 w-fit">
-              <span className="flex h-2 w-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
-              Version {versionText} is Live
-            </div>
-
-            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-zinc-50 leading-tight">
-              {hero.titleLine1}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500">{hero.titleLine2}</span>
-            </h1>
-
-            <p className="text-lg text-zinc-400 leading-relaxed max-w-xl">{hero.sub}</p>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a 
-                href={exeLink}
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-zinc-50 px-8 font-semibold text-zinc-950 shadow transition-colors hover:bg-zinc-200"
+    <div style={{ paddingTop: 70 }}>
+      {/* HERO */}
+      <section style={{ padding: "80px 0 0", overflow: "hidden", background: "var(--bg)" }}>
+        <div className="ss-container">
+          <div className="ss-two-col" style={{ alignItems: "center", paddingBottom: 72 }}>
+            <div>
+              <div className="ss-pill" style={{ marginBottom: 24 }}>
+                Version {versionText} live
+              </div>
+              <h1
+                style={{
+                  fontSize: "clamp(36px,4.5vw,60px)",
+                  fontWeight: 800,
+                  letterSpacing: "-0.04em",
+                  lineHeight: 1.07,
+                  color: "var(--text)",
+                  marginBottom: 20,
+                }}
               >
-                <Download className="h-4 w-4" />
-                {hero.cta}
-              </a>
-              {/* DISABLED ZIP BUTTON */}
-              <button 
-                disabled
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-zinc-800 bg-zinc-900/50 px-8 font-semibold text-zinc-600 cursor-not-allowed"
-              >
-                Portable (.zip) - Coming Soon
-              </button>
-            </div>
-            
-            <p className="text-xs text-zinc-500 font-mono">
-              Latest Build: <span className="text-zinc-300">{versionText}</span> | Requires: Windows 10/11 (64-bit)
-            </p>
-          </div>
-
-          {/* Right Column: Realistic Overlay Mockup */}
-          <div className="relative z-10 w-full mt-6 lg:mt-0">
-            <div className="relative rounded-xl border border-zinc-800 bg-zinc-950 p-2 shadow-2xl overflow-hidden">
-              
-              <div className="aspect-video bg-zinc-950 rounded-lg relative border border-zinc-800 overflow-hidden max-h-[320px] sm:max-h-none">
-                {/* Realistic Background Image (Face-Centered) */}
-                <img 
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&crop=faces&w=800&h=450&q=80" 
-                  alt="Video Call Mockup" 
-                  className="w-full h-full object-cover object-center opacity-90"
-                />
-                
-                {/* Fake Meeting Controls */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3">
-                  <div className="bg-zinc-900/80 p-2.5 rounded-full border border-zinc-700/50 backdrop-blur-md">
-                    <Mic className="w-4 h-4 text-zinc-300" />
-                  </div>
-                  <div className="bg-zinc-900/80 p-2.5 rounded-full border border-zinc-700/50 backdrop-blur-md">
-                    <Video className="w-4 h-4 text-zinc-300" />
-                  </div>
-                  <div className="bg-red-500/90 p-2.5 rounded-full border border-red-600 backdrop-blur-md">
-                    <PhoneOff className="w-4 h-4 text-zinc-50" />
-                  </div>
-                </div>
-
-                {/* The ScreenSentinel Overlay (Responsive Mobile Sizing) */}
-                <div className="absolute top-2 left-2 md:top-4 md:left-4 w-[130px] md:w-44 lg:w-52 bg-zinc-950/90 backdrop-blur-md border border-zinc-700 rounded-lg p-2 md:p-3 shadow-xl">
-                  
-                  <div className="flex items-center justify-between mb-1.5 md:mb-2">
-                    <span className="text-[8px] md:text-[10px] font-semibold text-zinc-400 tracking-wider">
-                      SCREENSENTINEL
-                    </span>
-                    <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  </div>
-
-                  <div className="flex items-center gap-2 md:gap-2.5 mb-2 md:mb-2.5">
-                    <div className="p-1 md:p-1.5 bg-emerald-500/20 rounded-md border border-emerald-500/30 shrink-0">
-                      <ShieldCheck className="h-3 w-3 md:h-4 md:w-4 text-emerald-400" />
-                    </div>
-                    <div className="min-w-0">
-                      <h4 className="text-emerald-400 font-bold text-[10px] md:text-sm leading-none whitespace-nowrap">
-                        ✓ REAL
-                      </h4>
-                      <p className="text-[7px] md:text-[9px] text-zinc-500 mt-0.5 whitespace-nowrap">
-                        Status: Stable
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="w-full bg-zinc-800 rounded-full h-1">
-                    <div className="bg-emerald-500 h-1 rounded-full w-[94%]"></div>
-                  </div>
-
-                  <p className="text-[7px] md:text-[9px] text-zinc-400 mt-1.5 md:mt-2 leading-tight md:leading-relaxed line-clamp-2 md:line-clamp-none">
-                    No manipulation detected in current frame window.
-                  </p>
-                </div>
+                Can you trust
+                <br />
+                <span style={{ color: "var(--accent)" }}>what you are watching?</span>
+              </h1>
+              <p style={{ fontSize: 17, color: "var(--text-muted)", lineHeight: 1.75, maxWidth: 460, marginBottom: 36 }}>
+                AI can create fake videos of real people saying and doing things they never did. ScreenSentinel watches your screen and tells you instantly if a video looks faked.
+              </p>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 32 }}>
+                <a href={exeLink} className="ss-btn ss-btn-primary">
+                  Download free <ArrowRight size={15} />
+                </a>
+                <Link to="/product" className="ss-btn ss-btn-ghost">
+                  See how it works
+                </Link>
+              </div>
+              <div style={{ fontSize: 13, color: "var(--text-muted)" }}>
+                Windows 10 and 11. Latest build: {versionText}
               </div>
             </div>
 
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] sm:w-[500px] sm:h-[500px] bg-gradient-to-r from-zinc-900/40 via-zinc-900/20 to-transparent blur-[60px] sm:blur-[100px] rounded-full -z-10 pointer-events-none"></div>
+            <div style={{ position: "relative" }}>
+              <div
+                style={{
+                  borderRadius: 20,
+                  overflow: "hidden",
+                  border: "1px solid var(--border)",
+                  boxShadow: "0 32px 80px rgba(0,0,0,0.25)",
+                }}
+              >
+                <img
+                  src={IMG.hero}
+                  alt="Person on a video call"
+                  style={{ width: "100%", aspectRatio: "4/3", objectFit: "cover", display: "block" }}
+                />
+              </div>
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: -12,
+                  left: -12,
+                  background: "var(--surface)",
+                  border: "1px solid var(--border)",
+                  borderRadius: 10,
+                  padding: "10px 14px",
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                  maxWidth: 220,
+                }}
+              >
+                <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#dc2626" }} />
+                <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text)" }}>
+                  This looks fake
+                </div>
+              </div>
+              <div
+                style={{
+                  position: "absolute",
+                  top: 16,
+                  right: 16,
+                  background: "rgba(16,185,129,0.15)",
+                  border: "1px solid rgba(16,185,129,0.3)",
+                  borderRadius: 10,
+                  padding: "8px 14px",
+                  backdropFilter: "blur(8px)",
+                  fontSize: 11,
+                  fontWeight: 600,
+                  color: "var(--accent)",
+                }}
+              >
+                Watching your screen
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* London strip */}
+        <div style={{ height: 180, overflow: "hidden", position: "relative" }}>
+          <img
+            src={IMG.london}
+            alt="London cityscape"
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 65%" }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(to bottom, var(--bg) 0%, transparent 35%, transparent 65%, var(--bg) 100%)",
+            }}
+          />
+          <div
+            style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}
+          >
+            <div
+              style={{
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
+                borderRadius: 999,
+                padding: "8px 20px",
+                backdropFilter: "blur(12px)",
+                display: "flex",
+                alignItems: "center",
+                gap: 8,
+              }}
+            >
+              <span style={{ fontSize: 13, fontWeight: 600, color: "var(--text)" }}>
+                Based in Shoreditch, London
+              </span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 4. FAQ & CTA */}
-      <section className="py-12 sm:py-20">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl font-bold text-zinc-50">Quick FAQ</h2>
-            <p className="text-zinc-400 mt-2">Short answers to the most common questions.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-zinc-950 border border-zinc-800 p-6 rounded-xl">
-              <h4 className="text-zinc-100 font-semibold mb-2">Do you upload videos?</h4>
-              <p className="text-zinc-400 text-sm">No — all analysis happens on your PC by default. We do not send your videos to the cloud.</p>
-            </div>
-            <div className="bg-zinc-950 border border-zinc-800 p-6 rounded-xl">
-              <h4 className="text-zinc-100 font-semibold mb-2">Will it use my webcam?</h4>
-              <p className="text-zinc-400 text-sm">No. ScreenSentinel only looks at the pixels of videos playing on your screen.</p>
-            </div>
-            <div className="bg-zinc-950 border border-zinc-800 p-6 rounded-xl">
-              <h4 className="text-zinc-100 font-semibold mb-2">What if the alert is wrong?</h4>
-              <p className="text-zinc-400 text-sm">Click the alert to report it. This helps us improve the detector and reduces future false positives.</p>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <a href={exeLink} className="inline-flex items-center gap-3 bg-emerald-500 text-zinc-900 font-semibold px-6 py-3 rounded-md shadow hover:bg-emerald-400">
-              <Download className="w-4 h-4" /> Download – Free
-            </a>
-            <a href="/technology" className="ml-4 inline-flex items-center gap-2 border border-zinc-800 text-zinc-300 px-5 py-3 rounded-md hover:bg-zinc-900">Learn how it works</a>
+      {/* LOGOS */}
+      <section style={{ padding: "44px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
+        <div className="ss-container">
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: 11,
+              fontWeight: 600,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "var(--text-subtle)",
+              marginBottom: 24,
+            }}
+          >
+            Trusted by organizations across the world
+          </p>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 44, flexWrap: "wrap" }}>
+            {logos.map((l) => (
+              <span key={l} style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.12em", color: "var(--text-subtle)", opacity: 0.55 }}>
+                {l}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 2. HOW IT WORKS */}
-      <section className="py-12 sm:py-20 bg-zinc-950/50 border-b border-zinc-900">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-zinc-50 mb-4">How it works</h2>
-            <p className="text-zinc-400">ScreenSentinel quietly checks the video on your screen and warns you if something looks manipulated — all on your device, with no uploads.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
-            <div className="hidden md:block absolute top-1/2 left-0 w-full h-px bg-zinc-800 -z-10 -translate-y-1/2"></div>
-            {[
-              { icon: <Monitor className="h-6 w-6 text-emerald-500 mb-3" />, title: "Instant checks", text: "Detects likely fakes in seconds while you watch." },
-              { icon: <Eye className="h-6 w-6 text-emerald-500 mb-3" />, title: "No camera access", text: "Only analyzes the video on your screen — it never uses your webcam." },
-              { icon: <Cpu className="h-6 w-6 text-emerald-500 mb-3" />, title: "Local and private", text: "All analysis runs on your PC; nothing is uploaded." },
-              { icon: <Layers className="h-6 w-6 text-emerald-500 mb-3" />, title: "Stable alerts", text: "We check a short frame window so alerts stay steady and useful." },
-              { icon: <AlertTriangle className="h-6 w-6 text-emerald-500 mb-3" />, title: "Clear guidance", text: "When alerted, get a simple explanation and next steps." },
-            ].map((step, index) => (
-              <div key={index} className="bg-zinc-950 border border-zinc-800 p-6 rounded-xl flex flex-col items-center text-center relative">
-                <div className="h-12 w-12 bg-zinc-900 border border-zinc-700 rounded-full flex items-center justify-center mb-4 text-zinc-300 z-10">{index + 1}</div>
-                {step.icon}
-                <h3 className="font-semibold text-zinc-100 text-sm mb-2">{step.title}</h3>
-                <p className="text-xs text-zinc-500">{step.text}</p>
+      {/* STATS */}
+      <section style={{ padding: "72px 0", background: "var(--bg)" }}>
+        <div className="ss-container">
+          <div style={{ borderRadius: 16, overflow: "hidden", border: "1px solid var(--border)" }} className="ss-stats-grid">
+            {stats.map((s, i) => (
+              <div
+                key={s.l}
+                style={{ padding: "40px 28px", background: i === 3 ? "var(--accent)" : "var(--bg2)", textAlign: "center", borderRight: i < 3 ? "1px solid var(--border)" : "none" }}
+              >
+                <div style={{ fontSize: 44, fontWeight: 900, letterSpacing: "-0.05em", color: i === 3 ? "#fff" : "var(--text)", marginBottom: 6, lineHeight: 1 }}>
+                  {s.v}
+                </div>
+                <div style={{ fontSize: 14, color: i === 3 ? "rgba(255,255,255,0.95)" : "var(--text)", fontWeight: 700, marginBottom: 4 }}>
+                  {s.l}
+                </div>
+                <div style={{ fontSize: 12, color: i === 3 ? "rgba(255,255,255,0.65)" : "var(--text-subtle)" }}>{s.sub}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 3. ROADMAP */}
-      <section className="py-12 sm:py-20 border-b border-zinc-900">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-12 items-center">
-            <div className="flex-1">
-              <h2 className="text-3xl font-bold text-zinc-50 mb-4">The Future of Everyday Security.</h2>
-              <p className="text-zinc-400 mb-6">
-                ScreenSentinel is just the beginning. We're actively building the next generation of internet safety tools to protect everyday users from AI manipulation and online scams.
+      {/* USE CASES */}
+      <section style={{ padding: "80px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
+        <div className="ss-container">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 52, gap: 24, flexWrap: "wrap" }}>
+            <div>
+              <h2 style={{ fontSize: 34, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 10 }}>
+                Made to fit how you already work
+              </h2>
+              <p style={{ color: "var(--text-muted)", fontSize: 15, maxWidth: 460, lineHeight: 1.65 }}>
+                Different jobs face different risks. Here is what ScreenSentinel does for your specific situation.
               </p>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <ArrowRight className="h-5 w-5 text-emerald-500 shrink-0" />
-                  <span className="text-zinc-300 text-sm"><strong>Optimized Performance:</strong> Running seamlessly in the background with zero impact on your computer's speed.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <ArrowRight className="h-5 w-5 text-emerald-500 shrink-0" />
-                  <span className="text-zinc-300 text-sm"><strong>Enhanced Detection:</strong> Continuously improving our core technology to catch even the newest forms of AI deception.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <ArrowRight className="h-5 w-5 text-emerald-500 shrink-0" />
-                  <span className="text-zinc-300 text-sm"><strong>Wider Compatibility:</strong> Ensuring smooth protection directly across all your devices and online platforms.</span>
-                </li>
-              </ul>
             </div>
-            
-            <div className="flex-1 bg-zinc-900/50 border border-zinc-800 p-6 rounded-xl">
-              <h3 className="text-zinc-100 font-semibold mb-4 border-b border-zinc-800 pb-2">Installation Guide</h3>
-              <div className="space-y-4 text-sm text-zinc-400">
-                <p><strong>Standard Installer:</strong> The setup file is available to download and install today.</p>
-                <div className="bg-zinc-950 p-4 rounded-md border border-zinc-800">
-                  <p className="text-amber-500 font-semibold mb-1">Windows SmartScreen</p>
-                  <p className="text-xs">Early builds are self-published and may show an "Unknown publisher" warning. Click "More info" then "Run anyway" to install, or wait for a signed build.</p>
+            <Link to="/solutions" className="ss-btn ss-btn-ghost">
+              See solutions <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          <div className="ss-row1" style={{ marginBottom: 14 }}>
+            <div style={{ borderRadius: 18, background: "rgba(59,130,246,0.05)", border: "1px solid rgba(59,130,246,0.18)", overflow: "hidden", padding: "44px 44px 36px", display: "flex", flexDirection: "column" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 32 }}>
+                <span style={{ fontSize: 48 }}>Social</span>
+                <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--border)", padding: "4px 12px", borderRadius: 999 }}>
+                  {useCases[0].stat}
+                </span>
+              </div>
+              <h2 style={{ fontSize: 28, fontWeight: 800, color: "var(--text)", marginBottom: 10, letterSpacing: "-0.03em", lineHeight: 1.2 }}>
+                {useCases[0].title}
+              </h2>
+              <p style={{ fontSize: 13, fontWeight: 700, color: "#3b82f6", marginBottom: 16 }}>
+                Stop misinformation before it spreads.
+              </p>
+              <p style={{ color: "var(--text-muted)", fontSize: 15, lineHeight: 1.75, flex: 1 }}>
+                {useCases[0].description}
+              </p>
+              <div style={{ marginTop: 28, paddingTop: 22, borderTop: "1px solid rgba(59,130,246,0.15)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+                <div style={{ display: "flex", gap: 18, flexWrap: "wrap" }}>
+                  {["Catches fakes instantly", "Works on any site", "No setup needed"].map((t) => (
+                    <span key={t} style={{ fontSize: 12, color: "var(--text-muted)", display: "flex", alignItems: "center", gap: 5 }}>
+                      <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#3b82f6", display: "inline-block" }} />
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <Link to="/contact" style={{ fontSize: 13, fontWeight: 700, color: "#3b82f6", textDecoration: "none", display: "flex", alignItems: "center", gap: 5 }}>
+                  Get started <ArrowRight size={13} />
+                </Link>
+              </div>
+            </div>
+
+            <div style={{ borderRadius: 18, background: "rgba(139,92,246,0.05)", border: "1px solid rgba(139,92,246,0.2)", overflow: "hidden", padding: "44px 36px 36px", display: "flex", flexDirection: "column" }}>
+              <span style={{ fontSize: 44, marginBottom: 28, display: "block" }}>Identity</span>
+              <h2 style={{ fontSize: 22, fontWeight: 800, color: "var(--text)", marginBottom: 8, letterSpacing: "-0.02em", lineHeight: 1.25 }}>
+                {useCases[1].title}
+              </h2>
+              <p style={{ fontSize: 13, fontWeight: 700, color: "#8b5cf6", marginBottom: 14 }}>
+                Your face. Your rules.
+              </p>
+              <p style={{ color: "var(--text-muted)", fontSize: 14, lineHeight: 1.75, flex: 1 }}>
+                {useCases[1].description}
+              </p>
+              <div style={{ marginTop: 24, display: "flex", alignItems: "center", gap: 10 }}>
+                <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--border)", padding: "4px 10px", borderRadius: 999 }}>
+                  {useCases[1].stat}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="ss-row2">
+            <div style={{ borderRadius: 18, background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.2)", overflow: "hidden", padding: "44px 36px 36px", display: "flex", flexDirection: "column" }}>
+              <span style={{ fontSize: 44, marginBottom: 28, display: "block" }}>News</span>
+              <h2 style={{ fontSize: 22, fontWeight: 800, color: "var(--text)", marginBottom: 8, letterSpacing: "-0.02em", lineHeight: 1.25 }}>
+                {useCases[2].title}
+              </h2>
+              <p style={{ fontSize: 13, fontWeight: 700, color: "#f59e0b", marginBottom: 14 }}>
+                Publish with confidence.
+              </p>
+              <p style={{ color: "var(--text-muted)", fontSize: 14, lineHeight: 1.75, flex: 1 }}>
+                {useCases[2].description}
+              </p>
+              <div style={{ marginTop: 24, display: "flex", alignItems: "center", gap: 10 }}>
+                <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--border)", padding: "4px 10px", borderRadius: 999 }}>
+                  {useCases[2].stat}
+                </span>
+              </div>
+            </div>
+
+            <div style={{ borderRadius: 18, background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", overflow: "hidden", padding: "44px 44px 36px", display: "flex", flexDirection: "column" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 32 }}>
+                <span style={{ fontSize: 48 }}>Enterprise</span>
+                <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--border)", padding: "4px 12px", borderRadius: 999 }}>
+                  {useCases[3].stat}
+                </span>
+              </div>
+              <h2 style={{ fontSize: 28, fontWeight: 800, color: "var(--text)", marginBottom: 10, letterSpacing: "-0.03em", lineHeight: 1.2 }}>
+                {useCases[3].title}
+              </h2>
+              <p style={{ fontSize: 13, fontWeight: 700, color: "#10b981", marginBottom: 16 }}>
+                Scammers now look and sound exactly like your boss.
+              </p>
+              <p style={{ color: "var(--text-muted)", fontSize: 15, lineHeight: 1.75, flex: 1 }}>
+                {useCases[3].description}
+              </p>
+              <div style={{ marginTop: 28, paddingTop: 22, borderTop: "1px solid rgba(16,185,129,0.15)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+                <div style={{ display: "flex", gap: 18, flexWrap: "wrap" }}>
+                  {["Works on Zoom and Teams", "Flags fakes in real time", "No IT setup needed"].map((t) => (
+                    <span key={t} style={{ fontSize: 12, color: "var(--text-muted)", display: "flex", alignItems: "center", gap: 5 }}>
+                      <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#10b981", display: "inline-block" }} />
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <Link to="/contact" style={{ fontSize: 13, fontWeight: 700, color: "#10b981", textDecoration: "none", display: "flex", alignItems: "center", gap: 5 }}>
+                  Talk to us <ArrowRight size={13} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY SCREENSENTINEL */}
+      <section style={{ padding: "96px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
+        <div className="ss-container">
+          <div className="ss-two-col" style={{ alignItems: "start" }}>
+            <div>
+              <p className="ss-pill" style={{ marginBottom: 20 }}>
+                Why people choose us
+              </p>
+              <h2 style={{ fontSize: 36, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 14, lineHeight: 1.1 }}>
+                Simple protection.
+                <br />
+                Zero effort.
+              </h2>
+              <p style={{ color: "var(--text-muted)", fontSize: 15, lineHeight: 1.75, marginBottom: 44 }}>
+                No technical knowledge needed. Install once and it quietly protects you every time you watch a video, on any site or app.
+              </p>
+              <div style={{ border: "1px solid var(--border)", borderRadius: 14, overflow: "hidden" }}>
+                {pillars.map((p, idx) => (
+                  <div
+                    key={p.title}
+                    style={{
+                      padding: "24px 26px",
+                      background: "var(--bg)",
+                      borderBottom: idx < pillars.length - 1 ? "1px solid var(--border)" : "none",
+                      display: "flex",
+                      gap: 18,
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    <div style={{ width: 42, height: 42, borderRadius: 11, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 1 }}>
+                      <span style={{ width: 10, height: 10, borderRadius: "50%", background: "var(--accent)" }} />
+                    </div>
+                    <div>
+                      <h3 style={{ fontSize: 15, fontWeight: 700, color: "var(--text)", marginBottom: 5 }}>
+                        {p.title}
+                      </h3>
+                      <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.7 }}>
+                        {p.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div style={{ position: "sticky", top: 100 }}>
+              <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 20, overflow: "hidden", boxShadow: "0 20px 60px rgba(0,0,0,0.15)" }}>
+                <div style={{ background: "var(--bg3)", padding: "12px 18px", display: "flex", alignItems: "center", gap: 7, borderBottom: "1px solid var(--border)" }}>
+                  {["#ff5f57", "#ffbd2e", "#28ca41"].map((c) => (
+                    <div key={c} style={{ width: 11, height: 11, borderRadius: "50%", background: c }} />
+                  ))}
+                </div>
+                <div style={{ padding: 22 }}>
+                  <div style={{ fontSize: 12, color: "var(--text-subtle)", marginBottom: 10 }}>
+                    Live screen check
+                  </div>
+                  <div style={{ background: "var(--bg3)", border: "1px solid var(--border)", borderRadius: 12, padding: 16 }}>
+                    <div style={{ fontWeight: 700, color: "var(--text)", marginBottom: 8 }}>
+                      Screen looks authentic
+                    </div>
+                    <div style={{ fontSize: 12, color: "var(--text-muted)", lineHeight: 1.6 }}>
+                      ScreenSentinel checks micro-signals in real time and warns you if something looks off.
+                    </div>
+                  </div>
+                  <div style={{ marginTop: 14, fontSize: 12, color: "var(--text-subtle)" }}>
+                    Running quietly in the background
+                  </div>
                 </div>
               </div>
             </div>
@@ -240,6 +422,80 @@ export default function Index() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section style={{ padding: "80px 0", background: "var(--bg)" }}>
+        <div className="ss-container">
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 12 }}>
+              Quick FAQ
+            </h2>
+            <p style={{ color: "var(--text-muted)", fontSize: 15 }}>
+              Short answers to the most common questions.
+            </p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16 }} className="ss-three-col">
+            {faqs.slice(0, 3).map((f) => (
+              <div key={f.question} className="ss-card" style={{ padding: "28px 24px" }}>
+                <h3 style={{ fontSize: 15, fontWeight: 700, color: "var(--text)", marginBottom: 10 }}>
+                  {f.question}
+                </h3>
+                <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.7 }}>
+                  {f.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: "center", marginTop: 32 }}>
+            <a href={exeLink} className="ss-btn ss-btn-primary">
+              Download free <ArrowRight size={14} />
+            </a>
+            <Link to="/product" className="ss-btn ss-btn-ghost" style={{ marginLeft: 10 }}>
+              Learn how it works
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* TEAM MOSAIC */}
+      <section style={{ padding: "0 0 96px", background: "var(--bg)" }}>
+        <div className="ss-container">
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <p className="ss-pill" style={{ marginBottom: 16 }}>
+              Our people
+            </p>
+            <h2 style={{ fontSize: 38, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 14 }}>
+              Real people, real mission
+            </h2>
+            <p style={{ color: "var(--text-muted)", fontSize: 16, maxWidth: 500, margin: "0 auto", lineHeight: 1.65 }}>
+              We are a team of researchers, designers, and problem-solvers based in London.
+            </p>
+          </div>
+          <div className="ss-mosaic">
+            <div style={{ gridRow: "1/3", borderRadius: 16, overflow: "hidden" }}>
+              <img src={IMG.meeting} alt="Team meeting" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            <div style={{ borderRadius: 16, overflow: "hidden" }}>
+              <img src={IMG.teamFun} alt="Team working" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            <div style={{ borderRadius: 16, overflow: "hidden" }}>
+              <img src={IMG.collab} alt="Collaboration" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            <div style={{ borderRadius: 16, overflow: "hidden" }}>
+              <img src={IMG.lunch} alt="Team lunch" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            <div style={{ borderRadius: 16, background: "var(--accent)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: 10, padding: 28, textAlign: "center" }}>
+              <div style={{ fontSize: 52, fontWeight: 800, color: "#fff", letterSpacing: "-0.04em" }}>18</div>
+              <div style={{ fontSize: 14, fontWeight: 600, color: "rgba(255,255,255,0.9)" }}>people on the team</div>
+              <div style={{ fontSize: 12, color: "rgba(255,255,255,0.65)", lineHeight: 1.5 }}>
+                All in London - engineers, researchers, designers, and more
+              </div>
+              <Link to="/careers" style={{ marginTop: 8, fontSize: 13, fontWeight: 700, color: "#fff", textDecoration: "underline", textUnderlineOffset: 3 }}>
+                We are hiring ->
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

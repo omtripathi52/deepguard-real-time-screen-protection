@@ -1,59 +1,125 @@
-import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { useMemo, useState } from "react";
+import { Calendar, Clock, ArrowRight, Search } from "lucide-react";
 import { blogPosts } from "@/data/content";
 
 export default function Blog() {
-  const [featured, ...rest] = blogPosts;
+  const categories = useMemo(() => ["All", ...new Set(blogPosts.map((p) => p.category))], []);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [query, setQuery] = useState("");
+
+  const filtered = blogPosts.filter((p) => {
+    const matchCategory = selectedCategory === "All" || p.category === selectedCategory;
+    const matchQuery = `${p.title} ${p.excerpt} ${p.author}`.toLowerCase().includes(query.toLowerCase());
+    return matchCategory && matchQuery;
+  });
+
+  const [featured, ...rest] = (filtered.length ? filtered : blogPosts) as typeof blogPosts;
 
   return (
-    <div className="flex flex-col">
-      <section className="ss-container pt-20 pb-10 text-center">
-        <span className="accent-chip mx-auto">Blog</span>
-        <h1 className="mt-6 text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05]">
-          Research, <span className="grad-text">guides & stories.</span>
-        </h1>
-        <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          What we've learned about deepfakes, privacy, and keeping the internet honest.
-        </p>
-      </section>
-
-      {/* Featured */}
-      <section className="ss-container py-10">
-        <article className="rounded-3xl border border-border bg-card p-8 md:p-12 hover:border-primary/40 transition-colors cursor-pointer group">
-          <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground mb-4">
-            <span className="accent-chip">{featured.category}</span>
-            <span className="flex items-center gap-1.5"><Calendar size={12} />{featured.date}</span>
-            <span className="flex items-center gap-1.5"><Clock size={12} />{featured.readTime}</span>
-          </div>
-          <h2 className="text-2xl md:text-4xl font-bold tracking-tight mb-4 group-hover:text-primary transition-colors">{featured.title}</h2>
-          <p className="text-muted-foreground leading-relaxed mb-6 max-w-3xl">{featured.excerpt}</p>
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center text-xs font-semibold text-primary">
-              {featured.author.split(" ").map((n) => n[0]).join("")}
-            </div>
-            <span className="text-sm text-muted-foreground">{featured.author}</span>
-            <ArrowRight size={16} className="ml-auto text-primary group-hover:translate-x-1 transition-transform" />
-          </div>
-        </article>
-      </section>
-
-      {/* Grid */}
-      <section className="ss-container py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {rest.map((post) => (
-            <article key={post.id} className="rounded-2xl border border-border bg-card p-7 hover:border-primary/40 transition-colors cursor-pointer group">
-              <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground mb-3">
-                <span className="accent-chip">{post.category}</span>
-                <span>·</span>
-                <span>{post.readTime}</span>
+    <div style={{ paddingTop: 70 }}>
+      <section style={{ padding: "80px 0", background: "var(--bg)" }}>
+        <div className="ss-container">
+          <div className="ss-two-col" style={{ alignItems: "center" }}>
+            <div>
+              <p className="ss-pill" style={{ marginBottom: 20 }}>
+                Journal
+              </p>
+              <h1 style={{ fontSize: "clamp(34px,4.6vw,58px)", fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", lineHeight: 1.08, marginBottom: 18 }}>
+                Research, stories, and insights on digital authenticity.
+              </h1>
+              <p style={{ color: "var(--text-muted)", fontSize: 16, lineHeight: 1.7, marginBottom: 26 }}>
+                A closer look at the policies, products, and people building trustworthy AI media.
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+                {categories.map((c) => (
+                  <button
+                    key={c}
+                    onClick={() => setSelectedCategory(c)}
+                    className="ss-btn"
+                    style={{
+                      padding: "8px 16px",
+                      borderRadius: 999,
+                      border: "1px solid var(--border)",
+                      background: selectedCategory === c ? "var(--accent)" : "var(--bg2)",
+                      color: selectedCategory === c ? "#fff" : "var(--text-muted)",
+                      fontWeight: 600,
+                    }}
+                  >
+                    {c}
+                  </button>
+                ))}
               </div>
-              <h3 className="text-[19px] font-semibold leading-snug mb-3 group-hover:text-primary transition-colors">{post.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-5">{post.excerpt}</p>
-              <div className="flex items-center justify-between pt-4 border-t border-border">
-                <span className="text-xs text-muted-foreground">{post.author} · {post.date}</span>
-                <ArrowRight size={15} className="text-primary group-hover:translate-x-1 transition-transform" />
+            </div>
+            <div style={{ background: "var(--bg2)", border: "1px solid var(--border)", borderRadius: 18, padding: "26px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, border: "1px solid var(--border)", borderRadius: 12, padding: "10px 14px", background: "var(--bg)" }}>
+                <Search size={16} color="var(--text-subtle)" />
+                <input
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Search articles"
+                  style={{ border: "none", outline: "none", background: "transparent", color: "var(--text)", width: "100%", fontSize: 14 }}
+                />
+              </div>
+              <p style={{ marginTop: 14, fontSize: 13, color: "var(--text-muted)", lineHeight: 1.6 }}>
+                Looking for press materials? Email <strong style={{ color: "var(--text)" }}>press@screensentinel.com</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {featured && (
+        <section style={{ padding: "0 0 80px", background: "var(--bg)" }}>
+          <div className="ss-container">
+            <article style={{ border: "1px solid var(--border)", borderRadius: 20, padding: "36px", background: "var(--bg2)", display: "grid", gap: 20 }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center" }}>
+                <span className="ss-pill">Featured</span>
+                <span style={{ fontSize: 12, color: "var(--text-subtle)" }}>{featured.category}</span>
+                <span style={{ fontSize: 12, color: "var(--text-subtle)" }}>•</span>
+                <span style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "var(--text-subtle)" }}>
+                  <Calendar size={12} /> {featured.date}
+                </span>
+                <span style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "var(--text-subtle)" }}>
+                  <Clock size={12} /> {featured.readTime}
+                </span>
+              </div>
+              <h2 style={{ fontSize: 28, fontWeight: 800, color: "var(--text)" }}>{featured.title}</h2>
+              <p style={{ color: "var(--text-muted)", fontSize: 15, lineHeight: 1.7 }}>{featured.excerpt}</p>
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <div style={{ width: 38, height: 38, borderRadius: "50%", background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 700, color: "var(--accent)" }}>
+                  {featured.author.split(" ").map((n) => n[0]).join("")}
+                </div>
+                <div>
+                  <div style={{ fontSize: 13, fontWeight: 600, color: "var(--text)" }}>{featured.author}</div>
+                  <div style={{ fontSize: 12, color: "var(--text-subtle)" }}>Research team</div>
+                </div>
+                <button className="ss-btn" style={{ marginLeft: "auto", background: "var(--accent)", color: "#fff" }}>
+                  Read article <ArrowRight size={14} />
+                </button>
               </div>
             </article>
-          ))}
+          </div>
+        </section>
+      )}
+
+      <section style={{ padding: "60px 0 90px", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
+        <div className="ss-container">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px,1fr))", gap: 18 }}>
+            {rest.map((post) => (
+              <article key={post.id} style={{ border: "1px solid var(--border)", borderRadius: 16, padding: "22px", background: "var(--bg)", display: "flex", flexDirection: "column", gap: 12 }}>
+                <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
+                  <span className="ss-pill">{post.category}</span>
+                  <span style={{ fontSize: 12, color: "var(--text-subtle)" }}>{post.readTime}</span>
+                </div>
+                <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--text)" }}>{post.title}</h3>
+                <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.6 }}>{post.excerpt}</p>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "auto", paddingTop: 12, borderTop: "1px solid var(--border)" }}>
+                  <span style={{ fontSize: 12, color: "var(--text-subtle)" }}>{post.author} • {post.date}</span>
+                  <ArrowRight size={14} color="var(--accent)" />
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </div>

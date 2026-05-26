@@ -1,88 +1,229 @@
-import { Link } from "react-router-dom";
-import { Shield, Heart, Target, ArrowRight } from "lucide-react";
+import { Target, Heart, Shield, MapPin, ArrowRight } from "lucide-react";
 import { teamMembers } from "@/data/content";
 
+const IMG = {
+  allHands: "https://raw.createusercontent.com/9e8b570a-0a03-4f98-8f5e-f177694f90b6/",
+  meeting: "https://raw.createusercontent.com/da8d53c9-1735-44bf-9b47-6b7a0019424e/",
+  teamFun: "https://raw.createusercontent.com/ca8cf7f9-95de-496c-9835-fc6dc686bda6/",
+  collab: "https://raw.createusercontent.com/46d2361b-241c-4514-b167-4614b864a206/",
+  lunch: "https://raw.createusercontent.com/85496808-8f95-40aa-aaf8-6a845631d802/",
+  london: "https://raw.createusercontent.com/ccd74725-e0d2-4cb4-8c32-f1b3fa0b8fad/",
+};
+
 const values = [
-  { icon: Shield, title: "Privacy first, always", desc: "Every product decision starts with one question: does this respect what's on the user's screen? If the answer's no, we don't ship it." },
-  { icon: Heart, title: "Built for real people", desc: "Not for security experts, not for IT teams — for anyone who's ever wondered if a video is real. Simple language, no jargon, no fuss." },
-  { icon: Target, title: "Ship what matters", desc: "We don't add features for the sake of it. Every release makes the core promise — spotting fakes — a little bit better." },
+  {
+    title: "Truth Above All",
+    Icon: Target,
+    desc: "Our mission is to preserve the integrity of visual media in a world where seeing is no longer believing.",
+  },
+  {
+    title: "Privacy First",
+    Icon: Shield,
+    desc: "We believe privacy is a fundamental human right. Our architecture reflects this in every line of code.",
+  },
+  {
+    title: "Human Centric",
+    Icon: Heart,
+    desc: "We build technology that serves people, not the other way around. Simple, clear, and effective.",
+  },
 ];
 
-export default function About() {
-  return (
-    <div className="flex flex-col">
-      <section className="ss-container pt-20 pb-12 text-center">
-        <span className="accent-chip mx-auto">About</span>
-        <h1 className="mt-6 text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05]">
-          We're building the tool <span className="grad-text">we wished existed.</span>
-        </h1>
-        <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          A small team in London on a simple mission: give everyone the power to tell real video from fake — without giving anything up.
-        </p>
-      </section>
+const milestones = [
+  { year: "2024 Q1", event: "ScreenSentinel founded in Shoreditch, London" },
+  { year: "2024 Q3", event: "First beta deployed to 200 security researchers" },
+  { year: "2025 Q1", event: "v1.0 public launch — 50,000 downloads in 30 days" },
+  { year: "2025 Q3", event: "Enterprise programme launched with 12 anchor clients" },
+  { year: "2026 Q1", event: "v2.4 released — 99.4% accuracy, sub-50ms latency" },
+];
 
-      {/* Story */}
-      <section className="ss-container py-12">
-        <div className="rounded-3xl border border-border bg-card p-10 md:p-14 max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold tracking-tight mb-6">Our story</h2>
-          <div className="space-y-5 text-[15px] leading-relaxed text-muted-foreground">
-            <p>
-              In 2024, our founder Marcus watched a senior executive get tricked into transferring half a million pounds during what looked like a perfectly normal video call with his CEO. The CEO was a deepfake.
-            </p>
-            <p>
-              The thing that stuck with him wasn't the money. It was how easily it happened. Smart, experienced people had no way to tell. The tools they had — antivirus, secure email, two-factor authentication — were built for a different kind of threat.
-            </p>
-            <p>
-              <span className="text-foreground font-medium">ScreenSentinel exists for that moment.</span> It's the warning that didn't exist that day. A small, quiet app that watches what you're watching and tells you — clearly, calmly, locally — when something doesn't add up.
-            </p>
+const pressItems = [
+  {
+    outlet: "The Guardian",
+    quote: '"The most privacy-conscious deepfake detector we\'ve tested."',
+    year: "2025",
+  },
+  {
+    outlet: "Wired UK",
+    quote: '"Finally, a tool that doesn\'t require you to hand over your data to stay safe."',
+    year: "2025",
+  },
+  {
+    outlet: "TechCrunch",
+    quote: '"ScreenSentinel proves that real-time AI safety doesn\'t need the cloud."',
+    year: "2026",
+  },
+];
+
+export default function AboutPage() {
+  return (
+    <div style={{ paddingTop: 70 }}>
+      <section style={{ padding: "80px 0", background: "var(--bg)" }}>
+        <div className="ss-container">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center", marginBottom: 96 }} className="ss-two-col">
+            <div>
+              <p className="ss-pill" style={{ marginBottom: 22 }}>
+                Our Story
+              </p>
+              <h1 style={{ fontSize: "clamp(36px,4.5vw,58px)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.08, color: "var(--text)", marginBottom: 22 }}>
+                Defending truth from London.
+              </h1>
+              <p style={{ fontSize: 17, color: "var(--text-muted)", lineHeight: 1.7, marginBottom: 18 }}>
+                Founded in 2024, ScreenSentinel was born from a simple observation: the tools to create synthetic media were outpacing the tools to detect it.
+              </p>
+              <p style={{ fontSize: 15, color: "var(--text-subtle)", lineHeight: 1.7, marginBottom: 32 }}>
+                Our team of researchers and engineers in London came together to build a solution that does not just work in a lab. It works for everyone, every day, right on their desktop, with zero compromise on privacy. A small on-screen banner appears only when something looks off.
+              </p>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14, fontWeight: 600, color: "var(--text)" }}>
+                <MapPin size={16} color="var(--accent)" />
+                Shoreditch, London, United Kingdom
+              </div>
+            </div>
+            <div style={{ position: "relative" }}>
+              <div style={{ borderRadius: 18, overflow: "hidden", border: "1px solid var(--border)" }}>
+                <img src={IMG.allHands} alt="ScreenSentinel all-hands meeting" style={{ width: "100%", aspectRatio: "4/3", objectFit: "cover", display: "block" }} />
+              </div>
+              <div style={{ position: "absolute", bottom: -16, right: -16, padding: "16px 20px", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 14, boxShadow: "0 8px 30px rgba(0,0,0,0.2)" }}>
+                <div style={{ fontSize: 32, fontWeight: 800, color: "var(--text)", letterSpacing: "-0.04em", lineHeight: 1 }}>
+                  2024
+                </div>
+                <div style={{ fontSize: 11, fontWeight: 600, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "0.08em", marginTop: 4 }}>
+                  Established
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16, marginBottom: 96 }} className="ss-three-col">
+            {values.map(({ title, Icon, desc }) => (
+              <div key={title} className="ss-card" style={{ padding: "32px 28px", textAlign: "center" }}>
+                <div style={{ width: 52, height: 52, borderRadius: 14, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
+                  <Icon size={22} color="var(--accent)" />
+                </div>
+                <h3 style={{ fontWeight: 700, fontSize: 17, color: "var(--text)", marginBottom: 10 }}>{title}</h3>
+                <p style={{ color: "var(--text-muted)", fontSize: 14, lineHeight: 1.65 }}>{desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "start" }} className="ss-two-col">
+            <div>
+              <h2 style={{ fontSize: 30, fontWeight: 800, letterSpacing: "-0.03em", color: "var(--text)", marginBottom: 32 }}>
+                Our journey
+              </h2>
+              <div>
+                {milestones.map(({ year, event }, i) => (
+                  <div key={year} style={{ display: "flex", gap: 20, paddingBottom: 24, borderBottom: i < milestones.length - 1 ? "1px solid var(--border)" : "none", marginBottom: i < milestones.length - 1 ? 24 : 0 }}>
+                    <div style={{ flexShrink: 0 }}>
+                      <div style={{ fontSize: 11, fontWeight: 700, color: "var(--accent)", fontFamily: "monospace", background: "var(--accent-dim)", border: "1px solid var(--accent-border)", borderRadius: 6, padding: "3px 8px", whiteSpace: "nowrap" }}>
+                        {year}
+                      </div>
+                    </div>
+                    <p style={{ fontSize: 14, color: "var(--text-muted)", lineHeight: 1.6, marginTop: 2 }}>
+                      {event}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h2 style={{ fontSize: 30, fontWeight: 800, letterSpacing: "-0.03em", color: "var(--text)", marginBottom: 32 }}>
+                What they say
+              </h2>
+              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                {pressItems.map(({ outlet, quote, year }) => (
+                  <div key={outlet} className="ss-card" style={{ padding: "24px 24px" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+                      <span style={{ fontSize: 12, fontWeight: 800, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-muted)" }}>
+                        {outlet}
+                      </span>
+                      <span style={{ fontSize: 11, color: "var(--text-subtle)" }}>{year}</span>
+                    </div>
+                    <p style={{ fontSize: 14, color: "var(--text)", lineHeight: 1.6, fontStyle: "italic" }}>{quote}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="ss-container py-12">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center mb-2">What we believe</h2>
-        <p className="text-muted-foreground text-center mb-10">Three principles, no exceptions.</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {values.map((v) => (
-            <div key={v.title} className="rounded-2xl border border-border bg-card p-7">
-              <div className="w-11 h-11 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center mb-5">
-                <v.icon size={20} className="text-primary" />
-              </div>
-              <h3 className="text-[17px] font-semibold mb-2">{v.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
+      <section style={{ padding: "96px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
+        <div className="ss-container">
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <p className="ss-pill" style={{ marginBottom: 16 }}>
+              Life at ScreenSentinel
+            </p>
+            <h2 style={{ fontSize: 36, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 14 }}>
+              Where we work and how we think
+            </h2>
+            <p style={{ color: "var(--text-muted)", fontSize: 15, maxWidth: 480, margin: "0 auto" }}>
+              We are based in Shoreditch, East London, surrounded by the energy that makes London a world-class tech hub.
+            </p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, marginBottom: 12 }} className="ss-three-col">
+            <div style={{ borderRadius: 14, overflow: "hidden", height: 280 }}>
+              <img src={IMG.teamFun} alt="Team hanging out" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
             </div>
-          ))}
+            <div style={{ borderRadius: 14, overflow: "hidden", height: 280 }}>
+              <img src={IMG.meeting} alt="Team meeting" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            <div style={{ borderRadius: 14, overflow: "hidden", height: 280 }}>
+              <img src={IMG.lunch} alt="Team lunch" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 12 }} className="ss-culture-bottom">
+            <div style={{ borderRadius: 14, overflow: "hidden", height: 220 }}>
+              <img src={IMG.collab} alt="Collaboration session" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            <div style={{ borderRadius: 14, overflow: "hidden", height: 220 }}>
+              <img src={IMG.london} alt="London skyline" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 70%" }} />
+            </div>
+          </div>
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <a href="/careers" className="ss-btn ss-btn-primary">
+              Join our team <ArrowRight size={15} />
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Team */}
-      <section className="ss-container py-12">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center mb-2">The team</h2>
-        <p className="text-muted-foreground text-center mb-10">Small on purpose. Each of us ships.</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {teamMembers.map((m) => (
-            <div key={m.name} className="rounded-2xl border border-border bg-card p-7 text-center">
-              <div className="w-20 h-20 mx-auto rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center text-2xl font-bold text-primary mb-4">
-                {m.initials}
+      <section style={{ padding: "96px 0", background: "var(--bg)" }}>
+        <div className="ss-container">
+          <h2 style={{ fontSize: 30, fontWeight: 800, letterSpacing: "-0.03em", color: "var(--text)", marginBottom: 40 }}>
+            Leadership team
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16 }} className="ss-three-col">
+            {teamMembers.map(({ name, role, initials, bio }) => (
+              <div key={name} className="ss-card" style={{ padding: "28px 24px" }}>
+                <div style={{ width: 52, height: 52, borderRadius: "50%", background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, color: "var(--accent)", fontSize: 16, marginBottom: 18 }}>
+                  {initials}
+                </div>
+                <div style={{ fontSize: 16, fontWeight: 700, color: "var(--text)", marginBottom: 4 }}>{name}</div>
+                <div style={{ fontSize: 12, color: "var(--accent)", fontWeight: 600, marginBottom: 14 }}>{role}</div>
+                <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.65 }}>{bio}</p>
               </div>
-              <h3 className="text-lg font-semibold mb-1">{m.name}</h3>
-              <div className="text-xs uppercase tracking-wider text-primary mb-3">{m.role}</div>
-              <p className="text-sm text-muted-foreground leading-relaxed">{m.bio}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="ss-container py-16">
-        <div className="rounded-3xl border border-primary/30 bg-primary/5 p-10 md:p-14 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">Want to join us?</h2>
-          <p className="text-muted-foreground mb-7 max-w-xl mx-auto">
-            We're hiring engineers, designers, and security specialists in London.
+      <section style={{ padding: "72px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
+        <div className="ss-container" style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
+          <div style={{ fontSize: 64, color: "var(--accent)", lineHeight: 0.7, marginBottom: 28, opacity: 0.4 }}>
+            "
+          </div>
+          <p style={{ fontSize: 24, fontWeight: 600, color: "var(--text)", lineHeight: 1.45, marginBottom: 32 }}>
+            The future of security is at the edge, where privacy and performance meet.
           </p>
-          <Link to="/careers" className="ss-btn ss-btn-primary px-7 h-12 text-[15px]">
-            See open roles <ArrowRight size={15} />
-          </Link>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}>
+            <div style={{ width: 44, height: 44, borderRadius: "50%", background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, color: "var(--accent)", fontSize: 13 }}>
+              MT
+            </div>
+            <div style={{ textAlign: "left" }}>
+              <div style={{ fontSize: 14, fontWeight: 700, color: "var(--text)" }}>Marcus Thorne</div>
+              <div style={{ fontSize: 12, color: "var(--text-muted)" }}>Founder and CEO, ScreenSentinel</div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
