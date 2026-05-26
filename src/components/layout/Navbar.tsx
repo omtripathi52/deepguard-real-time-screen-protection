@@ -69,7 +69,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden lg:flex flex-1 items-center justify-center gap-2 xl:gap-3">
+        <div className="hidden lg:flex flex-1 items-center justify-center gap-2 xl:gap-3 lg:-translate-x-6 xl:-translate-x-10">
           {nav.map((item) =>
             item.children ? (
               <div
