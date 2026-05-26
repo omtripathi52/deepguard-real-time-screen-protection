@@ -59,17 +59,17 @@ export default function Navbar() {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="ss-container-nav flex items-center h-[72px]">
+      <div className="ss-container-nav flex items-center h-[78px]">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5 flex-shrink-0 pr-2 sm:pr-3">
-          <div className="w-9 h-9 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center">
-            <Shield size={18} className="text-primary" />
+        <Link to="/" className="flex items-center gap-3 flex-shrink-0 pr-2 sm:pr-3">
+          <div className="w-10 h-10 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center">
+            <Shield size={19} className="text-primary" />
           </div>
-          <span className="text-[15px] font-bold tracking-tight">ScreenSentinel</span>
+          <span className="text-[16px] font-bold tracking-tight">ScreenSentinel</span>
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden lg:flex flex-1 items-center justify-center gap-2 xl:gap-3 lg:-translate-x-6 xl:-translate-x-10">
+        <div className="hidden lg:flex flex-1 items-center justify-center gap-3 xl:gap-4 lg:-translate-x-6 xl:-translate-x-10">
           {nav.map((item) =>
             item.children ? (
               <div
@@ -78,7 +78,7 @@ export default function Navbar() {
                 onMouseEnter={() => setDropdown(item.label)}
                 onMouseLeave={() => setDropdown(null)}
               >
-                <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg transition-colors">
+                <button className="flex items-center gap-1 px-3.5 py-2.5 text-[15px] font-semibold text-muted-foreground hover:text-foreground rounded-lg transition-colors">
                   {item.label}
                   <ChevronDown
                     size={13}
@@ -104,7 +104,7 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 to={item.href!}
-                className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg transition-colors"
+                className="px-3.5 py-2.5 text-[15px] font-semibold text-muted-foreground hover:text-foreground rounded-lg transition-colors"
               >
                 {item.label}
               </Link>
@@ -113,7 +113,7 @@ export default function Navbar() {
         </div>
 
         {/* Right (desktop) */}
-        <div className="hidden lg:flex items-center gap-2.5 ml-auto">
+        <div className="hidden lg:flex items-center gap-3 ml-auto">
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
@@ -121,7 +121,7 @@ export default function Navbar() {
           >
             {isDark ? <Sun size={15} className="text-muted-foreground" /> : <Moon size={15} className="text-muted-foreground" />}
           </button>
-          <Link to="/contact" className="ss-btn ss-btn-primary text-[13px] px-5 py-2.5">
+          <Link to="/contact" className="ss-btn ss-btn-primary text-[14px] px-6 py-3">
             Get Started
           </Link>
         </div>
