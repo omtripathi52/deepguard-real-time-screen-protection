@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Shield, Twitter, Linkedin, Github, MapPin } from "lucide-react";
+import { Shield, Github, MapPin, Mail } from "lucide-react";
 
 const cols: Record<string, { name: string; path: string }[]> = {
   Product: [
@@ -42,16 +42,20 @@ export default function Footer() {
               London, United Kingdom
             </div>
             <div className="flex gap-2.5">
-              {[Twitter, Linkedin, Github].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-9 h-9 rounded-lg bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
-                  aria-label="Social link"
-                >
-                  <Icon size={15} />
-                </a>
-              ))}
+              <a
+                href="https://github.com/omtripathi52/ScreenSentinel"
+                className="w-9 h-9 rounded-lg bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+                aria-label="GitHub"
+              >
+                <Github size={15} />
+              </a>
+              <a
+                href="mailto:screensentinel.ai@gmail.com"
+                className="w-9 h-9 rounded-lg bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+                aria-label="Email"
+              >
+                <Mail size={15} />
+              </a>
             </div>
           </div>
 

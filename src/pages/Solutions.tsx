@@ -106,6 +106,9 @@ export default function Solutions() {
                 <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--border)", padding: "4px 10px", borderRadius: 999 }}>
                   {useCases[1].stat}
                 </span>
+                <Link to="/contact" style={{ fontSize: 13, fontWeight: 700, color: "#8b5cf6", textDecoration: "none", display: "flex", alignItems: "center", gap: 5, marginLeft: "auto" }}>
+                  Get started <ArrowRight size={13} />
+                </Link>
               </div>
             </div>
           </div>
@@ -126,6 +129,9 @@ export default function Solutions() {
                 <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--border)", padding: "4px 10px", borderRadius: 999 }}>
                   {useCases[2].stat}
                 </span>
+                <Link to="/contact" style={{ fontSize: 13, fontWeight: 700, color: "#f59e0b", textDecoration: "none", display: "flex", alignItems: "center", gap: 5, marginLeft: "auto" }}>
+                  Get started <ArrowRight size={13} />
+                </Link>
               </div>
             </div>
 

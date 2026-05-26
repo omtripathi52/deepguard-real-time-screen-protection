@@ -1,4 +1,5 @@
 import { Calendar, MapPin, Users, Zap, Award, ArrowRight, Ticket } from "lucide-react";
+import { Link } from "react-router-dom";
 import { events } from "@/data/content";
 
 const IMG = {
@@ -144,9 +145,19 @@ export default function Events() {
                     <span style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "var(--text-muted)" }}>
                       <MapPin size={14} color="var(--accent)" /> {e.location}
                     </span>
-                    <button className="ss-btn" style={{ marginLeft: "auto", background: e.registrationOpen ? "var(--accent)" : "var(--bg3)", color: e.registrationOpen ? "#fff" : "var(--text-muted)", padding: "10px 18px", borderRadius: 999 }} disabled={!e.registrationOpen}>
-                      {e.registrationOpen ? "Register" : "Notify me"}
-                    </button>
+                    {e.registrationOpen ? (
+                      <Link
+                        to="/contact"
+                        className="ss-btn"
+                        style={{ marginLeft: "auto", background: "var(--accent)", color: "#fff", padding: "10px 18px", borderRadius: 999, textDecoration: "none" }}
+                      >
+                        Register interest
+                      </Link>
+                    ) : (
+                      <button className="ss-btn" style={{ marginLeft: "auto", background: "var(--bg3)", color: "var(--text-muted)", padding: "10px 18px", borderRadius: 999 }} disabled>
+                        Notify me
+                      </button>
+                    )}
                   </div>
                 </article>
               );

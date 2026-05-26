@@ -44,6 +44,7 @@ export default function Index() {
   const { data: release, isLoading } = useGitHubRelease();
   const exeLink = release?.exeUrl || "https://github.com/omtripathi52/ScreenSentinel/releases/latest";
   const versionText = isLoading ? "Checking..." : (release?.version || "v2.0.0");
+  const releaseText = isLoading ? "Checking latest release" : `Latest release ${versionText}`;
 
   return (
     <div style={{ paddingTop: 70 }}>
@@ -53,7 +54,7 @@ export default function Index() {
           <div className="ss-two-col" style={{ alignItems: "center", paddingBottom: 72 }}>
             <div>
               <div className="ss-pill" style={{ marginBottom: 24 }}>
-                Version {versionText} live
+                {releaseText}
               </div>
               <h1
                 style={{

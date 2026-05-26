@@ -63,6 +63,9 @@ export default function Trust() {
                   </span>
                 ))}
               </div>
+              <p style={{ marginTop: 12, fontSize: 12, color: "var(--text-subtle)" }}>
+                Security documentation available on request. <Link to="/contact" style={{ color: "var(--accent)", textDecoration: "none" }}>Contact us</Link>.
+              </p>
             </div>
             <div style={{ position: "relative" }}>
               <div style={{ borderRadius: 18, overflow: "hidden", border: "1px solid var(--border)" }}>

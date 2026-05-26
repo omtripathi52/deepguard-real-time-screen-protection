@@ -127,6 +127,9 @@ export default function Contact() {
                     <button type="submit" className="ss-btn ss-btn-primary" style={{ width: "100%", justifyContent: "center", padding: "13px 24px", borderRadius: 12 }}>
                       Send message <ArrowRight size={15} />
                     </button>
+                    <p style={{ fontSize: 12, color: "var(--text-subtle)", lineHeight: 1.5 }}>
+                      This opens your email client with a pre-filled message.
+                    </p>
                   </form>
                 </>
               )}

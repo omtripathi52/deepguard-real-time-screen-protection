@@ -33,6 +33,9 @@ const departments = [
   { Icon: Briefcase, label: "Operations" },
 ];
 
+const applyLink = (title: string) =>
+  `mailto:careers@screensentinel.com?subject=${encodeURIComponent(`Role application: ${title}`)}`;
+
 export default function Careers() {
   return (
     <div style={{ paddingTop: 70 }}>
@@ -114,9 +117,9 @@ export default function Careers() {
                   <MapPin size={14} color="var(--accent)" /> {job.location}
                 </div>
                 <div style={{ fontSize: 13, color: "var(--text-muted)" }}>{job.type}</div>
-                <button className="ss-btn ss-btn-primary" style={{ padding: "10px 16px", borderRadius: 999 }}>
+                <a href={applyLink(job.title)} className="ss-btn ss-btn-primary" style={{ padding: "10px 16px", borderRadius: 999 }}>
                   Apply <ArrowRight size={14} />
-                </button>
+                </a>
               </article>
             ))}
           </div>

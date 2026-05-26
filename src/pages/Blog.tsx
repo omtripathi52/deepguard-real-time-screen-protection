@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { Calendar, Clock, ArrowRight, Search } from "lucide-react";
 import { blogPosts } from "@/data/content";
 
@@ -93,9 +94,9 @@ export default function Blog() {
                   <div style={{ fontSize: 13, fontWeight: 600, color: "var(--text)" }}>{featured.author}</div>
                   <div style={{ fontSize: 12, color: "var(--text-subtle)" }}>Research team</div>
                 </div>
-                <button className="ss-btn" style={{ marginLeft: "auto", background: "var(--accent)", color: "#fff" }}>
-                  Read article <ArrowRight size={14} />
-                </button>
+                <Link to="/contact" className="ss-btn" style={{ marginLeft: "auto", background: "var(--accent)", color: "#fff", textDecoration: "none" }}>
+                  Request full article <ArrowRight size={14} />
+                </Link>
               </div>
             </article>
           </div>
@@ -115,7 +116,9 @@ export default function Blog() {
                 <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.6 }}>{post.excerpt}</p>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "auto", paddingTop: 12, borderTop: "1px solid var(--border)" }}>
                   <span style={{ fontSize: 12, color: "var(--text-subtle)" }}>{post.author} • {post.date}</span>
-                  <ArrowRight size={14} color="var(--accent)" />
+                  <Link to="/contact" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 12, fontWeight: 600, color: "var(--accent)", textDecoration: "none" }}>
+                    Request summary <ArrowRight size={14} />
+                  </Link>
                 </div>
               </article>
             ))}
