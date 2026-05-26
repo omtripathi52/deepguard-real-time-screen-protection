@@ -348,7 +348,7 @@ export default function Index() {
       {/* WHY SCREENSENTINEL */}
       <section style={{ padding: "96px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
         <div className="ss-container">
-          <div className="ss-two-col" style={{ alignItems: "start" }}>
+          <div style={{ maxWidth: 760, margin: "0 auto" }}>
             <div>
               <p className="ss-pill" style={{ marginBottom: 20 }}>
                 Why people choose us
@@ -390,31 +390,6 @@ export default function Index() {
               </div>
             </div>
 
-            <div style={{ position: "sticky", top: 100 }}>
-              <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 20, overflow: "hidden", boxShadow: "0 20px 60px rgba(0,0,0,0.15)" }}>
-                <div style={{ background: "var(--bg3)", padding: "12px 18px", display: "flex", alignItems: "center", gap: 7, borderBottom: "1px solid var(--border)" }}>
-                  {["#ff5f57", "#ffbd2e", "#28ca41"].map((c) => (
-                    <div key={c} style={{ width: 11, height: 11, borderRadius: "50%", background: c }} />
-                  ))}
-                </div>
-                <div style={{ padding: 22 }}>
-                  <div style={{ fontSize: 12, color: "var(--text-subtle)", marginBottom: 10 }}>
-                    Live screen check
-                  </div>
-                  <div style={{ background: "var(--bg3)", border: "1px solid var(--border)", borderRadius: 12, padding: 16 }}>
-                    <div style={{ fontWeight: 700, color: "var(--text)", marginBottom: 8 }}>
-                      Screen looks authentic
-                    </div>
-                    <div style={{ fontSize: 12, color: "var(--text-muted)", lineHeight: 1.6 }}>
-                      ScreenSentinel checks micro-signals in real time and warns you if something looks off.
-                    </div>
-                  </div>
-                  <div style={{ marginTop: 14, fontSize: 12, color: "var(--text-subtle)" }}>
-                    Running quietly in the background
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
