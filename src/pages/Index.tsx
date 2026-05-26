@@ -486,21 +486,6 @@ export default function Index() {
               <div className="ss-team-img" style={{ minHeight: 200 }}>
                 <img src={IMG.teamFun} alt="Team working" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
-              <div className="ss-team-stats">
-                <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.18em", opacity: 0.7, marginBottom: 10 }}>
-                  Team snapshot
-                </div>
-                <div style={{ fontSize: 40, fontWeight: 800, letterSpacing: "-0.03em", marginBottom: 6 }}>18</div>
-                <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 10 }}>Researchers and builders in London</div>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 8, fontSize: 12, opacity: 0.8, marginBottom: 14 }}>
-                  <span>AI research</span>
-                  <span>Product design</span>
-                  <span>Security ops</span>
-                </div>
-                <Link to="/careers" style={{ fontSize: 13, fontWeight: 700, color: "#fff", textDecoration: "none" }}>
-                  Meet the team &rarr;
-                </Link>
-              </div>
             </div>
           </div>
         </div>
