@@ -508,6 +508,14 @@
       grid-template-columns: 1fr 1fr;
     }
   }
+  @media (max-width: 900px) {
+    .ss-pipeline-grid {
+      grid-template-columns: 1fr 1fr !important;
+    }
+    .ss-trust-3 {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
   @media (max-width: 600px) {
     .ss-three-col,
     .ss-ind-grid,
@@ -515,8 +523,10 @@
     .ss-mosaic,
     .ss-stats-grid,
     .ss-trust-grid,
-    .ss-summary-grid {
-      grid-template-columns: 1fr;
+    .ss-summary-grid,
+    .ss-pipeline-grid,
+    .ss-trust-3 {
+      grid-template-columns: 1fr !important;
     }
   }
 }
