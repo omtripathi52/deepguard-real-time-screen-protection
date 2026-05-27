@@ -244,20 +244,6 @@ export default function Index() {
                   <div className="ss-corner tr" style={{ top: 0, right: 0 }} />
                   <div className="ss-corner bl" style={{ bottom: 0, left: 0 }} />
                   <div className="ss-corner br" style={{ bottom: 0, right: 0 }} />
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: -22,
-                      left: 0,
-                      fontSize: 9,
-                      letterSpacing: "0.18em",
-                      color: "rgba(16,185,129,0.9)",
-                      fontWeight: 700,
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    Subject locked · ID#A7
-                  </div>
                 </div>
 
                 {/* Live signal — top left */}
