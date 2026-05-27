@@ -108,10 +108,9 @@ export default function Careers() {
               <article key={job.id} style={{ border: "1px solid var(--border)", borderRadius: 18, padding: "24px", display: "grid", gridTemplateColumns: "2fr 1fr 1fr auto", gap: 16, alignItems: "center", background: "var(--bg2)" }} className="ss-job-row">
                 <div>
                   <div style={{ fontSize: 12, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--text-subtle)", marginBottom: 6 }}>
-                    {job.department} • {job.level}
+                    {job.department}
                   </div>
                   <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--text)", marginBottom: 6 }}>{job.title}</h3>
-                  <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.6 }}>{job.description}</p>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "var(--text-muted)" }}>
                   <MapPin size={14} color="var(--accent)" /> {job.location}
