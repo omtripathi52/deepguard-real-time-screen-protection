@@ -104,7 +104,7 @@ export default function Index() {
   const releaseText = isLoading ? "Checking latest release" : `Latest release ${versionText}`;
 
   return (
-    <div style={{ paddingTop: 70 }}>
+    <div>
       {/* HERO */}
       <section
         style={{
