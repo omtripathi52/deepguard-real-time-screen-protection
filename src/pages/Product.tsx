@@ -559,7 +559,6 @@ export default function Product() {
                 gap: 20,
                 boxShadow: "0 30px 80px -40px rgba(16,185,129,0.3)",
                 overflow: "hidden",
-                position: "relative",
               }}
             >
               <div
