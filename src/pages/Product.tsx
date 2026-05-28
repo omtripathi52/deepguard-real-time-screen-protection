@@ -180,22 +180,13 @@ export default function Product() {
               }}
             >
               {/* corner ticks */}
-              {["top:-6px;left:-6px;border-top:2px solid;border-left:2px solid",
-                "top:-6px;right:-6px;border-top:2px solid;border-right:2px solid",
-                "bottom:-6px;left:-6px;border-bottom:2px solid;border-left:2px solid",
-                "bottom:-6px;right:-6px;border-bottom:2px solid;border-right:2px solid",
+              {[
+                { top: -6, left: -6, borderTop: "2px solid rgba(16,185,129,0.85)", borderLeft: "2px solid rgba(16,185,129,0.85)" },
+                { top: -6, right: -6, borderTop: "2px solid rgba(16,185,129,0.85)", borderRight: "2px solid rgba(16,185,129,0.85)" },
+                { bottom: -6, left: -6, borderBottom: "2px solid rgba(16,185,129,0.85)", borderLeft: "2px solid rgba(16,185,129,0.85)" },
+                { bottom: -6, right: -6, borderBottom: "2px solid rgba(16,185,129,0.85)", borderRight: "2px solid rgba(16,185,129,0.85)" },
               ].map((s, i) => (
-                <span
-                  key={i}
-                  style={Object.fromEntries(
-                    s.split(";").map((p) => {
-                      const [k, v] = p.split(":");
-                      return [k.replace(/-([a-z])/g, (_, c) => c.toUpperCase()), v.trim()];
-                    })
-                  ) as any}
-                  // @ts-ignore
-                  className="hud-tick"
-                />
+                <span key={i} style={{ position: "absolute", width: 14, height: 14, ...s }} />
               ))}
             </div>
 
