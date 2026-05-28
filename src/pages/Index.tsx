@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { useGitHubRelease } from "@/hooks/use-github-release";
 import { faqs, useCases } from "@/data/content";
-import heroImg from "@/assets/hero-deepfake.jpg";
+import heroImg from "@/assets/hero-deepfake.png";
 
 const stats = [
   { v: "99/100", l: "Fake videos caught", sub: "Detection accuracy in benchmarks" },
@@ -104,19 +104,24 @@ export default function Index() {
   const releaseText = isLoading ? "Checking latest release" : `Latest release ${versionText}`;
 
   return (
-    <div style={{ paddingTop: 70 }}>
+    <div>
       {/* HERO */}
-      <section style={{ padding: "32px 0 80px", overflow: "hidden", background: "var(--bg)", position: "relative" }}>
-        <div className="ss-hero-bg" />
-        <div className="ss-grid-texture" />
-        {/* Ambient atmospheric layers */}
+      <section
+        style={{
+          padding: "20px 0 72px",
+          overflow: "hidden",
+          background: "var(--bg)",
+          position: "relative",
+        }}
+      >
+        {/* Soft directional ambient lighting */}
         <div
           aria-hidden
           style={{
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(60% 40% at 80% 30%, rgba(16,185,129,0.18), transparent 70%), radial-gradient(50% 40% at 20% 80%, rgba(59,130,246,0.12), transparent 70%)",
+              "radial-gradient(900px 500px at 75% 20%, rgba(16,185,129,0.12), transparent 70%), radial-gradient(700px 400px at 10% 90%, rgba(59,130,246,0.08), transparent 70%)",
             pointerEvents: "none",
           }}
         />
@@ -126,7 +131,7 @@ export default function Index() {
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.35) 100%)",
+              "radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.4) 100%)",
             pointerEvents: "none",
           }}
         />
@@ -134,7 +139,7 @@ export default function Index() {
         <div className="ss-hero-wrap" style={{ position: "relative", zIndex: 1 }}>
           <div
             className="ss-two-col"
-            style={{ alignItems: "center", gap: 56, gridTemplateColumns: "0.9fr 1.25fr" }}
+            style={{ alignItems: "center", gap: 48, gridTemplateColumns: "0.85fr 1.3fr" }}
           >
             <div>
               <div className="ss-pill" style={{ marginBottom: 22 }}>
@@ -143,22 +148,22 @@ export default function Index() {
               </div>
               <h1
                 style={{
-                  fontSize: "clamp(42px,5.2vw,72px)",
+                  fontSize: "clamp(40px,5vw,68px)",
                   fontWeight: 800,
                   letterSpacing: "-0.05em",
                   lineHeight: 1.02,
                   color: "var(--text)",
-                  marginBottom: 22,
+                  marginBottom: 20,
                 }}
               >
                 Can you trust
                 <br />
                 <span className="grad-text">what you are watching?</span>
               </h1>
-              <p style={{ fontSize: 17, color: "var(--text-muted)", lineHeight: 1.75, maxWidth: 540, marginBottom: 32 }}>
+              <p style={{ fontSize: 16.5, color: "var(--text-muted)", lineHeight: 1.7, maxWidth: 460, marginBottom: 28 }}>
                 ScreenSentinel is an on-device AI layer that detects deepfaked faces and synthetic voices the moment they appear on your screen — privately, instantly, anywhere video plays.
               </p>
-              <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 28 }}>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 24 }}>
                 <a href={exeLink} className="ss-btn ss-btn-primary">
                   Download free <ArrowRight size={15} />
                 </a>
@@ -180,189 +185,42 @@ export default function Index() {
             </div>
 
             <div style={{ position: "relative" }}>
-              {/* Ambient glow bleed */}
+              {/* Ambient glow bleed that matches image lighting */}
               <div
                 aria-hidden
                 style={{
                   position: "absolute",
-                  inset: "-12% -10%",
+                  inset: "-15% -12%",
                   background:
-                    "radial-gradient(closest-side, rgba(16,185,129,0.35), transparent 70%)",
+                    "radial-gradient(closest-side at 70% 40%, rgba(16,185,129,0.28), transparent 70%), radial-gradient(closest-side at 20% 80%, rgba(59,130,246,0.18), transparent 70%)",
                   filter: "blur(40px)",
                   pointerEvents: "none",
                 }}
               />
               <div
-                className="ss-hero-frame"
                 style={{
+                  position: "relative",
+                  borderRadius: 18,
+                  overflow: "hidden",
+                  border: "1px solid rgba(255,255,255,0.08)",
                   boxShadow:
-                    "0 50px 140px -30px rgba(16,185,129,0.35), 0 30px 90px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(255,255,255,0.06)",
+                    "0 60px 140px -40px rgba(16,185,129,0.3), 0 30px 80px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.05)",
+                  background: "#000",
                 }}
               >
-                <div className="ss-hero-glow" />
                 <img
                   src={heroImg}
-                  alt="Cinematic close-up of a person on a video call being analyzed by ScreenSentinel"
+                  alt="ScreenSentinel analyzing a video call in real time and flagging deepfake content"
                   width={1920}
                   height={1080}
                   style={{
                     width: "100%",
-                    aspectRatio: "16/10",
+                    aspectRatio: "16/9",
                     objectFit: "cover",
-                    objectPosition: "center 30%",
+                    objectPosition: "center",
                     display: "block",
                   }}
                 />
-
-                {/* Image grade overlay for cinematic depth */}
-                <div
-                  aria-hidden
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    background:
-                      "linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%), linear-gradient(90deg, rgba(0,0,0,0.35), transparent 35%)",
-                    pointerEvents: "none",
-                  }}
-                />
-
-                <div className="ss-scanlines" />
-
-                {/* Face tracking reticle */}
-                <div
-                  aria-hidden
-                  style={{
-                    position: "absolute",
-                    top: "22%",
-                    left: "38%",
-                    width: "26%",
-                    aspectRatio: "1/1.15",
-                    pointerEvents: "none",
-                  }}
-                >
-                  <div className="ss-corner tl" style={{ top: 0, left: 0 }} />
-                  <div className="ss-corner tr" style={{ top: 0, right: 0 }} />
-                  <div className="ss-corner bl" style={{ bottom: 0, left: 0 }} />
-                  <div className="ss-corner br" style={{ bottom: 0, right: 0 }} />
-                </div>
-
-                {/* Live signal — top left */}
-                <div
-                  style={{
-                    position: "absolute",
-                    left: 18,
-                    top: 18,
-                    background: "rgba(9,9,11,0.55)",
-                    border: "1px solid rgba(255,255,255,0.12)",
-                    borderRadius: 10,
-                    padding: "7px 12px",
-                    color: "#fff",
-                    fontSize: 10,
-                    fontWeight: 600,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 10,
-                    backdropFilter: "blur(12px)",
-                  }}
-                >
-                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#10b981", boxShadow: "0 0 8px #10b981" }} />
-                  LIVE · analyzing stream
-                </div>
-
-                {/* Waveform — bottom left */}
-                <div
-                  className="ss-float"
-                  style={{
-                    position: "absolute",
-                    left: 18,
-                    bottom: 18,
-                    background: "rgba(9,9,11,0.6)",
-                    border: "1px solid rgba(255,255,255,0.12)",
-                    borderRadius: 12,
-                    padding: "10px 14px",
-                    color: "#fff",
-                    fontSize: 11,
-                    fontWeight: 600,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 12,
-                    backdropFilter: "blur(12px)",
-                  }}
-                >
-                  <div style={{ display: "flex", alignItems: "center", gap: 2, height: 18 }}>
-                    {[6, 11, 4, 14, 8, 16, 5, 12, 7, 10, 4, 13].map((h, i) => (
-                      <span
-                        key={i}
-                        style={{
-                          width: 2,
-                          height: h,
-                          background: "var(--accent)",
-                          borderRadius: 2,
-                          opacity: 0.8,
-                        }}
-                      />
-                    ))}
-                  </div>
-                  <span>Voiceprint match · 0.94</span>
-                </div>
-
-                {/* Verdict — top right */}
-                <div
-                  style={{
-                    position: "absolute",
-                    right: 18,
-                    top: 18,
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 8,
-                    alignItems: "flex-end",
-                  }}
-                >
-                  <div
-                    style={{
-                      background: "rgba(16,185,129,0.12)",
-                      border: "1px solid rgba(16,185,129,0.45)",
-                      borderRadius: 10,
-                      padding: "7px 12px",
-                      backdropFilter: "blur(10px)",
-                      fontSize: 10,
-                      fontWeight: 700,
-                      color: "#10b981",
-                      letterSpacing: "0.08em",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    Authentic · 96%
-                  </div>
-                  <div
-                    style={{
-                      background: "rgba(9,9,11,0.6)",
-                      border: "1px solid rgba(255,255,255,0.1)",
-                      borderRadius: 10,
-                      padding: "6px 10px",
-                      backdropFilter: "blur(10px)",
-                      fontSize: 10,
-                      color: "#a1a1aa",
-                      fontWeight: 600,
-                    }}
-                  >
-                    Blink cadence · normal
-                  </div>
-                  <div
-                    style={{
-                      background: "rgba(9,9,11,0.6)",
-                      border: "1px solid rgba(255,255,255,0.1)",
-                      borderRadius: 10,
-                      padding: "6px 10px",
-                      backdropFilter: "blur(10px)",
-                      fontSize: 10,
-                      color: "#a1a1aa",
-                      fontWeight: 600,
-                    }}
-                  >
-                    Lip-sync drift · 2.1ms
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -370,40 +228,60 @@ export default function Index() {
       </section>
 
       {/* STATS */}
-      <section style={{ padding: "56px 0 88px", background: "var(--bg)" }}>
-        <div className="ss-container">
-          <div style={{ borderRadius: 16, overflow: "hidden", border: "1px solid var(--border)" }} className="ss-stats-grid">
+      <section style={{ padding: "32px 0 88px", background: "var(--bg)" }}>
+        <div className="ss-hero-wrap">
+          <div
+            style={{
+              borderRadius: 18,
+              overflow: "hidden",
+              border: "1px solid var(--border)",
+              background: "var(--bg2)",
+              boxShadow: "0 20px 60px -30px rgba(0,0,0,0.4)",
+            }}
+            className="ss-stats-grid"
+          >
             {stats.map((s, i) => (
               <div
                 key={s.l}
                 style={{
-                  padding: "36px 26px",
-                  background: i === 3 ? "var(--accent)" : "var(--bg2)",
-                  textAlign: "center",
+                  padding: "32px 28px",
+                  textAlign: "left",
                   borderRight: i < 3 ? "1px solid var(--border)" : "none",
+                  position: "relative",
                 }}
               >
                 <div
                   style={{
-                    fontSize: 40,
-                    fontWeight: 900,
-                    letterSpacing: "-0.05em",
-                    color: i === 3 ? "#fff" : "var(--text)",
-                    marginBottom: 6,
+                    width: 28,
+                    height: 2,
+                    background: "var(--accent)",
+                    borderRadius: 2,
+                    marginBottom: 16,
+                    opacity: 0.7,
+                  }}
+                />
+                <div
+                  style={{
+                    fontSize: 36,
+                    fontWeight: 800,
+                    letterSpacing: "-0.04em",
+                    color: "var(--text)",
+                    marginBottom: 8,
                     lineHeight: 1,
                   }}
                 >
                   {s.v}
                 </div>
-                <div style={{ fontSize: 13, color: i === 3 ? "rgba(255,255,255,0.95)" : "var(--text)", fontWeight: 700, marginBottom: 4 }}>
+                <div style={{ fontSize: 13, color: "var(--text)", fontWeight: 600, marginBottom: 4 }}>
                   {s.l}
                 </div>
-                <div style={{ fontSize: 12, color: i === 3 ? "rgba(255,255,255,0.7)" : "var(--text-subtle)" }}>{s.sub}</div>
+                <div style={{ fontSize: 12.5, color: "var(--text-muted)", lineHeight: 1.5 }}>{s.sub}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
 
       {/* HOW IT WORKS */}
       <section style={{ padding: "100px 0", borderTop: "1px solid var(--border)", background: "var(--bg2)", position: "relative", overflow: "hidden" }}>

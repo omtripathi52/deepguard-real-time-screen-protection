@@ -92,9 +92,9 @@
     --bg3: #18181b;
     --surface: #1c1c1f;
     --border-strong: rgba(255,255,255,0.14);
-    --text: #f4f4f5;
-    --text-muted: #a1a1aa;
-    --text-subtle: #71717a;
+    --text: #f5f5f7;
+    --text-muted: #c8c8d0;
+    --text-subtle: #8a8a93;
     --accent: #10b981;
     --accent-hover: #0ea572;
     --accent-dim: rgba(16,185,129,0.1);
@@ -275,12 +275,12 @@
     gap: 32px;
   }
   .ss-hero-wrap {
-    max-width: 1320px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 28px;
   }
   @media (min-width: 1024px) {
-    .ss-hero-wrap { padding: 0 48px; }
+    .ss-hero-wrap { padding: 0 56px; }
   }
   .ss-hero-frame {
     position: relative;
