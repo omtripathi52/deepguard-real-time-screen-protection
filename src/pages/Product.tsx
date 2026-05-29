@@ -86,33 +86,33 @@ export default function Product() {
   const Active = features[activeFeature];
 
   return (
-    <div style={{ paddingTop: 64 }}>
+    <div>
       {/* ============ HERO ============ */}
-      <section style={{ position: "relative", padding: "72px 0 96px", overflow: "hidden" }}>
-        {/* ambient gradients */}
+      <section style={{ position: "relative", padding: "28px 0 80px", overflow: "hidden" }}>
+        {/* ambient atmospheric bridge from navbar */}
         <div
           aria-hidden
           style={{
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(900px 600px at 20% 0%, rgba(16,185,129,0.16), transparent 60%), radial-gradient(700px 500px at 85% 10%, rgba(34,211,238,0.12), transparent 60%)",
+              "radial-gradient(1100px 520px at 50% -10%, rgba(16,185,129,0.18), transparent 60%), radial-gradient(700px 420px at 88% 8%, rgba(34,211,238,0.10), transparent 60%), linear-gradient(to bottom, rgba(16,185,129,0.05), transparent 18%)",
             pointerEvents: "none",
           }}
         />
         <div className="ss-container" style={{ position: "relative" }}>
-          <div style={{ textAlign: "center", maxWidth: 760, margin: "0 auto 56px" }}>
-            <p className="ss-pill" style={{ marginBottom: 22 }}>
+          <div style={{ textAlign: "center", maxWidth: 760, margin: "0 auto 40px" }}>
+            <p className="ss-pill" style={{ marginBottom: 14 }}>
               <Sparkles size={11} /> Version {version} · On-device
             </p>
             <h1
               style={{
-                fontSize: "clamp(40px,5.2vw,68px)",
+                fontSize: "clamp(36px,4.4vw,58px)",
                 fontWeight: 800,
                 letterSpacing: "-0.045em",
                 color: "var(--text)",
-                marginBottom: 22,
-                lineHeight: 1.05,
+                marginBottom: 16,
+                lineHeight: 1.04,
               }}
             >
               Trust infrastructure
@@ -121,10 +121,10 @@ export default function Product() {
             </h1>
             <p
               style={{
-                fontSize: 18,
+                fontSize: 17,
                 color: "var(--text-muted)",
-                lineHeight: 1.7,
-                maxWidth: 600,
+                lineHeight: 1.65,
+                maxWidth: 580,
                 margin: "0 auto",
               }}
             >
@@ -132,6 +132,7 @@ export default function Product() {
               in real time, whether the human you're watching is actually human.
             </p>
           </div>
+
 
           {/* Hero media */}
           <div

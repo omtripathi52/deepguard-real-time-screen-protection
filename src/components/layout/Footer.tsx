@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Shield, Github, MapPin, Mail } from "lucide-react";
+import { Shield, Github, Mail } from "lucide-react";
 
 const cols: Record<string, { name: string; path: string }[]> = {
   Product: [
@@ -37,10 +37,6 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm mb-5">
               On-device deepfake detection that quietly checks the video on your screen — your data never leaves your computer.
             </p>
-            <div className="flex items-center gap-2 text-xs text-muted-foreground mb-5">
-              <MapPin size={13} className="text-primary" />
-              London, United Kingdom
-            </div>
             <div className="flex gap-2.5">
               <a
                 href="https://github.com/omtripathi52/ScreenSentinel"
@@ -86,7 +82,7 @@ export default function Footer() {
             © {year} ScreenSentinel Ltd. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground">
-            Built in London for a world that needs to trust what it sees.
+            Trust infrastructure for the video web.
           </p>
         </div>
       </div>
