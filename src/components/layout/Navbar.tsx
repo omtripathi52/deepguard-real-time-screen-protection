@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Shield, Menu, X, Sun, Moon, ChevronDown } from "lucide-react";
+import { Menu, X, Sun, Moon, ChevronDown } from "lucide-react";
+import logomark from "@/assets/logomark.png";
 
 type NavChild = { label: string; href: string; desc: string };
 type NavItem = { label: string; href?: string; children?: NavChild[] };
@@ -62,9 +63,7 @@ export default function Navbar() {
       <div className="ss-container-nav flex items-center h-[58px]">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 flex-shrink-0 pr-2 sm:pr-3">
-          <div className="w-8 h-8 rounded-md bg-primary/15 border border-primary/30 flex items-center justify-center">
-            <Shield size={16} className="text-primary" />
-          </div>
+          <img src={logomark} alt="ScreenSentinel" className="w-8 h-8 object-contain" />
           <span className="text-[14.5px] font-bold tracking-tight">ScreenSentinel</span>
         </Link>
 

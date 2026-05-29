@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Shield, Github, Mail } from "lucide-react";
+import { Github, Mail } from "lucide-react";
+import logomark from "@/assets/logomark.png";
 
 const cols: Record<string, { name: string; path: string }[]> = {
   Product: [
@@ -29,9 +30,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center">
-                <Shield size={18} className="text-primary" />
-              </div>
+              <img src={logomark} alt="ScreenSentinel" className="w-9 h-9 object-contain" />
               <span className="text-[15px] font-bold tracking-tight">ScreenSentinel</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm mb-5">
