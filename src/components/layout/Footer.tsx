@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Shield, Github, MapPin, Mail } from "lucide-react";
+import { Shield, Github, Mail } from "lucide-react";
 
 const cols: Record<string, { name: string; path: string }[]> = {
   Product: [
