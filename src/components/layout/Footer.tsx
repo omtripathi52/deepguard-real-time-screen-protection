@@ -82,7 +82,7 @@ export default function Footer() {
             © {year} ScreenSentinel Ltd. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground">
-            Built in London for a world that needs to trust what it sees.
+            Trust infrastructure for the video web.
           </p>
         </div>
       </div>
