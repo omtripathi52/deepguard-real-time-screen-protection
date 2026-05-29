@@ -104,7 +104,7 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 to={item.href!}
-                className="px-3.5 py-2.5 text-[15px] font-semibold text-muted-foreground hover:text-foreground rounded-lg transition-colors"
+                className="px-3 py-1.5 text-[13.5px] font-medium text-muted-foreground hover:text-foreground rounded-md transition-colors"
               >
                 {item.label}
               </Link>
@@ -113,15 +113,15 @@ export default function Navbar() {
         </div>
 
         {/* Right (desktop) */}
-        <div className="hidden lg:flex items-center gap-3 ml-auto">
+        <div className="hidden lg:flex items-center gap-2.5 ml-auto">
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="w-9 h-9 rounded-full bg-secondary border border-border flex items-center justify-center hover:bg-muted transition-colors"
+            className="w-8 h-8 rounded-full bg-secondary border border-border flex items-center justify-center hover:bg-muted transition-colors"
           >
-            {isDark ? <Sun size={15} className="text-muted-foreground" /> : <Moon size={15} className="text-muted-foreground" />}
+            {isDark ? <Sun size={14} className="text-muted-foreground" /> : <Moon size={14} className="text-muted-foreground" />}
           </button>
-          <Link to="/contact" className="ss-btn ss-btn-primary text-[14px] px-6 py-3">
+          <Link to="/contact" className="ss-btn ss-btn-primary text-[13px] px-5 py-2">
             Get Started
           </Link>
         </div>
