@@ -287,7 +287,7 @@ export default function Product() {
         id="pipeline"
         style={{
           position: "relative",
-          padding: "112px 0",
+          padding: "72px 0 80px",
           borderTop: "1px solid var(--border)",
           background:
             "linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%)",
