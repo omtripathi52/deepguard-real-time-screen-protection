@@ -304,7 +304,7 @@ export default function Product() {
           }}
         />
         <div className="ss-container" style={{ position: "relative" }}>
-          <div style={{ textAlign: "center", marginBottom: 72, maxWidth: 640, margin: "0 auto 72px" }}>
+          <div style={{ textAlign: "center", marginBottom: 48, maxWidth: 640, margin: "0 auto 48px" }}>
             <p className="ss-pill" style={{ marginBottom: 16 }}>The detection pipeline</p>
             <h2
               style={{
