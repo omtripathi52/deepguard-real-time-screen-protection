@@ -1,138 +1,561 @@
 import { Link } from "react-router-dom";
-import { Lock, ArrowRight } from "lucide-react";
-
-const trustImage = "https://raw.createusercontent.com/39795801-ca82-403e-8b96-0ae8e8e28115/";
+import { Lock, ArrowRight, ShieldCheck, EyeOff, Server, FileCheck } from "lucide-react";
 
 const features = [
   {
+    icon: EyeOff,
     title: "Your screen never leaves your computer",
-    desc: "The checking happens on your device. We do not have servers that receive your video.",
+    desc: "Inference happens locally on your device. There is no server that receives your video — by architecture, not by promise.",
   },
   {
+    icon: Server,
     title: "Nothing is saved or stored",
-    desc: "Once a video frame is checked, the information is immediately discarded.",
+    desc: "Once a frame is analyzed, the signal is discarded. No buffers, no logs, no retained media.",
   },
   {
-    title: "We do not track how often you use it",
-    desc: "No usage tracking, no behavioral analytics, no hidden telemetry.",
+    icon: ShieldCheck,
+    title: "Zero behavioral telemetry",
+    desc: "No usage tracking, no analytics, no hidden pings. The app does not phone home — ever.",
   },
   {
-    title: "Independently checked for safety",
-    desc: "External experts review our software each year and we publish the results.",
+    icon: FileCheck,
+    title: "Independently audited",
+    desc: "External security researchers review the runtime annually. Reports are published in full.",
   },
 ];
 
 const summary = [
   {
-    heading: "What we do collect",
-    body: "Your email address only if you contact us, and the fact that your license is valid.",
+    heading: "What we collect",
+    body: "Only your email — and only if you contact us — and a license validity flag.",
   },
   {
     heading: "What we never collect",
-    body: "Anything on your screen. Your browsing. The apps you use. Your files. Your location.",
+    body: "Anything on your screen. Your browsing. Your apps. Your files. Your location.",
   },
   {
-    heading: "How your data is handled",
-    body: "The tiny amount of information we do hold is protected using bank-grade security practices.",
+    heading: "How it's handled",
+    body: "The minimal data we do hold is protected with enterprise-grade security controls.",
   },
 ];
 
 const certs = ["SOC 2 Certified", "GDPR Compliant", "ISO 27001", "Zero Tracking"];
 
+// Recurring proprietary motif: forensic verification grid + scan line
+function ForensicVisual() {
+  return (
+    <div
+      style={{
+        position: "relative",
+        borderRadius: 22,
+        overflow: "hidden",
+        border: "1px solid var(--border-strong)",
+        aspectRatio: "1/1",
+        background:
+          "radial-gradient(120% 90% at 30% 20%, rgba(16,185,129,0.18), transparent 55%), radial-gradient(100% 80% at 80% 90%, rgba(34,211,238,0.10), transparent 55%), linear-gradient(160deg, #0a0e0c 0%, #06090a 100%)",
+        boxShadow:
+          "0 40px 100px -40px rgba(16,185,129,0.28), 0 20px 60px -30px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.04)",
+      }}
+    >
+      {/* fine grid */}
+      <svg
+        aria-hidden
+        width="100%"
+        height="100%"
+        style={{ position: "absolute", inset: 0, opacity: 0.35 }}
+      >
+        <defs>
+          <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+            <path d="M 28 0 L 0 0 0 28" fill="none" stroke="rgba(16,185,129,0.18)" strokeWidth="0.5" />
+          </pattern>
+          <radialGradient id="gridFade" cx="50%" cy="50%" r="65%">
+            <stop offset="0%" stopColor="black" stopOpacity="1" />
+            <stop offset="100%" stopColor="black" stopOpacity="0" />
+          </radialGradient>
+          <mask id="gridMask">
+            <rect width="100%" height="100%" fill="url(#gridFade)" />
+          </mask>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" mask="url(#gridMask)" />
+      </svg>
+
+      {/* center verification frame */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%,-50%)",
+          width: "58%",
+          aspectRatio: "1/1.1",
+          borderRadius: "44%",
+          border: "1px solid rgba(16,185,129,0.55)",
+          boxShadow:
+            "0 0 0 1px rgba(16,185,129,0.10) inset, 0 0 60px rgba(16,185,129,0.18)",
+        }}
+      >
+        {[
+          { top: -8, left: -8, borderTop: "2px solid rgba(16,185,129,0.9)", borderLeft: "2px solid rgba(16,185,129,0.9)" },
+          { top: -8, right: -8, borderTop: "2px solid rgba(16,185,129,0.9)", borderRight: "2px solid rgba(16,185,129,0.9)" },
+          { bottom: -8, left: -8, borderBottom: "2px solid rgba(16,185,129,0.9)", borderLeft: "2px solid rgba(16,185,129,0.9)" },
+          { bottom: -8, right: -8, borderBottom: "2px solid rgba(16,185,129,0.9)", borderRight: "2px solid rgba(16,185,129,0.9)" },
+        ].map((s, i) => (
+          <span key={i} style={{ position: "absolute", width: 16, height: 16, ...s }} />
+        ))}
+      </div>
+
+      {/* moving scan line */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          left: 0,
+          right: 0,
+          height: 90,
+          background:
+            "linear-gradient(to bottom, transparent, rgba(16,185,129,0.16) 50%, transparent)",
+          animation: "ss-scan 5s linear infinite",
+          mixBlendMode: "screen",
+        }}
+      />
+
+      {/* corner brackets */}
+      {[
+        { top: 14, left: 14, borderTop: "1px solid rgba(16,185,129,0.65)", borderLeft: "1px solid rgba(16,185,129,0.65)" },
+        { top: 14, right: 14, borderTop: "1px solid rgba(16,185,129,0.65)", borderRight: "1px solid rgba(16,185,129,0.65)" },
+        { bottom: 14, left: 14, borderBottom: "1px solid rgba(16,185,129,0.65)", borderLeft: "1px solid rgba(16,185,129,0.65)" },
+        { bottom: 14, right: 14, borderBottom: "1px solid rgba(16,185,129,0.65)", borderRight: "1px solid rgba(16,185,129,0.65)" },
+      ].map((s, i) => (
+        <span key={i} aria-hidden style={{ position: "absolute", width: 22, height: 22, ...s }} />
+      ))}
+
+      {/* telemetry chip */}
+      <div
+        style={{
+          position: "absolute",
+          top: 18,
+          right: 18,
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 8,
+          padding: "7px 12px",
+          background: "rgba(9,11,12,0.7)",
+          backdropFilter: "blur(10px)",
+          border: "1px solid rgba(16,185,129,0.4)",
+          borderRadius: 999,
+          fontSize: 10.5,
+          fontWeight: 700,
+          color: "#10b981",
+          letterSpacing: "0.12em",
+        }}
+      >
+        <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#10b981", boxShadow: "0 0 10px #10b981", animation: "ss-pulse 2.4s ease-in-out infinite" }} />
+        ON-DEVICE
+      </div>
+
+      {/* bottom signature */}
+      <div
+        style={{
+          position: "absolute",
+          left: 18,
+          bottom: 18,
+          right: 18,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          fontSize: 10,
+          color: "rgba(255,255,255,0.55)",
+          letterSpacing: "0.16em",
+          fontWeight: 600,
+        }}
+      >
+        <span>VERIFY · LOCAL RUNTIME</span>
+        <span>0 BYTES OUT</span>
+      </div>
+    </div>
+  );
+}
+
 export default function Trust() {
   return (
-    <div style={{ paddingTop: 70 }}>
-      <section style={{ padding: "80px 0", background: "var(--bg)" }}>
-        <div className="ss-container">
-          <div className="ss-two-col" style={{ alignItems: "center", marginBottom: 80 }}>
+    <div>
+      {/* ============ HERO ============ */}
+      <section style={{ position: "relative", padding: "20px 0 56px", overflow: "hidden" }}>
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "radial-gradient(1000px 480px at 50% -10%, rgba(16,185,129,0.14), transparent 60%), radial-gradient(600px 360px at 12% 20%, rgba(34,211,238,0.06), transparent 60%)",
+            pointerEvents: "none",
+          }}
+        />
+        <div className="ss-container" style={{ position: "relative" }}>
+          <div
+            className="ss-two-col"
+            style={{
+              alignItems: "center",
+              display: "grid",
+              gridTemplateColumns: "1.05fr 0.95fr",
+              gap: 56,
+            }}
+          >
             <div>
-              <p className="ss-pill" style={{ marginBottom: 22 }}>
-                Privacy and Trust
+              <p className="ss-pill" style={{ marginBottom: 18 }}>
+                <Lock size={11} /> Privacy & Trust
               </p>
-              <h1 style={{ fontSize: "clamp(34px,4.5vw,56px)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.1, color: "var(--text)", marginBottom: 20 }}>
-                Your privacy is not a small print issue.
+              <h1
+                style={{
+                  fontSize: "clamp(34px,4.3vw,56px)",
+                  fontWeight: 800,
+                  letterSpacing: "-0.04em",
+                  lineHeight: 1.05,
+                  color: "var(--text)",
+                  marginBottom: 18,
+                }}
+              >
+                Privacy isn't a policy.
+                <br />
+                It's the architecture.
               </h1>
-              <p style={{ fontSize: 16, color: "var(--text-muted)", lineHeight: 1.75, marginBottom: 32 }}>
-                We built ScreenSentinel so it is physically impossible for us to see what you are watching. That is a design decision, not a policy line.
+              <p
+                style={{
+                  fontSize: 16,
+                  color: "var(--text-muted)",
+                  lineHeight: 1.7,
+                  marginBottom: 26,
+                  maxWidth: 520,
+                }}
+              >
+                ScreenSentinel is engineered so it is physically impossible for us to see what you watch.
+                Every frame is analyzed on your device — and immediately forgotten.
               </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                 {certs.map((c) => (
-                  <span key={c} style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "7px 14px", borderRadius: 999, background: "var(--bg3)", border: "1px solid var(--border)", fontSize: 12, fontWeight: 600, color: "var(--text-muted)" }}>
-                    <Lock size={11} color="var(--accent)" />
+                  <span
+                    key={c}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 6,
+                      padding: "6px 12px",
+                      borderRadius: 999,
+                      background: "rgba(255,255,255,0.03)",
+                      border: "1px solid var(--border)",
+                      fontSize: 11.5,
+                      fontWeight: 600,
+                      color: "var(--text-muted)",
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    <Lock size={10} color="var(--accent)" />
                     {c}
                   </span>
                 ))}
               </div>
-              <p style={{ marginTop: 12, fontSize: 12, color: "var(--text-subtle)" }}>
-                Security documentation available on request. <Link to="/contact" style={{ color: "var(--accent)", textDecoration: "none" }}>Contact us</Link>.
+              <p style={{ marginTop: 14, fontSize: 12, color: "var(--text-subtle)" }}>
+                Security documentation available on request.{" "}
+                <Link to="/contact" style={{ color: "var(--accent)", textDecoration: "none", fontWeight: 600 }}>
+                  Contact us →
+                </Link>
               </p>
             </div>
-            <div style={{ position: "relative" }}>
-              <div style={{ borderRadius: 18, overflow: "hidden", border: "1px solid var(--border)" }}>
-                <img src={trustImage} alt="Trust and privacy" style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover", display: "block", opacity: 0.9 }} />
-              </div>
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, var(--bg) 0%, transparent 50%)", borderRadius: 18 }} />
-              <div style={{ position: "absolute", bottom: 24, left: "50%", transform: "translateX(-50%)", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 14, padding: "14px 22px", display: "flex", alignItems: "center", gap: 10, whiteSpace: "nowrap", backdropFilter: "blur(12px)" }}>
-                <div style={{ width: 10, height: 10, borderRadius: "50%", background: "var(--accent)" }} />
-                <span style={{ fontSize: 13, fontWeight: 600, color: "var(--text)" }}>
-                  We cannot see your screen by design
-                </span>
-              </div>
-            </div>
+            <ForensicVisual />
           </div>
+        </div>
+      </section>
 
-          <div className="ss-trust-grid" style={{ marginBottom: 64 }}>
+      {/* ============ FOUR PILLARS ============ */}
+      <section
+        style={{
+          position: "relative",
+          padding: "64px 0 72px",
+          borderTop: "1px solid var(--border)",
+          background: "linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%)",
+        }}
+      >
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "radial-gradient(700px 360px at 50% 0%, rgba(16,185,129,0.06), transparent 70%)",
+            pointerEvents: "none",
+          }}
+        />
+        <div className="ss-container" style={{ position: "relative" }}>
+          <div style={{ textAlign: "center", maxWidth: 600, margin: "0 auto 44px" }}>
+            <p className="ss-pill" style={{ marginBottom: 14 }}>Four guarantees</p>
+            <h2
+              style={{
+                fontSize: "clamp(26px,3vw,38px)",
+                fontWeight: 800,
+                letterSpacing: "-0.035em",
+                color: "var(--text)",
+                lineHeight: 1.1,
+              }}
+            >
+              The trust architecture, in four lines.
+            </h2>
+          </div>
+          <div
+            className="ss-trust-grid"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(2, 1fr)",
+              gap: 18,
+            }}
+          >
             {features.map((f) => (
-              <div key={f.title} className="ss-card" style={{ padding: "32px 28px", display: "flex", gap: 20, alignItems: "flex-start" }}>
-                <div style={{ width: 50, height: 50, borderRadius: 13, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <div style={{ width: 10, height: 10, borderRadius: "50%", background: "var(--accent)" }} />
+              <div
+                key={f.title}
+                style={{
+                  position: "relative",
+                  padding: "28px 26px",
+                  display: "flex",
+                  gap: 18,
+                  alignItems: "flex-start",
+                  background:
+                    "linear-gradient(160deg, rgba(255,255,255,0.035), rgba(255,255,255,0.005))",
+                  border: "1px solid var(--border)",
+                  borderRadius: 18,
+                  backdropFilter: "blur(8px)",
+                  boxShadow:
+                    "0 20px 50px -30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04)",
+                  overflow: "hidden",
+                }}
+              >
+                {/* corner motif */}
+                <span
+                  aria-hidden
+                  style={{
+                    position: "absolute",
+                    top: 10,
+                    right: 10,
+                    width: 14,
+                    height: 14,
+                    borderTop: "1px solid rgba(16,185,129,0.35)",
+                    borderRight: "1px solid rgba(16,185,129,0.35)",
+                  }}
+                />
+                <div
+                  style={{
+                    width: 44,
+                    height: 44,
+                    borderRadius: 12,
+                    background: "var(--accent-dim)",
+                    border: "1px solid var(--accent-border)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
+                  }}
+                >
+                  <f.icon size={18} color="var(--accent)" strokeWidth={1.7} />
                 </div>
                 <div>
-                  <h3 style={{ fontWeight: 700, color: "var(--text)", marginBottom: 10, fontSize: 16, lineHeight: 1.3 }}>
+                  <h3
+                    style={{
+                      fontWeight: 700,
+                      color: "var(--text)",
+                      marginBottom: 8,
+                      fontSize: 15.5,
+                      lineHeight: 1.3,
+                      letterSpacing: "-0.01em",
+                    }}
+                  >
                     {f.title}
                   </h3>
-                  <p style={{ color: "var(--text-muted)", fontSize: 14, lineHeight: 1.7 }}>{f.desc}</p>
+                  <p style={{ color: "var(--text-muted)", fontSize: 13.5, lineHeight: 1.7 }}>{f.desc}</p>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div style={{ background: "var(--bg2)", border: "1px solid var(--border)", borderRadius: 20, padding: "48px 44px" }}>
-            <h2 style={{ fontSize: 24, fontWeight: 800, letterSpacing: "-0.03em", color: "var(--text)", textAlign: "center", marginBottom: 36 }}>
-              Our privacy promise in plain English
-            </h2>
-            <div className="ss-summary-grid" style={{ marginBottom: 36 }}>
-              {summary.map((s) => (
-                <div key={s.heading}>
-                  <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--accent)", marginBottom: 12 }}>
-                    {s.heading}
-                  </p>
-                  <p style={{ fontSize: 14, color: "var(--text-muted)", lineHeight: 1.7 }}>{s.body}</p>
-                </div>
-              ))}
-            </div>
-            <div style={{ borderTop: "1px solid var(--border)", paddingTop: 28, textAlign: "center" }}>
-              <Link to="/privacy" style={{ fontSize: 14, fontWeight: 600, color: "var(--text)", textDecoration: "none" }}>
-                Read our full privacy policy &rarr;
-              </Link>
+      {/* ============ PROMISE PANEL ============ */}
+      <section
+        style={{
+          position: "relative",
+          padding: "64px 0 72px",
+          borderTop: "1px solid var(--border)",
+        }}
+      >
+        <div className="ss-container" style={{ position: "relative" }}>
+          <div
+            style={{
+              position: "relative",
+              background:
+                "linear-gradient(160deg, rgba(16,185,129,0.06), rgba(34,211,238,0.025) 60%, rgba(255,255,255,0.01))",
+              border: "1px solid var(--border-strong)",
+              borderRadius: 22,
+              padding: "44px 44px 36px",
+              overflow: "hidden",
+              boxShadow:
+                "0 30px 80px -40px rgba(16,185,129,0.22), inset 0 1px 0 rgba(255,255,255,0.04)",
+            }}
+          >
+            <div
+              aria-hidden
+              style={{
+                position: "absolute",
+                inset: 0,
+                background:
+                  "radial-gradient(500px 280px at 90% 0%, rgba(16,185,129,0.10), transparent 65%)",
+                pointerEvents: "none",
+              }}
+            />
+            <div style={{ position: "relative" }}>
+              <h2
+                style={{
+                  fontSize: 22,
+                  fontWeight: 800,
+                  letterSpacing: "-0.025em",
+                  color: "var(--text)",
+                  textAlign: "center",
+                  marginBottom: 32,
+                }}
+              >
+                Our privacy promise — in plain English.
+              </h2>
+              <div
+                className="ss-summary-grid"
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(3, 1fr)",
+                  gap: 32,
+                  marginBottom: 28,
+                }}
+              >
+                {summary.map((s) => (
+                  <div key={s.heading}>
+                    <p
+                      style={{
+                        fontSize: 10.5,
+                        fontWeight: 700,
+                        letterSpacing: "0.14em",
+                        textTransform: "uppercase",
+                        color: "var(--accent)",
+                        marginBottom: 10,
+                      }}
+                    >
+                      {s.heading}
+                    </p>
+                    <p style={{ fontSize: 13.5, color: "var(--text-muted)", lineHeight: 1.7 }}>
+                      {s.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <div style={{ borderTop: "1px solid var(--border)", paddingTop: 22, textAlign: "center" }}>
+                <Link
+                  to="/privacy"
+                  style={{
+                    fontSize: 13.5,
+                    fontWeight: 600,
+                    color: "var(--text)",
+                    textDecoration: "none",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 6,
+                  }}
+                >
+                  Read our full privacy policy <ArrowRight size={13} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section style={{ padding: "72px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
-        <div className="ss-container" style={{ textAlign: "center", maxWidth: 560, margin: "0 auto" }}>
-          <h2 style={{ fontSize: 30, fontWeight: 800, letterSpacing: "-0.03em", color: "var(--text)", marginBottom: 14 }}>
-            Still have questions about privacy?
+      {/* ============ CTA ============ */}
+      <section
+        style={{
+          position: "relative",
+          padding: "72px 0 88px",
+          borderTop: "1px solid var(--border)",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "radial-gradient(800px 420px at 50% 100%, rgba(16,185,129,0.16), transparent 65%), radial-gradient(500px 320px at 10% 0%, rgba(34,211,238,0.06), transparent 70%)",
+            pointerEvents: "none",
+          }}
+        />
+        {/* faint grid texture */}
+        <svg
+          aria-hidden
+          width="100%"
+          height="100%"
+          style={{ position: "absolute", inset: 0, opacity: 0.18, pointerEvents: "none" }}
+        >
+          <defs>
+            <pattern id="ctaGrid" width="42" height="42" patternUnits="userSpaceOnUse">
+              <path d="M 42 0 L 0 0 0 42" fill="none" stroke="rgba(16,185,129,0.18)" strokeWidth="0.4" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#ctaGrid)" />
+        </svg>
+        <div
+          className="ss-container"
+          style={{ position: "relative", textAlign: "center", maxWidth: 600, margin: "0 auto" }}
+        >
+          <p className="ss-pill" style={{ marginBottom: 18 }}>
+            <ShieldCheck size={11} /> Still have questions?
+          </p>
+          <h2
+            style={{
+              fontSize: "clamp(26px,3.2vw,40px)",
+              fontWeight: 800,
+              letterSpacing: "-0.035em",
+              color: "var(--text)",
+              marginBottom: 14,
+              lineHeight: 1.1,
+            }}
+          >
+            Privacy questions get plain answers.
           </h2>
-          <p style={{ color: "var(--text-muted)", fontSize: 15, marginBottom: 28, lineHeight: 1.65 }}>
-            We are happy to answer any question, no matter how basic it sounds.
+          <p
+            style={{
+              color: "var(--text-muted)",
+              fontSize: 15,
+              marginBottom: 26,
+              lineHeight: 1.7,
+            }}
+          >
+            We'll happily walk through how the runtime works, what's audited, and what's stored.
+            Even the most basic question is welcome.
           </p>
           <Link to="/contact" className="ss-btn ss-btn-primary">
             Ask us anything <ArrowRight size={14} />
           </Link>
         </div>
       </section>
+
+      <style>{`
+        @keyframes ss-scan {
+          0%   { top: -15%; }
+          100% { top: 110%; }
+        }
+        @keyframes ss-pulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50%      { opacity: 0.5; transform: scale(0.8); }
+        }
+        @media (max-width: 900px) {
+          .ss-two-col { grid-template-columns: 1fr !important; gap: 40px !important; }
+          .ss-trust-grid { grid-template-columns: 1fr !important; }
+          .ss-summary-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+        }
+      `}</style>
     </div>
   );
 }
