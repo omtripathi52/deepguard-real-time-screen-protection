@@ -60,7 +60,7 @@ export default function Navbar() {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="ss-container-nav flex items-center h-[58px]">
+      <div className="ss-container-nav flex items-center h-[52px]">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 flex-shrink-0 pr-2 sm:pr-3">
           <img src={logomark} alt="ScreenSentinel" className="w-8 h-8 object-contain" />

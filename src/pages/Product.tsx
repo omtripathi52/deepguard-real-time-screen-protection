@@ -88,7 +88,7 @@ export default function Product() {
   return (
     <div>
       {/* ============ HERO ============ */}
-      <section style={{ position: "relative", padding: "28px 0 80px", overflow: "hidden" }}>
+      <section style={{ position: "relative", padding: "20px 0 56px", overflow: "hidden" }}>
         {/* ambient atmospheric bridge from navbar */}
         <div
           aria-hidden
@@ -271,7 +271,7 @@ export default function Product() {
           </div>
 
           {/* CTA row */}
-          <div style={{ display: "flex", gap: 14, justifyContent: "center", marginTop: 36, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: 14, justifyContent: "center", marginTop: 28, flexWrap: "wrap" }}>
             <a href={exeLink} className="ss-btn ss-btn-primary">
               <Download size={14} /> Download for Windows
             </a>
@@ -287,7 +287,7 @@ export default function Product() {
         id="pipeline"
         style={{
           position: "relative",
-          padding: "112px 0",
+          padding: "72px 0 80px",
           borderTop: "1px solid var(--border)",
           background:
             "linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%)",
@@ -304,7 +304,7 @@ export default function Product() {
           }}
         />
         <div className="ss-container" style={{ position: "relative" }}>
-          <div style={{ textAlign: "center", marginBottom: 72, maxWidth: 640, margin: "0 auto 72px" }}>
+          <div style={{ textAlign: "center", marginBottom: 48, maxWidth: 640, margin: "0 auto 48px" }}>
             <p className="ss-pill" style={{ marginBottom: 16 }}>The detection pipeline</p>
             <h2
               style={{
@@ -423,7 +423,7 @@ export default function Product() {
       </section>
 
       {/* ============ INTERACTIVE FEATURE RAILS ============ */}
-      <section style={{ padding: "112px 0", position: "relative", borderTop: "1px solid var(--border)" }}>
+      <section style={{ padding: "72px 0 88px", position: "relative", borderTop: "1px solid var(--border)" }}>
         <div
           aria-hidden
           style={{
@@ -435,7 +435,7 @@ export default function Product() {
           }}
         />
         <div className="ss-container" style={{ position: "relative" }}>
-          <div style={{ marginBottom: 56, maxWidth: 640 }}>
+          <div style={{ marginBottom: 40, maxWidth: 640 }}>
             <p className="ss-pill" style={{ marginBottom: 16 }}>Built for daily life</p>
             <h2
               style={{
@@ -672,7 +672,7 @@ export default function Product() {
       <section
         style={{
           position: "relative",
-          padding: "120px 0",
+          padding: "80px 0 96px",
           borderTop: "1px solid var(--border)",
           overflow: "hidden",
         }}
