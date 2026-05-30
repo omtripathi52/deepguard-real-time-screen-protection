@@ -435,7 +435,7 @@ export default function Product() {
           }}
         />
         <div className="ss-container" style={{ position: "relative" }}>
-          <div style={{ marginBottom: 56, maxWidth: 640 }}>
+          <div style={{ marginBottom: 40, maxWidth: 640 }}>
             <p className="ss-pill" style={{ marginBottom: 16 }}>Built for daily life</p>
             <h2
               style={{
