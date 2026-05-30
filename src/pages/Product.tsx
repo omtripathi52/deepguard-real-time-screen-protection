@@ -271,7 +271,7 @@ export default function Product() {
           </div>
 
           {/* CTA row */}
-          <div style={{ display: "flex", gap: 14, justifyContent: "center", marginTop: 36, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: 14, justifyContent: "center", marginTop: 28, flexWrap: "wrap" }}>
             <a href={exeLink} className="ss-btn ss-btn-primary">
               <Download size={14} /> Download for Windows
             </a>
