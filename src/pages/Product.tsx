@@ -88,7 +88,7 @@ export default function Product() {
   return (
     <div>
       {/* ============ HERO ============ */}
-      <section style={{ position: "relative", padding: "28px 0 80px", overflow: "hidden" }}>
+      <section style={{ position: "relative", padding: "20px 0 56px", overflow: "hidden" }}>
         {/* ambient atmospheric bridge from navbar */}
         <div
           aria-hidden
