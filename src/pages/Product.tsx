@@ -672,7 +672,7 @@ export default function Product() {
       <section
         style={{
           position: "relative",
-          padding: "120px 0",
+          padding: "80px 0 96px",
           borderTop: "1px solid var(--border)",
           overflow: "hidden",
         }}
