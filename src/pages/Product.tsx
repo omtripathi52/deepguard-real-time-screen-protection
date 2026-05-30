@@ -423,7 +423,7 @@ export default function Product() {
       </section>
 
       {/* ============ INTERACTIVE FEATURE RAILS ============ */}
-      <section style={{ padding: "112px 0", position: "relative", borderTop: "1px solid var(--border)" }}>
+      <section style={{ padding: "72px 0 88px", position: "relative", borderTop: "1px solid var(--border)" }}>
         <div
           aria-hidden
           style={{
