@@ -41,7 +41,7 @@ const summary = [
 
 const certs = ["100% On-device", "No Cloud Processing", "Zero Tracking", "No Video Uploads"];
 
-// Recurring proprietary motif: forensic verification grid + scan line
+// Premium on-device processing illustration
 function ForensicVisual() {
   return (
     <div
@@ -52,126 +52,270 @@ function ForensicVisual() {
         border: "1px solid var(--border-strong)",
         aspectRatio: "1/1",
         background:
-          "radial-gradient(120% 90% at 30% 20%, rgba(16,185,129,0.18), transparent 55%), radial-gradient(100% 80% at 80% 90%, rgba(34,211,238,0.10), transparent 55%), linear-gradient(160deg, #0a0e0c 0%, #06090a 100%)",
+          "radial-gradient(120% 90% at 30% 15%, rgba(16,185,129,0.18), transparent 55%), radial-gradient(100% 80% at 80% 95%, rgba(34,211,238,0.10), transparent 55%), linear-gradient(160deg, #0a0e0c 0%, #06090a 100%)",
         boxShadow:
-          "0 40px 100px -40px rgba(16,185,129,0.28), 0 20px 60px -30px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.04)",
+          "0 40px 100px -40px rgba(16,185,129,0.30), 0 20px 60px -30px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.04)",
       }}
     >
-      {/* fine grid */}
-      <svg
-        aria-hidden
-        width="100%"
-        height="100%"
-        style={{ position: "absolute", inset: 0, opacity: 0.35 }}
-      >
+      {/* faint grid backdrop */}
+      <svg aria-hidden width="100%" height="100%" style={{ position: "absolute", inset: 0, opacity: 0.28 }}>
         <defs>
-          <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
-            <path d="M 28 0 L 0 0 0 28" fill="none" stroke="rgba(16,185,129,0.18)" strokeWidth="0.5" />
+          <pattern id="trustGrid" width="32" height="32" patternUnits="userSpaceOnUse">
+            <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(16,185,129,0.16)" strokeWidth="0.5" />
           </pattern>
-          <radialGradient id="gridFade" cx="50%" cy="50%" r="65%">
+          <radialGradient id="trustGridFade" cx="50%" cy="50%" r="65%">
             <stop offset="0%" stopColor="black" stopOpacity="1" />
             <stop offset="100%" stopColor="black" stopOpacity="0" />
           </radialGradient>
-          <mask id="gridMask">
-            <rect width="100%" height="100%" fill="url(#gridFade)" />
+          <mask id="trustGridMask">
+            <rect width="100%" height="100%" fill="url(#trustGridFade)" />
           </mask>
         </defs>
-        <rect width="100%" height="100%" fill="url(#grid)" mask="url(#gridMask)" />
+        <rect width="100%" height="100%" fill="url(#trustGrid)" mask="url(#trustGridMask)" />
       </svg>
 
-      {/* center verification frame */}
+      {/* "device boundary" — the box that data never leaves */}
       <div
         aria-hidden
         style={{
           position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%,-50%)",
-          width: "58%",
-          aspectRatio: "1/1.1",
-          borderRadius: "44%",
-          border: "1px solid rgba(16,185,129,0.55)",
-          boxShadow:
-            "0 0 0 1px rgba(16,185,129,0.10) inset, 0 0 60px rgba(16,185,129,0.18)",
-        }}
-      >
-        {[
-          { top: -8, left: -8, borderTop: "2px solid rgba(16,185,129,0.9)", borderLeft: "2px solid rgba(16,185,129,0.9)" },
-          { top: -8, right: -8, borderTop: "2px solid rgba(16,185,129,0.9)", borderRight: "2px solid rgba(16,185,129,0.9)" },
-          { bottom: -8, left: -8, borderBottom: "2px solid rgba(16,185,129,0.9)", borderLeft: "2px solid rgba(16,185,129,0.9)" },
-          { bottom: -8, right: -8, borderBottom: "2px solid rgba(16,185,129,0.9)", borderRight: "2px solid rgba(16,185,129,0.9)" },
-        ].map((s, i) => (
-          <span key={i} style={{ position: "absolute", width: 16, height: 16, ...s }} />
-        ))}
-      </div>
-
-      {/* moving scan line */}
-      <div
-        aria-hidden
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          height: 90,
+          inset: "10% 8% 14% 8%",
+          borderRadius: 18,
+          border: "1px dashed rgba(16,185,129,0.45)",
           background:
-            "linear-gradient(to bottom, transparent, rgba(16,185,129,0.16) 50%, transparent)",
-          animation: "ss-scan 5s linear infinite",
-          mixBlendMode: "screen",
+            "linear-gradient(160deg, rgba(16,185,129,0.04), rgba(255,255,255,0.01))",
+          boxShadow:
+            "inset 0 1px 0 rgba(255,255,255,0.04), 0 0 60px rgba(16,185,129,0.10)",
         }}
       />
-
-      {/* corner brackets */}
-      {[
-        { top: 14, left: 14, borderTop: "1px solid rgba(16,185,129,0.65)", borderLeft: "1px solid rgba(16,185,129,0.65)" },
-        { top: 14, right: 14, borderTop: "1px solid rgba(16,185,129,0.65)", borderRight: "1px solid rgba(16,185,129,0.65)" },
-        { bottom: 14, left: 14, borderBottom: "1px solid rgba(16,185,129,0.65)", borderLeft: "1px solid rgba(16,185,129,0.65)" },
-        { bottom: 14, right: 14, borderBottom: "1px solid rgba(16,185,129,0.65)", borderRight: "1px solid rgba(16,185,129,0.65)" },
-      ].map((s, i) => (
-        <span key={i} aria-hidden style={{ position: "absolute", width: 22, height: 22, ...s }} />
-      ))}
-
-      {/* telemetry chip */}
+      {/* device boundary label */}
       <div
         style={{
           position: "absolute",
-          top: 18,
-          right: 18,
+          top: "10%",
+          left: "8%",
+          transform: "translate(12px, -50%)",
+          padding: "3px 9px",
+          background: "#06090a",
+          border: "1px solid rgba(16,185,129,0.4)",
+          borderRadius: 999,
+          fontSize: 9.5,
+          fontWeight: 700,
+          color: "#10b981",
+          letterSpacing: "0.18em",
+        }}
+      >
+        YOUR DEVICE
+      </div>
+
+      {/* video frame being analyzed */}
+      <div
+        style={{
+          position: "absolute",
+          top: "18%",
+          left: "14%",
+          width: "44%",
+          aspectRatio: "16/10",
+          borderRadius: 10,
+          background:
+            "linear-gradient(135deg, #1a2330 0%, #0e1620 60%, #0a1018 100%)",
+          border: "1px solid rgba(255,255,255,0.08)",
+          boxShadow: "0 10px 30px -10px rgba(0,0,0,0.7)",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "28%",
+            transform: "translateX(-50%)",
+            width: "32%",
+            aspectRatio: "1/1",
+            borderRadius: "50%",
+            background: "rgba(255,255,255,0.10)",
+          }}
+        />
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            left: "20%",
+            right: "20%",
+            bottom: "-22%",
+            height: "60%",
+            borderRadius: "50% 50% 0 0",
+            background: "rgba(255,255,255,0.08)",
+          }}
+        />
+        <svg aria-hidden width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>
+          {[[42,38],[58,38],[50,46],[44,54],[56,54],[50,60]].map(([x,y],i)=>(
+            <circle key={i} cx={`${x}%`} cy={`${y}%`} r="1.4" fill="#10b981" />
+          ))}
+        </svg>
+        <div
+          style={{
+            position: "absolute",
+            top: 6,
+            left: 6,
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 5,
+            padding: "3px 7px",
+            background: "rgba(6,9,10,0.85)",
+            border: "1px solid rgba(16,185,129,0.4)",
+            borderRadius: 6,
+            fontSize: 8.5,
+            fontWeight: 700,
+            color: "#10b981",
+            letterSpacing: "0.12em",
+          }}
+        >
+          <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#10b981", animation: "ss-pulse 1.6s ease-in-out infinite" }} />
+          ANALYZING
+        </div>
+      </div>
+
+      {/* local AI model card */}
+      <div
+        style={{
+          position: "absolute",
+          top: "22%",
+          right: "12%",
+          width: "28%",
+          padding: "12px 12px 10px",
+          borderRadius: 12,
+          background: "linear-gradient(160deg, rgba(16,185,129,0.14), rgba(16,185,129,0.03))",
+          border: "1px solid rgba(16,185,129,0.4)",
+          boxShadow: "0 10px 30px -12px rgba(16,185,129,0.35), inset 0 1px 0 rgba(255,255,255,0.06)",
+        }}
+      >
+        <div style={{ fontSize: 8.5, fontWeight: 700, letterSpacing: "0.16em", color: "#10b981", marginBottom: 8 }}>
+          LOCAL MODEL
+        </div>
+        <svg viewBox="0 0 100 60" width="100%" height="48" aria-hidden>
+          {[15,50,85].map((cx,li)=>
+            [12,30,48].map((cy,ni)=>(
+              <circle key={`${li}-${ni}`} cx={cx} cy={cy} r="2.4" fill={li===1?"#10b981":"rgba(16,185,129,0.55)"} />
+            ))
+          )}
+          {[12,30,48].flatMap((y1)=>
+            [12,30,48].map((y2)=>(
+              <line key={`a-${y1}-${y2}`} x1="15" y1={y1} x2="50" y2={y2} stroke="rgba(16,185,129,0.25)" strokeWidth="0.5" />
+            ))
+          )}
+          {[12,30,48].flatMap((y1)=>
+            [12,30,48].map((y2)=>(
+              <line key={`b-${y1}-${y2}`} x1="50" y1={y1} x2="85" y2={y2} stroke="rgba(16,185,129,0.25)" strokeWidth="0.5" />
+            ))
+          )}
+        </svg>
+        <div style={{ fontSize: 9, color: "rgba(255,255,255,0.55)", marginTop: 4, letterSpacing: "0.04em" }}>
+          Inference · CPU / NPU
+        </div>
+      </div>
+
+      {/* pathways */}
+      <svg
+        aria-hidden
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}
+      >
+        <path d="M 58 35 C 66 35, 68 33, 72 32" stroke="rgba(16,185,129,0.7)" strokeWidth="0.5" fill="none" strokeDasharray="2 2">
+          <animate attributeName="stroke-dashoffset" from="0" to="-12" dur="1.6s" repeatCount="indefinite" />
+        </path>
+        <path d="M 86 44 C 86 60, 60 64, 50 70" stroke="rgba(16,185,129,0.5)" strokeWidth="0.5" fill="none" strokeDasharray="2 2">
+          <animate attributeName="stroke-dashoffset" from="0" to="-12" dur="1.8s" repeatCount="indefinite" />
+        </path>
+      </svg>
+
+      {/* verdict chip */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "22%",
+          left: "50%",
+          transform: "translateX(-50%)",
           display: "inline-flex",
           alignItems: "center",
           gap: 8,
-          padding: "7px 12px",
-          background: "rgba(9,11,12,0.7)",
+          padding: "8px 14px",
+          background: "rgba(6,9,10,0.85)",
+          border: "1px solid rgba(16,185,129,0.5)",
+          borderRadius: 10,
+          fontSize: 11,
+          fontWeight: 700,
+          color: "var(--text)",
+          letterSpacing: "0.04em",
+          backdropFilter: "blur(8px)",
+          boxShadow: "0 10px 24px -10px rgba(16,185,129,0.35)",
+        }}
+      >
+        <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#10b981", boxShadow: "0 0 10px #10b981" }} />
+        Real · 99.2%
+        <span style={{ marginLeft: 4, fontSize: 9, color: "#10b981", letterSpacing: "0.16em" }}>LOCAL</span>
+      </div>
+
+      {/* outbound blocked */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: 16,
+          right: 16,
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+        }}
+      >
+        <svg width="56" height="18" viewBox="0 0 56 18" aria-hidden>
+          <line x1="0" y1="9" x2="46" y2="9" stroke="rgba(239,68,68,0.55)" strokeWidth="1" strokeDasharray="3 3" />
+          <circle cx="51" cy="9" r="3.8" fill="none" stroke="rgba(239,68,68,0.75)" strokeWidth="1" />
+          <line x1="48.5" y1="6.5" x2="53.5" y2="11.5" stroke="rgba(239,68,68,0.95)" strokeWidth="1.2" />
+        </svg>
+        <span style={{ fontSize: 9.5, fontWeight: 700, color: "rgba(239,68,68,0.9)", letterSpacing: "0.14em" }}>
+          NO UPLOAD
+        </span>
+      </div>
+
+      {/* top-right pill */}
+      <div
+        style={{
+          position: "absolute",
+          top: 16,
+          right: 16,
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 6,
+          padding: "5px 10px",
+          background: "rgba(9,11,12,0.75)",
           backdropFilter: "blur(10px)",
           border: "1px solid rgba(16,185,129,0.4)",
           borderRadius: 999,
-          fontSize: 10.5,
+          fontSize: 9.5,
           fontWeight: 700,
           color: "#10b981",
-          letterSpacing: "0.12em",
+          letterSpacing: "0.16em",
         }}
       >
-        <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#10b981", boxShadow: "0 0 10px #10b981", animation: "ss-pulse 2.4s ease-in-out infinite" }} />
-        ON-DEVICE
+        <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#10b981", boxShadow: "0 0 10px #10b981", animation: "ss-pulse 2.4s ease-in-out infinite" }} />
+        0 BYTES OUT
       </div>
 
-      {/* bottom signature */}
+      {/* signature */}
       <div
         style={{
           position: "absolute",
           left: 18,
           bottom: 18,
-          right: 18,
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          fontSize: 10,
-          color: "rgba(255,255,255,0.55)",
-          letterSpacing: "0.16em",
+          fontSize: 9.5,
+          color: "rgba(255,255,255,0.5)",
+          letterSpacing: "0.18em",
           fontWeight: 600,
         }}
       >
-        <span>VERIFY · LOCAL RUNTIME</span>
-        <span>0 BYTES OUT</span>
+        LOCAL RUNTIME · v1
       </div>
     </div>
   );
