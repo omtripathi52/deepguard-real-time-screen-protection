@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Github, Mail } from "lucide-react";
+import { Linkedin, Instagram } from "lucide-react";
 import logomark from "@/assets/logomark.png";
 
 const cols: Record<string, { name: string; path: string }[]> = {
