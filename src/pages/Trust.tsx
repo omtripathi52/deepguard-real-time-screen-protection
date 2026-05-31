@@ -39,7 +39,7 @@ const summary = [
   },
 ];
 
-const certs = ["SOC 2 Certified", "GDPR Compliant", "ISO 27001", "Zero Tracking"];
+const certs = ["100% On-device", "No Cloud Processing", "Zero Tracking", "No Video Uploads"];
 
 // Recurring proprietary motif: forensic verification grid + scan line
 function ForensicVisual() {
@@ -181,7 +181,7 @@ export default function Trust() {
   return (
     <div>
       {/* ============ HERO ============ */}
-      <section style={{ position: "relative", padding: "20px 0 56px", overflow: "hidden" }}>
+      <section style={{ position: "relative", padding: "12px 0 40px", overflow: "hidden" }}>
         <div
           aria-hidden
           style={{
@@ -225,7 +225,7 @@ export default function Trust() {
                   fontSize: 16,
                   color: "var(--text-muted)",
                   lineHeight: 1.7,
-                  marginBottom: 26,
+                  marginBottom: 18,
                   maxWidth: 520,
                 }}
               >
@@ -271,7 +271,7 @@ export default function Trust() {
       <section
         style={{
           position: "relative",
-          padding: "64px 0 72px",
+          padding: "48px 0 56px",
           borderTop: "1px solid var(--border)",
           background: "linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%)",
         }}
@@ -381,7 +381,7 @@ export default function Trust() {
       <section
         style={{
           position: "relative",
-          padding: "64px 0 72px",
+          padding: "48px 0 56px",
           borderTop: "1px solid var(--border)",
         }}
       >
@@ -476,7 +476,7 @@ export default function Trust() {
       <section
         style={{
           position: "relative",
-          padding: "72px 0 88px",
+          padding: "48px 0 56px",
           borderTop: "1px solid var(--border)",
           overflow: "hidden",
         }}
