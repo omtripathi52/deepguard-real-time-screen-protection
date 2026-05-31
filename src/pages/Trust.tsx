@@ -431,25 +431,48 @@ export default function Trust() {
                   marginBottom: 28,
                 }}
               >
-                {summary.map((s) => (
-                  <div key={s.heading}>
-                    <p
-                      style={{
-                        fontSize: 10.5,
-                        fontWeight: 700,
-                        letterSpacing: "0.14em",
-                        textTransform: "uppercase",
-                        color: "var(--accent)",
-                        marginBottom: 10,
-                      }}
+                {summary.map((s, i) => {
+                  const emphasized = i === 1;
+                  return (
+                    <div
+                      key={s.heading}
+                      style={
+                        emphasized
+                          ? {
+                              padding: "18px 18px",
+                              borderRadius: 14,
+                              background: "rgba(16,185,129,0.06)",
+                              border: "1px solid rgba(16,185,129,0.25)",
+                              boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
+                            }
+                          : { padding: "18px 4px" }
+                      }
                     >
-                      {s.heading}
-                    </p>
-                    <p style={{ fontSize: 13.5, color: "var(--text-muted)", lineHeight: 1.7 }}>
-                      {s.body}
-                    </p>
-                  </div>
-                ))}
+                      <p
+                        style={{
+                          fontSize: 10.5,
+                          fontWeight: 700,
+                          letterSpacing: "0.14em",
+                          textTransform: "uppercase",
+                          color: emphasized ? "var(--accent)" : "var(--text-subtle)",
+                          marginBottom: 10,
+                        }}
+                      >
+                        {s.heading}
+                      </p>
+                      <p
+                        style={{
+                          fontSize: emphasized ? 14 : 13.5,
+                          color: emphasized ? "var(--text)" : "var(--text-muted)",
+                          lineHeight: 1.7,
+                          fontWeight: emphasized ? 500 : 400,
+                        }}
+                      >
+                        {s.body}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
               <div style={{ borderTop: "1px solid var(--border)", paddingTop: 22, textAlign: "center" }}>
                 <Link
