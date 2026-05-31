@@ -287,7 +287,7 @@ export default function Product() {
         id="pipeline"
         style={{
           position: "relative",
-          padding: "72px 0 80px",
+          padding: "72px 0 32px",
           borderTop: "1px solid var(--border)",
           background:
             "linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%)",
@@ -423,7 +423,7 @@ export default function Product() {
       </section>
 
       {/* ============ INTERACTIVE FEATURE RAILS ============ */}
-      <section style={{ padding: "72px 0 88px", position: "relative", borderTop: "1px solid var(--border)" }}>
+      <section style={{ padding: "40px 0 88px", position: "relative", borderTop: "1px solid var(--border)" }}>
         <div
           aria-hidden
           style={{

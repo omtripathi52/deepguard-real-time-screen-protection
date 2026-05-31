@@ -39,7 +39,7 @@ const summary = [
   },
 ];
 
-const certs = ["SOC 2 Certified", "GDPR Compliant", "ISO 27001", "Zero Tracking"];
+const certs = ["100% On-device", "No Cloud Processing", "Zero Tracking", "No Video Uploads"];
 
 // Recurring proprietary motif: forensic verification grid + scan line
 function ForensicVisual() {
@@ -181,7 +181,7 @@ export default function Trust() {
   return (
     <div>
       {/* ============ HERO ============ */}
-      <section style={{ position: "relative", padding: "20px 0 56px", overflow: "hidden" }}>
+      <section style={{ position: "relative", padding: "12px 0 40px", overflow: "hidden" }}>
         <div
           aria-hidden
           style={{
@@ -225,7 +225,7 @@ export default function Trust() {
                   fontSize: 16,
                   color: "var(--text-muted)",
                   lineHeight: 1.7,
-                  marginBottom: 26,
+                  marginBottom: 18,
                   maxWidth: 520,
                 }}
               >
@@ -271,7 +271,7 @@ export default function Trust() {
       <section
         style={{
           position: "relative",
-          padding: "64px 0 72px",
+          padding: "48px 0 56px",
           borderTop: "1px solid var(--border)",
           background: "linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%)",
         }}
@@ -381,7 +381,7 @@ export default function Trust() {
       <section
         style={{
           position: "relative",
-          padding: "64px 0 72px",
+          padding: "48px 0 56px",
           borderTop: "1px solid var(--border)",
         }}
       >
@@ -431,25 +431,48 @@ export default function Trust() {
                   marginBottom: 28,
                 }}
               >
-                {summary.map((s) => (
-                  <div key={s.heading}>
-                    <p
-                      style={{
-                        fontSize: 10.5,
-                        fontWeight: 700,
-                        letterSpacing: "0.14em",
-                        textTransform: "uppercase",
-                        color: "var(--accent)",
-                        marginBottom: 10,
-                      }}
+                {summary.map((s, i) => {
+                  const emphasized = i === 1;
+                  return (
+                    <div
+                      key={s.heading}
+                      style={
+                        emphasized
+                          ? {
+                              padding: "18px 18px",
+                              borderRadius: 14,
+                              background: "rgba(16,185,129,0.06)",
+                              border: "1px solid rgba(16,185,129,0.25)",
+                              boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
+                            }
+                          : { padding: "18px 4px" }
+                      }
                     >
-                      {s.heading}
-                    </p>
-                    <p style={{ fontSize: 13.5, color: "var(--text-muted)", lineHeight: 1.7 }}>
-                      {s.body}
-                    </p>
-                  </div>
-                ))}
+                      <p
+                        style={{
+                          fontSize: 10.5,
+                          fontWeight: 700,
+                          letterSpacing: "0.14em",
+                          textTransform: "uppercase",
+                          color: emphasized ? "var(--accent)" : "var(--text-subtle)",
+                          marginBottom: 10,
+                        }}
+                      >
+                        {s.heading}
+                      </p>
+                      <p
+                        style={{
+                          fontSize: emphasized ? 14 : 13.5,
+                          color: emphasized ? "var(--text)" : "var(--text-muted)",
+                          lineHeight: 1.7,
+                          fontWeight: emphasized ? 500 : 400,
+                        }}
+                      >
+                        {s.body}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
               <div style={{ borderTop: "1px solid var(--border)", paddingTop: 22, textAlign: "center" }}>
                 <Link
@@ -476,7 +499,7 @@ export default function Trust() {
       <section
         style={{
           position: "relative",
-          padding: "72px 0 88px",
+          padding: "48px 0 56px",
           borderTop: "1px solid var(--border)",
           overflow: "hidden",
         }}
