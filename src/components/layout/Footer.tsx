@@ -38,18 +38,33 @@ export default function Footer() {
             </p>
             <div className="flex gap-2.5">
               <a
-                href="https://github.com/omtripathi52/ScreenSentinel"
+                href="https://www.linkedin.com/company/screensentinel/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
-                aria-label="GitHub"
+                aria-label="LinkedIn"
               >
-                <Github size={15} />
+                <Linkedin size={15} />
               </a>
               <a
-                href="mailto:screensentinel.ai@gmail.com"
+                href="https://www.instagram.com/screensentinel/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
-                aria-label="Email"
+                aria-label="Instagram"
               >
-                <Mail size={15} />
+                <Instagram size={15} />
+              </a>
+              <a
+                href="https://x.com/screensentinelx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+                aria-label="X (Twitter)"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
               </a>
             </div>
           </div>
