@@ -2,61 +2,43 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
-  ChevronDown,
   Monitor,
   ScanFace,
   Cpu,
   ShieldCheck,
   Lock,
   Zap,
-  WifiOff,
-  Globe,
-  Activity,
   EyeOff,
+  Video,
+  PhoneCall,
+  Newspaper,
+  UserX,
+  Check,
+  X,
 } from "lucide-react";
 import { useGitHubRelease } from "@/hooks/use-github-release";
-import { faqs, useCases } from "@/data/content";
 import heroImg from "@/assets/hero-deepfake.png";
 
-const stats = [
-  { v: "99/100", l: "Fake videos caught", sub: "Detection accuracy in benchmarks" },
-  { v: "<200ms", l: "Time to verdict", sub: "From frame to confidence score" },
-  { v: "0 bytes", l: "Sent to our servers", sub: "Inference runs 100% on-device" },
-  { v: "Any app", l: "Platform coverage", sub: "Browsers, calls, social, media" },
-];
-
-const useCaseCards = [
+const problems = [
   {
-    key: "Social",
-    title: useCases[0].title,
-    desc: useCases[0].description,
-    tone: "#3b82f6",
-    tag: "Live feed protection",
-    chips: ["Auto-flag suspicious clips", "Share-safe prompt", "Realtime scan"],
+    icon: Video,
+    title: "Social media manipulation",
+    desc: "Fabricated clips of public figures spread faster than any fact-check ever could.",
   },
   {
-    key: "Identity",
-    title: useCases[1].title,
-    desc: useCases[1].description,
-    tone: "#8b5cf6",
-    tag: "Identity defense",
-    chips: ["Biometric checks", "Consent alerts", "Low false alarms"],
+    icon: PhoneCall,
+    title: "Video-call scams",
+    desc: "Live face-swaps now sit on calls long enough to authorise transfers and approvals.",
   },
   {
-    key: "News",
-    title: useCases[2].title,
-    desc: useCases[2].description,
-    tone: "#f59e0b",
-    tag: "Verified footage",
-    chips: ["Broadcast safe", "Editorial review", "Provenance signals"],
+    icon: Newspaper,
+    title: "News misinformation",
+    desc: "Synthetic footage is entering breaking news cycles before editors can verify it.",
   },
   {
-    key: "Enterprise",
-    title: useCases[3].title,
-    desc: useCases[3].description,
-    tone: "#10b981",
-    tag: "Workplace protection",
-    chips: ["Teams + Zoom", "Instant escalation", "Zero IT setup"],
+    icon: UserX,
+    title: "Identity theft",
+    desc: "Your face — pulled from one photo — can be placed inside a video you never recorded.",
   },
 ];
 
@@ -64,40 +46,31 @@ const pipeline = [
   {
     icon: Monitor,
     step: "01",
-    title: "Video appears on your screen",
-    desc: "A call, a clip, a livestream — anything playing in any window is captured frame-by-frame, locally.",
+    title: "Capture",
+    desc: "Any video on your screen — calls, clips, streams — read locally, frame by frame.",
   },
   {
     icon: ScanFace,
     step: "02",
-    title: "Facial & audio signals are analyzed",
-    desc: "Micro-expressions, blink cadence, lip-sync drift, and voiceprint consistency are profiled in real time.",
+    title: "Analyse",
+    desc: "Micro-expressions, blink cadence, lip-sync drift and voiceprint, profiled in real time.",
   },
   {
     icon: Cpu,
     step: "03",
-    title: "Detection engine scores anomalies",
-    desc: "An on-device model fuses temporal and acoustic signals into a single calibrated trust score.",
+    title: "Score",
+    desc: "An on-device model fuses temporal and acoustic signals into a calibrated trust score.",
   },
   {
     icon: ShieldCheck,
     step: "04",
-    title: "You get an instant verdict",
-    desc: "A clear, non-intrusive indicator tells you whether what you are watching can be trusted.",
+    title: "Verdict",
+    desc: "A quiet, instant indicator tells you whether what you are watching can be trusted.",
   },
 ];
 
-const trustItems = [
-  { icon: Lock, title: "Runs locally on your device", desc: "All analysis happens on your CPU/GPU. Nothing leaves your machine." },
-  { icon: EyeOff, title: "No videos uploaded, ever", desc: "We never see, store, or transmit a single frame of your screen." },
-  { icon: Zap, title: "Real-time analysis", desc: "Sub-200ms inference per frame, designed for live calls and streams." },
-  { icon: Globe, title: "Works on any platform", desc: "Zoom, Teams, browsers, social apps — anything that plays video." },
-  { icon: WifiOff, title: "Privacy-first architecture", desc: "Fully offline-capable. No account required to use detection." },
-  { icon: Activity, title: "Calibrated confidence", desc: "Honest scores with uncertainty surfaced, not black-box verdicts." },
-];
-
 export default function Index() {
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [side, setSide] = useState<"real" | "fake">("real");
   const { data: release, isLoading } = useGitHubRelease();
   const exeLink = release?.exeUrl || "https://github.com/omtripathi52/ScreenSentinel/releases/latest";
   const versionText = isLoading ? "Checking..." : (release?.version || "v2.0.0");
@@ -105,16 +78,18 @@ export default function Index() {
 
   return (
     <div>
-      {/* HERO */}
+      {/* HERO — full viewport, owns the opening */}
       <section
         style={{
-          padding: "20px 0 72px",
+          minHeight: "calc(100vh - 52px)",
+          display: "flex",
+          alignItems: "center",
+          padding: "40px 0 64px",
           overflow: "hidden",
           background: "var(--bg)",
           position: "relative",
         }}
       >
-        {/* Soft directional ambient lighting */}
         <div
           aria-hidden
           style={{
@@ -136,7 +111,7 @@ export default function Index() {
           }}
         />
 
-        <div className="ss-hero-wrap" style={{ position: "relative", zIndex: 1 }}>
+        <div className="ss-hero-wrap" style={{ position: "relative", zIndex: 1, width: "100%" }}>
           <div
             className="ss-two-col"
             style={{ alignItems: "center", gap: 48, gridTemplateColumns: "0.85fr 1.3fr" }}
@@ -185,7 +160,6 @@ export default function Index() {
             </div>
 
             <div style={{ position: "relative" }}>
-              {/* Ambient glow bleed that matches image lighting */}
               <div
                 aria-hidden
                 style={{
@@ -227,83 +201,76 @@ export default function Index() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section style={{ padding: "32px 0 88px", background: "var(--bg)" }}>
+      {/* PROBLEM */}
+      <section style={{ padding: "96px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
         <div className="ss-hero-wrap">
-          <div
-            style={{
-              borderRadius: 18,
-              overflow: "hidden",
-              border: "1px solid var(--border)",
-              background: "var(--bg2)",
-              boxShadow: "0 20px 60px -30px rgba(0,0,0,0.4)",
-            }}
-            className="ss-stats-grid"
-          >
-            {stats.map((s, i) => (
-              <div
-                key={s.l}
-                style={{
-                  padding: "32px 28px",
-                  textAlign: "left",
-                  borderRight: i < 3 ? "1px solid var(--border)" : "none",
-                  position: "relative",
-                }}
-              >
+          <div style={{ maxWidth: 720, marginBottom: 48 }}>
+            <p className="ss-pill" style={{ marginBottom: 18 }}>The problem</p>
+            <h2 style={{ fontSize: "clamp(32px, 3.6vw, 46px)", fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 16, lineHeight: 1.05 }}>
+              Fake videos are no longer rare.
+            </h2>
+            <p style={{ color: "var(--text-muted)", fontSize: 16, lineHeight: 1.7 }}>
+              Synthetic media now arrives at consumer speed — generated in minutes, shared in seconds, indistinguishable on a glance. The threats below are not future scenarios. They are happening today, at scale.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14 }} className="ss-pipeline-grid">
+            {problems.map((p) => {
+              const Icon = p.icon;
+              return (
                 <div
+                  key={p.title}
                   style={{
-                    width: 28,
-                    height: 2,
-                    background: "var(--accent)",
-                    borderRadius: 2,
-                    marginBottom: 16,
-                    opacity: 0.7,
-                  }}
-                />
-                <div
-                  style={{
-                    fontSize: 36,
-                    fontWeight: 800,
-                    letterSpacing: "-0.04em",
-                    color: "var(--text)",
-                    marginBottom: 8,
-                    lineHeight: 1,
+                    background: "var(--bg)",
+                    border: "1px solid var(--border)",
+                    borderRadius: 16,
+                    padding: "24px 22px",
                   }}
                 >
-                  {s.v}
+                  <div
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 10,
+                      background: "rgba(239,68,68,0.08)",
+                      border: "1px solid rgba(239,68,68,0.25)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginBottom: 16,
+                      color: "#f87171",
+                    }}
+                  >
+                    <Icon size={18} />
+                  </div>
+                  <h3 style={{ fontSize: 15, fontWeight: 700, color: "var(--text)", marginBottom: 8 }}>{p.title}</h3>
+                  <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.6 }}>{p.desc}</p>
                 </div>
-                <div style={{ fontSize: 13, color: "var(--text)", fontWeight: 600, marginBottom: 4 }}>
-                  {s.l}
-                </div>
-                <div style={{ fontSize: 12.5, color: "var(--text-muted)", lineHeight: 1.5 }}>{s.sub}</div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-
       {/* HOW IT WORKS */}
-      <section style={{ padding: "100px 0", borderTop: "1px solid var(--border)", background: "var(--bg2)", position: "relative", overflow: "hidden" }}>
+      <section style={{ padding: "96px 0", background: "var(--bg)", position: "relative", overflow: "hidden" }}>
         <div
           aria-hidden
           style={{
             position: "absolute",
             inset: 0,
-            background: "radial-gradient(700px circle at 80% 10%, rgba(16,185,129,0.12), transparent 60%)",
+            background: "radial-gradient(700px circle at 80% 10%, rgba(16,185,129,0.10), transparent 60%)",
             pointerEvents: "none",
           }}
         />
         <div className="ss-hero-wrap" style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ maxWidth: 680, marginBottom: 56 }}>
-            <p className="ss-pill" style={{ marginBottom: 18 }}>
-              The detection pipeline
-            </p>
-            <h2 style={{ fontSize: 40, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 14, lineHeight: 1.05 }}>
-              How ScreenSentinel works
+          <div style={{ maxWidth: 680, marginBottom: 48 }}>
+            <p className="ss-pill" style={{ marginBottom: 18 }}>How it works</p>
+            <h2 style={{ fontSize: "clamp(32px, 3.6vw, 46px)", fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 14, lineHeight: 1.05 }}>
+              Four stages, all on your device
             </h2>
             <p style={{ color: "var(--text-muted)", fontSize: 16, lineHeight: 1.7 }}>
-              Four stages, executed locally on every frame. No cloud round-trip. No data egress. Just continuous, calibrated trust.
+              No cloud round-trip. No data egress. Just continuous, calibrated trust running quietly in the background.
             </p>
           </div>
 
@@ -316,7 +283,6 @@ export default function Index() {
             }}
             className="ss-pipeline-grid"
           >
-            {/* Connecting line */}
             <div
               aria-hidden
               style={{
@@ -336,21 +302,10 @@ export default function Index() {
                   key={p.step}
                   style={{
                     position: "relative",
-                    background: "var(--bg)",
+                    background: "var(--bg2)",
                     border: "1px solid var(--border)",
-                    borderRadius: 18,
-                    padding: "28px 22px 24px",
-                    transition: "transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-4px)";
-                    e.currentTarget.style.borderColor = "var(--accent-border)";
-                    e.currentTarget.style.boxShadow = "0 20px 50px rgba(16,185,129,0.12)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.borderColor = "var(--border)";
-                    e.currentTarget.style.boxShadow = "none";
+                    borderRadius: 16,
+                    padding: "26px 22px 22px",
                   }}
                 >
                   <div
@@ -383,229 +338,328 @@ export default function Index() {
         </div>
       </section>
 
-      {/* TRUST / PRODUCT GUARANTEES */}
-      <section style={{ padding: "100px 0", background: "var(--bg)" }}>
+      {/* INTERACTIVE: REAL vs FAKE */}
+      <section style={{ padding: "96px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
         <div className="ss-hero-wrap">
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 24, flexWrap: "wrap", marginBottom: 40 }}>
-            <div style={{ maxWidth: 600 }}>
-              <p className="ss-pill" style={{ marginBottom: 16 }}>
-                Built on guarantees
-              </p>
-              <h2 style={{ fontSize: 36, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 12 }}>
-                Trust, not because we say so
-              </h2>
-              <p style={{ color: "var(--text-muted)", fontSize: 15, lineHeight: 1.7 }}>
-                Every decision in ScreenSentinel is shaped by one rule: the user's screen never leaves the user's device.
-              </p>
-            </div>
-            <Link to="/trust" className="ss-btn ss-btn-ghost">
-              Explore the trust center <ArrowRight size={14} />
-            </Link>
+          <div style={{ textAlign: "center", maxWidth: 680, margin: "0 auto 40px" }}>
+            <p className="ss-pill" style={{ marginBottom: 18 }}>Interactive</p>
+            <h2 style={{ fontSize: "clamp(32px, 3.6vw, 46px)", fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 14, lineHeight: 1.05 }}>
+              See what ScreenSentinel sees
+            </h2>
+            <p style={{ color: "var(--text-muted)", fontSize: 15, lineHeight: 1.7 }}>
+              Toggle between a real frame and a synthetic one. Watch the signals shift in real time.
+            </p>
           </div>
 
+          {/* Toggle */}
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: 28 }}>
+            <div
+              role="tablist"
+              style={{
+                display: "inline-flex",
+                padding: 4,
+                borderRadius: 999,
+                border: "1px solid var(--border)",
+                background: "var(--bg)",
+                gap: 4,
+              }}
+            >
+              {(["real", "fake"] as const).map((opt) => (
+                <button
+                  key={opt}
+                  role="tab"
+                  aria-selected={side === opt}
+                  onClick={() => setSide(opt)}
+                  style={{
+                    padding: "8px 22px",
+                    borderRadius: 999,
+                    border: "none",
+                    fontSize: 13,
+                    fontWeight: 700,
+                    cursor: "pointer",
+                    color: side === opt ? "#000" : "var(--text-muted)",
+                    background:
+                      side === opt
+                        ? opt === "real"
+                          ? "var(--accent)"
+                          : "#f87171"
+                        : "transparent",
+                    transition: "all 0.2s ease",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  {opt === "real" ? "Authentic frame" : "Synthetic frame"}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Viewer */}
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gap: 16,
+              gridTemplateColumns: "1.4fr 1fr",
+              gap: 18,
+              maxWidth: 1080,
+              margin: "0 auto",
             }}
-            className="ss-trust-3"
+            className="ss-two-col"
           >
-            {trustItems.map((t) => {
-              const Icon = t.icon;
-              return (
-                <div
-                  key={t.title}
-                  style={{
-                    border: "1px solid var(--border)",
-                    borderRadius: 18,
-                    padding: "26px 24px",
-                    background: "var(--bg2)",
-                    transition: "transform 0.2s ease, border-color 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-3px)";
-                    e.currentTarget.style.borderColor = "var(--accent-border)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.borderColor = "var(--border)";
-                  }}
-                >
+            {/* Frame */}
+            <div
+              style={{
+                position: "relative",
+                borderRadius: 18,
+                overflow: "hidden",
+                border: `1px solid ${side === "real" ? "rgba(16,185,129,0.35)" : "rgba(239,68,68,0.35)"}`,
+                background: "#000",
+                aspectRatio: "16/10",
+                transition: "border-color 0.4s ease",
+              }}
+            >
+              <img
+                src={heroImg}
+                alt="Sample video frame under analysis"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  filter: side === "fake" ? "hue-rotate(-10deg) saturate(1.05)" : "none",
+                  transition: "filter 0.4s ease",
+                }}
+              />
+              {/* Scan overlay */}
+              <div
+                aria-hidden
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: `repeating-linear-gradient(0deg, transparent 0px, transparent 6px, ${
+                    side === "real" ? "rgba(16,185,129,0.05)" : "rgba(239,68,68,0.06)"
+                  } 6px, ${side === "real" ? "rgba(16,185,129,0.05)" : "rgba(239,68,68,0.06)"} 7px)`,
+                  pointerEvents: "none",
+                }}
+              />
+              {/* Detection box */}
+              <div
+                aria-hidden
+                style={{
+                  position: "absolute",
+                  top: "22%",
+                  left: "32%",
+                  width: "36%",
+                  height: "52%",
+                  border: `1.5px dashed ${side === "real" ? "rgba(16,185,129,0.9)" : "rgba(239,68,68,0.9)"}`,
+                  borderRadius: 6,
+                  boxShadow: `0 0 0 2000px rgba(0,0,0,0.15) inset`,
+                  transition: "border-color 0.4s ease",
+                }}
+              />
+              {/* Verdict badge */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: 14,
+                  left: 14,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  padding: "8px 14px",
+                  borderRadius: 999,
+                  background: side === "real" ? "rgba(16,185,129,0.18)" : "rgba(239,68,68,0.2)",
+                  border: `1px solid ${side === "real" ? "rgba(16,185,129,0.5)" : "rgba(239,68,68,0.5)"}`,
+                  color: side === "real" ? "var(--accent)" : "#fca5a5",
+                  fontSize: 12,
+                  fontWeight: 700,
+                  letterSpacing: "0.04em",
+                  textTransform: "uppercase",
+                  backdropFilter: "blur(8px)",
+                }}
+              >
+                {side === "real" ? <Check size={14} /> : <X size={14} />}
+                {side === "real" ? "Authentic · 97%" : "Synthetic · 94%"}
+              </div>
+            </div>
+
+            {/* Signals panel */}
+            <div
+              style={{
+                background: "var(--bg)",
+                border: "1px solid var(--border)",
+                borderRadius: 18,
+                padding: "24px 22px",
+                display: "flex",
+                flexDirection: "column",
+                gap: 14,
+              }}
+            >
+              <div style={{ fontSize: 11, fontWeight: 700, color: "var(--text-subtle)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+                Signal analysis
+              </div>
+              {[
+                { label: "Blink cadence", real: 96, fake: 38 },
+                { label: "Lip-sync drift", real: 98, fake: 22 },
+                { label: "Micro-expression", real: 94, fake: 41 },
+                { label: "Voiceprint match", real: 99, fake: 18 },
+                { label: "Temporal coherence", real: 95, fake: 29 },
+              ].map((s) => {
+                const v = side === "real" ? s.real : s.fake;
+                const good = v >= 70;
+                return (
+                  <div key={s.label}>
+                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, marginBottom: 6 }}>
+                      <span style={{ color: "var(--text)", fontWeight: 600 }}>{s.label}</span>
+                      <span style={{ color: good ? "var(--accent)" : "#f87171", fontFamily: "monospace", fontWeight: 700 }}>{v}%</span>
+                    </div>
+                    <div style={{ height: 4, borderRadius: 4, background: "var(--border)", overflow: "hidden" }}>
+                      <div
+                        style={{
+                          width: `${v}%`,
+                          height: "100%",
+                          background: good ? "var(--accent)" : "#f87171",
+                          transition: "width 0.6s cubic-bezier(0.4,0,0.2,1), background 0.4s ease",
+                        }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+              <div
+                style={{
+                  marginTop: 6,
+                  paddingTop: 14,
+                  borderTop: "1px solid var(--border)",
+                  fontSize: 12,
+                  color: "var(--text-muted)",
+                  lineHeight: 1.6,
+                }}
+              >
+                {side === "real"
+                  ? "Signals align with natural human behaviour. ScreenSentinel returns a clean verdict — you can keep watching."
+                  : "Multiple signals fall outside human baselines. ScreenSentinel raises a quiet alert before the content can deceive."}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TRUST PREVIEW */}
+      <section style={{ padding: "96px 0", background: "var(--bg)" }}>
+        <div className="ss-hero-wrap">
+          <div
+            style={{
+              border: "1px solid var(--border)",
+              borderRadius: 22,
+              padding: "44px",
+              background:
+                "linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%), radial-gradient(600px circle at 80% 0%, rgba(16,185,129,0.08), transparent 60%)",
+              display: "grid",
+              gridTemplateColumns: "1fr 1.1fr",
+              gap: 40,
+              alignItems: "center",
+            }}
+            className="ss-two-col"
+          >
+            <div>
+              <p className="ss-pill" style={{ marginBottom: 18 }}>Architecture, not promises</p>
+              <h2 style={{ fontSize: "clamp(28px, 3vw, 38px)", fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 14, lineHeight: 1.1 }}>
+                Built so your screen never has to leave your device
+              </h2>
+              <p style={{ color: "var(--text-muted)", fontSize: 15, lineHeight: 1.7, marginBottom: 24 }}>
+                Detection runs entirely on your CPU. No frames are uploaded. No telemetry is collected. Privacy isn't a setting — it's the architecture.
+              </p>
+              <Link to="/trust" className="ss-btn ss-btn-primary">
+                Explore trust architecture <ArrowRight size={14} />
+              </Link>
+            </div>
+            <div style={{ display: "grid", gap: 12 }}>
+              {[
+                { icon: Lock, title: "Runs locally", desc: "All inference happens on your machine." },
+                { icon: EyeOff, title: "No uploads, ever", desc: "Frames never leave your device." },
+                { icon: ShieldCheck, title: "Zero tracking", desc: "No accounts, no analytics, no logs." },
+              ].map((t) => {
+                const Icon = t.icon;
+                return (
                   <div
+                    key={t.title}
                     style={{
-                      width: 38,
-                      height: 38,
-                      borderRadius: 10,
-                      background: "var(--accent-dim)",
-                      border: "1px solid var(--accent-border)",
                       display: "flex",
                       alignItems: "center",
-                      justifyContent: "center",
-                      marginBottom: 16,
-                      color: "var(--accent)",
+                      gap: 14,
+                      padding: "16px 18px",
+                      borderRadius: 14,
+                      border: "1px solid var(--border)",
+                      background: "var(--bg)",
                     }}
                   >
-                    <Icon size={18} />
-                  </div>
-                  <h3 style={{ fontSize: 15, fontWeight: 700, color: "var(--text)", marginBottom: 6 }}>{t.title}</h3>
-                  <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.65 }}>{t.desc}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* USE CASES */}
-      <section className="ss-usecase-section" style={{ padding: "100px 0", borderTop: "1px solid var(--border)" }}>
-        <div className="ss-hero-wrap" style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 36, gap: 24, flexWrap: "wrap" }}>
-            <div>
-              <p className="ss-pill" style={{ marginBottom: 16 }}>Built for every surface</p>
-              <h2 style={{ fontSize: 36, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 10 }}>
-                AI protection for every video context
-              </h2>
-              <p style={{ color: "var(--text-muted)", fontSize: 15, maxWidth: 520, lineHeight: 1.65 }}>
-                ScreenSentinel adapts to where you watch video, so trust remains consistent from social feeds to boardrooms.
-              </p>
-            </div>
-            <Link to="/solutions" className="ss-btn ss-btn-ghost">
-              See solutions <ArrowRight size={14} />
-            </Link>
-          </div>
-
-          <div className="ss-usecase-grid">
-            {useCaseCards.map((card) => (
-              <div
-                key={card.key}
-                className="ss-usecase-card"
-                style={{ borderColor: `${card.tone}55`, boxShadow: `0 24px 60px ${card.tone}22` }}
-              >
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
-                  <span style={{ fontSize: 14, fontWeight: 700, color: "var(--text)" }}>{card.key}</span>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: card.tone, background: `${card.tone}1A`, borderRadius: 999, padding: "4px 10px" }}>
-                    {card.tag}
-                  </span>
-                </div>
-                <h3 style={{ fontSize: 22, fontWeight: 800, color: "var(--text)", marginBottom: 10, letterSpacing: "-0.02em" }}>
-                  {card.title}
-                </h3>
-                <p style={{ color: "var(--text-muted)", fontSize: 14, lineHeight: 1.7, marginBottom: 20 }}>
-                  {card.desc}
-                </p>
-                <div style={{ display: "grid", gap: 10, marginBottom: 18 }}>
-                  {card.chips.map((chip) => (
-                    <div key={chip} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: "var(--text-muted)" }}>
-                      <span style={{ width: 7, height: 7, borderRadius: "50%", background: card.tone }} />
-                      {chip}
+                    <div
+                      style={{
+                        width: 36,
+                        height: 36,
+                        borderRadius: 10,
+                        background: "var(--accent-dim)",
+                        border: "1px solid var(--accent-border)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "var(--accent)",
+                        flexShrink: 0,
+                      }}
+                    >
+                      <Icon size={16} />
                     </div>
-                  ))}
-                </div>
-                <Link to="/contact" style={{ fontSize: 13, fontWeight: 700, color: card.tone, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6 }}>
-                  Talk to us <ArrowRight size={13} />
-                </Link>
-              </div>
-            ))}
+                    <div>
+                      <div style={{ fontSize: 14, fontWeight: 700, color: "var(--text)" }}>{t.title}</div>
+                      <div style={{ fontSize: 12.5, color: "var(--text-muted)" }}>{t.desc}</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* MISSION */}
-      <section style={{ padding: "120px 0", background: "var(--bg)", position: "relative", overflow: "hidden" }}>
+      {/* FINAL CTA */}
+      <section style={{ padding: "104px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
         <div
           aria-hidden
           style={{
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(600px circle at 50% 0%, rgba(16,185,129,0.12), transparent 60%), radial-gradient(500px circle at 80% 100%, rgba(59,130,246,0.1), transparent 60%)",
+              "radial-gradient(700px circle at 50% 0%, rgba(16,185,129,0.14), transparent 60%), radial-gradient(500px circle at 80% 100%, rgba(59,130,246,0.08), transparent 60%)",
             pointerEvents: "none",
           }}
         />
-        <div className="ss-hero-wrap" style={{ position: "relative", zIndex: 1, textAlign: "center", maxWidth: 820, margin: "0 auto" }}>
-          <p className="ss-pill" style={{ marginBottom: 22 }}>
-            Our mission
-          </p>
+        <div className="ss-hero-wrap" style={{ position: "relative", zIndex: 1, textAlign: "center", maxWidth: 720, margin: "0 auto" }}>
           <h2
             style={{
               fontSize: "clamp(36px, 4.4vw, 56px)",
               fontWeight: 800,
               letterSpacing: "-0.045em",
-              lineHeight: 1.08,
+              lineHeight: 1.05,
               color: "var(--text)",
-              marginBottom: 22,
+              marginBottom: 18,
             }}
           >
-            Building the future of <span className="grad-text">media trust</span>.
+            Trust what you watch.
           </h2>
-          <p style={{ fontSize: 17, color: "var(--text-muted)", lineHeight: 1.75, maxWidth: 640, margin: "0 auto" }}>
-            Synthetic media is here, and it is going to keep getting better. We are a small, focused team building the infrastructure layer that keeps human truth verifiable — locally, in real time, on every screen.
+          <p style={{ fontSize: 17, color: "var(--text-muted)", lineHeight: 1.7, maxWidth: 560, margin: "0 auto 32px" }}>
+            Free for personal use. Installs in under a minute. Runs entirely on your device.
           </p>
-          <div style={{ marginTop: 32, display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link to="/about" className="ss-btn ss-btn-ghost">Read our mission</Link>
-            <a href={exeLink} className="ss-btn ss-btn-primary">Download free <ArrowRight size={14} /></a>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section style={{ padding: "100px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
-        <div className="ss-hero-wrap">
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 24, flexWrap: "wrap", marginBottom: 32 }}>
-            <div>
-              <p className="ss-pill" style={{ marginBottom: 16 }}>Trust answers</p>
-              <h2 style={{ fontSize: 34, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 10 }}>
-                Clear answers to the questions you are already asking
-              </h2>
-              <p style={{ color: "var(--text-muted)", fontSize: 15, maxWidth: 520 }}>
-                Everything you need to know about privacy, detection accuracy, and how ScreenSentinel works day-to-day.
-              </p>
-            </div>
-            <Link to="/trust" className="ss-btn ss-btn-ghost">
-              Explore trust center <ArrowRight size={14} />
+          <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+            <a href={exeLink} className="ss-btn ss-btn-primary">
+              Download for Windows <ArrowRight size={15} />
+            </a>
+            <Link to="/product" className="ss-btn ss-btn-ghost">
+              Learn how it works
             </Link>
           </div>
-
-          <div className="ss-faq-stack" style={{ marginBottom: 32 }}>
-            {faqs.slice(0, 5).map((f, idx) => {
-              const isOpen = openFaq === idx;
-              return (
-                <div key={f.question} className={`ss-faq-item ${isOpen ? "is-open" : ""}`}>
-                  <button
-                    onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", gap: 14, background: "none", border: "none", padding: 0, textAlign: "left", cursor: "pointer" }}
-                  >
-                    <span style={{ fontSize: 16, fontWeight: 700, color: "var(--text)" }}>{f.question}</span>
-                    <ChevronDown size={16} style={{ color: "var(--text-subtle)", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.25s ease" }} />
-                  </button>
-                  <div className={`ss-faq-answer ${isOpen ? "is-open" : ""}`}>
-                    <p style={{ marginTop: 12, fontSize: 14, color: "var(--text-muted)", lineHeight: 1.75, maxWidth: 620 }}>
-                      {f.answer}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          <div style={{ borderRadius: 20, border: "1px solid var(--border)", background: "var(--bg)", padding: "22px 26px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 14 }}>
-            <div>
-              <div style={{ fontSize: 15, fontWeight: 700, color: "var(--text)", marginBottom: 4 }}>
-                Ready to see it in action?
-              </div>
-              <div style={{ fontSize: 13, color: "var(--text-muted)" }}>
-                Download the latest Windows build or learn how detection works in detail.
-              </div>
-            </div>
-            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-              <a href={exeLink} className="ss-btn ss-btn-primary">
-                Download free <ArrowRight size={14} />
-              </a>
-              <Link to="/product" className="ss-btn ss-btn-ghost">
-                Learn how it works
-              </Link>
-            </div>
+          <div style={{ marginTop: 24, display: "flex", gap: 18, justifyContent: "center", flexWrap: "wrap", fontSize: 12, color: "var(--text-subtle)" }}>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><Lock size={12} /> 100% on-device</span>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><EyeOff size={12} /> No uploads</span>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><Zap size={12} /> Sub-200ms</span>
           </div>
         </div>
       </section>

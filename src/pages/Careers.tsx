@@ -1,36 +1,31 @@
-import { ArrowRight, MapPin, Briefcase, HeartHandshake, Code, Cpu, ShieldCheck, Globe, PenTool, CheckCircle2 } from "lucide-react";
+import { ArrowRight, MapPin, Globe, Heart, BookOpen, Sparkles, Zap, Users, CheckCircle2, DollarSign } from "lucide-react";
 import { openRoles } from "@/data/content";
 
 const values = [
   {
-    Icon: ShieldCheck,
-    title: "Mission-driven focus",
-    desc: "Every model we build defends the integrity of digital media. We care about the impact of our work.",
+    Icon: Sparkles,
+    title: "Mission that matters",
+    desc: "Every model we ship defends the integrity of digital media. The work has weight — and we treat it that way.",
   },
   {
     Icon: Globe,
-    title: "Global outlook",
-    desc: "Our team spans 6 countries. We design for diverse audiences and critical use cases worldwide.",
+    title: "Remote, by design",
+    desc: "Hire the best person for the role, wherever they are. We've built a culture that thrives across timezones.",
   },
   {
-    Icon: PenTool,
-    title: "Design-led engineering",
-    desc: "We care about how the product feels. Beautiful, intuitive, and respectful experiences matter.",
+    Icon: Heart,
+    title: "Care for the craft",
+    desc: "We sweat the details — in research, in product, in code review. Quality is a non-negotiable here.",
   },
 ];
 
-const perks = [
-  "Remote-first in the UK or Europe",
-  "Private health coverage and wellness stipend",
-  "Annual retreat in London",
-  "Learning budget for conferences and courses",
-];
-
-const departments = [
-  { Icon: Code, label: "Engineering" },
-  { Icon: Cpu, label: "Machine Learning" },
-  { Icon: HeartHandshake, label: "Customer success" },
-  { Icon: Briefcase, label: "Operations" },
+const benefits = [
+  { Icon: DollarSign, title: "Competitive USD salary", desc: "Top-of-market compensation paid in USD, anywhere in the world." },
+  { Icon: Globe, title: "Fully remote", desc: "Work from anywhere. Async-first culture with deep-work blocks." },
+  { Icon: Heart, title: "Health & wellness", desc: "Private medical coverage and a monthly wellness stipend." },
+  { Icon: BookOpen, title: "Learning budget", desc: "$2,000/year for conferences, courses and books." },
+  { Icon: Users, title: "Team retreats", desc: "Twice a year, the whole team gathers in person." },
+  { Icon: Zap, title: "Top-tier equipment", desc: "Your choice of laptop, monitor and home-office setup." },
 ];
 
 const applyLink = (title: string) =>
@@ -38,106 +33,198 @@ const applyLink = (title: string) =>
 
 export default function Careers() {
   return (
-    <div style={{ paddingTop: 70 }}>
-      <section style={{ padding: "90px 0", background: "var(--bg)" }}>
-        <div className="ss-container">
-          <div className="ss-two-col" style={{ alignItems: "center" }}>
-            <div>
-              <p className="ss-pill" style={{ marginBottom: 24 }}>
-                Careers
-              </p>
-              <h1 style={{ fontSize: "clamp(36px,4.6vw,60px)", fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", lineHeight: 1.05, marginBottom: 18 }}>
-                Build the trust layer for AI-generated media.
-              </h1>
-              <p style={{ fontSize: 16, color: "var(--text-muted)", lineHeight: 1.7, marginBottom: 32 }}>
-                We are a tight-knit team in London and across Europe. We move quickly, we sweat the details, and we believe truth should be effortless.
-              </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 14 }}>
-                <a href="#roles" className="ss-btn ss-btn-primary">
-                  View open roles <ArrowRight size={14} />
-                </a>
-                <a href="mailto:careers@screensentinel.com" className="ss-btn" style={{ border: "1px solid var(--border)", background: "var(--bg2)" }}>
-                  Introduce yourself
-                </a>
-              </div>
+    <div>
+      {/* HERO */}
+      <section style={{ padding: "96px 0 56px", background: "var(--bg)", position: "relative", overflow: "hidden" }}>
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "radial-gradient(800px circle at 80% 0%, rgba(16,185,129,0.12), transparent 60%), radial-gradient(600px circle at 10% 100%, rgba(59,130,246,0.08), transparent 60%)",
+            pointerEvents: "none",
+          }}
+        />
+        <div className="ss-hero-wrap" style={{ position: "relative", zIndex: 1 }}>
+          <div style={{ maxWidth: 780 }}>
+            <p className="ss-pill" style={{ marginBottom: 22 }}>Careers</p>
+            <h1 style={{ fontSize: "clamp(40px,5vw,68px)", fontWeight: 800, letterSpacing: "-0.045em", color: "var(--text)", lineHeight: 1.02, marginBottom: 22 }}>
+              Help defend the integrity of <span className="grad-text">what we all see online.</span>
+            </h1>
+            <p style={{ fontSize: 17, color: "var(--text-muted)", lineHeight: 1.7, marginBottom: 28, maxWidth: 620 }}>
+              We're a remote-first team building on-device AI to detect synthetic media in real time. If you care about privacy, craft, and work that genuinely matters — we'd love to meet you.
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 24 }}>
+              <a href="#roles" className="ss-btn ss-btn-primary">
+                View open roles <ArrowRight size={14} />
+              </a>
+              <a href="mailto:careers@screensentinel.com" className="ss-btn ss-btn-ghost">
+                Introduce yourself
+              </a>
             </div>
-            <div style={{ background: "var(--bg2)", border: "1px solid var(--border)", borderRadius: 20, padding: "36px" }}>
-              <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--text)", marginBottom: 16 }}>What we are building</h3>
-              <p style={{ fontSize: 14, color: "var(--text-muted)", lineHeight: 1.7, marginBottom: 24 }}>
-                ScreenSentinel verifies digital media in real time using proprietary AI detection and forensic analysis. Our mission is to keep the world safe from synthetic misinformation.
-              </p>
-              <div style={{ display: "grid", gap: 12 }}>
-                {perks.map((p) => (
-                  <div key={p} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 13, color: "var(--text)" }}>
-                    <CheckCircle2 size={15} color="var(--accent)" /> {p}
-                  </div>
-                ))}
-              </div>
+            <div style={{ display: "flex", gap: 22, flexWrap: "wrap", fontSize: 13, color: "var(--text-subtle)" }}>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                <Globe size={13} /> Remote — Worldwide
+              </span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                <DollarSign size={13} /> Paid in USD
+              </span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                <Users size={13} /> {openRoles.length} open roles
+              </span>
             </div>
           </div>
         </div>
       </section>
 
-      <section style={{ padding: "70px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
-        <div className="ss-container">
-          <div style={{ textAlign: "center", marginBottom: 42 }}>
-            <h2 style={{ fontSize: 30, fontWeight: 800, color: "var(--text)", marginBottom: 10 }}>Teams we are hiring for</h2>
-            <p style={{ color: "var(--text-muted)", fontSize: 14 }}>Choose a path that matches your skills and passion.</p>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px,1fr))", gap: 18 }}>
-            {departments.map(({ Icon, label }) => (
-              <div key={label} style={{ border: "1px solid var(--border)", borderRadius: 14, padding: "18px", background: "var(--bg)" }}>
-                <div style={{ width: 40, height: 40, borderRadius: 12, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
-                  <Icon size={16} color="var(--accent)" />
-                </div>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--text)" }}>{label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="roles" style={{ padding: "90px 0", background: "var(--bg)" }}>
-        <div className="ss-container">
-          <div style={{ textAlign: "center", marginBottom: 40 }}>
-            <h2 style={{ fontSize: 30, fontWeight: 800, color: "var(--text)", marginBottom: 10 }}>Open roles</h2>
-            <p style={{ fontSize: 14, color: "var(--text-muted)" }}>{openRoles.length} positions in London right now.</p>
-          </div>
-          <div style={{ display: "grid", gap: 16 }}>
-            {openRoles.map((job) => (
-              <article key={job.id} style={{ border: "1px solid var(--border)", borderRadius: 18, padding: "24px", display: "grid", gridTemplateColumns: "2fr 1fr 1fr auto", gap: 16, alignItems: "center", background: "var(--bg2)" }} className="ss-job-row">
-                <div>
-                  <div style={{ fontSize: 12, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--text-subtle)", marginBottom: 6 }}>
-                    {job.department}
-                  </div>
-                  <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--text)", marginBottom: 6 }}>{job.title}</h3>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "var(--text-muted)" }}>
-                  <MapPin size={14} color="var(--accent)" /> {job.location}
-                </div>
-                <div style={{ fontSize: 13, color: "var(--text-muted)" }}>{job.type}</div>
-                <a href={applyLink(job.title)} className="ss-btn ss-btn-primary" style={{ padding: "10px 16px", borderRadius: 999 }}>
-                  Apply <ArrowRight size={14} />
-                </a>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section style={{ padding: "80px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
-        <div className="ss-container">
-          <div className="ss-three-col">
+      {/* VALUES */}
+      <section style={{ padding: "72px 0", background: "var(--bg)" }}>
+        <div className="ss-hero-wrap">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16 }} className="ss-three-col">
             {values.map(({ Icon, title, desc }) => (
-              <div key={title} className="ss-card" style={{ padding: "26px" }}>
+              <div key={title} className="ss-card" style={{ padding: "28px 26px" }}>
                 <div style={{ width: 44, height: 44, borderRadius: 12, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
                   <Icon size={18} color="var(--accent)" />
                 </div>
                 <h3 style={{ fontSize: 15, fontWeight: 700, color: "var(--text)", marginBottom: 10 }}>{title}</h3>
+                <p style={{ fontSize: 13.5, color: "var(--text-muted)", lineHeight: 1.65 }}>{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* OPEN ROLES */}
+      <section id="roles" style={{ padding: "88px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
+        <div className="ss-hero-wrap">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 16, marginBottom: 32 }}>
+            <div>
+              <p className="ss-pill" style={{ marginBottom: 14 }}>Open positions</p>
+              <h2 style={{ fontSize: 36, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 8 }}>
+                Now hiring
+              </h2>
+              <p style={{ fontSize: 14, color: "var(--text-muted)" }}>
+                {openRoles.length} roles · Remote worldwide · Salaries in USD
+              </p>
+            </div>
+          </div>
+
+          <div style={{ display: "grid", gap: 14 }}>
+            {openRoles.map((job) => (
+              <article
+                key={job.id}
+                className="ss-role-card"
+                style={{
+                  border: "1px solid var(--border)",
+                  borderRadius: 18,
+                  padding: "24px 26px",
+                  background: "var(--bg)",
+                  transition: "border-color 0.2s ease, transform 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = "var(--accent-border)";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "var(--border)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
+              >
+                <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr auto", gap: 20, alignItems: "center" }} className="ss-role-row">
+                  <div>
+                    <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--accent)", fontWeight: 700, marginBottom: 6 }}>
+                      {job.department}
+                    </div>
+                    <h3 style={{ fontSize: 19, fontWeight: 700, color: "var(--text)", marginBottom: 8, letterSpacing: "-0.01em" }}>{job.title}</h3>
+                    <p style={{ fontSize: 13.5, color: "var(--text-muted)", lineHeight: 1.6, maxWidth: 560 }}>
+                      {job.description}
+                    </p>
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 8, fontSize: 13 }}>
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "var(--text-muted)" }}>
+                      <MapPin size={14} color="var(--accent)" /> {job.location}
+                    </span>
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "var(--text)", fontWeight: 600 }}>
+                      <DollarSign size={14} color="var(--accent)" /> {job.salary}
+                    </span>
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "var(--text-subtle)" }}>
+                      <CheckCircle2 size={14} color="var(--accent)" /> {job.type}
+                    </span>
+                  </div>
+                  <a href={applyLink(job.title)} className="ss-btn ss-btn-primary" style={{ whiteSpace: "nowrap" }}>
+                    Apply <ArrowRight size={14} />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div style={{ marginTop: 28, padding: "20px 24px", borderRadius: 14, border: "1px dashed var(--border)", textAlign: "center", color: "var(--text-muted)", fontSize: 14 }}>
+            Don't see your role? We're always interested in exceptional people —{" "}
+            <a href="mailto:careers@screensentinel.com" style={{ color: "var(--accent)", fontWeight: 600 }}>get in touch</a>.
+          </div>
+        </div>
+      </section>
+
+      {/* BENEFITS */}
+      <section style={{ padding: "96px 0", background: "var(--bg)" }}>
+        <div className="ss-hero-wrap">
+          <div style={{ maxWidth: 640, marginBottom: 40 }}>
+            <p className="ss-pill" style={{ marginBottom: 16 }}>Benefits</p>
+            <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 12 }}>
+              What you get
+            </h2>
+            <p style={{ color: "var(--text-muted)", fontSize: 15, lineHeight: 1.65 }}>
+              We pay top of market and remove the friction so you can do the best work of your career.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14 }} className="ss-three-col">
+            {benefits.map(({ Icon, title, desc }) => (
+              <div
+                key={title}
+                style={{
+                  padding: "22px 22px",
+                  borderRadius: 14,
+                  border: "1px solid var(--border)",
+                  background: "var(--bg2)",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
+                  <div style={{ width: 32, height: 32, borderRadius: 8, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--accent)" }}>
+                    <Icon size={15} />
+                  </div>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: "var(--text)" }}>{title}</div>
+                </div>
                 <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.6 }}>{desc}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section style={{ padding: "96px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "radial-gradient(600px circle at 50% 0%, rgba(16,185,129,0.12), transparent 60%)",
+            pointerEvents: "none",
+          }}
+        />
+        <div className="ss-hero-wrap" style={{ position: "relative", zIndex: 1, textAlign: "center", maxWidth: 640, margin: "0 auto" }}>
+          <h2 style={{ fontSize: "clamp(30px, 3.6vw, 44px)", fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 16, lineHeight: 1.1 }}>
+            Build the trust layer with us
+          </h2>
+          <p style={{ fontSize: 16, color: "var(--text-muted)", lineHeight: 1.7, marginBottom: 28 }}>
+            Strong portfolio over CV. Tell us what you've built and what you want to build next.
+          </p>
+          <a href="mailto:careers@screensentinel.com" className="ss-btn ss-btn-primary">
+            careers@screensentinel.com <ArrowRight size={14} />
+          </a>
         </div>
       </section>
     </div>

@@ -14,6 +14,8 @@ export type OpenRole = {
   location: string;
   department: string;
   type: string;
+  salary: string;
+  description: string;
 };
 export type UseCase = {
   title: string;
@@ -119,10 +121,66 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export const openRoles: OpenRole[] = [
-  { id: 1, title: "Senior Computer Vision Engineer", location: "London, UK (Hybrid)", department: "Engineering", type: "Full-time" },
-  { id: 2, title: "Product Designer", location: "London, UK (On-site)", department: "Design", type: "Full-time" },
-  { id: 3, title: "Security Operations Manager", location: "London, UK (Hybrid)", department: "Operations", type: "Full-time" },
-  { id: 4, title: "Enterprise Sales Lead", location: "London, UK / Remote", department: "Sales", type: "Full-time" },
+  {
+    id: 1,
+    title: "Computer Vision Engineer",
+    location: "Remote (Worldwide)",
+    department: "Engineering",
+    type: "Full-time",
+    salary: "$140,000 – $185,000 USD",
+    description:
+      "Build the on-device vision models that power real-time deepfake detection. You'll own the inference pipeline from frame capture to verdict, optimising for CPU and NPU runtimes.",
+  },
+  {
+    id: 2,
+    title: "Machine Learning Engineer",
+    location: "Remote (Worldwide)",
+    department: "Engineering",
+    type: "Full-time",
+    salary: "$135,000 – $180,000 USD",
+    description:
+      "Train, fine-tune and ship generative-adversarial detection models. You'll work across data, model architecture, and on-device deployment with quantisation and distillation.",
+  },
+  {
+    id: 3,
+    title: "Data Scientist",
+    location: "Remote (Worldwide)",
+    department: "Research",
+    type: "Full-time",
+    salary: "$120,000 – $160,000 USD",
+    description:
+      "Drive the research that keeps our detection ahead of new synthesis techniques. You'll design experiments, curate adversarial datasets, and turn findings into shippable models.",
+  },
+  {
+    id: 4,
+    title: "Product Manager",
+    location: "Remote (Worldwide)",
+    department: "Product",
+    type: "Full-time",
+    salary: "$130,000 – $170,000 USD",
+    description:
+      "Own the ScreenSentinel desktop experience end-to-end. You'll set the roadmap, partner with research and engineering, and turn deep technology into a calm, trustworthy product.",
+  },
+  {
+    id: 5,
+    title: "Full-Stack Engineer",
+    location: "Remote (Worldwide)",
+    department: "Engineering",
+    type: "Full-time",
+    salary: "$120,000 – $160,000 USD",
+    description:
+      "Build the surfaces around our detection engine — desktop UI, telemetry-free dashboards, and the web experience. TypeScript, React and a love for craft required.",
+  },
+  {
+    id: 6,
+    title: "Security Researcher",
+    location: "Remote (Worldwide)",
+    department: "Research",
+    type: "Full-time",
+    salary: "$130,000 – $170,000 USD",
+    description:
+      "Red-team our detection stack against the newest synthesis pipelines. You'll publish, prototype attacks, and help us harden every release before it ships.",
+  },
 ];
 
 export const useCases: UseCase[] = [
