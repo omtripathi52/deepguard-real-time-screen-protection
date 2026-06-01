@@ -14,6 +14,8 @@ export type OpenRole = {
   location: string;
   department: string;
   type: string;
+  salary: string;
+  description: string;
 };
 export type UseCase = {
   title: string;
