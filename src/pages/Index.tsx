@@ -18,7 +18,8 @@ import {
 } from "lucide-react";
 import { useGitHubRelease } from "@/hooks/use-github-release";
 import heroImg from "@/assets/hero-deepfake.png";
-import demoPortrait from "@/assets/demo-portrait.jpg";
+import demoAuthentic from "@/assets/demo-authentic.jpg";
+import demoSynthetic from "@/assets/demo-synthetic.jpg";
 
 const problems = [
   {
@@ -419,14 +420,13 @@ export default function Index() {
               }}
             >
               <img
-                src={demoPortrait}
-                alt="Sample video frame under analysis"
+                src={side === "real" ? demoAuthentic : demoSynthetic}
+                alt={side === "real" ? "Authentic video frame" : "Synthetic video frame"}
                 style={{
                   width: "100%",
                   height: "100%",
                   objectFit: "cover",
-                  filter: side === "fake" ? "hue-rotate(-10deg) saturate(1.05)" : "none",
-                  transition: "filter 0.4s ease",
+                  transition: "opacity 0.4s ease",
                 }}
               />
               {/* Scan overlay */}

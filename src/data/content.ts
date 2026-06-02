@@ -16,6 +16,8 @@ export type OpenRole = {
   type: string;
   salary: string;
   description: string;
+  tags?: string[];
+  seniority?: string;
 };
 export type UseCase = {
   title: string;
