@@ -16,6 +16,8 @@ export type OpenRole = {
   type: string;
   salary: string;
   description: string;
+  tags?: string[];
+  seniority?: string;
 };
 export type UseCase = {
   title: string;
@@ -127,7 +129,9 @@ export const openRoles: OpenRole[] = [
     location: "Remote (Worldwide)",
     department: "Engineering",
     type: "Full-time",
+    seniority: "Mid–Senior",
     salary: "$140,000 – $185,000 USD",
+    tags: ["PyTorch", "Vision Models", "Edge AI", "ONNX"],
     description:
       "Build the on-device vision models that power real-time deepfake detection. You'll own the inference pipeline from frame capture to verdict, optimising for CPU and NPU runtimes.",
   },
@@ -137,7 +141,9 @@ export const openRoles: OpenRole[] = [
     location: "Remote (Worldwide)",
     department: "Engineering",
     type: "Full-time",
+    seniority: "Mid–Senior",
     salary: "$135,000 – $180,000 USD",
+    tags: ["PyTorch", "Quantization", "Distillation", "GAN Detection"],
     description:
       "Train, fine-tune and ship generative-adversarial detection models. You'll work across data, model architecture, and on-device deployment with quantisation and distillation.",
   },
@@ -147,7 +153,9 @@ export const openRoles: OpenRole[] = [
     location: "Remote (Worldwide)",
     department: "Research",
     type: "Full-time",
+    seniority: "Mid–Senior",
     salary: "$120,000 – $160,000 USD",
+    tags: ["Adversarial Data", "Evaluation", "Python", "Experimentation"],
     description:
       "Drive the research that keeps our detection ahead of new synthesis techniques. You'll design experiments, curate adversarial datasets, and turn findings into shippable models.",
   },
@@ -157,7 +165,9 @@ export const openRoles: OpenRole[] = [
     location: "Remote (Worldwide)",
     department: "Product",
     type: "Full-time",
+    seniority: "Mid",
     salary: "$130,000 – $170,000 USD",
+    tags: ["Desktop", "Privacy UX", "Roadmap", "Research-led"],
     description:
       "Own the ScreenSentinel desktop experience end-to-end. You'll set the roadmap, partner with research and engineering, and turn deep technology into a calm, trustworthy product.",
   },
@@ -167,7 +177,9 @@ export const openRoles: OpenRole[] = [
     location: "Remote (Worldwide)",
     department: "Engineering",
     type: "Full-time",
+    seniority: "Mid",
     salary: "$120,000 – $160,000 USD",
+    tags: ["TypeScript", "React", "Node", "Design Systems"],
     description:
       "Build the surfaces around our detection engine — desktop UI, telemetry-free dashboards, and the web experience. TypeScript, React and a love for craft required.",
   },
@@ -177,7 +189,9 @@ export const openRoles: OpenRole[] = [
     location: "Remote (Worldwide)",
     department: "Research",
     type: "Full-time",
+    seniority: "Senior",
     salary: "$130,000 – $170,000 USD",
+    tags: ["Red Team", "Synthesis", "Adversarial ML", "Publications"],
     description:
       "Red-team our detection stack against the newest synthesis pipelines. You'll publish, prototype attacks, and help us harden every release before it ships.",
   },
