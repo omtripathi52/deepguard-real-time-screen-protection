@@ -419,7 +419,7 @@ export default function Index() {
               }}
             >
               <img
-                src={heroImg}
+                src={demoPortrait}
                 alt="Sample video frame under analysis"
                 style={{
                   width: "100%",
