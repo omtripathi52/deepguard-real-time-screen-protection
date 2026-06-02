@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useGitHubRelease } from "@/hooks/use-github-release";
 import heroImg from "@/assets/hero-deepfake.png";
+import demoPortrait from "@/assets/demo-portrait.jpg";
 
 const problems = [
   {
