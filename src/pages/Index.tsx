@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useGitHubRelease } from "@/hooks/use-github-release";
 import heroImg from "@/assets/hero-deepfake.png";
+import demoPortrait from "@/assets/demo-portrait.jpg";
 
 const problems = [
   {
@@ -418,7 +419,7 @@ export default function Index() {
               }}
             >
               <img
-                src={heroImg}
+                src={demoPortrait}
                 alt="Sample video frame under analysis"
                 style={{
                   width: "100%",
