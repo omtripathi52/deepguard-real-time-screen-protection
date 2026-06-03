@@ -46,6 +46,7 @@
     --bg3: hsl(var(--muted));
     --surface: hsl(var(--card));
     --border-strong: hsl(var(--border));
+    --ss-line: hsl(var(--border));
     --text: hsl(var(--foreground));
     --text-muted: hsl(var(--muted-foreground));
     --text-subtle: hsl(var(--muted-foreground));
@@ -92,6 +93,7 @@
     --bg3: #18181b;
     --surface: #1c1c1f;
     --border-strong: rgba(255,255,255,0.14);
+    --ss-line: rgba(255,255,255,0.08);
     --text: #f5f5f7;
     --text-muted: #c8c8d0;
     --text-subtle: #8a8a93;
