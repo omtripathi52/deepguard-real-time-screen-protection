@@ -470,81 +470,141 @@ export default function Product() {
               {features.map((f, i) => {
                 const active = activeFeature === i;
                 return (
-                  <button
-                    key={f.title}
-                    onMouseEnter={() => setActiveFeature(i)}
-                    onFocus={() => setActiveFeature(i)}
-                    onClick={() => setActiveFeature(i)}
-                    style={{
-                      textAlign: "left",
-                      display: "flex",
-                      gap: 20,
-                      alignItems: "flex-start",
-                      padding: "22px 24px",
-                      background: active
-                        ? "linear-gradient(135deg, rgba(16,185,129,0.10), rgba(16,185,129,0.02))"
-                        : "linear-gradient(135deg, rgba(255,255,255,0.025), rgba(255,255,255,0))",
-                      border: active
-                        ? "1px solid rgba(16,185,129,0.35)"
-                        : "1px solid var(--ss-line)",
-                      borderRadius: 16,
-                      cursor: "pointer",
-                      transition: "all 0.2s ease",
-                      position: "relative",
-                    }}
-                  >
-                    <div
+                  <div key={f.title}>
+                    <button
+                      onMouseEnter={() => setActiveFeature(i)}
+                      onFocus={() => setActiveFeature(i)}
+                      onClick={() => setActiveFeature(i)}
                       style={{
-                        width: 44,
-                        height: 44,
-                        borderRadius: 12,
-                        background: active ? "var(--accent-dim)" : "rgba(255,255,255,0.04)",
-                        border: active ? "1px solid var(--accent-border)" : "1px solid var(--ss-line)",
+                        width: "100%",
+                        textAlign: "left",
                         display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexShrink: 0,
+                        gap: 20,
+                        alignItems: "flex-start",
+                        padding: "22px 24px",
+                        background: active
+                          ? "linear-gradient(135deg, rgba(16,185,129,0.10), rgba(16,185,129,0.02))"
+                          : "linear-gradient(135deg, rgba(255,255,255,0.025), rgba(255,255,255,0))",
+                        border: active
+                          ? "1px solid rgba(16,185,129,0.35)"
+                          : "1px solid var(--ss-line)",
+                        borderRadius: active ? "16px 16px 0 0" : 16,
+                        cursor: "pointer",
                         transition: "all 0.2s ease",
+                        position: "relative",
                       }}
                     >
-                      <f.icon
-                        size={20}
-                        color={active ? "var(--accent)" : "var(--text-muted)"}
-                        strokeWidth={1.7}
-                      />
-                    </div>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <h3
+                      <div
                         style={{
-                          fontSize: 16,
-                          fontWeight: 700,
-                          color: "var(--text)",
-                          marginBottom: 6,
+                          width: 44,
+                          height: 44,
+                          borderRadius: 12,
+                          background: active ? "var(--accent-dim)" : "rgba(255,255,255,0.04)",
+                          border: active ? "1px solid var(--accent-border)" : "1px solid var(--ss-line)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                          transition: "all 0.2s ease",
                         }}
                       >
-                        {f.title}
-                      </h3>
-                      <p style={{ fontSize: 13.5, color: "var(--text-muted)", lineHeight: 1.65 }}>
-                        {f.desc}
-                      </p>
-                    </div>
-                    <ArrowRight
-                      size={16}
-                      color={active ? "var(--accent)" : "var(--text-subtle)"}
-                      style={{
-                        flexShrink: 0,
-                        marginTop: 4,
-                        transform: active ? "translateX(2px)" : "translateX(0)",
-                        transition: "all 0.2s ease",
-                      }}
-                    />
-                  </button>
+                        <f.icon
+                          size={20}
+                          color={active ? "var(--accent)" : "var(--text-muted)"}
+                          strokeWidth={1.7}
+                        />
+                      </div>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <h3
+                          style={{
+                            fontSize: 16,
+                            fontWeight: 700,
+                            color: "var(--text)",
+                            marginBottom: 6,
+                          }}
+                        >
+                          {f.title}
+                        </h3>
+                        <p style={{ fontSize: 13.5, color: "var(--text-muted)", lineHeight: 1.65 }}>
+                          {f.desc}
+                        </p>
+                      </div>
+                      <ArrowRight
+                        size={16}
+                        color={active ? "var(--accent)" : "var(--text-subtle)"}
+                        style={{
+                          flexShrink: 0,
+                          marginTop: 4,
+                          transform: active ? "rotate(90deg)" : "translateX(0)",
+                          transition: "all 0.2s ease",
+                        }}
+                      />
+                    </button>
+                    {/* Mobile inline preview — shown below the active card on small screens */}
+                    {active && (
+                      <div
+                        className="feat-mobile-preview"
+                        style={{
+                          padding: "18px 22px 20px",
+                          background:
+                            "linear-gradient(160deg, rgba(16,185,129,0.10), rgba(34,211,238,0.04) 60%, transparent)",
+                          border: "1px solid rgba(16,185,129,0.35)",
+                          borderTop: "1px solid rgba(16,185,129,0.15)",
+                          borderRadius: "0 0 16px 16px",
+                        }}
+                      >
+                        <p
+                          style={{
+                            fontSize: 10,
+                            letterSpacing: "0.14em",
+                            color: "var(--text-subtle)",
+                            textTransform: "uppercase",
+                            marginBottom: 6,
+                            fontWeight: 600,
+                          }}
+                        >
+                          {f.preview.label}
+                        </p>
+                        <div
+                          style={{
+                            fontSize: 30,
+                            fontWeight: 800,
+                            letterSpacing: "-0.03em",
+                            color: "var(--text)",
+                            marginBottom: 12,
+                            lineHeight: 1.1,
+                          }}
+                        >
+                          {f.preview.value}
+                        </div>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                          {f.preview.chips.map((c) => (
+                            <span
+                              key={c}
+                              style={{
+                                fontSize: 12,
+                                padding: "5px 11px",
+                                borderRadius: 999,
+                                background: "rgba(255,255,255,0.05)",
+                                border: "1px solid var(--border-strong)",
+                                color: "var(--text-muted)",
+                                fontWeight: 500,
+                              }}
+                            >
+                              {c}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 );
               })}
             </div>
 
             {/* live preview surface */}
             <div
+              className="feat-side-panel"
               style={{
                 position: "sticky",
                 top: 96,

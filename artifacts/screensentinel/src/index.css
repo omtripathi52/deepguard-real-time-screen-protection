@@ -535,3 +535,34 @@
     }
   }
 }
+
+/* ─── Mobile gap + layout fixes ─── */
+@media (max-width: 900px) {
+  .ss-two-col { gap: 28px !important; }
+  .ss-three-col { gap: 12px !important; }
+}
+@media (max-width: 640px) {
+  .ss-two-col { gap: 20px !important; }
+  /* Careers role-card inner row: stack vertically on mobile */
+  .ss-role-row {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .ss-role-row .ss-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Product page: feature interactive section */
+.feat-mobile-preview { display: none; }
+@media (max-width: 900px) {
+  .feat-grid { gap: 0 !important; }
+  .feat-mobile-preview { display: block; }
+  .feat-side-panel { display: none !important; }
+}
+
+/* Careers: hide decorative globe on mobile */
+@media (max-width: 640px) {
+  .careers-globe { display: none !important; }
+}

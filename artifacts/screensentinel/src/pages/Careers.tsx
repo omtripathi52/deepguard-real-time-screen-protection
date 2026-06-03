@@ -40,7 +40,7 @@ export default function Careers() {
   return (
     <div>
       {/* HERO */}
-      <section style={{ padding: "80px 0 56px", background: "var(--bg)", position: "relative", overflow: "hidden" }}>
+      <section style={{ padding: "clamp(48px,5vw,80px) 0 clamp(36px,4vw,56px)", background: "var(--bg)", position: "relative", overflow: "hidden" }}>
         <div
           aria-hidden
           style={{
@@ -83,7 +83,7 @@ export default function Careers() {
             </div>
 
             {/* Distributed team visual */}
-            <div style={{ position: "relative", aspectRatio: "1 / 0.85" }}>
+            <div className="careers-globe" style={{ position: "relative", aspectRatio: "1 / 0.85" }}>
               <div
                 aria-hidden
                 style={{
@@ -137,7 +137,7 @@ export default function Careers() {
       </section>
 
       {/* WHY NOW */}
-      <section style={{ padding: "80px 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)", borderBottom: "1px solid var(--ss-line)" }}>
+      <section style={{ padding: "clamp(48px,5vw,80px) 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)", borderBottom: "1px solid var(--ss-line)" }}>
         <div className="ss-hero-wrap">
           <div style={{ maxWidth: 700, marginBottom: 36 }}>
             <p className="ss-pill" style={{ marginBottom: 16 }}>Why join now</p>
@@ -161,7 +161,7 @@ export default function Careers() {
       </section>
 
       {/* OPEN ROLES */}
-      <section id="roles" style={{ padding: "88px 0", background: "var(--bg)" }}>
+      <section id="roles" style={{ padding: "clamp(48px,5vw,88px) 0", background: "var(--bg)" }}>
         <div className="ss-hero-wrap">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 16, marginBottom: 28 }}>
             <div>
@@ -263,7 +263,7 @@ export default function Careers() {
       </section>
 
       {/* BENEFITS */}
-      <section style={{ padding: "80px 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)" }}>
+      <section style={{ padding: "clamp(48px,5vw,80px) 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)" }}>
         <div className="ss-hero-wrap">
           <div style={{ maxWidth: 640, marginBottom: 32 }}>
             <p className="ss-pill" style={{ marginBottom: 14 }}>What you get</p>
@@ -297,7 +297,7 @@ export default function Careers() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: "88px 0", background: "var(--bg)", borderTop: "1px solid var(--ss-line)", position: "relative", overflow: "hidden" }}>
+      <section style={{ padding: "clamp(48px,5vw,88px) 0", background: "var(--bg)", borderTop: "1px solid var(--ss-line)", position: "relative", overflow: "hidden" }}>
         <div
           aria-hidden
           style={{

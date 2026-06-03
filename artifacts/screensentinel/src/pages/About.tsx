@@ -39,7 +39,7 @@ export default function AboutPage() {
   return (
     <div>
       {/* HERO */}
-      <section style={{ padding: "112px 0 72px", background: "var(--bg)", position: "relative", overflow: "hidden" }}>
+      <section style={{ padding: "clamp(60px,7vw,112px) 0 clamp(40px,5vw,72px)", background: "var(--bg)", position: "relative", overflow: "hidden" }}>
         <div
           aria-hidden
           style={{
@@ -67,7 +67,7 @@ export default function AboutPage() {
       </section>
 
       {/* WHY WE STARTED */}
-      <section style={{ padding: "88px 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)", borderBottom: "1px solid var(--ss-line)" }}>
+      <section style={{ padding: "clamp(48px,6vw,88px) 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)", borderBottom: "1px solid var(--ss-line)" }}>
         <div className="ss-hero-wrap">
           <div style={{ display: "grid", gridTemplateColumns: "0.9fr 1.1fr", gap: 64, alignItems: "start" }} className="ss-two-col">
             <div>
@@ -92,7 +92,7 @@ export default function AboutPage() {
       </section>
 
       {/* WHAT WE BELIEVE */}
-      <section style={{ padding: "96px 0", background: "var(--bg)" }}>
+      <section style={{ padding: "clamp(48px,6vw,96px) 0", background: "var(--bg)" }}>
         <div className="ss-hero-wrap">
           <div style={{ maxWidth: 680, marginBottom: 44 }}>
             <p className="ss-pill" style={{ marginBottom: 18 }}>What we believe</p>
@@ -119,7 +119,7 @@ export default function AboutPage() {
       </section>
 
       {/* WHY NOW */}
-      <section style={{ padding: "96px 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)", borderBottom: "1px solid var(--ss-line)" }}>
+      <section style={{ padding: "clamp(48px,6vw,96px) 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)", borderBottom: "1px solid var(--ss-line)" }}>
         <div className="ss-hero-wrap">
           <div style={{ maxWidth: 720, marginBottom: 40 }}>
             <p className="ss-pill" style={{ marginBottom: 18 }}>Why now</p>
@@ -155,7 +155,7 @@ export default function AboutPage() {
       </section>
 
       {/* VISION */}
-      <section style={{ padding: "120px 0", background: "var(--bg)", position: "relative", overflow: "hidden" }}>
+      <section style={{ padding: "clamp(56px,7vw,120px) 0", background: "var(--bg)", position: "relative", overflow: "hidden" }}>
         <div
           aria-hidden
           style={{
@@ -182,7 +182,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: "88px 0 112px", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)" }}>
+      <section style={{ padding: "clamp(48px,5vw,88px) 0 clamp(60px,6vw,112px)", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)" }}>
         <div className="ss-hero-wrap" style={{ textAlign: "center", maxWidth: 720, margin: "0 auto" }}>
           <h3 style={{ fontSize: 24, fontWeight: 700, color: "var(--text)", marginBottom: 12, letterSpacing: "-0.02em" }}>
             Explore further
