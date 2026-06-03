@@ -26,7 +26,7 @@ export default function Contact() {
   const inputStyle: React.CSSProperties = {
     width: "100%",
     background: "var(--bg3)",
-    border: "1px solid var(--border)",
+    border: "1px solid var(--ss-line)",
     borderRadius: 10,
     padding: "11px 14px",
     fontSize: 14,
@@ -62,7 +62,7 @@ export default function Contact() {
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 36 }}>
                 {contacts.map(({ Icon, label, value }) => (
-                  <div key={label} style={{ display: "flex", alignItems: "center", gap: 14, padding: "16px 18px", background: "var(--bg2)", border: "1px solid var(--border)", borderRadius: 12 }}>
+                  <div key={label} style={{ display: "flex", alignItems: "center", gap: 14, padding: "16px 18px", background: "var(--bg2)", border: "1px solid var(--ss-line)", borderRadius: 12 }}>
                     <div style={{ width: 40, height: 40, borderRadius: 10, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                       <Icon size={17} color="var(--accent)" />
                     </div>
@@ -84,7 +84,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 20, padding: "40px 36px", position: "relative", overflow: "hidden" }}>
+            <div style={{ background: "var(--surface)", border: "1px solid var(--ss-line)", borderRadius: 20, padding: "40px 36px", position: "relative", overflow: "hidden" }}>
               <div style={{ position: "absolute", top: 0, right: 0, width: 160, height: 160, background: "var(--accent-dim)", borderRadius: "0 20px 0 160px", pointerEvents: "none" }} />
               {submitted ? (
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "60px 0" }}>
@@ -138,7 +138,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section style={{ padding: "40px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
+      <section style={{ padding: "40px 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)" }}>
         <div className="ss-container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
           <p style={{ color: "var(--text-muted)", fontSize: 14 }}>Looking to join our London team?</p>
           <Link to="/careers" style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 600, color: "var(--accent)", textDecoration: "none" }}>

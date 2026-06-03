@@ -204,7 +204,7 @@ export default function Index() {
       </section>
 
       {/* PROBLEM */}
-      <section style={{ padding: "96px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
+      <section style={{ padding: "96px 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)" }}>
         <div className="ss-hero-wrap">
           <div style={{ maxWidth: 720, marginBottom: 48 }}>
             <p className="ss-pill" style={{ marginBottom: 18 }}>The problem</p>
@@ -224,7 +224,7 @@ export default function Index() {
                   key={p.title}
                   style={{
                     background: "var(--bg)",
-                    border: "1px solid var(--border)",
+                    border: "1px solid var(--ss-line)",
                     borderRadius: 16,
                     padding: "24px 22px",
                   }}
@@ -305,7 +305,7 @@ export default function Index() {
                   style={{
                     position: "relative",
                     background: "var(--bg2)",
-                    border: "1px solid var(--border)",
+                    border: "1px solid var(--ss-line)",
                     borderRadius: 16,
                     padding: "26px 22px 22px",
                   }}
@@ -341,7 +341,7 @@ export default function Index() {
       </section>
 
       {/* INTERACTIVE: REAL vs FAKE */}
-      <section style={{ padding: "96px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
+      <section style={{ padding: "96px 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)", borderBottom: "1px solid var(--ss-line)" }}>
         <div className="ss-hero-wrap">
           <div style={{ textAlign: "center", maxWidth: 680, margin: "0 auto 40px" }}>
             <p className="ss-pill" style={{ marginBottom: 18 }}>Interactive</p>
@@ -361,7 +361,7 @@ export default function Index() {
                 display: "inline-flex",
                 padding: 4,
                 borderRadius: 999,
-                border: "1px solid var(--border)",
+                border: "1px solid var(--ss-line)",
                 background: "var(--bg)",
                 gap: 4,
               }}
@@ -486,7 +486,7 @@ export default function Index() {
             <div
               style={{
                 background: "var(--bg)",
-                border: "1px solid var(--border)",
+                border: "1px solid var(--ss-line)",
                 borderRadius: 18,
                 padding: "24px 22px",
                 display: "flex",
@@ -512,7 +512,7 @@ export default function Index() {
                       <span style={{ color: "var(--text)", fontWeight: 600 }}>{s.label}</span>
                       <span style={{ color: good ? "var(--accent)" : "#f87171", fontFamily: "monospace", fontWeight: 700 }}>{v}%</span>
                     </div>
-                    <div style={{ height: 4, borderRadius: 4, background: "var(--border)", overflow: "hidden" }}>
+                    <div style={{ height: 4, borderRadius: 4, background: "var(--ss-line)", overflow: "hidden" }}>
                       <div
                         style={{
                           width: `${v}%`,
@@ -529,7 +529,7 @@ export default function Index() {
                 style={{
                   marginTop: 6,
                   paddingTop: 14,
-                  borderTop: "1px solid var(--border)",
+                  borderTop: "1px solid var(--ss-line)",
                   fontSize: 12,
                   color: "var(--text-muted)",
                   lineHeight: 1.6,
@@ -549,7 +549,7 @@ export default function Index() {
         <div className="ss-hero-wrap">
           <div
             style={{
-              border: "1px solid var(--border)",
+              border: "1px solid var(--ss-line)",
               borderRadius: 22,
               padding: "44px",
               background:
@@ -589,7 +589,7 @@ export default function Index() {
                       gap: 14,
                       padding: "16px 18px",
                       borderRadius: 14,
-                      border: "1px solid var(--border)",
+                      border: "1px solid var(--ss-line)",
                       background: "var(--bg)",
                     }}
                   >
@@ -622,7 +622,7 @@ export default function Index() {
       </section>
 
       {/* FINAL CTA */}
-      <section style={{ padding: "104px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
+      <section style={{ padding: "104px 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)", position: "relative", overflow: "hidden" }}>
         <div
           aria-hidden
           style={{

@@ -52,7 +52,7 @@ export default function Events() {
               </a>
             </div>
             <div style={{ position: "relative" }}>
-              <div style={{ borderRadius: 18, overflow: "hidden", border: "1px solid var(--border)" }}>
+              <div style={{ borderRadius: 18, overflow: "hidden", border: "1px solid var(--ss-line)" }}>
                 <img src={IMG.hackathon} alt="Sentinel Hackathon 2026" style={{ width: "100%", aspectRatio: "16/10", objectFit: "cover", display: "block" }} />
               </div>
               <div style={{ position: "absolute", top: 16, right: 16, background: "var(--accent)", borderRadius: 999, padding: "8px 16px", display: "flex", alignItems: "center", gap: 6 }}>
@@ -109,7 +109,7 @@ export default function Events() {
         </div>
       </section>
 
-      <section id="events" style={{ padding: "96px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
+      <section id="events" style={{ padding: "96px 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)" }}>
         <div className="ss-container">
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 12 }}>
@@ -123,13 +123,13 @@ export default function Events() {
             {events.map((e) => {
               const tint = typeColors[e.type as keyof typeof typeColors];
               return (
-                <article key={e.id} style={{ border: "1px solid var(--border)", borderRadius: 18, background: "var(--bg)", padding: "28px 26px" }}>
+                <article key={e.id} style={{ border: "1px solid var(--ss-line)", borderRadius: 18, background: "var(--bg)", padding: "28px 26px" }}>
                   <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 10, marginBottom: 16 }}>
                     <span style={{ padding: "6px 12px", borderRadius: 999, fontSize: 12, fontWeight: 700, background: tint?.dark ?? "var(--bg3)", color: tint?.darkText ?? "var(--text-muted)" }}>
                       {e.type}
                     </span>
                     {!e.registrationOpen && (
-                      <span style={{ fontSize: 12, color: "var(--text-subtle)", border: "1px solid var(--border)", padding: "4px 10px", borderRadius: 999 }}>
+                      <span style={{ fontSize: 12, color: "var(--text-subtle)", border: "1px solid var(--ss-line)", padding: "4px 10px", borderRadius: 999 }}>
                         Registration soon
                       </span>
                     )}

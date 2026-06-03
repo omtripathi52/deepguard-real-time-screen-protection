@@ -90,7 +90,7 @@ export default function Careers() {
                   position: "absolute",
                   inset: 0,
                   borderRadius: 22,
-                  border: "1px solid var(--border)",
+                  border: "1px solid var(--ss-line)",
                   background:
                     "radial-gradient(circle at 50% 50%, rgba(16,185,129,0.06), transparent 70%), var(--bg2)",
                   overflow: "hidden",
@@ -137,7 +137,7 @@ export default function Careers() {
       </section>
 
       {/* WHY NOW */}
-      <section style={{ padding: "80px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
+      <section style={{ padding: "80px 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)", borderBottom: "1px solid var(--ss-line)" }}>
         <div className="ss-hero-wrap">
           <div style={{ maxWidth: 700, marginBottom: 36 }}>
             <p className="ss-pill" style={{ marginBottom: 16 }}>Why join now</p>
@@ -181,7 +181,7 @@ export default function Careers() {
                 key={job.id}
                 className="ss-role-card"
                 style={{
-                  border: "1px solid var(--border)",
+                  border: "1px solid var(--ss-line)",
                   borderRadius: 16,
                   padding: "22px 24px",
                   background: "var(--bg2)",
@@ -192,7 +192,7 @@ export default function Careers() {
                   e.currentTarget.style.transform = "translateY(-2px)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "var(--border)";
+                  e.currentTarget.style.borderColor = "var(--ss-line)";
                   e.currentTarget.style.transform = "translateY(0)";
                 }}
               >
@@ -223,7 +223,7 @@ export default function Careers() {
                               padding: "3px 9px",
                               borderRadius: 6,
                               background: "var(--bg)",
-                              border: "1px solid var(--border)",
+                              border: "1px solid var(--ss-line)",
                               fontWeight: 500,
                             }}
                           >
@@ -252,7 +252,7 @@ export default function Careers() {
             ))}
           </div>
 
-          <div style={{ marginTop: 24, padding: "20px 24px", borderRadius: 14, border: "1px dashed var(--border)", textAlign: "center", color: "var(--text-muted)", fontSize: 14 }}>
+          <div style={{ marginTop: 24, padding: "20px 24px", borderRadius: 14, border: "1px dashed var(--ss-line)", textAlign: "center", color: "var(--text-muted)", fontSize: 14 }}>
             Don't see your role?{" "}
             <a href="mailto:careers@screensentinel.com?subject=Open%20application" style={{ color: "var(--accent)", fontWeight: 600 }}>
               Send an open application
@@ -263,7 +263,7 @@ export default function Careers() {
       </section>
 
       {/* BENEFITS */}
-      <section style={{ padding: "80px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
+      <section style={{ padding: "80px 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)" }}>
         <div className="ss-hero-wrap">
           <div style={{ maxWidth: 640, marginBottom: 32 }}>
             <p className="ss-pill" style={{ marginBottom: 14 }}>What you get</p>
@@ -279,7 +279,7 @@ export default function Careers() {
                 style={{
                   padding: "20px 22px",
                   borderRadius: 14,
-                  border: "1px solid var(--border)",
+                  border: "1px solid var(--ss-line)",
                   background: "var(--bg)",
                 }}
               >
@@ -297,7 +297,7 @@ export default function Careers() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: "88px 0", background: "var(--bg)", borderTop: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
+      <section style={{ padding: "88px 0", background: "var(--bg)", borderTop: "1px solid var(--ss-line)", position: "relative", overflow: "hidden" }}>
         <div
           aria-hidden
           style={{

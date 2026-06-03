@@ -67,7 +67,7 @@ export default function AboutPage() {
       </section>
 
       {/* WHY WE STARTED */}
-      <section style={{ padding: "88px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
+      <section style={{ padding: "88px 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)", borderBottom: "1px solid var(--ss-line)" }}>
         <div className="ss-hero-wrap">
           <div style={{ display: "grid", gridTemplateColumns: "0.9fr 1.1fr", gap: 64, alignItems: "start" }} className="ss-two-col">
             <div>
@@ -119,7 +119,7 @@ export default function AboutPage() {
       </section>
 
       {/* WHY NOW */}
-      <section style={{ padding: "96px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
+      <section style={{ padding: "96px 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)", borderBottom: "1px solid var(--ss-line)" }}>
         <div className="ss-hero-wrap">
           <div style={{ maxWidth: 720, marginBottom: 40 }}>
             <p className="ss-pill" style={{ marginBottom: 18 }}>Why now</p>
@@ -140,7 +140,7 @@ export default function AboutPage() {
                   gap: 18,
                   padding: "22px 24px",
                   borderRadius: 14,
-                  border: "1px solid var(--border)",
+                  border: "1px solid var(--ss-line)",
                   background: "var(--bg)",
                 }}
               >
@@ -182,7 +182,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: "88px 0 112px", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
+      <section style={{ padding: "88px 0 112px", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)" }}>
         <div className="ss-hero-wrap" style={{ textAlign: "center", maxWidth: 720, margin: "0 auto" }}>
           <h3 style={{ fontSize: 24, fontWeight: 700, color: "var(--text)", marginBottom: 12, letterSpacing: "-0.02em" }}>
             Explore further
