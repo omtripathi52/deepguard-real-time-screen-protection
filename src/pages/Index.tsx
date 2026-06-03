@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -77,6 +77,13 @@ export default function Index() {
   const exeLink = release?.exeUrl || "https://github.com/omtripathi52/ScreenSentinel/releases/latest";
   const versionText = isLoading ? "Checking..." : (release?.version || "v2.0.0");
   const releaseText = isLoading ? "Checking latest release" : `Latest release ${versionText}`;
+
+  useEffect(() => {
+    [demoAuthentic, demoSynthetic].forEach((src) => {
+      const image = new Image();
+      image.src = src;
+    });
+  }, []);
 
   return (
     <div>
@@ -420,13 +427,35 @@ export default function Index() {
               }}
             >
               <img
-                src={side === "real" ? demoAuthentic : demoSynthetic}
-                alt={side === "real" ? "Authentic video frame" : "Synthetic video frame"}
+                src={demoAuthentic}
+                alt="Authentic video frame"
+                width={1536}
+                height={1024}
+                decoding="async"
                 style={{
+                  position: "absolute",
+                  inset: 0,
                   width: "100%",
                   height: "100%",
                   objectFit: "cover",
-                  transition: "opacity 0.4s ease",
+                  opacity: side === "real" ? 1 : 0,
+                  transition: "opacity 0.25s ease",
+                }}
+              />
+              <img
+                src={demoSynthetic}
+                alt="Synthetic video frame"
+                width={1536}
+                height={1024}
+                decoding="async"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  opacity: side === "fake" ? 1 : 0,
+                  transition: "opacity 0.25s ease",
                 }}
               />
               {/* Scan overlay */}
