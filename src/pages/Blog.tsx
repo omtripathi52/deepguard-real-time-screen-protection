@@ -40,7 +40,7 @@ export default function Blog() {
                     style={{
                       padding: "8px 16px",
                       borderRadius: 999,
-                      border: "1px solid var(--border)",
+                      border: "1px solid var(--ss-line)",
                       background: selectedCategory === c ? "var(--accent)" : "var(--bg2)",
                       color: selectedCategory === c ? "#fff" : "var(--text-muted)",
                       fontWeight: 600,
@@ -51,8 +51,8 @@ export default function Blog() {
                 ))}
               </div>
             </div>
-            <div style={{ background: "var(--bg2)", border: "1px solid var(--border)", borderRadius: 18, padding: "26px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 10, border: "1px solid var(--border)", borderRadius: 12, padding: "10px 14px", background: "var(--bg)" }}>
+            <div style={{ background: "var(--bg2)", border: "1px solid var(--ss-line)", borderRadius: 18, padding: "26px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, border: "1px solid var(--ss-line)", borderRadius: 12, padding: "10px 14px", background: "var(--bg)" }}>
                 <Search size={16} color="var(--text-subtle)" />
                 <input
                   value={query}
@@ -72,7 +72,7 @@ export default function Blog() {
       {featured && (
         <section style={{ padding: "0 0 80px", background: "var(--bg)" }}>
           <div className="ss-container">
-            <article style={{ border: "1px solid var(--border)", borderRadius: 20, padding: "36px", background: "var(--bg2)", display: "grid", gap: 20 }}>
+            <article style={{ border: "1px solid var(--ss-line)", borderRadius: 20, padding: "36px", background: "var(--bg2)", display: "grid", gap: 20 }}>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center" }}>
                 <span className="ss-pill">Featured</span>
                 <span style={{ fontSize: 12, color: "var(--text-subtle)" }}>{featured.category}</span>
@@ -103,18 +103,18 @@ export default function Blog() {
         </section>
       )}
 
-      <section style={{ padding: "60px 0 90px", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
+      <section style={{ padding: "60px 0 90px", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)" }}>
         <div className="ss-container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px,1fr))", gap: 18 }}>
             {rest.map((post) => (
-              <article key={post.id} style={{ border: "1px solid var(--border)", borderRadius: 16, padding: "22px", background: "var(--bg)", display: "flex", flexDirection: "column", gap: 12 }}>
+              <article key={post.id} style={{ border: "1px solid var(--ss-line)", borderRadius: 16, padding: "22px", background: "var(--bg)", display: "flex", flexDirection: "column", gap: 12 }}>
                 <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
                   <span className="ss-pill">{post.category}</span>
                   <span style={{ fontSize: 12, color: "var(--text-subtle)" }}>{post.readTime}</span>
                 </div>
                 <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--text)" }}>{post.title}</h3>
                 <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.6 }}>{post.excerpt}</p>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "auto", paddingTop: 12, borderTop: "1px solid var(--border)" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "auto", paddingTop: 12, borderTop: "1px solid var(--ss-line)" }}>
                   <span style={{ fontSize: 12, color: "var(--text-subtle)" }}>{post.author} • {post.date}</span>
                   <Link to="/contact" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 12, fontWeight: 600, color: "var(--accent)", textDecoration: "none" }}>
                     Request summary <ArrowRight size={14} />

@@ -63,7 +63,7 @@ export default function Solutions() {
             <div style={{ borderRadius: 18, background: "rgba(59,130,246,0.05)", border: "1px solid rgba(59,130,246,0.18)", overflow: "hidden", padding: "44px 44px 36px", display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 32 }}>
                 <span style={{ fontSize: 48 }}>Social</span>
-                <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--border)", padding: "4px 12px", borderRadius: 999 }}>
+                <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--ss-line)", padding: "4px 12px", borderRadius: 999 }}>
                   {useCases[0].stat}
                 </span>
               </div>
@@ -103,7 +103,7 @@ export default function Solutions() {
                 {useCases[1].description}
               </p>
               <div style={{ marginTop: 24, display: "flex", alignItems: "center", gap: 10 }}>
-                <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--border)", padding: "4px 10px", borderRadius: 999 }}>
+                <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--ss-line)", padding: "4px 10px", borderRadius: 999 }}>
                   {useCases[1].stat}
                 </span>
                 <Link to="/contact" style={{ fontSize: 13, fontWeight: 700, color: "#8b5cf6", textDecoration: "none", display: "flex", alignItems: "center", gap: 5, marginLeft: "auto" }}>
@@ -126,7 +126,7 @@ export default function Solutions() {
                 {useCases[2].description}
               </p>
               <div style={{ marginTop: 24, display: "flex", alignItems: "center", gap: 10 }}>
-                <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--border)", padding: "4px 10px", borderRadius: 999 }}>
+                <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--ss-line)", padding: "4px 10px", borderRadius: 999 }}>
                   {useCases[2].stat}
                 </span>
                 <Link to="/contact" style={{ fontSize: 13, fontWeight: 700, color: "#f59e0b", textDecoration: "none", display: "flex", alignItems: "center", gap: 5, marginLeft: "auto" }}>
@@ -138,7 +138,7 @@ export default function Solutions() {
             <div style={{ borderRadius: 18, background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", overflow: "hidden", padding: "44px 44px 36px", display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 32 }}>
                 <span style={{ fontSize: 48 }}>Enterprise</span>
-                <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--border)", padding: "4px 12px", borderRadius: 999 }}>
+                <span style={{ fontSize: 11, color: "var(--text-subtle)", border: "1px solid var(--ss-line)", padding: "4px 12px", borderRadius: 999 }}>
                   {useCases[3].stat}
                 </span>
               </div>
@@ -169,7 +169,7 @@ export default function Solutions() {
         </div>
       </section>
 
-      <section style={{ padding: "80px 0", background: "var(--bg2)", borderTop: "1px solid var(--border)" }}>
+      <section style={{ padding: "80px 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)" }}>
         <div className="ss-container">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 52, gap: 24, flexWrap: "wrap" }}>
             <div>
@@ -187,7 +187,7 @@ export default function Solutions() {
 
           <div className="ss-ind-grid">
             {industries.map(({ title, Icon, color, items }) => (
-              <div key={title} style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: 16, overflow: "hidden" }}>
+              <div key={title} style={{ background: "var(--bg)", border: "1px solid var(--ss-line)", borderRadius: 16, overflow: "hidden" }}>
                 <div style={{ height: 3, background: color, width: "100%" }} />
                 <div style={{ padding: "28px 26px 32px" }}>
                   <div style={{ width: 42, height: 42, background: `${color}18`, border: `1px solid ${color}28`, borderRadius: 11, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18 }}>
@@ -220,7 +220,7 @@ export default function Solutions() {
             </p>
           </div>
           <div className="ss-ent-grid">
-            <div style={{ borderRadius: 18, border: "1px solid var(--border)", background: "var(--bg2)", overflow: "hidden" }}>
+            <div style={{ borderRadius: 18, border: "1px solid var(--ss-line)", background: "var(--bg2)", overflow: "hidden" }}>
               <div style={{ height: 3, background: "#10b981" }} />
               <div style={{ padding: "40px 36px" }}>
                 <div style={{ fontSize: 40, marginBottom: 20 }}>Enterprise</div>

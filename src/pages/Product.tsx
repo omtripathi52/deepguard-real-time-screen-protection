@@ -288,7 +288,7 @@ export default function Product() {
         style={{
           position: "relative",
           padding: "72px 0 32px",
-          borderTop: "1px solid var(--border)",
+          borderTop: "1px solid var(--ss-line)",
           background:
             "linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%)",
         }}
@@ -372,7 +372,7 @@ export default function Product() {
                   style={{
                     background:
                       "linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))",
-                    border: "1px solid var(--border)",
+                    border: "1px solid var(--ss-line)",
                     borderRadius: 18,
                     padding: "26px 24px 28px",
                     flex: 1,
@@ -423,7 +423,7 @@ export default function Product() {
       </section>
 
       {/* ============ INTERACTIVE FEATURE RAILS ============ */}
-      <section style={{ padding: "40px 0 88px", position: "relative", borderTop: "1px solid var(--border)" }}>
+      <section style={{ padding: "40px 0 88px", position: "relative", borderTop: "1px solid var(--ss-line)" }}>
         <div
           aria-hidden
           style={{
@@ -486,7 +486,7 @@ export default function Product() {
                         : "linear-gradient(135deg, rgba(255,255,255,0.025), rgba(255,255,255,0))",
                       border: active
                         ? "1px solid rgba(16,185,129,0.35)"
-                        : "1px solid var(--border)",
+                        : "1px solid var(--ss-line)",
                       borderRadius: 16,
                       cursor: "pointer",
                       transition: "all 0.2s ease",
@@ -499,7 +499,7 @@ export default function Product() {
                         height: 44,
                         borderRadius: 12,
                         background: active ? "var(--accent-dim)" : "rgba(255,255,255,0.04)",
-                        border: active ? "1px solid var(--accent-border)" : "1px solid var(--border)",
+                        border: active ? "1px solid var(--accent-border)" : "1px solid var(--ss-line)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -673,7 +673,7 @@ export default function Product() {
         style={{
           position: "relative",
           padding: "80px 0 96px",
-          borderTop: "1px solid var(--border)",
+          borderTop: "1px solid var(--ss-line)",
           overflow: "hidden",
         }}
       >

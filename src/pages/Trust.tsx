@@ -387,7 +387,7 @@ export default function Trust() {
                       padding: "6px 12px",
                       borderRadius: 999,
                       background: "rgba(255,255,255,0.03)",
-                      border: "1px solid var(--border)",
+                      border: "1px solid var(--ss-line)",
                       fontSize: 11.5,
                       fontWeight: 600,
                       color: "var(--text-muted)",
@@ -416,7 +416,7 @@ export default function Trust() {
         style={{
           position: "relative",
           padding: "48px 0 56px",
-          borderTop: "1px solid var(--border)",
+          borderTop: "1px solid var(--ss-line)",
           background: "linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%)",
         }}
       >
@@ -463,7 +463,7 @@ export default function Trust() {
                   alignItems: "flex-start",
                   background:
                     "linear-gradient(160deg, rgba(255,255,255,0.035), rgba(255,255,255,0.005))",
-                  border: "1px solid var(--border)",
+                  border: "1px solid var(--ss-line)",
                   borderRadius: 18,
                   backdropFilter: "blur(8px)",
                   boxShadow:
@@ -526,7 +526,7 @@ export default function Trust() {
         style={{
           position: "relative",
           padding: "48px 0 56px",
-          borderTop: "1px solid var(--border)",
+          borderTop: "1px solid var(--ss-line)",
         }}
       >
         <div className="ss-container" style={{ position: "relative" }}>
@@ -618,7 +618,7 @@ export default function Trust() {
                   );
                 })}
               </div>
-              <div style={{ borderTop: "1px solid var(--border)", paddingTop: 22, textAlign: "center" }}>
+              <div style={{ borderTop: "1px solid var(--ss-line)", paddingTop: 22, textAlign: "center" }}>
                 <Link
                   to="/privacy"
                   style={{
@@ -644,7 +644,7 @@ export default function Trust() {
         style={{
           position: "relative",
           padding: "48px 0 56px",
-          borderTop: "1px solid var(--border)",
+          borderTop: "1px solid var(--ss-line)",
           overflow: "hidden",
         }}
       >
