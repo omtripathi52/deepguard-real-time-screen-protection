@@ -487,27 +487,27 @@
     .ss-row2,
     .ss-ent-grid,
     .ss-feat-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr !important;
     }
     .ss-usecase-grid,
     .ss-faq-grid,
     .ss-team-editorial {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr !important;
     }
     .ss-three-col,
     .ss-ind-grid {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr !important;
     }
-    .ss-photo-grid {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto;
-    }
+    .ss-photo-grid,
     .ss-mosaic {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto;
+      grid-template-columns: 1fr 1fr !important;
+      grid-template-rows: auto !important;
     }
     .ss-stats-grid {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr !important;
+    }
+    .ss-hero-wrap {
+      padding: 0 20px !important;
     }
   }
   @media (max-width: 900px) {
