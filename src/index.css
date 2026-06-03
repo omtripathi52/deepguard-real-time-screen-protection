@@ -530,5 +530,12 @@
     .ss-trust-3 {
       grid-template-columns: 1fr !important;
     }
+    .ss-hero-wrap {
+      padding: 0 18px !important;
+    }
+    section {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
   }
 }
