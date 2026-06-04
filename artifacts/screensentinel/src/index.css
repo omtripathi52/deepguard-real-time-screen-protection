@@ -585,12 +585,48 @@
     padding-inline: 18px !important;
   }
 
+  .ss-container-nav {
+    padding-inline: 18px !important;
+  }
+
+  footer {
+    margin-top: 34px !important;
+    padding-top: 36px !important;
+    padding-bottom: 28px !important;
+  }
+
+  footer .grid {
+    gap: 22px !important;
+    margin-bottom: 26px !important;
+  }
+
+  footer ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 14px;
+  }
+
+  footer li,
+  footer ul[class*="space-y"] > li {
+    margin-top: 0 !important;
+  }
+
   main > div > section:first-child {
     padding-top: 28px !important;
     padding-bottom: 38px !important;
   }
 
   main > div > section:not(:first-child) {
+    padding-top: 38px !important;
+    padding-bottom: 42px !important;
+  }
+
+  main > div > section[style*="96px"],
+  main > div > section[style*="90px"],
+  main > div > section[style*="88px"],
+  main > div > section[style*="80px"],
+  main > div > section[style*="72px"],
+  main > div > section[style*="60px"] {
     padding-top: 38px !important;
     padding-bottom: 42px !important;
   }
@@ -669,7 +705,9 @@
   .ss-usecase-card,
   .ss-faq-card,
   .ss-faq-item,
+  .ss-team-stats,
   article[style*="padding"],
+  form[style*="gap"],
   div[style*="padding: 48px"],
   div[style*="padding: 44px"],
   div[style*="padding: 40px"],
@@ -752,5 +790,17 @@
   .feat-mobile-preview > div:first-of-type {
     font-size: 22px !important;
     margin-bottom: 10px !important;
+  }
+
+  [style*="position: sticky"] {
+    position: relative !important;
+    top: auto !important;
+  }
+
+  [style*="maxWidth: 760"],
+  [style*="maxWidth: 720"],
+  [style*="maxWidth: 680"],
+  [style*="maxWidth: 640"] {
+    max-width: 100% !important;
   }
 }
