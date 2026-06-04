@@ -822,10 +822,40 @@ export default function Product() {
           from { opacity: 0; transform: translateY(6px); }
           to { opacity: 1; transform: translateY(0); }
         }
+        .product-hero-mobile-meta { display: none; }
         @media (max-width: 900px) {
           .pipeline-grid { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
           .pipeline-rail { display: none; }
           .feat-grid { grid-template-columns: 1fr !important; }
+          /* Hide all desktop hero overlays on mobile — keep just the clean image */
+          .product-hero-frame > div:not(:first-of-type) { display: none !important; }
+          .product-hero-frame > div:first-of-type {
+            background: linear-gradient(to top, rgba(9,9,11,0.55), transparent 60%) !important;
+          }
+          .product-hero-mobile-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 14px auto 0;
+            max-width: 1280px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(16,185,129,0.30);
+            background: rgba(16,185,129,0.06);
+            font-size: 13px;
+            color: var(--text);
+            font-weight: 500;
+          }
+          .product-hero-mobile-meta .dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: #10b981; box-shadow: 0 0 10px #10b981; flex-shrink: 0;
+          }
+          /* Feature cards: previews are always visible on mobile, so unify styling */
+          .feat-grid button {
+            border-radius: 16px 16px 0 0 !important;
+            border-color: rgba(16,185,129,0.30) !important;
+          }
+          .feat-grid button > svg:last-child { display: none; }
         }
         @media (max-width: 560px) {
           .pipeline-grid { grid-template-columns: 1fr !important; }
