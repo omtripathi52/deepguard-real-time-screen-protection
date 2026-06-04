@@ -271,6 +271,12 @@ export default function Product() {
             </div>
           </div>
 
+          {/* Mobile-only compact verdict strip — replaces the desktop overlay clutter */}
+          <div className="product-hero-mobile-meta">
+            <span className="dot" />
+            <span><strong>REAL · 99.2%</strong> &nbsp;·&nbsp; analyzed on-device</span>
+          </div>
+
           {/* CTA row */}
           <div style={{ display: "flex", gap: 14, justifyContent: "center", marginTop: 28, flexWrap: "wrap" }}>
             <a href={exeLink} className="ss-btn ss-btn-primary">
