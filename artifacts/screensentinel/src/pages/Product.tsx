@@ -356,9 +356,11 @@ export default function Product() {
             {steps.map((s) => (
               <div
                 key={s.n}
+                className="pipeline-step"
                 style={{ padding: "0 18px", position: "relative", display: "flex", flexDirection: "column" }}
               >
                 <div
+                  className="pipeline-icon"
                   style={{
                     width: 72,
                     height: 72,
@@ -376,6 +378,7 @@ export default function Product() {
                   <s.icon size={28} color={s.accent} strokeWidth={1.6} />
                 </div>
                 <div
+                  className="pipeline-card"
                   style={{
                     background:
                       "linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))",
