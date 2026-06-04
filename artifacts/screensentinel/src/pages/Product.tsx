@@ -547,63 +547,63 @@ export default function Product() {
                         }}
                       />
                     </button>
-                    {/* Mobile inline preview — shown below the active card on small screens */}
-                    {active && (
-                      <div
-                        className="feat-mobile-preview"
+                    {/* Inline preview — always rendered; CSS hides it on desktop */}
+                    <div
+                      className="feat-mobile-preview"
+                      style={{
+                        padding: "18px 22px 20px",
+                        background:
+                          "linear-gradient(160deg, rgba(16,185,129,0.10), rgba(34,211,238,0.04) 60%, transparent)",
+                        border: "1px solid rgba(16,185,129,0.30)",
+                        borderTop: "1px solid rgba(16,185,129,0.12)",
+                        borderRadius: "0 0 16px 16px",
+                        marginTop: -1,
+                      }}
+                    >
+                      <p
                         style={{
-                          padding: "18px 22px 20px",
-                          background:
-                            "linear-gradient(160deg, rgba(16,185,129,0.10), rgba(34,211,238,0.04) 60%, transparent)",
-                          border: "1px solid rgba(16,185,129,0.35)",
-                          borderTop: "1px solid rgba(16,185,129,0.15)",
-                          borderRadius: "0 0 16px 16px",
+                          fontSize: 10,
+                          letterSpacing: "0.14em",
+                          color: "var(--text-subtle)",
+                          textTransform: "uppercase",
+                          marginBottom: 6,
+                          fontWeight: 600,
                         }}
                       >
-                        <p
-                          style={{
-                            fontSize: 10,
-                            letterSpacing: "0.14em",
-                            color: "var(--text-subtle)",
-                            textTransform: "uppercase",
-                            marginBottom: 6,
-                            fontWeight: 600,
-                          }}
-                        >
-                          {f.preview.label}
-                        </p>
-                        <div
-                          style={{
-                            fontSize: 30,
-                            fontWeight: 800,
-                            letterSpacing: "-0.03em",
-                            color: "var(--text)",
-                            marginBottom: 12,
-                            lineHeight: 1.1,
-                          }}
-                        >
-                          {f.preview.value}
-                        </div>
-                        <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-                          {f.preview.chips.map((c) => (
-                            <span
-                              key={c}
-                              style={{
-                                fontSize: 12,
-                                padding: "5px 11px",
-                                borderRadius: 999,
-                                background: "rgba(255,255,255,0.05)",
-                                border: "1px solid var(--border-strong)",
-                                color: "var(--text-muted)",
-                                fontWeight: 500,
-                              }}
-                            >
-                              {c}
-                            </span>
-                          ))}
-                        </div>
+                        {f.preview.label}
+                      </p>
+                      <div
+                        style={{
+                          fontSize: 28,
+                          fontWeight: 800,
+                          letterSpacing: "-0.03em",
+                          color: "var(--text)",
+                          marginBottom: 12,
+                          lineHeight: 1.1,
+                        }}
+                      >
+                        {f.preview.value}
                       </div>
-                    )}
+                      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                        {f.preview.chips.map((c) => (
+                          <span
+                            key={c}
+                            style={{
+                              fontSize: 12,
+                              padding: "5px 11px",
+                              borderRadius: 999,
+                              background: "rgba(255,255,255,0.05)",
+                              border: "1px solid var(--border-strong)",
+                              color: "var(--text-muted)",
+                              fontWeight: 500,
+                            }}
+                          >
+                            {c}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
                   </div>
                 );
               })}
