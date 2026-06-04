@@ -136,6 +136,7 @@ export default function Product() {
 
           {/* Hero media */}
           <div
+            className="product-hero-frame"
             style={{
               position: "relative",
               borderRadius: 24,
