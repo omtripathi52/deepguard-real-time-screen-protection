@@ -566,3 +566,249 @@
 @media (max-width: 640px) {
   .careers-globe { display: none !important; }
 }
+
+/* ─── Real mobile layout pass: less desktop whitespace, fewer heavy panels ─── */
+@media (max-width: 640px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  body {
+    background-attachment: scroll;
+  }
+
+  .ss-container,
+  .ss-hero-wrap {
+    width: 100% !important;
+    max-width: none !important;
+    padding-inline: 18px !important;
+  }
+
+  .ss-container-nav {
+    padding-inline: 18px !important;
+  }
+
+  footer {
+    margin-top: 34px !important;
+    padding-top: 36px !important;
+    padding-bottom: 28px !important;
+  }
+
+  footer .grid {
+    gap: 22px !important;
+    margin-bottom: 26px !important;
+  }
+
+  footer ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 14px;
+  }
+
+  footer li,
+  footer ul[class*="space-y"] > li {
+    margin-top: 0 !important;
+  }
+
+  main > div > section:first-child {
+    padding-top: 28px !important;
+    padding-bottom: 38px !important;
+  }
+
+  main > div > section:not(:first-child) {
+    padding-top: 38px !important;
+    padding-bottom: 42px !important;
+  }
+
+  main > div > section[style*="96px"],
+  main > div > section[style*="90px"],
+  main > div > section[style*="88px"],
+  main > div > section[style*="80px"],
+  main > div > section[style*="72px"],
+  main > div > section[style*="60px"] {
+    padding-top: 38px !important;
+    padding-bottom: 42px !important;
+  }
+
+  section .ss-container > div[style*="margin-bottom: 80px"],
+  section .ss-container > div[style*="margin-bottom: 64px"],
+  section .ss-container > div[style*="margin-bottom: 56px"],
+  section .ss-container > div[style*="margin-bottom: 48px"],
+  section .ss-container > div[style*="margin-bottom: 44px"],
+  section .ss-container > div[style*="margin-bottom: 40px"] {
+    margin-bottom: 24px !important;
+  }
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: 0 !important;
+  }
+
+  section h1 {
+    font-size: clamp(29px, 8vw, 36px) !important;
+    line-height: 1.08 !important;
+    margin-bottom: 12px !important;
+  }
+
+  section h2 {
+    font-size: clamp(24px, 7vw, 31px) !important;
+    line-height: 1.12 !important;
+    margin-bottom: 12px !important;
+  }
+
+  section h3 {
+    line-height: 1.22 !important;
+  }
+
+  section p {
+    line-height: 1.5 !important;
+  }
+
+  .ss-pill {
+    max-width: 100%;
+    white-space: normal;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px !important;
+  }
+
+  .ss-btn {
+    width: 100%;
+    max-width: 300px;
+    min-height: 46px;
+    padding: 12px 18px !important;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .ss-two-col,
+  .ss-three-col,
+  .ss-ind-grid,
+  .ss-ent-grid,
+  .ss-trust-grid,
+  .ss-summary-grid,
+  .ss-usecase-grid,
+  .ss-faq-grid,
+  .ss-team-editorial,
+  .ss-pipeline-grid,
+  .ss-trust-3,
+  .pipeline-grid,
+  .feat-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .ss-card,
+  .ss-usecase-card,
+  .ss-faq-card,
+  .ss-faq-item,
+  .ss-team-stats,
+  article[style*="padding"],
+  form[style*="gap"],
+  div[style*="padding: 48px"],
+  div[style*="padding: 44px"],
+  div[style*="padding: 40px"],
+  div[style*="padding: 36px"],
+  div[style*="padding: 32px"],
+  div[style*="padding: 30px"],
+  div[style*="padding: 28px"] {
+    padding: 18px !important;
+    border-radius: 16px !important;
+  }
+
+  .ss-photo-grid,
+  .ss-mosaic {
+    display: flex !important;
+    overflow-x: auto;
+    gap: 12px !important;
+    padding-bottom: 4px;
+    scroll-snap-type: x proximity;
+  }
+
+  .ss-photo-grid > *,
+  .ss-mosaic > * {
+    min-width: 78%;
+    height: 220px !important;
+    scroll-snap-align: start;
+  }
+
+  .ss-stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .product-hero-frame {
+    aspect-ratio: 16 / 10 !important;
+    border-radius: 18px !important;
+  }
+
+  .product-hero-frame img {
+    object-position: center !important;
+  }
+
+  .product-hero-mobile-meta {
+    padding: 10px 13px !important;
+    font-size: 12px !important;
+  }
+
+  .pipeline-grid > div {
+    padding: 0 !important;
+  }
+
+  .pipeline-grid > div > div:first-child {
+    width: 54px !important;
+    height: 54px !important;
+    margin: 0 0 10px !important;
+    border-radius: 14px !important;
+  }
+
+  .pipeline-grid > div > div:last-child {
+    padding: 16px !important;
+    border-radius: 16px !important;
+  }
+
+  .feat-grid > div:first-child {
+    gap: 10px !important;
+  }
+
+  .feat-grid button {
+    padding: 15px !important;
+    gap: 12px !important;
+  }
+
+  .feat-grid button p {
+    display: none !important;
+  }
+
+  .feat-mobile-preview {
+    padding: 13px 15px !important;
+  }
+
+  .feat-mobile-preview > div:first-of-type {
+    font-size: 22px !important;
+    margin-bottom: 10px !important;
+  }
+
+  main > div > section:first-child .ss-container > div:first-child {
+    margin-bottom: 24px !important;
+  }
+
+  main > div > section:first-child .ss-container > div:first-child p:not(.ss-pill) {
+    font-size: 16px !important;
+  }
+
+  [style*="position: sticky"] {
+    position: relative !important;
+    top: auto !important;
+  }
+
+  [style*="maxWidth: 760"],
+  [style*="maxWidth: 720"],
+  [style*="maxWidth: 680"],
+  [style*="maxWidth: 640"] {
+    max-width: 100% !important;
+  }
+}

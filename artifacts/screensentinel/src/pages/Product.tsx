@@ -356,9 +356,11 @@ export default function Product() {
             {steps.map((s) => (
               <div
                 key={s.n}
+                className="pipeline-step"
                 style={{ padding: "0 18px", position: "relative", display: "flex", flexDirection: "column" }}
               >
                 <div
+                  className="pipeline-icon"
                   style={{
                     width: 72,
                     height: 72,
@@ -376,6 +378,7 @@ export default function Product() {
                   <s.icon size={28} color={s.accent} strokeWidth={1.6} />
                 </div>
                 <div
+                  className="pipeline-card"
                   style={{
                     background:
                       "linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))",
@@ -858,7 +861,27 @@ export default function Product() {
           .feat-grid button > svg:last-child { display: none; }
         }
         @media (max-width: 560px) {
-          .pipeline-grid { grid-template-columns: 1fr !important; }
+          .pipeline-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+          .pipeline-step {
+            display: grid !important;
+            grid-template-columns: 52px minmax(0, 1fr) !important;
+            gap: 10px !important;
+            align-items: stretch !important;
+            padding: 0 !important;
+          }
+          .pipeline-icon {
+            width: 52px !important;
+            height: 52px !important;
+            margin: 0 !important;
+            border-radius: 14px !important;
+          }
+          .pipeline-card {
+            padding: 14px 15px !important;
+            border-radius: 14px !important;
+          }
+          .pipeline-card h3 { font-size: 15px !important; margin-bottom: 6px !important; }
+          .pipeline-card p { font-size: 12.5px !important; line-height: 1.45 !important; }
+          .pipeline-card > div:first-child { margin-bottom: 8px !important; }
         }
       `}</style>
     </div>
