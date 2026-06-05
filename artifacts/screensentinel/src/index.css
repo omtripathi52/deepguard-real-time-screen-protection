@@ -947,6 +947,26 @@
     margin-top: 14px !important;
   }
 
+  .ss-solutions-page > section:first-child,
+  .ss-blog-page > section:first-child,
+  .ss-events-page > section:first-child,
+  .ss-contact-page > section:first-child {
+    padding-bottom: 18px !important;
+  }
+
+  .ss-solutions-page > section:nth-child(2),
+  .ss-blog-page > section:nth-child(2),
+  .ss-events-page > section:nth-child(2),
+  .ss-contact-page > section:nth-child(2) {
+    padding-top: 0 !important;
+  }
+
+  .ss-solutions-page > section:first-child .ss-container > div,
+  .ss-events-page > section:first-child .ss-two-col,
+  .ss-blog-page > section:first-child .ss-two-col {
+    margin-bottom: 0 !important;
+  }
+
   .ss-product-page > section:first-child {
     padding-top: 22px !important;
   }
