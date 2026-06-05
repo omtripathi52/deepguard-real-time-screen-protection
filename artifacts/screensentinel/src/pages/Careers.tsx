@@ -38,7 +38,7 @@ const applyLink = (title: string) =>
 
 export default function Careers() {
   return (
-    <div>
+    <div className="ss-mobile-page ss-careers-page">
       {/* HERO */}
       <section style={{ padding: "clamp(48px,5vw,80px) 0 clamp(36px,4vw,56px)", background: "var(--bg)", position: "relative", overflow: "hidden" }}>
         <div

@@ -37,7 +37,7 @@ export default function AboutPage() {
   const exeLink = release?.exeUrl || "https://github.com/omtripathi52/ScreenSentinel/releases/latest";
 
   return (
-    <div>
+    <div className="ss-mobile-page ss-about-page">
       {/* HERO */}
       <section style={{ padding: "clamp(60px,7vw,112px) 0 clamp(40px,5vw,72px)", background: "var(--bg)", position: "relative", overflow: "hidden" }}>
         <div
