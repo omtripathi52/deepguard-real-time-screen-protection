@@ -1026,6 +1026,33 @@
     margin-bottom: 14px !important;
   }
 
+  .ss-solutions-page [style*="font-size: 40"],
+  .ss-solutions-page [style*="fontSize: 40"] {
+    font-size: 24px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .ss-solutions-page .ss-ent-grid {
+    gap: 10px !important;
+  }
+
+  .ss-solutions-page .ss-ent-grid > div > div:last-child {
+    padding: 18px !important;
+  }
+
+  .ss-solutions-page .ss-row1 > div > div:first-child,
+  .ss-solutions-page .ss-row2 > div > div:first-child {
+    margin-bottom: 12px !important;
+  }
+
+  .ss-solutions-page .ss-row1 > div > div:last-child,
+  .ss-solutions-page .ss-row2 > div > div:last-child {
+    margin-top: 16px !important;
+    padding-top: 14px !important;
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+
   .ss-trust-page > section:first-child .ss-two-col {
     gap: 18px !important;
   }
