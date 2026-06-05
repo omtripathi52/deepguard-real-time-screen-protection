@@ -323,7 +323,7 @@ function ForensicVisual() {
 
 export default function Trust() {
   return (
-    <div>
+    <div className="ss-mobile-page ss-trust-page">
       {/* ============ HERO ============ */}
       <section style={{ position: "relative", padding: "12px 0 40px", overflow: "hidden" }}>
         <div

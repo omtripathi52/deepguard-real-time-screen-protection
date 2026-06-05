@@ -86,7 +86,7 @@ export default function Index() {
   }, []);
 
   return (
-    <div>
+    <div className="ss-mobile-page ss-home-page">
       {/* HERO — full viewport, owns the opening */}
       <section
         style={{
