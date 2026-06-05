@@ -812,3 +812,84 @@
     max-width: 100% !important;
   }
 }
+
+/* ─── Phone-first experience: page-scoped, not desktop squeezed smaller ─── */
+@media (max-width: 640px) {
+  .ss-mobile-page[style*="padding-top: 70"] {
+    padding-top: 0 !important;
+  }
+
+  .ss-mobile-page > section,
+  .ss-mobile-page > section[style] {
+    padding-top: 34px !important;
+    padding-bottom: 36px !important;
+  }
+
+  .ss-mobile-page > section:first-child,
+  .ss-mobile-page > section:first-child[style] {
+    padding-top: 26px !important;
+    padding-bottom: 30px !important;
+    min-height: auto !important;
+    align-items: flex-start !important;
+  }
+
+  .ss-mobile-page > section:last-child,
+  .ss-mobile-page > section:last-child[style] {
+    padding-bottom: 42px !important;
+  }
+
+  .ss-mobile-page .ss-container,
+  .ss-mobile-page .ss-hero-wrap {
+    padding-inline: 16px !important;
+  }
+
+  .ss-mobile-page h1,
+  .ss-mobile-page h2,
+  .ss-mobile-page h3 {
+    text-wrap: balance;
+  }
+
+  .ss-mobile-page h1 {
+    font-size: clamp(30px, 8.4vw, 38px) !important;
+  }
+
+  .ss-mobile-page h2 {
+    font-size: clamp(24px, 6.8vw, 30px) !important;
+  }
+
+  .ss-mobile-page p:not(.ss-pill),
+  .ss-mobile-page li,
+  .ss-mobile-page span {
+    overflow-wrap: anywhere;
+  }
+
+  .ss-mobile-page .ss-btn {
+    max-width: none !important;
+    width: 100% !important;
+    min-height: 44px !important;
+    border-radius: 14px !important;
+  }
+
+  .ss-mobile-page [style*="text-align: center"],
+  .ss-mobile-page [style*="textAlign: center"] {
+    text-align: left !important;
+  }
+
+  .ss-mobile-page [style*="justify-content: center"],
+  .ss-mobile-page [style*="justifyContent: center"] {
+    justify-content: flex-start !important;
+  }
+
+  .ss-mobile-page .ss-pill {
+    width: fit-content !important;
+    justify-content: flex-start !important;
+  }
+
+  .ss-mobile-page [style*="margin: 0 auto"],
+  .ss-mobile-page [style*="margin: \"0 auto"],
+  .ss-mobile-page [style*="max-width"],
+  .ss-mobile-page [style*="maxWidth"] {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
