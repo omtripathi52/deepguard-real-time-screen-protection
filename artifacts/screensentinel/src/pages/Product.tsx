@@ -86,7 +86,7 @@ export default function Product() {
   const Active = features[activeFeature];
 
   return (
-    <div>
+    <div className="ss-mobile-page ss-product-page">
       {/* ============ HERO ============ */}
       <section style={{ position: "relative", padding: "20px 0 56px", overflow: "hidden" }}>
         {/* ambient atmospheric bridge from navbar */}
