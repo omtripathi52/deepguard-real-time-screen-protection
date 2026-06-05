@@ -886,9 +886,7 @@
   }
 
   .ss-mobile-page [style*="margin: 0 auto"],
-  .ss-mobile-page [style*="margin: \"0 auto"],
-  .ss-mobile-page [style*="max-width"],
-  .ss-mobile-page [style*="maxWidth"] {
+  .ss-mobile-page [style*="max-width"] {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
