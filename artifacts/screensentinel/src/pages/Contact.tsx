@@ -46,7 +46,7 @@ export default function Contact() {
   };
 
   return (
-    <div style={{ paddingTop: 70 }}>
+    <div className="ss-mobile-page ss-contact-page" style={{ paddingTop: 70 }}>
       <section style={{ padding: "80px 0", background: "var(--bg)" }}>
         <div className="ss-container">
           <div className="ss-two-col">
