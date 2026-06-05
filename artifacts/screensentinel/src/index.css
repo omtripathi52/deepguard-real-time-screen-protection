@@ -1071,8 +1071,7 @@
   }
 
   .ss-careers-page .careers-globe,
-  .ss-events-page > section:first-child .ss-two-col > div:last-child,
-  .ss-contact-page [style*="borderRadius: \"0 20px"] {
+  .ss-events-page > section:first-child .ss-two-col > div:last-child {
     display: none !important;
   }
 
