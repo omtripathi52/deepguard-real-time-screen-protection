@@ -991,12 +991,11 @@
   .ss-about-page .ss-two-col,
   .ss-blog-page section:last-child .ss-container > div,
   .ss-events-page #events .ss-container > div:last-child {
-    display: flex !important;
-    overflow-x: auto !important;
-    gap: 12px !important;
-    padding-bottom: 6px !important;
-    scroll-snap-type: x proximity;
-    grid-template-columns: none !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    overflow: visible !important;
+    padding-bottom: 0 !important;
   }
 
   .ss-solutions-page .ss-row1 > *,
@@ -1006,8 +1005,7 @@
   .ss-about-page .ss-two-col > *,
   .ss-blog-page section:last-child article,
   .ss-events-page #events article {
-    min-width: 82% !important;
-    scroll-snap-align: start;
+    min-width: 0 !important;
   }
 
   .ss-solutions-page .ss-row1,
@@ -1054,14 +1052,6 @@
     display: grid !important;
     grid-template-columns: 42px minmax(0, 1fr) !important;
     gap: 12px !important;
-  }
-
-  .ss-about-page .ss-two-col {
-    grid-template-columns: none !important;
-  }
-
-  .ss-about-page .ss-two-col > div {
-    min-width: 86% !important;
   }
 
   .ss-about-page .ss-two-col > div:first-child,
