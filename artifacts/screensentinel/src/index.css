@@ -946,4 +946,85 @@
   .ss-home-page [role="tablist"] + * {
     margin-top: 14px !important;
   }
+
+  .ss-product-page > section:first-child {
+    padding-top: 22px !important;
+  }
+
+  .ss-product-page .product-hero-frame {
+    margin-top: 18px !important;
+    aspect-ratio: 4 / 3 !important;
+    border-radius: 16px !important;
+  }
+
+  .ss-product-page .product-hero-mobile-meta {
+    margin-top: 10px !important;
+    border-radius: 12px !important;
+  }
+
+  .ss-product-page .pipeline-step {
+    grid-template-columns: 44px minmax(0, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .ss-product-page .pipeline-icon {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .ss-product-page .pipeline-card {
+    padding: 13px 14px !important;
+  }
+
+  .ss-product-page .feat-mobile-preview {
+    display: none !important;
+  }
+
+  .ss-product-page .feat-grid button {
+    border-radius: 15px !important;
+  }
+
+  .ss-solutions-page .ss-row1,
+  .ss-solutions-page .ss-row2,
+  .ss-solutions-page .ss-ind-grid,
+  .ss-careers-page .ss-three-col,
+  .ss-about-page .ss-two-col,
+  .ss-blog-page section:last-child .ss-container > div,
+  .ss-events-page #events .ss-container > div:last-child {
+    display: flex !important;
+    overflow-x: auto !important;
+    gap: 12px !important;
+    padding-bottom: 6px !important;
+    scroll-snap-type: x proximity;
+    grid-template-columns: none !important;
+  }
+
+  .ss-solutions-page .ss-row1 > *,
+  .ss-solutions-page .ss-row2 > *,
+  .ss-solutions-page .ss-ind-grid > *,
+  .ss-careers-page .ss-three-col > *,
+  .ss-about-page .ss-two-col > *,
+  .ss-blog-page section:last-child article,
+  .ss-events-page #events article {
+    min-width: 82% !important;
+    scroll-snap-align: start;
+  }
+
+  .ss-solutions-page .ss-row1,
+  .ss-solutions-page .ss-row2 {
+    margin-bottom: 12px !important;
+  }
+
+  .ss-solutions-page .ss-row1 > div,
+  .ss-solutions-page .ss-row2 > div {
+    min-height: 0 !important;
+  }
+
+  .ss-solutions-page span[style*="font-size: 48"],
+  .ss-solutions-page span[style*="fontSize: 48"],
+  .ss-solutions-page span[style*="font-size: 44"],
+  .ss-solutions-page span[style*="fontSize: 44"] {
+    font-size: 26px !important;
+    margin-bottom: 14px !important;
+  }
 }
