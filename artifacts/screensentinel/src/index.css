@@ -1217,18 +1217,21 @@ div[style*="display: flex"][style*="align-items: center"][style*="justify-conten
     gap: 10px !important;
   }
 
+  /* Events highlights: 3 children (icon, h3, p) — stack vertically, NOT 2-col grid */
   .ss-events-page .ss-three-col .ss-card {
     text-align: left !important;
-    display: grid !important;
-    grid-template-columns: 42px minmax(0, 1fr) !important;
-    gap: 12px !important;
-    align-items: start !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    align-items: flex-start !important;
   }
 
   .ss-events-page .ss-three-col .ss-card > div:first-child {
-    width: 42px !important;
-    height: 42px !important;
-    margin: 0 !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    margin: 0 0 4px !important;
+    flex-shrink: 0 !important;
   }
 
   .ss-events-page section:nth-child(2) {
@@ -1342,8 +1345,41 @@ div[style*="display: flex"][style*="align-items: center"][style*="justify-conten
     gap: 14px !important;
   }
 
-  /* ── Technology page two-col ── */
-  div[style*="grid-template-columns: 1fr 1fr"][style*="gap: 16"] {
+  /* ── Technology page: reduce giant top padding ── */
+  .ss-technology-page > div {
+    padding-top: 32px !important;
+    padding-bottom: 60px !important;
+  }
+
+  /* ── Contact page: reduce giant top padding ── */
+  .ss-contact-page > div {
+    padding-top: 28px !important;
+    padding-bottom: 60px !important;
+  }
+
+  /* ── Solutions page: trim hero bottom margin ── */
+  .ss-solutions-page > section:first-child .ss-two-col {
+    margin-bottom: 28px !important;
+  }
+
+  .ss-solutions-page > section:first-child .ss-container > div:first-child {
+    margin-bottom: 20px !important;
+  }
+
+  /* ── Technology page: cards gap ── */
+  .ss-technology-page .ss-two-col {
     gap: 12px !important;
+  }
+
+  /* ── Technology install options: stack rows vertically ── */
+  .ss-technology-page div[style*="grid-template-columns"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  .ss-technology-page div[style*="borderRight"] {
+    border-right: none !important;
+    border-bottom: 1px solid var(--ss-line) !important;
   }
 }

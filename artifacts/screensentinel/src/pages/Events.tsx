@@ -90,11 +90,11 @@ export default function Events() {
                 Sentinel Hackathon 2026
               </h2>
               <p style={{ color: "var(--text-muted)", fontSize: 14, lineHeight: 1.7, marginBottom: 24 }}>
-                48 hours. 3 tracks. 50k in prizes. Join us in London for the most important hackathon in AI-powered media authentication.
+                48 hours. 3 tracks. 50k in prizes. The most important hackathon in AI-powered media authentication — online and worldwide.
               </p>
               {[
                 ["Date", "August 12-14, 2026"],
-                ["Location", "London, UK + virtual stream"],
+                ["Location", "Online + optional in-person hubs"],
                 ["Prizes", "50,000 across 3 categories"],
               ].map(([k, v]) => (
                 <div key={k} style={{ display: "flex", gap: 10, fontSize: 13, color: "var(--text-muted)", marginBottom: 8 }}>
