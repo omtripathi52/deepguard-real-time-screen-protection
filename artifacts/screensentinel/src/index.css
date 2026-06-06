@@ -901,18 +901,26 @@
     gap: 18px !important;
   }
 
-  .ss-home-page > section:first-child .ss-two-col > div:first-child > div[style*="display: flex"]:last-child {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 10px 12px !important;
+  .hero-specs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
     margin-top: 4px !important;
   }
 
-  .ss-home-page > section:first-child .ss-two-col > div:first-child > div[style*="display: flex"]:last-child span {
-    font-size: 11px !important;
+  .hero-specs span {
+    font-size: 10.5px !important;
+    white-space: nowrap !important;
+    flex-shrink: 1 !important;
+    min-width: 0 !important;
   }
 
-  .ss-home-page > section:first-child img,
+  .ss-home-page > section:first-child img {
+    aspect-ratio: 16 / 9 !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+
   .ss-product-page .product-hero-frame img {
     aspect-ratio: 4 / 3 !important;
     object-position: center top !important;
@@ -1093,12 +1101,24 @@
     box-shadow: none !important;
   }
 
-  .ss-trust-page .ss-trust-grid > div,
-  .ss-about-page .ss-card,
-  .ss-careers-page .ss-card {
+  .ss-trust-page .ss-trust-grid > div {
     display: grid !important;
     grid-template-columns: 42px minmax(0, 1fr) !important;
     gap: 12px !important;
+  }
+
+  .ss-about-page .ss-card,
+  .ss-careers-page .ss-card {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .ss-about-page .ss-card > div:first-child,
+  .ss-careers-page .ss-card > div:first-child {
+    width: 40px !important;
+    height: 40px !important;
+    flex-shrink: 0 !important;
   }
 
   .ss-about-page .ss-two-col > div:first-child,
@@ -1187,11 +1207,13 @@
     white-space: nowrap;
   }
 
-  /* Hero specs chips: 2-column grid on mobile */
-  .hero-specs {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 8px 12px !important;
-    margin-bottom: 0 !important;
+  /* Solutions: scale down large emoji/word headings on mobile */
+  .ss-solutions-page span[style*="font-size: 42"],
+  .ss-solutions-page span[style*="fontSize: 42"],
+  .ss-solutions-page span[style*="font-size: 40"],
+  .ss-solutions-page span[style*="fontSize: 40"] {
+    font-size: 22px !important;
+    line-height: 1.1 !important;
+    margin-bottom: 10px !important;
   }
 }

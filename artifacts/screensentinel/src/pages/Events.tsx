@@ -16,7 +16,7 @@ const highlights = [
   {
     Icon: Users,
     title: "Community first",
-    desc: "Monthly meetups in London for AI researchers, journalists, and security professionals.",
+    desc: "Online meetups for AI researchers, journalists, and security professionals worldwide.",
   },
   {
     Icon: Zap,
@@ -45,7 +45,7 @@ export default function Events() {
                 Shaping the future of truth, together.
               </h1>
               <p style={{ fontSize: 17, color: "var(--text-muted)", lineHeight: 1.7, marginBottom: 36 }}>
-                We host hackathons, workshops, and webinars in London and online to empower developers and professionals fighting synthetic misinformation.
+                We host hackathons, workshops, and webinars online to empower developers and professionals fighting synthetic misinformation.
               </p>
               <a href="#events" className="ss-btn ss-btn-primary">
                 View upcoming events <ArrowRight size={15} />
