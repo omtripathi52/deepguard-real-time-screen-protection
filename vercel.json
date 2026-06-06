@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm --filter @workspace/screensentinel run build",
-  "outputDirectory": "artifacts/screensentinel/dist/public",
+  "outputDirectory": "public",
   "framework": null,
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
