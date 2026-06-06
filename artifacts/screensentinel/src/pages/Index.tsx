@@ -147,7 +147,7 @@ export default function Index() {
               <p style={{ fontSize: 16.5, color: "var(--text-muted)", lineHeight: 1.7, maxWidth: 460, marginBottom: 28 }}>
                 ScreenSentinel is an on-device AI layer that detects deepfaked faces and synthetic voices the moment they appear on your screen — privately, instantly, anywhere video plays.
               </p>
-              <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 24 }}>
+              <div className="hero-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 24 }}>
                 <a href={exeLink} className="ss-btn ss-btn-primary">
                   Download free <ArrowRight size={15} />
                 </a>
@@ -155,7 +155,7 @@ export default function Index() {
                   See how it works
                 </Link>
               </div>
-              <div style={{ display: "flex", gap: 18, flexWrap: "wrap", fontSize: 12, color: "var(--text-subtle)" }}>
+              <div className="hero-specs" style={{ display: "flex", gap: 18, flexWrap: "wrap", fontSize: 12, color: "var(--text-subtle)" }}>
                 <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
                   <Lock size={12} /> 100% on-device
                 </span>
@@ -168,7 +168,7 @@ export default function Index() {
               </div>
             </div>
 
-            <div style={{ position: "relative" }}>
+            <div className="hero-img-col" style={{ position: "relative" }}>
               <div
                 aria-hidden
                 style={{

@@ -1,0 +1,450 @@
+Mobile Hero Optimization
+
+The current mobile homepage pushes the hero image too far below the fold because the CTA buttons are stacked vertically and the specification chips appear before the hero visual.
+
+Goals:
+
+• Reduce vertical space usage in the mobile hero.
+
+• Place "Download Free" and "See How It Works" side-by-side on mobile whenever screen width allows.
+
+• Ensure the hero image becomes visible within the first viewport.
+
+• Move technical specification chips ("100% on-device", "Sub-200ms inference", "Windows 10 & 11") below the hero image.
+
+• Prioritize showing the product visual earlier.
+
+• Preserve readability and touch-friendly button sizes.
+
+• Optimize for first impression and conversion rather than displaying technical specifications immediately.
+
+The hero image is the primary visual asset and should appear significantly earlier on mobile devices. Reduce vertical stacking wherever possible to maximize above-the-fold impact.
+
+The Privacy Policy page requires a complete readability and cleanup pass.
+
+Critical Fixes
+
+Fix light-mode contrast
+The page is nearly unreadable in light mode.
+
+Audit all text colors and ensure:
+
+• Headings use the same dark text color as the rest of the site
+
+• Body text uses accessible contrast
+
+• Cards never use light text on light backgrounds
+
+• All content passes WCAG AA accessibility standards
+
+Remove excessive whitespace
+The page contains large empty vertical gaps between sections.
+
+Convert the page into a document-style layout with consistent spacing.
+
+Legal pages should read naturally from top to bottom.
+
+Simplify the design
+Remove unnecessary marketing-style cards.
+
+Keep:
+
+• Page title
+
+• Last updated date
+
+• Section headings
+
+• Paragraphs
+
+• Lists
+
+The page should resemble a professional SaaS privacy policy rather than a landing page.
+
+Update contact information
+Replace all existing email addresses with:
+
+hello@screensentinel.me
+
+Remove unverified claims
+Remove or rewrite any statements that assume:
+
+• London headquarters
+
+• specific office locations
+
+• infrastructure providers
+
+• technologies not currently in use
+
+The policy should only contain statements that are actually true for the current project.
+
+Final Goal
+
+Make the Privacy Policy page feel similar to:
+
+• GitHub Privacy Policy
+
+• Vercel Privacy Policy
+
+• Notion Privacy Policy
+
+Prioritize:
+
+• readability
+
+• accessibility
+
+• mobile usability
+
+• trustworthiness
+
+over visual decoration.
+
+The Terms of Service page is readable in dark mode but fails in light mode.
+
+Please audit the entire page for theme-token issues.
+
+Requirements:
+
+• All text must have proper contrast in light mode.
+
+• Headings should use the same dark text color used elsewhere on the website.
+
+• Body text should use a readable neutral gray, not low-opacity gray.
+
+• Any card background must automatically switch to a matching text color in light mode.
+
+• Remove any instances of light text on light backgrounds.
+
+• Test the page on mobile in light mode and ensure every section is readable without zooming.
+
+Specifically check:
+
+• Terms of Service heading
+
+• Accuracy Disclaimer section
+
+• Legal paragraphs
+
+• Contact information section
+
+• Any colored cards or callouts
+
+Ensure color tokens come from the global theme system rather than hardcoded colors.
+
+Final result: the page should be fully readable in both light and dark modes with identical content and proper accessibility contrast.
+
+One more thing: legal pages don't really need those colored disclaimer cards at all. Even if you keep them, make the text black/dark in light mode and white in dark mode. Right now the card itself is what's making the page look broken.
+
+Contact Page Simplification & Startup Authenticity
+
+Analyze the current ScreenSentinel Contact page.
+
+Current problem:
+
+The page presents ScreenSentinel as a large established company with offices, sales departments, and regional teams, but ScreenSentinel is currently an early-stage independent startup.
+
+The page should prioritize authenticity, simplicity, and trust rather than appearing artificially corporate.
+
+Required changes:
+
+Remove inaccurate information
+
+Delete:
+
+• Enterprise sales email
+
+• London headquarters location
+
+• Shoreditch address
+
+• London team references
+
+• Enterprise response guarantees
+
+• Any references to offices or departments that do not exist
+
+Contact Information
+
+Use only:
+
+hello@screensentinel.me
+
+as the primary contact method.
+
+Response Time
+
+Replace corporate promises with:
+
+Usually within 1–3 business days
+
+or similar realistic wording.
+
+Simplify the page
+
+Reduce page length significantly.
+
+Recommended structure:
+
+Hero ↓ Email Contact Card ↓ Response Time Card ↓ Contact Form ↓ Footer
+
+Remove any unnecessary cards, banners, sales sections, office sections, or hiring sections.
+
+Visual Goals
+
+• Clean
+
+• Honest
+
+• Founder-led
+
+• Trustworthy
+
+• Minimal
+
+• Premium
+
+Inspiration:
+
+Linear, Vercel, Arc Browser, Notion, independent SaaS startups.
+
+Important:
+
+Do not add more content.
+
+Do not invent company locations, departments, or team structures.
+
+The page should feel like a serious product company communicating directly with users, not a large corporation pretending to be bigger than it is.
+
+Analyze the current ScreenSentinel Solutions page from the perspective of a premium cybersecurity product company.
+
+Current problems:
+
+• There is a large empty gap between the navbar and the beginning of the content on mobile devices.
+
+• The page feels much longer than necessary.
+
+• Multiple sections repeat the same idea in different ways.
+
+• The page lacks a clear hierarchy and storytelling flow.
+
+• Most content is text-only cards, creating scroll fatigue.
+
+• The page feels more like a collection of marketing blocks than a focused Solutions page.
+
+• There are too many repeated calls-to-action.
+
+Specific issues:
+
+Hero Area
+
+• Remove the excessive whitespace below the navbar.
+
+• Bring the badge, headline, and supporting copy much closer to the top.
+
+• Improve first-screen impact on mobile.
+
+Audience Duplication
+
+The page currently explains audiences multiple times:
+
+• Social
+
+• Identity
+
+• News
+
+• Enterprise
+
+Then later:
+
+• Journalists
+
+• Businesses
+
+• Creators
+
+Then later:
+
+• Enterprise
+
+• Public
+
+This creates repetition and confusion.
+
+Consolidate these into a single coherent audience-based structure.
+
+Remove Redundant Section
+
+Completely remove:
+
+"Need to protect a whole team?"
+
+This section repeats information already presented elsewhere and adds unnecessary page length.
+
+Card Optimization
+
+Current cards are too tall.
+
+Reduce vertical height by:
+
+• Removing unnecessary badges
+
+• Reducing duplicate copy
+
+• Tightening spacing
+
+• Simplifying feature lists
+
+Goal:
+
+Each card should communicate its value in seconds, not require extensive scrolling.
+
+Visual Design Problems
+
+• Too much text and not enough visual content.
+
+• Cards feel static and brochure-like.
+
+• Add meaningful visuals, mockups, screenshots, or product demonstrations where appropriate.
+
+• Show ScreenSentinel solving real scenarios instead of only describing them.
+
+Color System
+
+The current mix of:
+
+• Blue
+
+• Purple
+
+• Yellow
+
+• Green
+
+feels inconsistent.
+
+Move toward a more premium system:
+
+• Primary ScreenSentinel green
+
+• Neutral grays
+
+• Minimal accent colors only where necessary
+
+CTA Optimization
+
+The page contains too many:
+
+• Get Started
+
+• Talk To Us
+
+• Get In Touch
+
+Reduce CTA repetition.
+
+Users should encounter one clear primary action rather than many competing actions.
+
+Desired structure:
+
+Hero ↓ Who ScreenSentinel Protects • Social Media Users • Journalists & Newsrooms • Businesses & Finance Teams • Creators & Public Figures ↓ Enterprise Solutions ↓ Final CTA ↓ Footer
+
+Important:
+
+• Reduce page length by at least 40%.
+
+• Remove content instead of redesigning it whenever possible.
+
+• Do not add new marketing sections.
+
+• Focus on clarity, hierarchy, and conversion.
+
+• The result should feel closer to Stripe, Linear, Vercel, Notion, or Apple than a typical startup landing page.
+
+• Mobile experience should be the primary design target.
+
+Product Page Verdict Overlay Redesign
+
+Analyze the Product page hero section.
+
+Current issue:
+
+The verdict badge:
+
+REAL · 99.2% · analyzed on-device
+
+appears below the image as a separate element.
+
+This weakens the visual relationship between the analyzed content and the detection result.
+
+ScreenSentinel is a real-time detection product. Users should immediately understand that the verdict is being generated from the video frame they are viewing.
+
+The current layout feels like:
+
+Image Verdict
+
+instead of:
+
+Image being analyzed → Verdict generated from that image
+
+Goals:
+
+• Attach the verdict directly to the image.
+
+• Move the verdict badge from below the image into the image itself.
+
+• Position it as a floating overlay:
+
+• Top-left corner preferred
+
+• Or bottom-left corner if visually stronger
+
+• Style it like a real security/detection system:
+
+• Subtle glassmorphism background
+
+• Slight blur
+
+• Rounded corners
+
+• Green status indicator
+
+• Professional, not gaming/UI-heavy
+
+• The verdict should feel generated by ScreenSentinel in real time.
+
+• The image should remain the primary focus.
+
+• Do not create a large analysis dashboard.
+
+• Keep the interface minimal and premium.
+
+• Ensure mobile responsiveness:
+
+• Overlay remains attached to image
+
+• Does not cover the face
+
+• Remains readable on small screens
+
+Design references:
+
+• Apple security visuals
+
+• Modern cybersecurity dashboards
+
+• Camera detection overlays
+
+• Real-time monitoring systems
+
+Important:
+
+The verdict must feel visually connected to the analyzed content. Users should instantly understand:
+
+"ScreenSentinel looked at this frame and produced this result."
+
+The current detached badge below the image does not communicate that relationship clearly.
+
+Do not add more UI elements. Simply improve the placement and integration of the existing verdict.
