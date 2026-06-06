@@ -13,7 +13,7 @@ const nav: NavItem[] = [
     label: "Company",
     children: [
       { label: "About Us", href: "/about", desc: "Our story and mission" },
-      { label: "Careers", href: "/careers", desc: "Join the team in London" },
+      { label: "Careers", href: "/careers", desc: "Remote-first, worldwide" },
       { label: "Events", href: "/events", desc: "Hackathons & workshops" },
       { label: "Blog", href: "/blog", desc: "Research & insights" },
     ],

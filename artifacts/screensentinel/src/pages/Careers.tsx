@@ -34,7 +34,7 @@ const benefits = [
 ];
 
 const applyLink = (title: string) =>
-  `mailto:careers@screensentinel.com?subject=${encodeURIComponent(`Role application: ${title}`)}`;
+  `mailto:hello@screensentinel.me?subject=${encodeURIComponent(`Role application: ${title}`)}`;
 
 export default function Careers() {
   return (
@@ -65,7 +65,7 @@ export default function Careers() {
                 <a href="#roles" className="ss-btn ss-btn-primary">
                   See open roles <ArrowRight size={14} />
                 </a>
-                <a href="mailto:careers@screensentinel.com?subject=Open%20application" className="ss-btn ss-btn-ghost">
+                <a href="mailto:hello@screensentinel.me?subject=Open%20application" className="ss-btn ss-btn-ghost">
                   <Send size={13} /> Send open application
                 </a>
               </div>
@@ -254,7 +254,7 @@ export default function Careers() {
 
           <div style={{ marginTop: 24, padding: "20px 24px", borderRadius: 14, border: "1px dashed var(--ss-line)", textAlign: "center", color: "var(--text-muted)", fontSize: 14 }}>
             Don't see your role?{" "}
-            <a href="mailto:careers@screensentinel.com?subject=Open%20application" style={{ color: "var(--accent)", fontWeight: 600 }}>
+            <a href="mailto:hello@screensentinel.me?subject=Open%20application" style={{ color: "var(--accent)", fontWeight: 600 }}>
               Send an open application
             </a>
             {" "}— we read every one.
@@ -314,8 +314,8 @@ export default function Careers() {
           <p style={{ fontSize: 15.5, color: "var(--text-muted)", lineHeight: 1.7, marginBottom: 24 }}>
             We hire for portfolios over CVs. Tell us what you've built, what you'd want to build here, and why.
           </p>
-          <a href="mailto:careers@screensentinel.com?subject=Open%20application" className="ss-btn ss-btn-primary">
-            careers@screensentinel.com <ArrowRight size={14} />
+          <a href="mailto:hello@screensentinel.me?subject=Open%20application" className="ss-btn ss-btn-primary">
+            hello@screensentinel.me <ArrowRight size={14} />
           </a>
         </div>
       </section>

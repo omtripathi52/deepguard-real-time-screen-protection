@@ -62,7 +62,7 @@ export default function Blog() {
                 />
               </div>
               <p style={{ marginTop: 14, fontSize: 13, color: "var(--text-muted)", lineHeight: 1.6 }}>
-                Looking for press materials? Email <strong style={{ color: "var(--text)" }}>press@screensentinel.com</strong>.
+                Looking for press materials? Email <strong style={{ color: "var(--text)" }}>hello@screensentinel.me</strong>.
               </p>
             </div>
           </div>

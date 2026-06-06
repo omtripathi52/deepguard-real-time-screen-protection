@@ -536,6 +536,49 @@
   }
 }
 
+/* ─── Global icon container: consistent visual centering ─── */
+.ss-icon-wrap {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  line-height: 0 !important;
+}
+
+/* Fix all inline icon containers across the site */
+div[style*="display: flex"][style*="align-items: center"][style*="justify-content: center"] > svg,
+.ss-icon-wrap > svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+/* ─── Desktop medium-width pass (1024px – 1440px) ─── */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .ss-hero-wrap {
+    padding: 0 40px !important;
+  }
+  section[style*="padding: 96px"] {
+    padding: 72px 0 !important;
+  }
+  section[style*="padding: 104px"] {
+    padding: 80px 0 !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .ss-two-col {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 32px !important;
+  }
+  .ss-three-col {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px !important;
+  }
+  .ss-hero-wrap {
+    padding: 0 28px !important;
+  }
+}
+
 /* ─── Mobile gap + layout fixes ─── */
 @media (max-width: 900px) {
   .ss-two-col { gap: 28px !important; }
@@ -1215,5 +1258,92 @@
     font-size: 22px !important;
     line-height: 1.1 !important;
     margin-bottom: 10px !important;
+  }
+
+  /* ── Icon containers: force visual centering, prevent line-height drift ── */
+  .ss-icon-wrap,
+  div[style*="borderRadius: 12"][style*="display: flex"][style*="alignItems: center"],
+  div[style*="borderRadius: 10"][style*="display: flex"][style*="alignItems: center"] {
+    line-height: 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* ── Footer mobile layout ── */
+  footer .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  footer .grid > div:first-child {
+    margin-bottom: 8px !important;
+  }
+
+  footer ul {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px 18px !important;
+  }
+
+  footer ul > li {
+    margin: 0 !important;
+  }
+
+  /* ── Privacy & Terms: document pages ── */
+  .ss-mobile-page + * footer,
+  footer {
+    margin-top: 0 !important;
+  }
+
+  /* ── Trust page mobile ── */
+  .ss-trust-page .ss-trust-grid > div {
+    display: flex !important;
+    flex-direction: row !important;
+    grid-template-columns: unset !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+
+  .ss-trust-page .ss-trust-grid > div > div:first-child {
+    flex-shrink: 0 !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* ── Suppress decorative blurred radial gradients on mobile for perf ── */
+  .ss-mobile-page section > div[aria-hidden][style*="blur"],
+  .ss-mobile-page section > div[aria-hidden][style*="filter"] {
+    display: none !important;
+  }
+
+  /* ── Normalize all section bottom-margin on mobile pages ── */
+  .ss-mobile-page section:not(:last-child) {
+    margin-bottom: 0 !important;
+  }
+
+  /* ── Blog featured article: compact on mobile ── */
+  .ss-blog-page section article[style*="padding: 36px"] {
+    padding: 18px !important;
+    gap: 14px !important;
+    border-radius: 16px !important;
+  }
+
+  .ss-blog-page section article[style*="padding: 36px"] h2 {
+    font-size: 20px !important;
+  }
+
+  /* ── Blog read-more link: full width on mobile ── */
+  .ss-blog-page article > div:last-child {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  /* ── Contact page form ── */
+  .ss-contact-page form[style*="flex"] {
+    gap: 14px !important;
+  }
+
+  /* ── Technology page two-col ── */
+  div[style*="grid-template-columns: 1fr 1fr"][style*="gap: 16"] {
+    gap: 12px !important;
   }
 }
