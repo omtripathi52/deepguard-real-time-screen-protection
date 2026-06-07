@@ -40,7 +40,7 @@ const industries = [
 
 export default function Solutions() {
   return (
-    <div className="ss-mobile-page ss-solutions-page" style={{ paddingTop: 70 }}>
+    <div className="ss-mobile-page ss-solutions-page">
       <section style={{ padding: "48px 0 0", background: "var(--bg)" }}>
         <div className="ss-container">
           <div style={{ maxWidth: 680, marginBottom: 48 }}>

@@ -87,13 +87,12 @@ export default function Index() {
 
   return (
     <div className="ss-mobile-page ss-home-page">
-      {/* HERO — full viewport, owns the opening */}
+      {/* HERO */}
       <section
         style={{
-          minHeight: "calc(100vh - 52px)",
           display: "flex",
-          alignItems: "center",
-          padding: "40px 0 64px",
+          alignItems: "flex-start",
+          padding: "72px 0 88px",
           overflow: "hidden",
           background: "var(--bg)",
           position: "relative",

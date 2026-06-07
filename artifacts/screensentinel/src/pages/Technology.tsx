@@ -6,7 +6,7 @@ export default function Technology() {
   const exeLink = release?.exeUrl || "https://github.com/omtripathi52/ScreenSentinel/releases/latest";
 
   return (
-    <div className="ss-technology-page" style={{ minHeight: "100vh", background: "var(--bg)", paddingTop: 70 }}>
+    <div className="ss-technology-page" style={{ background: "var(--bg)" }}>
       <div style={{ maxWidth: 900, margin: "0 auto", padding: "72px 24px 120px" }}>
 
         <div style={{ marginBottom: 56, textAlign: "center" }}>

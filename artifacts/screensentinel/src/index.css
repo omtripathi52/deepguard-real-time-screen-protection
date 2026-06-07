@@ -856,12 +856,27 @@ div[style*="display: flex"][style*="align-items: center"][style*="justify-conten
   }
 }
 
-/* ─── Phone-first experience: page-scoped, not desktop squeezed smaller ─── */
-@media (max-width: 640px) {
-  .ss-mobile-page[style*="padding-top: 70"] {
-    padding-top: 0 !important;
+/* ─── Tablet / desktop-mode-on-mobile (641px – 1279px) ─── */
+@media (min-width: 641px) and (max-width: 1279px) {
+  /* Remove any leftover min-height traps on first sections */
+  .ss-mobile-page > section:first-child,
+  .ss-home-page > section:first-child {
+    min-height: 0 !important;
+    align-items: flex-start !important;
   }
 
+  /* Trim oversized section padding at this in-between width */
+  section[style*="padding: 96px"],
+  section[style*="padding: 104px"],
+  section[style*="padding: 88px"],
+  section[style*="padding: 80px"] {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+}
+
+/* ─── Phone-first experience: page-scoped, not desktop squeezed smaller ─── */
+@media (max-width: 640px) {
   .ss-mobile-page > section,
   .ss-mobile-page > section[style] {
     padding-top: 34px !important;

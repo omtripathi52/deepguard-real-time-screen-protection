@@ -40,7 +40,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="ss-mobile-page ss-contact-page" style={{ paddingTop: 70, background: "var(--bg)", minHeight: "100vh" }}>
+    <div className="ss-mobile-page ss-contact-page" style={{ background: "var(--bg)" }}>
       <div style={{ maxWidth: 860, margin: "0 auto", padding: "64px 24px 120px" }}>
 
         {/* Header */}

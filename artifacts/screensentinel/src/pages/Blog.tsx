@@ -17,7 +17,7 @@ export default function Blog() {
   const [featured, ...rest] = (filtered.length ? filtered : blogPosts) as typeof blogPosts;
 
   return (
-    <div className="ss-mobile-page ss-blog-page" style={{ paddingTop: 70 }}>
+    <div className="ss-mobile-page ss-blog-page">
       <section style={{ padding: "80px 0", background: "var(--bg)" }}>
         <div className="ss-container">
           <div className="ss-two-col" style={{ alignItems: "center" }}>

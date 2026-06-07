@@ -33,7 +33,7 @@ const typeColors: Record<string, { bg: string; text: string; dark: string; darkT
 
 export default function Events() {
   return (
-    <div className="ss-mobile-page ss-events-page" style={{ paddingTop: 70 }}>
+    <div className="ss-mobile-page ss-events-page">
       <section style={{ padding: "80px 0", background: "var(--bg)" }}>
         <div className="ss-container">
           <div className="ss-two-col" style={{ alignItems: "center", marginBottom: 80 }}>
