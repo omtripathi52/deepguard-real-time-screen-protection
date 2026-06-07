@@ -938,6 +938,19 @@ div[style*="display: flex"][style*="align-items: center"][style*="justify-conten
     justify-content: flex-start !important;
   }
 
+  /* Restore centering inside fixed-size icon boxes — override the broad rule above */
+  .ss-mobile-page [style*="width: 30px"][style*="height: 30px"],
+  .ss-mobile-page [style*="width: 38px"][style*="height: 38px"],
+  .ss-mobile-page [style*="width: 40px"][style*="height: 40px"],
+  .ss-mobile-page [style*="width: 44px"][style*="height: 44px"],
+  .ss-mobile-page [style*="width: 48px"][style*="height: 48px"],
+  .ss-mobile-page [style*="width: 56px"][style*="height: 56px"],
+  .ss-mobile-page [style*="width: 64px"][style*="height: 64px"] {
+    justify-content: center !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+  }
+
   .ss-mobile-page .ss-pill {
     width: fit-content !important;
     justify-content: flex-start !important;
