@@ -374,8 +374,7 @@ export default function Product() {
                 <div
                   className="pipeline-card"
                   style={{
-                    background:
-                      "linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))",
+                    background: "var(--bg2)",
                     border: "1px solid var(--ss-line)",
                     borderRadius: 18,
                     padding: "26px 24px 28px",
@@ -488,7 +487,7 @@ export default function Product() {
                         padding: "22px 24px",
                         background: active
                           ? "linear-gradient(135deg, rgba(16,185,129,0.10), rgba(16,185,129,0.02))"
-                          : "linear-gradient(135deg, rgba(255,255,255,0.025), rgba(255,255,255,0))",
+                          : "var(--bg2)",
                         border: active
                           ? "1px solid rgba(16,185,129,0.35)"
                           : "1px solid var(--ss-line)",
@@ -503,7 +502,7 @@ export default function Product() {
                           width: 44,
                           height: 44,
                           borderRadius: 12,
-                          background: active ? "var(--accent-dim)" : "rgba(255,255,255,0.04)",
+                          background: active ? "var(--accent-dim)" : "var(--bg3)",
                           border: active ? "1px solid var(--accent-border)" : "1px solid var(--ss-line)",
                           display: "flex",
                           alignItems: "center",
@@ -589,8 +588,8 @@ export default function Product() {
                               fontSize: 12,
                               padding: "5px 11px",
                               borderRadius: 999,
-                              background: "rgba(255,255,255,0.05)",
-                              border: "1px solid var(--border-strong)",
+                              background: "var(--bg3)",
+                              border: "1px solid var(--ss-line)",
                               color: "var(--text-muted)",
                               fontWeight: 500,
                             }}
@@ -682,8 +681,8 @@ export default function Product() {
                         fontSize: 12,
                         padding: "6px 12px",
                         borderRadius: 999,
-                        background: "rgba(255,255,255,0.04)",
-                        border: "1px solid var(--border-strong)",
+                        background: "var(--bg3)",
+                        border: "1px solid var(--ss-line)",
                         color: "var(--text-muted)",
                         fontWeight: 500,
                       }}

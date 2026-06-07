@@ -1034,13 +1034,18 @@ div[style*="display: flex"][style*="align-items: center"][style*="justify-conten
   }
 
   .ss-product-page .pipeline-step {
+    display: grid !important;
     grid-template-columns: 44px minmax(0, 1fr) !important;
-    gap: 10px !important;
+    gap: 12px !important;
+    align-items: start !important;
   }
 
   .ss-product-page .pipeline-icon {
     width: 44px !important;
     height: 44px !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    align-self: start !important;
   }
 
   .ss-product-page .pipeline-card {

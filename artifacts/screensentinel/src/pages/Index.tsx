@@ -241,16 +241,18 @@ export default function Index() {
                       width: 40,
                       height: 40,
                       borderRadius: 10,
-                      background: "rgba(239,68,68,0.08)",
-                      border: "1px solid rgba(239,68,68,0.25)",
+                      background: "rgba(220,38,38,0.14)",
+                      border: "1px solid rgba(220,38,38,0.30)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       marginBottom: 16,
-                      color: "#f87171",
+                      color: "#ef4444",
+                      flexShrink: 0,
+                      lineHeight: 0,
                     }}
                   >
-                    <Icon size={18} />
+                    <Icon size={18} strokeWidth={1.75} />
                   </div>
                   <h3 style={{ fontSize: 15, fontWeight: 700, color: "var(--text)", marginBottom: 8 }}>{p.title}</h3>
                   <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.6 }}>{p.desc}</p>

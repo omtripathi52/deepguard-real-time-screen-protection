@@ -386,7 +386,7 @@ export default function Trust() {
                       gap: 6,
                       padding: "6px 12px",
                       borderRadius: 999,
-                      background: "rgba(255,255,255,0.03)",
+                      background: "var(--bg3)",
                       border: "1px solid var(--ss-line)",
                       fontSize: 11.5,
                       fontWeight: 600,
@@ -461,13 +461,11 @@ export default function Trust() {
                   display: "flex",
                   gap: 18,
                   alignItems: "flex-start",
-                  background:
-                    "linear-gradient(160deg, rgba(255,255,255,0.035), rgba(255,255,255,0.005))",
+                  background: "var(--bg2)",
                   border: "1px solid var(--ss-line)",
                   borderRadius: 18,
                   backdropFilter: "blur(8px)",
-                  boxShadow:
-                    "0 20px 50px -30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04)",
+                  boxShadow: "none",
                   overflow: "hidden",
                 }}
               >
