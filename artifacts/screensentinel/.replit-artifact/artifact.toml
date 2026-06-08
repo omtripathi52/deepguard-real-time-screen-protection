@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "ScreenSentinel"
+version = "1.0.0"
+id = "artifacts/screensentinel"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20032
+
+[services.development]
+run = "pnpm --filter @workspace/screensentinel run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/screensentinel", "run", "build" ]
+publicDir = "artifacts/screensentinel/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
