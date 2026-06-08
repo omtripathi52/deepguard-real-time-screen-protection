@@ -11,8 +11,7 @@ const cols: Record<string, { name: string; path: string }[]> = {
   Company: [
     { name: "About Us", path: "/about" },
     { name: "Careers", path: "/careers" },
-    { name: "Events", path: "/events" },
-    { name: "Blog", path: "/blog" },
+    { name: "Fellowship", path: "/fellowship" },
   ],
   Resources: [
     { name: "Contact", path: "/contact" },

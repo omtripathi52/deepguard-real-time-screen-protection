@@ -14,8 +14,7 @@ const nav: NavItem[] = [
     children: [
       { label: "About Us", href: "/about", desc: "Our story and mission" },
       { label: "Careers", href: "/careers", desc: "Remote-first, worldwide" },
-      { label: "Events", href: "/events", desc: "Hackathons & workshops" },
-      { label: "Blog", href: "/blog", desc: "Research & insights" },
+      { label: "Fellowship", href: "/fellowship", desc: "Funded AI learning program" },
     ],
   },
   { label: "Trust", href: "/trust" },

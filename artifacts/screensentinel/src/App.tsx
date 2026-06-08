@@ -8,8 +8,7 @@ import Product from "@/pages/Product";
 import Solutions from "@/pages/Solutions";
 import Technology from "@/pages/Technology";
 import Trust from "@/pages/Trust";
-import Blog from "@/pages/Blog";
-import Events from "@/pages/Events";
+import Fellowship from "@/pages/Fellowship";
 import Careers from "@/pages/Careers";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
@@ -32,8 +31,7 @@ function App() {
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/technology" element={<Technology />} />
             <Route path="/trust" element={<Trust />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/events" element={<Events />} />
+            <Route path="/fellowship" element={<Fellowship />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />

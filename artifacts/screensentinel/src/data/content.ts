@@ -19,6 +19,17 @@ export type OpenRole = {
   tags?: string[];
   seniority?: string;
 };
+export type OpenInternship = {
+  id: number;
+  title: string;
+  location: string;
+  domain: string;
+  duration: string;
+  stipend: string;
+  description: string;
+  tags?: string[];
+  level: string;
+};
 export type UseCase = {
   title: string;
   description: string;
@@ -102,24 +113,6 @@ export const blogPosts: BlogPost[] = [
     category: "Guides",
     readTime: "8 min read",
   },
-  {
-    id: 4,
-    title: "Someone put your face in a fake video. What can you do about it?",
-    excerpt: "A practical, step-by-step guide for anyone who thinks their likeness has been used in a deepfake — including how to find it, report it, and stop it spreading.",
-    author: "Elena Vance",
-    date: "Apr 28, 2026",
-    category: "Guides",
-    readTime: "5 min read",
-  },
-  {
-    id: 5,
-    title: "ScreenSentinel gets smarter — what's new in our latest update",
-    excerpt: "We've improved how quickly warnings appear, redesigned the alert screen to be clearer, and made the app even lighter on your computer.",
-    author: "Marcus Thorne",
-    date: "Apr 20, 2026",
-    category: "Product",
-    readTime: "3 min read",
-  },
 ];
 
 export const openRoles: OpenRole[] = [
@@ -129,11 +122,11 @@ export const openRoles: OpenRole[] = [
     location: "Remote (Worldwide)",
     department: "Engineering",
     type: "Full-time",
-    seniority: "Mid–Senior",
-    salary: "$140,000 – $185,000 USD",
+    seniority: "Any level",
+    salary: "$55,000 – $120,000 USD",
     tags: ["PyTorch", "Vision Models", "Edge AI", "ONNX"],
     description:
-      "Build the on-device vision models that power real-time deepfake detection. You'll own the inference pipeline from frame capture to verdict, optimising for CPU and NPU runtimes.",
+      "Build the on-device vision models that power real-time deepfake detection. You'll own the inference pipeline from frame capture to verdict, optimising for CPU and NPU runtimes. 0 years experience welcome — show us what you've built.",
   },
   {
     id: 2,
@@ -141,11 +134,11 @@ export const openRoles: OpenRole[] = [
     location: "Remote (Worldwide)",
     department: "Engineering",
     type: "Full-time",
-    seniority: "Mid–Senior",
-    salary: "$135,000 – $180,000 USD",
+    seniority: "Any level",
+    salary: "$50,000 – $115,000 USD",
     tags: ["PyTorch", "Quantization", "Distillation", "GAN Detection"],
     description:
-      "Train, fine-tune and ship generative-adversarial detection models. You'll work across data, model architecture, and on-device deployment with quantisation and distillation.",
+      "Train, fine-tune and ship generative-adversarial detection models. Work across data, model architecture, and on-device deployment. We care about what you can do, not your years on a CV.",
   },
   {
     id: 3,
@@ -153,23 +146,23 @@ export const openRoles: OpenRole[] = [
     location: "Remote (Worldwide)",
     department: "Research",
     type: "Full-time",
-    seniority: "Mid–Senior",
-    salary: "$120,000 – $160,000 USD",
+    seniority: "Any level",
+    salary: "$45,000 – $100,000 USD",
     tags: ["Adversarial Data", "Evaluation", "Python", "Experimentation"],
     description:
-      "Drive the research that keeps our detection ahead of new synthesis techniques. You'll design experiments, curate adversarial datasets, and turn findings into shippable models.",
+      "Drive the research that keeps our detection ahead of new synthesis techniques. Design experiments, curate adversarial datasets, and turn findings into shippable models.",
   },
   {
     id: 4,
-    title: "Product Manager",
+    title: "AI Research Engineer",
     location: "Remote (Worldwide)",
-    department: "Product",
+    department: "Research",
     type: "Full-time",
-    seniority: "Mid",
-    salary: "$130,000 – $170,000 USD",
-    tags: ["Desktop", "Privacy UX", "Roadmap", "Research-led"],
+    seniority: "Any level",
+    salary: "$55,000 – $120,000 USD",
+    tags: ["LLMs", "Multimodal", "Deepfake Detection", "Papers"],
     description:
-      "Own the ScreenSentinel desktop experience end-to-end. You'll set the roadmap, partner with research and engineering, and turn deep technology into a calm, trustworthy product.",
+      "Research and prototype new detection techniques. You'll read the literature, run experiments, and help define the next generation of ScreenSentinel's models. Freshers with strong portfolios are encouraged to apply.",
   },
   {
     id: 5,
@@ -177,23 +170,74 @@ export const openRoles: OpenRole[] = [
     location: "Remote (Worldwide)",
     department: "Engineering",
     type: "Full-time",
-    seniority: "Mid",
-    salary: "$120,000 – $160,000 USD",
+    seniority: "Any level",
+    salary: "$45,000 – $100,000 USD",
     tags: ["TypeScript", "React", "Node", "Design Systems"],
     description:
       "Build the surfaces around our detection engine — desktop UI, telemetry-free dashboards, and the web experience. TypeScript, React and a love for craft required.",
   },
   {
     id: 6,
-    title: "Security Researcher",
+    title: "Product Manager",
     location: "Remote (Worldwide)",
-    department: "Research",
+    department: "Product",
     type: "Full-time",
-    seniority: "Senior",
-    salary: "$130,000 – $170,000 USD",
-    tags: ["Red Team", "Synthesis", "Adversarial ML", "Publications"],
+    seniority: "Any level",
+    salary: "$50,000 – $110,000 USD",
+    tags: ["Desktop", "Privacy UX", "Roadmap", "Research-led"],
     description:
-      "Red-team our detection stack against the newest synthesis pipelines. You'll publish, prototype attacks, and help us harden every release before it ships.",
+      "Own the ScreenSentinel desktop experience end-to-end. Set the roadmap, partner with research and engineering, and turn deep technology into a calm, trustworthy product.",
+  },
+];
+
+export const openInternships: OpenInternship[] = [
+  {
+    id: 1,
+    title: "AI/ML Research Intern",
+    location: "Remote (Worldwide)",
+    domain: "Artificial Intelligence",
+    duration: "3–6 months",
+    stipend: "$1,500 – $2,200 / month USD",
+    level: "All levels — including 0 experience",
+    tags: ["PyTorch", "Computer Vision", "LLMs", "Research"],
+    description:
+      "Work directly with our research team to investigate new deepfake detection techniques. You'll read papers, run experiments, and contribute to real model improvements. No prior job experience required — a strong portfolio or personal project is enough.",
+  },
+  {
+    id: 2,
+    title: "Machine Learning Engineering Intern",
+    location: "Remote (Worldwide)",
+    domain: "Machine Learning",
+    duration: "3–6 months",
+    stipend: "$1,400 – $2,000 / month USD",
+    level: "All levels — including 0 experience",
+    tags: ["PyTorch", "ONNX", "Model Optimization", "Python"],
+    description:
+      "Help build and optimize the models that ship inside ScreenSentinel. You'll work on quantization, pruning, and on-device inference. We'll teach you everything you need to know — curiosity and consistency matter more than a CV.",
+  },
+  {
+    id: 3,
+    title: "Data Science Intern",
+    location: "Remote (Worldwide)",
+    domain: "Data Science",
+    duration: "3–6 months",
+    stipend: "$1,200 – $1,800 / month USD",
+    level: "All levels — including 0 experience",
+    tags: ["Python", "Statistics", "Data Curation", "Experimentation"],
+    description:
+      "Build and curate the adversarial datasets that keep our detection sharp. You'll design evaluation benchmarks, analyse model performance across edge cases, and help shape how we measure success.",
+  },
+  {
+    id: 4,
+    title: "Generative AI Intern",
+    location: "Remote (Worldwide)",
+    domain: "Generative AI",
+    duration: "3–6 months",
+    stipend: "$1,500 – $2,200 / month USD",
+    level: "All levels — including 0 experience",
+    tags: ["Diffusion Models", "GANs", "Prompt Engineering", "Fine-tuning"],
+    description:
+      "Explore generative techniques to stress-test our detection engine. You'll work on the attack side — generating synthetic media — so we can build better defences. A unique role for someone who wants to understand both sides of the AI arms race.",
   },
 ];
 
@@ -263,14 +307,5 @@ export const events: EventItem[] = [
     type: "Workshop",
     description: "A free, practical session for journalists, teachers, and anyone curious. We'll show you exactly what to look for — no technical knowledge needed.",
     registrationOpen: true,
-  },
-  {
-    id: 3,
-    title: "AI & Trust Summit London",
-    date: "September 05, 2026",
-    location: "London, UK",
-    type: "Conference",
-    description: "A day of honest conversations about AI, privacy, and what it means to trust what you see online. Speakers from journalism, policy, and technology.",
-    registrationOpen: false,
   },
 ];

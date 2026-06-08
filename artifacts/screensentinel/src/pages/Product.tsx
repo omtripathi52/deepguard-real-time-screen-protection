@@ -88,8 +88,15 @@ export default function Product() {
   return (
     <div className="ss-mobile-page ss-product-page">
       {/* ============ HERO ============ */}
-      <section style={{ position: "relative", padding: "20px 0 56px", overflow: "hidden" }}>
-        {/* ambient atmospheric bridge from navbar */}
+      <section
+        style={{
+          position: "relative",
+          paddingTop: "clamp(32px, 4vw, 52px)",
+          paddingBottom: "clamp(36px, 4vw, 56px)",
+          overflow: "hidden",
+        }}
+      >
+        {/* ambient */}
         <div
           aria-hidden
           style={{
@@ -101,18 +108,19 @@ export default function Product() {
           }}
         />
         <div className="ss-container" style={{ position: "relative" }}>
-          <div style={{ textAlign: "center", maxWidth: 760, margin: "0 auto 40px" }}>
-            <p className="ss-pill" style={{ marginBottom: 14 }}>
+          {/* headline */}
+          <div style={{ textAlign: "center", maxWidth: 720, margin: "0 auto 28px" }}>
+            <p className="ss-pill" style={{ marginBottom: 12 }}>
               <Sparkles size={11} /> Version {version} · On-device
             </p>
             <h1
               style={{
-                fontSize: "clamp(36px,4.4vw,58px)",
+                fontSize: "clamp(30px, 4.4vw, 54px)",
                 fontWeight: 800,
                 letterSpacing: "-0.045em",
                 color: "var(--text)",
-                marginBottom: 16,
-                lineHeight: 1.04,
+                marginBottom: 14,
+                lineHeight: 1.06,
               }}
             >
               Trust infrastructure
@@ -121,10 +129,10 @@ export default function Product() {
             </h1>
             <p
               style={{
-                fontSize: 17,
+                fontSize: "clamp(14px, 1.6vw, 17px)",
                 color: "var(--text-muted)",
                 lineHeight: 1.65,
-                maxWidth: 580,
+                maxWidth: 540,
                 margin: "0 auto",
               }}
             >
@@ -133,20 +141,21 @@ export default function Product() {
             </p>
           </div>
 
-
-          {/* Hero media */}
+          {/* Hero image — constrained to fit viewport */}
           <div
             className="product-hero-frame"
             style={{
               position: "relative",
-              borderRadius: 24,
+              borderRadius: "clamp(12px, 2vw, 20px)",
               overflow: "hidden",
               border: "1px solid var(--border-strong)",
               boxShadow:
-                "0 40px 120px -40px rgba(16,185,129,0.25), 0 20px 60px -30px rgba(0,0,0,0.6)",
-              maxWidth: 1280,
+                "0 32px 80px -32px rgba(16,185,129,0.28), 0 16px 48px -24px rgba(0,0,0,0.55)",
+              maxWidth: "min(100%, 1100px)",
               margin: "0 auto",
-              aspectRatio: "16/9",
+              /* Key fix: cap height so the image never exceeds the viewport */
+              maxHeight: "min(56vh, 540px)",
+              aspectRatio: "16 / 9",
             }}
           >
             <img
@@ -154,113 +163,129 @@ export default function Product() {
               alt="ScreenSentinel analyzing a video call in real time"
               width={1600}
               height={900}
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
             />
-            {/* gradient washes */}
+
+            {/* gradient overlays */}
             <div
               aria-hidden
               style={{
                 position: "absolute",
                 inset: 0,
                 background:
-                  "linear-gradient(to top, rgba(9,9,11,0.92) 0%, rgba(9,9,11,0.25) 45%, transparent 70%), linear-gradient(to right, rgba(9,9,11,0.55), transparent 40%, transparent 60%, rgba(9,9,11,0.55))",
+                  "linear-gradient(to top, rgba(9,9,11,0.88) 0%, rgba(9,9,11,0.18) 40%, transparent 65%), linear-gradient(to right, rgba(9,9,11,0.45), transparent 35%, transparent 65%, rgba(9,9,11,0.45))",
               }}
             />
-            {/* face reticle */}
+
+            {/* Face reticle — hidden on very small screens via inline media */}
             <div
               aria-hidden
+              className="product-reticle"
               style={{
                 position: "absolute",
-                top: "26%",
+                top: "22%",
                 left: "50%",
                 transform: "translateX(-50%)",
-                width: "clamp(180px, 22%, 280px)",
-                aspectRatio: "1/1.15",
+                width: "clamp(120px, 18%, 240px)",
+                aspectRatio: "1 / 1.15",
                 borderRadius: "44%",
                 border: "1.5px solid rgba(16,185,129,0.65)",
-                boxShadow: "0 0 0 1px rgba(16,185,129,0.15) inset, 0 0 40px rgba(16,185,129,0.18)",
+                boxShadow: "0 0 0 1px rgba(16,185,129,0.15) inset, 0 0 32px rgba(16,185,129,0.18)",
               }}
             >
-              {/* corner ticks */}
               {[
-                { top: -6, left: -6, borderTop: "2px solid rgba(16,185,129,0.85)", borderLeft: "2px solid rgba(16,185,129,0.85)" },
-                { top: -6, right: -6, borderTop: "2px solid rgba(16,185,129,0.85)", borderRight: "2px solid rgba(16,185,129,0.85)" },
-                { bottom: -6, left: -6, borderBottom: "2px solid rgba(16,185,129,0.85)", borderLeft: "2px solid rgba(16,185,129,0.85)" },
-                { bottom: -6, right: -6, borderBottom: "2px solid rgba(16,185,129,0.85)", borderRight: "2px solid rgba(16,185,129,0.85)" },
+                { top: -5, left: -5, borderTop: "2px solid rgba(16,185,129,0.85)", borderLeft: "2px solid rgba(16,185,129,0.85)" },
+                { top: -5, right: -5, borderTop: "2px solid rgba(16,185,129,0.85)", borderRight: "2px solid rgba(16,185,129,0.85)" },
+                { bottom: -5, left: -5, borderBottom: "2px solid rgba(16,185,129,0.85)", borderLeft: "2px solid rgba(16,185,129,0.85)" },
+                { bottom: -5, right: -5, borderBottom: "2px solid rgba(16,185,129,0.85)", borderRight: "2px solid rgba(16,185,129,0.85)" },
               ].map((s, i) => (
-                <span key={i} style={{ position: "absolute", width: 14, height: 14, ...s }} />
+                <span key={i} style={{ position: "absolute", width: 12, height: 12, ...s }} />
               ))}
             </div>
 
-            {/* live verdict chip */}
+            {/* Live verdict chip — top right */}
             <div
+              className="product-chip"
               style={{
                 position: "absolute",
-                top: 22,
-                right: 22,
+                top: "clamp(10px, 2vw, 20px)",
+                right: "clamp(10px, 2vw, 20px)",
                 display: "inline-flex",
                 alignItems: "center",
-                gap: 10,
-                padding: "10px 16px",
-                background: "rgba(9,9,11,0.65)",
+                gap: 8,
+                padding: "8px 14px",
+                background: "rgba(9,9,11,0.70)",
                 backdropFilter: "blur(14px)",
                 border: "1px solid rgba(16,185,129,0.45)",
                 borderRadius: 999,
-                fontSize: 12,
+                fontSize: "clamp(10px, 1.2vw, 12px)",
                 fontWeight: 700,
                 color: "#10b981",
                 letterSpacing: "0.04em",
+                whiteSpace: "nowrap",
               }}
             >
               <span
                 style={{
-                  width: 8,
-                  height: 8,
+                  width: 7,
+                  height: 7,
                   borderRadius: "50%",
                   background: "#10b981",
-                  boxShadow: "0 0 12px #10b981",
+                  boxShadow: "0 0 10px #10b981",
                   animation: "pulse 2s infinite",
+                  flexShrink: 0,
                 }}
               />
-              REAL · 99.2% confidence
+              REAL · 99.2%
             </div>
 
-            {/* bottom telemetry bar */}
+            {/* Bottom telemetry — desktop */}
             <div
+              className="product-telemetry"
               style={{
                 position: "absolute",
                 left: 0,
                 right: 0,
                 bottom: 0,
-                padding: "22px 28px",
+                padding: "clamp(12px,2vw,20px) clamp(14px,2.5vw,26px)",
                 display: "flex",
-                gap: 28,
+                gap: "clamp(14px,2vw,24px)",
                 alignItems: "center",
                 justifyContent: "space-between",
                 flexWrap: "wrap",
               }}
             >
-              <div style={{ display: "flex", gap: 22, alignItems: "center", flexWrap: "wrap" }}>
+              <div style={{ display: "flex", gap: "clamp(12px,2vw,20px)", alignItems: "center", flexWrap: "wrap" }}>
                 {[
                   { l: "Blink cadence", v: "Normal" },
                   { l: "Lip-sync drift", v: "0.4 ms" },
                   { l: "Lighting", v: "Consistent" },
                 ].map((t) => (
-                  <div key={t.l} style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                    <span style={{ fontSize: 10, color: "rgba(255,255,255,0.55)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                  <div key={t.l} style={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                    <span
+                      style={{
+                        fontSize: "clamp(8px,0.9vw,10px)",
+                        color: "rgba(255,255,255,0.55)",
+                        letterSpacing: "0.1em",
+                        textTransform: "uppercase",
+                      }}
+                    >
                       {t.l}
                     </span>
-                    <span style={{ fontSize: 13, color: "#fff", fontWeight: 600 }}>{t.v}</span>
+                    <span style={{ fontSize: "clamp(11px,1.1vw,13px)", color: "#fff", fontWeight: 600 }}>{t.v}</span>
                   </div>
                 ))}
               </div>
-              {/* mini waveform */}
-              <div style={{ display: "flex", gap: 3, alignItems: "flex-end", height: 28 }}>
-                {Array.from({ length: 28 }).map((_, i) => (
+              {/* Mini waveform */}
+              <div
+                className="product-waveform"
+                style={{ display: "flex", gap: 2, alignItems: "flex-end", height: 24 }}
+              >
+                {Array.from({ length: 22 }).map((_, i) => (
                   <span
                     key={i}
                     style={{
-                      width: 3,
+                      width: "clamp(2px, 0.3vw, 3px)",
                       height: `${20 + Math.sin(i * 0.7) * 14 + (i % 3) * 4}%`,
                       background: "rgba(16,185,129,0.85)",
                       borderRadius: 2,
@@ -272,7 +297,15 @@ export default function Product() {
           </div>
 
           {/* CTA row */}
-          <div style={{ display: "flex", gap: 14, justifyContent: "center", marginTop: 28, flexWrap: "wrap" }}>
+          <div
+            style={{
+              display: "flex",
+              gap: 12,
+              justifyContent: "center",
+              marginTop: "clamp(18px, 2.5vw, 28px)",
+              flexWrap: "wrap",
+            }}
+          >
             <a href={exeLink} className="ss-btn ss-btn-primary">
               <Download size={14} /> Download for Windows
             </a>
@@ -288,10 +321,9 @@ export default function Product() {
         id="pipeline"
         style={{
           position: "relative",
-          padding: "72px 0 32px",
+          padding: "clamp(48px,5vw,72px) 0 clamp(32px,4vw,48px)",
           borderTop: "1px solid var(--ss-line)",
-          background:
-            "linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%)",
+          background: "linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%)",
         }}
       >
         <div
@@ -299,17 +331,16 @@ export default function Product() {
           style={{
             position: "absolute",
             inset: 0,
-            background:
-              "radial-gradient(600px 400px at 50% 0%, rgba(16,185,129,0.08), transparent 70%)",
+            background: "radial-gradient(600px 400px at 50% 0%, rgba(16,185,129,0.08), transparent 70%)",
             pointerEvents: "none",
           }}
         />
         <div className="ss-container" style={{ position: "relative" }}>
-          <div style={{ textAlign: "center", marginBottom: 48, maxWidth: 640, margin: "0 auto 48px" }}>
+          <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
             <p className="ss-pill" style={{ marginBottom: 16 }}>The detection pipeline</p>
             <h2
               style={{
-                fontSize: "clamp(30px,3.6vw,46px)",
+                fontSize: "clamp(26px,3.6vw,46px)",
                 fontWeight: 800,
                 letterSpacing: "-0.035em",
                 color: "var(--text)",
@@ -351,25 +382,25 @@ export default function Product() {
               <div
                 key={s.n}
                 className="pipeline-step"
-                style={{ padding: "0 18px", position: "relative", display: "flex", flexDirection: "column" }}
+                style={{ padding: "0 clamp(8px,1.5vw,18px)", position: "relative", display: "flex", flexDirection: "column" }}
               >
                 <div
                   className="pipeline-icon"
                   style={{
-                    width: 72,
-                    height: 72,
+                    width: "clamp(52px,7vw,72px)",
+                    height: "clamp(52px,7vw,72px)",
                     borderRadius: 20,
                     background: `linear-gradient(135deg, ${s.accent}22, ${s.accent}08)`,
                     border: `1px solid ${s.accent}40`,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    margin: "0 auto 24px",
+                    margin: "0 auto 20px",
                     position: "relative",
                     boxShadow: `0 12px 32px -8px ${s.accent}40, inset 0 1px 0 rgba(255,255,255,0.06)`,
                   }}
                 >
-                  <s.icon size={28} color={s.accent} strokeWidth={1.6} />
+                  <s.icon size={24} color={s.accent} strokeWidth={1.6} />
                 </div>
                 <div
                   className="pipeline-card"
@@ -377,45 +408,21 @@ export default function Product() {
                     background: "var(--bg2)",
                     border: "1px solid var(--ss-line)",
                     borderRadius: 18,
-                    padding: "26px 24px 28px",
+                    padding: "clamp(16px,2vw,26px) clamp(14px,1.8vw,22px) clamp(18px,2.2vw,28px)",
                     flex: 1,
                     backdropFilter: "blur(6px)",
                   }}
                 >
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      marginBottom: 14,
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: 11,
-                        fontWeight: 700,
-                        color: s.accent,
-                        letterSpacing: "0.12em",
-                      }}
-                    >
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
+                    <span style={{ fontSize: 10, fontWeight: 700, color: s.accent, letterSpacing: "0.12em" }}>
                       {s.label.toUpperCase()}
                     </span>
-                    <span style={{ fontSize: 11, color: "var(--text-subtle)", fontVariantNumeric: "tabular-nums" }}>
-                      {s.n}
-                    </span>
+                    <span style={{ fontSize: 10, color: "var(--text-subtle)" }}>{s.n}</span>
                   </div>
-                  <h3
-                    style={{
-                      fontSize: 17,
-                      fontWeight: 700,
-                      color: "var(--text)",
-                      marginBottom: 10,
-                      lineHeight: 1.3,
-                    }}
-                  >
+                  <h3 style={{ fontSize: "clamp(14px,1.4vw,17px)", fontWeight: 700, color: "var(--text)", marginBottom: 8, lineHeight: 1.3 }}>
                     {s.title}
                   </h3>
-                  <p style={{ fontSize: 13.5, color: "var(--text-muted)", lineHeight: 1.65 }}>
+                  <p style={{ fontSize: "clamp(12px,1.2vw,13.5px)", color: "var(--text-muted)", lineHeight: 1.65 }}>
                     {s.desc}
                   </p>
                 </div>
@@ -426,30 +433,20 @@ export default function Product() {
       </section>
 
       {/* ============ INTERACTIVE FEATURE RAILS ============ */}
-      <section style={{ padding: "40px 0 88px", position: "relative", borderTop: "1px solid var(--ss-line)" }}>
+      <section style={{ padding: "clamp(40px,4vw,56px) 0 clamp(56px,7vw,88px)", position: "relative", borderTop: "1px solid var(--ss-line)" }}>
         <div
           aria-hidden
           style={{
             position: "absolute",
             inset: 0,
-            background:
-              "radial-gradient(800px 500px at 100% 50%, rgba(34,211,238,0.07), transparent 60%)",
+            background: "radial-gradient(800px 500px at 100% 50%, rgba(34,211,238,0.07), transparent 60%)",
             pointerEvents: "none",
           }}
         />
         <div className="ss-container" style={{ position: "relative" }}>
-          <div style={{ marginBottom: 40, maxWidth: 640 }}>
+          <div style={{ marginBottom: 36, maxWidth: 640 }}>
             <p className="ss-pill" style={{ marginBottom: 16 }}>Built for daily life</p>
-            <h2
-              style={{
-                fontSize: "clamp(30px,3.6vw,46px)",
-                fontWeight: 800,
-                letterSpacing: "-0.035em",
-                color: "var(--text)",
-                marginBottom: 14,
-                lineHeight: 1.1,
-              }}
-            >
+            <h2 style={{ fontSize: "clamp(26px,3.6vw,46px)", fontWeight: 800, letterSpacing: "-0.035em", color: "var(--text)", marginBottom: 14, lineHeight: 1.1 }}>
               Designed to disappear
               <br /> until you need it.
             </h2>
@@ -461,15 +458,10 @@ export default function Product() {
 
           <div
             className="feat-grid"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "minmax(0,1fr) minmax(0, 460px)",
-              gap: 48,
-              alignItems: "stretch",
-            }}
+            style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0, 420px)", gap: 40, alignItems: "stretch" }}
           >
             {/* feature rail */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {features.map((f, i) => {
                 const active = activeFeature === i;
                 return (
@@ -482,16 +474,14 @@ export default function Product() {
                         width: "100%",
                         textAlign: "left",
                         display: "flex",
-                        gap: 20,
+                        gap: 18,
                         alignItems: "flex-start",
-                        padding: "22px 24px",
+                        padding: "18px 20px",
                         background: active
                           ? "linear-gradient(135deg, rgba(16,185,129,0.10), rgba(16,185,129,0.02))"
                           : "var(--bg2)",
-                        border: active
-                          ? "1px solid rgba(16,185,129,0.35)"
-                          : "1px solid var(--ss-line)",
-                        borderRadius: active ? "16px 16px 0 0" : 16,
+                        border: active ? "1px solid rgba(16,185,129,0.35)" : "1px solid var(--ss-line)",
+                        borderRadius: active ? "14px 14px 0 0" : 14,
                         cursor: "pointer",
                         transition: "all 0.2s ease",
                         position: "relative",
@@ -499,9 +489,9 @@ export default function Product() {
                     >
                       <div
                         style={{
-                          width: 44,
-                          height: 44,
-                          borderRadius: 12,
+                          width: 40,
+                          height: 40,
+                          borderRadius: 11,
                           background: active ? "var(--accent-dim)" : "var(--bg3)",
                           border: active ? "1px solid var(--accent-border)" : "1px solid var(--ss-line)",
                           display: "flex",
@@ -511,298 +501,107 @@ export default function Product() {
                           transition: "all 0.2s ease",
                         }}
                       >
-                        <f.icon
-                          size={20}
-                          color={active ? "var(--accent)" : "var(--text-muted)"}
-                          strokeWidth={1.7}
-                        />
+                        <f.icon size={18} color={active ? "var(--accent)" : "var(--text-muted)"} strokeWidth={1.7} />
                       </div>
                       <div style={{ flex: 1, minWidth: 0 }}>
-                        <h3
-                          style={{
-                            fontSize: 16,
-                            fontWeight: 700,
-                            color: "var(--text)",
-                            marginBottom: 6,
-                          }}
-                        >
-                          {f.title}
-                        </h3>
-                        <p style={{ fontSize: 13.5, color: "var(--text-muted)", lineHeight: 1.65 }}>
-                          {f.desc}
-                        </p>
+                        <h3 style={{ fontSize: 15, fontWeight: 700, color: "var(--text)", marginBottom: 5 }}>{f.title}</h3>
+                        <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.65 }}>{f.desc}</p>
                       </div>
                       <ArrowRight
-                        size={16}
+                        size={14}
                         color={active ? "var(--accent)" : "var(--text-subtle)"}
-                        style={{
-                          flexShrink: 0,
-                          marginTop: 4,
-                          transform: active ? "rotate(90deg)" : "translateX(0)",
-                          transition: "all 0.2s ease",
-                        }}
+                        style={{ flexShrink: 0, marginTop: 4, transform: active ? "rotate(90deg)" : "translateX(0)", transition: "all 0.2s ease" }}
                       />
                     </button>
-                    {/* Inline preview — always rendered; CSS hides it on desktop */}
+                    {/* Mobile inline preview */}
                     <div
                       className="feat-mobile-preview"
                       style={{
-                        padding: "18px 22px 20px",
-                        background:
-                          "linear-gradient(160deg, rgba(16,185,129,0.10), rgba(34,211,238,0.04) 60%, transparent)",
+                        padding: "16px 20px 18px",
+                        background: "linear-gradient(160deg, rgba(16,185,129,0.10), rgba(34,211,238,0.04) 60%, transparent)",
                         border: "1px solid rgba(16,185,129,0.30)",
                         borderTop: "1px solid rgba(16,185,129,0.12)",
-                        borderRadius: "0 0 16px 16px",
+                        borderRadius: "0 0 14px 14px",
                         marginTop: -1,
                       }}
                     >
-                      <p
-                        style={{
-                          fontSize: 10,
-                          letterSpacing: "0.14em",
-                          color: "var(--text-subtle)",
-                          textTransform: "uppercase",
-                          marginBottom: 6,
-                          fontWeight: 600,
-                        }}
-                      >
+                      <p style={{ fontSize: 10, letterSpacing: "0.14em", color: "var(--text-subtle)", textTransform: "uppercase", marginBottom: 6, fontWeight: 600 }}>
                         {f.preview.label}
                       </p>
-                      <div
-                        style={{
-                          fontSize: 28,
-                          fontWeight: 800,
-                          letterSpacing: "-0.03em",
-                          color: "var(--text)",
-                          marginBottom: 12,
-                          lineHeight: 1.1,
-                        }}
-                      >
+                      <div style={{ fontSize: 24, fontWeight: 800, letterSpacing: "-0.03em", color: "var(--text)", marginBottom: 10, lineHeight: 1.1 }}>
                         {f.preview.value}
                       </div>
                       <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
                         {f.preview.chips.map((c) => (
-                          <span
-                            key={c}
-                            style={{
-                              fontSize: 12,
-                              padding: "5px 11px",
-                              borderRadius: 999,
-                              background: "var(--bg3)",
-                              border: "1px solid var(--ss-line)",
-                              color: "var(--text-muted)",
-                              fontWeight: 500,
-                            }}
-                          >
+                          <span key={c} style={{ fontSize: 12, padding: "4px 10px", borderRadius: 999, background: "var(--bg3)", border: "1px solid var(--ss-line)", color: "var(--text-muted)" }}>
                             {c}
                           </span>
                         ))}
                       </div>
                     </div>
-
                   </div>
                 );
               })}
             </div>
 
-            {/* live preview surface */}
+            {/* Desktop feature preview panel */}
             <div
-              className="feat-side-panel"
+              className="feat-desktop-panel"
               style={{
-                position: "sticky",
-                top: 96,
-                alignSelf: "start",
-                background:
-                  "linear-gradient(160deg, rgba(16,185,129,0.08), rgba(34,211,238,0.04) 60%, transparent)",
-                border: "1px solid var(--border-strong)",
-                borderRadius: 22,
-                padding: 28,
-                minHeight: 420,
+                borderRadius: 20,
+                background: "linear-gradient(160deg, rgba(16,185,129,0.12), rgba(34,211,238,0.05) 60%, transparent)",
+                border: "1px solid rgba(16,185,129,0.28)",
+                padding: "clamp(24px,3vw,36px)",
                 display: "flex",
                 flexDirection: "column",
-                gap: 20,
-                boxShadow: "0 30px 80px -40px rgba(16,185,129,0.3)",
-                overflow: "hidden",
+                justifyContent: "center",
+                minHeight: 280,
               }}
             >
-              <div
-                aria-hidden
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  background:
-                    "radial-gradient(400px 240px at 80% 10%, rgba(16,185,129,0.18), transparent 65%)",
-                  pointerEvents: "none",
-                }}
-              />
-              <div style={{ position: "relative", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <div style={{ display: "flex", gap: 6 }}>
-                  <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#ef4444" }} />
-                  <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#f59e0b" }} />
-                  <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#10b981" }} />
-                </div>
-                <span
-                  style={{
-                    fontSize: 10,
-                    color: "var(--text-subtle)",
-                    letterSpacing: "0.16em",
-                    fontWeight: 600,
-                  }}
-                >
-                  SCREENSENTINEL · LIVE
-                </span>
+              <p style={{ fontSize: 11, letterSpacing: "0.14em", color: "var(--text-subtle)", textTransform: "uppercase", marginBottom: 8, fontWeight: 600 }}>
+                {Active.preview.label}
+              </p>
+              <div style={{ fontSize: "clamp(32px,4vw,48px)", fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 16, lineHeight: 1 }}>
+                {Active.preview.value}
               </div>
-
-              <div style={{ position: "relative", flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", gap: 22 }}>
-                <div>
-                  <p style={{ fontSize: 11, letterSpacing: "0.14em", color: "var(--text-subtle)", textTransform: "uppercase", marginBottom: 8, fontWeight: 600 }}>
-                    {Active.preview.label}
-                  </p>
-                  <div
-                    key={activeFeature}
-                    style={{
-                      fontSize: 40,
-                      fontWeight: 800,
-                      letterSpacing: "-0.03em",
-                      color: "var(--text)",
-                      lineHeight: 1.05,
-                      animation: "fade-in 0.35s ease-out",
-                    }}
-                  >
-                    {Active.preview.value}
-                  </div>
-                </div>
-
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                  {Active.preview.chips.map((c) => (
-                    <span
-                      key={c}
-                      style={{
-                        fontSize: 12,
-                        padding: "6px 12px",
-                        borderRadius: 999,
-                        background: "var(--bg3)",
-                        border: "1px solid var(--ss-line)",
-                        color: "var(--text-muted)",
-                        fontWeight: 500,
-                      }}
-                    >
-                      {c}
-                    </span>
-                  ))}
-                </div>
-
-                {/* fake graph */}
-                <div style={{ display: "flex", gap: 4, alignItems: "flex-end", height: 80, marginTop: 12 }}>
-                  {Array.from({ length: 32 }).map((_, i) => (
-                    <span
-                      key={`${activeFeature}-${i}`}
-                      style={{
-                        flex: 1,
-                        height: `${30 + Math.abs(Math.sin((i + activeFeature * 3) * 0.5)) * 70}%`,
-                        background: `linear-gradient(to top, rgba(16,185,129,0.7), rgba(16,185,129,0.1))`,
-                        borderRadius: 2,
-                        transition: "height 0.4s ease",
-                      }}
-                    />
-                  ))}
-                </div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 20 }}>
+                {Active.preview.chips.map((c) => (
+                  <span key={c} style={{ fontSize: 13, padding: "5px 12px", borderRadius: 999, background: "var(--bg3)", border: "1px solid var(--ss-line)", color: "var(--text-muted)" }}>
+                    {c}
+                  </span>
+                ))}
               </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  padding: "12px 16px",
-                  background: "rgba(16,185,129,0.08)",
-                  border: "1px solid rgba(16,185,129,0.25)",
-                  borderRadius: 12,
-                  position: "relative",
-                }}
-              >
-                <CheckCircle2 size={16} color="#10b981" />
-                <span style={{ fontSize: 13, color: "var(--text)", fontWeight: 500 }}>
-                  All checks running locally · no data sent
-                </span>
+              <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+                <div style={{ width: 36, height: 36, borderRadius: 10, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <Active.icon size={16} color="var(--accent)" />
+                </div>
+                <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.65 }}>{Active.desc}</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ============ FINAL CTA ============ */}
-      <section
-        style={{
-          position: "relative",
-          padding: "80px 0 96px",
-          borderTop: "1px solid var(--ss-line)",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          aria-hidden
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "radial-gradient(900px 500px at 50% 100%, rgba(16,185,129,0.22), transparent 65%), radial-gradient(700px 400px at 20% 0%, rgba(34,211,238,0.10), transparent 70%)",
-            pointerEvents: "none",
-          }}
-        />
-        <div className="ss-container" style={{ position: "relative", textAlign: "center", maxWidth: 760, margin: "0 auto" }}>
-          <p className="ss-pill" style={{ marginBottom: 22 }}>
-            <ShieldCheck size={11} /> Ready when you are
-          </p>
-          <h2
-            style={{
-              fontSize: "clamp(36px,4.8vw,64px)",
-              fontWeight: 800,
-              letterSpacing: "-0.04em",
-              color: "var(--text)",
-              marginBottom: 20,
-              lineHeight: 1.05,
-            }}
-          >
-            Install once.
-            <br />
-            <span
-              style={{
-                background: "linear-gradient(135deg, #10b981, #22d3ee)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Trust every video forever.
-            </span>
+      {/* ============ DOWNLOAD CTA ============ */}
+      <section style={{ padding: "clamp(48px,5vw,80px) 0", background: "var(--bg2)", borderTop: "1px solid var(--ss-line)", position: "relative", overflow: "hidden" }}>
+        <div aria-hidden style={{ position: "absolute", inset: 0, background: "radial-gradient(700px circle at 50% 0%, rgba(16,185,129,0.12), transparent 60%)", pointerEvents: "none" }} />
+        <div className="ss-container" style={{ position: "relative", textAlign: "center", maxWidth: 640, margin: "0 auto" }}>
+          <p className="ss-pill" style={{ marginBottom: 16 }}>Get protected today</p>
+          <h2 style={{ fontSize: "clamp(26px,3.4vw,44px)", fontWeight: 800, letterSpacing: "-0.038em", color: "var(--text)", marginBottom: 14, lineHeight: 1.1 }}>
+            Free. Private. Yours.
           </h2>
-          <p style={{ color: "var(--text-muted)", fontSize: 17, lineHeight: 1.7, marginBottom: 36, maxWidth: 540, margin: "0 auto 36px" }}>
-            One small download. No account. No subscription. The internet stops lying to you the moment it finishes installing.
+          <p style={{ fontSize: 16, color: "var(--text-muted)", lineHeight: 1.7, marginBottom: 28 }}>
+            ScreenSentinel is free to download. No accounts, no subscriptions, no data collection — ever.
           </p>
-          <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap", marginBottom: 32 }}>
-            <a href={exeLink} className="ss-btn ss-btn-primary" style={{ padding: "16px 28px", fontSize: 15 }}>
-              <Download size={16} /> Download for Windows · {version}
+          <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+            <a href={exeLink} className="ss-btn ss-btn-primary">
+              <Download size={14} /> Download for Windows — free
             </a>
           </div>
-          <div
-            style={{
-              display: "flex",
-              gap: 28,
-              justifyContent: "center",
-              flexWrap: "wrap",
-              fontSize: 13,
-              color: "var(--text-subtle)",
-            }}
-          >
-            {[
-              "100% on-device",
-              "No telemetry",
-              "Free forever",
-              "Windows 10 & 11",
-            ].map((t) => (
-              <span key={t} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
-                <CheckCircle2 size={14} color="var(--accent)" /> {t}
+          <div style={{ display: "flex", gap: 20, justifyContent: "center", flexWrap: "wrap", marginTop: 20, fontSize: 12.5, color: "var(--text-subtle)" }}>
+            {["Windows 10 & 11", "100% on-device", "Sub-200ms inference"].map((t) => (
+              <span key={t} style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+                <CheckCircle2 size={12} color="var(--accent)" /> {t}
               </span>
             ))}
           </div>
@@ -810,71 +609,28 @@ export default function Product() {
       </section>
 
       <style>{`
-        @keyframes pulse {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.55; transform: scale(0.85); }
+        /* Hide mobile previews on desktop */
+        @media (min-width: 768px) {
+          .feat-mobile-preview { display: none !important; }
+          .feat-desktop-panel { display: flex !important; }
         }
-        @keyframes fade-in {
-          from { opacity: 0; transform: translateY(6px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .product-hero-mobile-meta { display: none; }
-        @media (max-width: 900px) {
-          .pipeline-grid { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
-          .pipeline-rail { display: none; }
+        /* Hide desktop panel + show mobile previews on mobile */
+        @media (max-width: 767px) {
+          .feat-desktop-panel { display: none !important; }
+          .feat-mobile-preview { display: block !important; }
           .feat-grid { grid-template-columns: 1fr !important; }
-          /* Hide all desktop hero overlays on mobile — keep just the clean image */
-          .product-hero-frame > div:not(:first-of-type) { display: none !important; }
-          .product-hero-frame > div:first-of-type {
-            background: linear-gradient(to top, rgba(9,9,11,0.55), transparent 60%) !important;
-          }
-          .product-hero-mobile-meta {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 14px auto 0;
-            max-width: 1280px;
-            padding: 12px 16px;
-            border-radius: 14px;
-            border: 1px solid rgba(16,185,129,0.30);
-            background: rgba(16,185,129,0.06);
-            font-size: 13px;
-            color: var(--text);
-            font-weight: 500;
-          }
-          .product-hero-mobile-meta .dot {
-            width: 8px; height: 8px; border-radius: 50%;
-            background: #10b981; box-shadow: 0 0 10px #10b981; flex-shrink: 0;
-          }
-          /* Feature cards: previews are always visible on mobile, so unify styling */
-          .feat-grid button {
-            border-radius: 16px 16px 0 0 !important;
-            border-color: rgba(16,185,129,0.30) !important;
-          }
-          .feat-grid button > svg:last-child { display: none; }
+          .pipeline-grid { grid-template-columns: repeat(2,1fr) !important; gap: 12px !important; }
+          .pipeline-rail { display: none !important; }
+          .product-reticle { display: none !important; }
+          .product-telemetry { flex-direction: column !important; gap: 10px !important; align-items: flex-start !important; }
         }
-        @media (max-width: 560px) {
-          .pipeline-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
-          .pipeline-step {
-            display: grid !important;
-            grid-template-columns: 52px minmax(0, 1fr) !important;
-            gap: 10px !important;
-            align-items: stretch !important;
-            padding: 0 !important;
-          }
-          .pipeline-icon {
-            width: 52px !important;
-            height: 52px !important;
-            margin: 0 !important;
-            border-radius: 14px !important;
-          }
-          .pipeline-card {
-            padding: 14px 15px !important;
-            border-radius: 14px !important;
-          }
-          .pipeline-card h3 { font-size: 15px !important; margin-bottom: 6px !important; }
-          .pipeline-card p { font-size: 12.5px !important; line-height: 1.45 !important; }
-          .pipeline-card > div:first-child { margin-bottom: 8px !important; }
+        @media (max-width: 480px) {
+          .pipeline-grid { grid-template-columns: 1fr !important; }
+          .product-waveform { display: none !important; }
+        }
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.4; }
         }
       `}</style>
     </div>

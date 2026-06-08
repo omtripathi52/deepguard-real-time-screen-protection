@@ -1,5 +1,6 @@
-import { ArrowRight, MapPin, Globe, Heart, BookOpen, Zap, Users, CheckCircle2, DollarSign, Send } from "lucide-react";
-import { openRoles } from "@/data/content";
+import { useState } from "react";
+import { ArrowRight, MapPin, Globe, Heart, BookOpen, Zap, Users, CheckCircle2, DollarSign, Send, Briefcase, GraduationCap, Clock } from "lucide-react";
+import { openRoles, openInternships } from "@/data/content";
 
 const whyNow = [
   {
@@ -25,18 +26,22 @@ const whyNow = [
 ];
 
 const benefits = [
-  { Icon: DollarSign, title: "Top-of-market USD pay", desc: "Compensation paid in USD, anywhere in the world." },
-  { Icon: Globe, title: "Fully remote", desc: "Work from anywhere. Async-first with deep-work blocks." },
+  { Icon: DollarSign, title: "Globally competitive pay", desc: "Salaries set to be attractive wherever you are — India, USA, UK, or anywhere else." },
+  { Icon: Globe, title: "Fully remote, worldwide", desc: "Work from any timezone. Async-first with deep-work blocks protected." },
   { Icon: Heart, title: "Health & wellness", desc: "Private medical cover and a monthly wellness stipend." },
-  { Icon: BookOpen, title: "Learning budget", desc: "$2,000/year for conferences, courses and books." },
+  { Icon: BookOpen, title: "Learning budget", desc: "$1,000/year for conferences, courses, API credits, and books." },
   { Icon: Users, title: "Team retreats", desc: "Twice a year, the whole team gathers in person." },
-  { Icon: Zap, title: "Top-tier equipment", desc: "Your choice of laptop, monitor and home-office setup." },
+  { Icon: Zap, title: "Top-tier equipment", desc: "Your choice of laptop, monitor, and home-office setup — fully covered." },
 ];
 
 const applyLink = (title: string) =>
-  `mailto:hello@screensentinel.me?subject=${encodeURIComponent(`Role application: ${title}`)}`;
+  `mailto:hello@screensentinel.me?subject=${encodeURIComponent(`Application: ${title}`)}`;
+
+type Tab = "jobs" | "internships";
 
 export default function Careers() {
+  const [tab, setTab] = useState<Tab>("jobs");
+
   return (
     <div className="ss-mobile-page ss-careers-page">
       {/* HERO */}
@@ -59,30 +64,30 @@ export default function Careers() {
                 Build the trust layer for <span className="grad-text">synthetic media.</span>
               </h1>
               <p style={{ fontSize: 16.5, color: "var(--text-muted)", lineHeight: 1.7, marginBottom: 24, maxWidth: 560 }}>
-                A small, remote-first team building on-device AI to verify what billions of people watch. If you care about privacy, craft, and work that matters — keep reading.
+                Remote-first, worldwide team. Zero experience required to apply. We hire on curiosity, craft, and what you've built — not years on a CV.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 22 }}>
                 <a href="#roles" className="ss-btn ss-btn-primary">
                   See open roles <ArrowRight size={14} />
                 </a>
                 <a href="mailto:hello@screensentinel.me?subject=Open%20application" className="ss-btn ss-btn-ghost">
-                  <Send size={13} /> Send open application
+                  <Send size={13} /> Open application
                 </a>
               </div>
               <div style={{ display: "flex", gap: 22, flexWrap: "wrap", fontSize: 12.5, color: "var(--text-subtle)" }}>
                 <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
-                  <Globe size={12} /> Remote — Worldwide
+                  <Globe size={12} /> Remote · Worldwide
                 </span>
                 <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
-                  <DollarSign size={12} /> Paid in USD
+                  <CheckCircle2 size={12} color="var(--accent)" /> 0 experience OK
                 </span>
                 <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
-                  <Users size={12} /> {openRoles.length} open roles
+                  <Briefcase size={12} /> {openRoles.length} jobs · {openInternships.length} internships
                 </span>
               </div>
             </div>
 
-            {/* Distributed team visual */}
+            {/* Globe visual */}
             <div className="careers-globe" style={{ position: "relative", aspectRatio: "1 / 0.85" }}>
               <div
                 aria-hidden
@@ -103,21 +108,14 @@ export default function Careers() {
                       <stop offset="100%" stopColor="rgba(16,185,129,0.25)" />
                     </radialGradient>
                   </defs>
-                  {/* concentric rings */}
                   {[60, 110, 160].map((r) => (
                     <circle key={r} cx="200" cy="170" r={r} fill="none" stroke="rgba(255,255,255,0.06)" strokeDasharray="3 5" />
                   ))}
                   <circle cx="200" cy="170" r="160" fill="url(#ring)" />
-                  {/* connection lines */}
-                  {[
-                    [60, 90], [340, 80], [80, 260], [330, 250], [200, 40], [200, 300], [40, 170], [360, 170],
-                  ].map(([x, y], i) => (
+                  {[[60, 90], [340, 80], [80, 260], [330, 250], [200, 40], [200, 300], [40, 170], [360, 170]].map(([x, y], i) => (
                     <line key={i} x1="200" y1="170" x2={x} y2={y} stroke="rgba(16,185,129,0.18)" strokeWidth="1" />
                   ))}
-                  {/* nodes */}
-                  {[
-                    [60, 90], [340, 80], [80, 260], [330, 250], [200, 40], [200, 300], [40, 170], [360, 170],
-                  ].map(([x, y], i) => (
+                  {[[60, 90], [340, 80], [80, 260], [330, 250], [200, 40], [200, 300], [40, 170], [360, 170]].map(([x, y], i) => (
                     <g key={i}>
                       <circle cx={x} cy={y} r="5" fill="rgba(16,185,129,0.9)" />
                       <circle cx={x} cy={y} r="11" fill="rgba(16,185,129,0.15)">
@@ -126,7 +124,6 @@ export default function Careers() {
                       </circle>
                     </g>
                   ))}
-                  {/* center */}
                   <circle cx="200" cy="170" r="14" fill="var(--bg)" stroke="rgba(16,185,129,0.9)" strokeWidth="1.5" />
                   <circle cx="200" cy="170" r="5" fill="rgba(16,185,129,0.9)" />
                 </svg>
@@ -145,7 +142,7 @@ export default function Careers() {
               A short window to build something important.
             </h2>
             <p style={{ color: "var(--text-muted)", fontSize: 15, lineHeight: 1.7 }}>
-              The category is forming now. The people who shape it will be the ones who shipped early, made the right architectural calls, and held the line on privacy.
+              The category is forming now. The people who shape it will be the ones who shipped early, made the right calls, and held the line on privacy.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 12 }} className="ss-two-col">
@@ -160,99 +157,266 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* OPEN ROLES */}
+      {/* OPEN POSITIONS — TAB SWITCHER */}
       <section id="roles" style={{ padding: "clamp(48px,5vw,88px) 0", background: "var(--bg)" }}>
         <div className="ss-hero-wrap">
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 16, marginBottom: 28 }}>
-            <div>
-              <p className="ss-pill" style={{ marginBottom: 14 }}>Open positions</p>
-              <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.035em", color: "var(--text)", marginBottom: 6 }}>
-                Now hiring
-              </h2>
-              <p style={{ fontSize: 13.5, color: "var(--text-muted)" }}>
-                {openRoles.length} roles · Remote worldwide · Salaries in USD
-              </p>
+          {/* Header + tabs */}
+          <div style={{ marginBottom: 28 }}>
+            <p className="ss-pill" style={{ marginBottom: 14 }}>Open positions</p>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 16 }}>
+              <div>
+                <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.035em", color: "var(--text)", marginBottom: 6 }}>
+                  Now hiring
+                </h2>
+                <p style={{ fontSize: 13.5, color: "var(--text-muted)" }}>
+                  Remote worldwide · All experience levels welcome · Salaries competitive globally
+                </p>
+              </div>
+              {/* Tab toggle */}
+              <div
+                style={{
+                  display: "inline-flex",
+                  borderRadius: 12,
+                  border: "1px solid var(--ss-line)",
+                  background: "var(--bg2)",
+                  padding: 4,
+                  gap: 4,
+                }}
+              >
+                {([["jobs", Briefcase, `${openRoles.length} Jobs`], ["internships", GraduationCap, `${openInternships.length} Internships`]] as const).map(([id, Icon, label]) => (
+                  <button
+                    key={id}
+                    onClick={() => setTab(id)}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 7,
+                      padding: "8px 16px",
+                      borderRadius: 9,
+                      border: "none",
+                      cursor: "pointer",
+                      fontSize: 13,
+                      fontWeight: 600,
+                      transition: "all 0.2s ease",
+                      background: tab === id ? "var(--bg)" : "transparent",
+                      color: tab === id ? "var(--text)" : "var(--text-muted)",
+                      boxShadow: tab === id ? "0 1px 4px rgba(0,0,0,0.15)" : "none",
+                    }}
+                  >
+                    <Icon size={13} />
+                    {label}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div style={{ display: "grid", gap: 12 }}>
-            {openRoles.map((job) => (
-              <article
-                key={job.id}
-                className="ss-role-card"
-                style={{
-                  border: "1px solid var(--ss-line)",
-                  borderRadius: 16,
-                  padding: "22px 24px",
-                  background: "var(--bg2)",
-                  transition: "border-color 0.2s ease, transform 0.2s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "var(--accent-border)";
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "var(--ss-line)";
-                  e.currentTarget.style.transform = "translateY(0)";
-                }}
-              >
-                <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr auto", gap: 24, alignItems: "center" }} className="ss-role-row">
-                  <div>
-                    <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 8, flexWrap: "wrap" }}>
-                      <span style={{ fontSize: 10.5, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--accent)", fontWeight: 700, padding: "3px 8px", borderRadius: 6, background: "var(--accent-dim)", border: "1px solid var(--accent-border)" }}>
-                        {job.department}
-                      </span>
-                      {job.seniority && (
-                        <span style={{ fontSize: 10.5, color: "var(--text-subtle)", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
-                          {job.seniority}
+          {/* JOBS TAB */}
+          {tab === "jobs" && (
+            <div style={{ display: "grid", gap: 12 }}>
+              {openRoles.map((job) => (
+                <article
+                  key={job.id}
+                  className="ss-role-card"
+                  style={{
+                    border: "1px solid var(--ss-line)",
+                    borderRadius: 16,
+                    padding: "clamp(16px,2vw,22px) clamp(16px,2vw,24px)",
+                    background: "var(--bg2)",
+                    transition: "border-color 0.2s ease, transform 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor = "var(--accent-border)";
+                    (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor = "var(--ss-line)";
+                    (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+                  }}
+                >
+                  <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr auto", gap: 20, alignItems: "center" }} className="ss-role-row">
+                    <div>
+                      <div style={{ display: "flex", gap: 7, alignItems: "center", marginBottom: 8, flexWrap: "wrap" }}>
+                        <span style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--accent)", fontWeight: 700, padding: "3px 8px", borderRadius: 6, background: "var(--accent-dim)", border: "1px solid var(--accent-border)" }}>
+                          {job.department}
                         </span>
+                        {job.seniority && (
+                          <span style={{ fontSize: 10, color: "var(--text-subtle)", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                            {job.seniority}
+                          </span>
+                        )}
+                      </div>
+                      <h3 style={{ fontSize: "clamp(16px,1.8vw,19px)", fontWeight: 700, color: "var(--text)", marginBottom: 8, letterSpacing: "-0.015em" }}>{job.title}</h3>
+                      <p style={{ fontSize: 13.5, color: "var(--text-muted)", lineHeight: 1.6, maxWidth: 520, marginBottom: job.tags?.length ? 10 : 0 }}>
+                        {job.description}
+                      </p>
+                      {job.tags && job.tags.length > 0 && (
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
+                          {job.tags.map((t) => (
+                            <span key={t} style={{ fontSize: 11.5, color: "var(--text-muted)", padding: "3px 9px", borderRadius: 6, background: "var(--bg)", border: "1px solid var(--ss-line)", fontWeight: 500 }}>
+                              {t}
+                            </span>
+                          ))}
+                        </div>
                       )}
                     </div>
-                    <h3 style={{ fontSize: 19, fontWeight: 700, color: "var(--text)", marginBottom: 8, letterSpacing: "-0.015em" }}>{job.title}</h3>
-                    <p style={{ fontSize: 13.5, color: "var(--text-muted)", lineHeight: 1.6, maxWidth: 560, marginBottom: job.tags?.length ? 12 : 0 }}>
-                      {job.description}
-                    </p>
-                    {job.tags && job.tags.length > 0 && (
-                      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-                        {job.tags.map((t) => (
+                    <div style={{ display: "flex", flexDirection: "column", gap: 7, fontSize: 13 }}>
+                      <span style={{ display: "inline-flex", alignItems: "center", gap: 7, color: "var(--text-muted)" }}>
+                        <MapPin size={13} color="var(--accent)" /> {job.location}
+                      </span>
+                      <span style={{ display: "inline-flex", alignItems: "center", gap: 7, color: "var(--text)", fontWeight: 600 }}>
+                        <DollarSign size={13} color="var(--accent)" /> {job.salary}
+                      </span>
+                      <span style={{ display: "inline-flex", alignItems: "center", gap: 7, color: "var(--text-subtle)" }}>
+                        <CheckCircle2 size={13} color="var(--accent)" /> {job.type}
+                      </span>
+                    </div>
+                    <a href={applyLink(job.title)} className="ss-btn ss-btn-primary" style={{ whiteSpace: "nowrap" }}>
+                      Apply <ArrowRight size={14} />
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          )}
+
+          {/* INTERNSHIPS TAB */}
+          {tab === "internships" && (
+            <div>
+              {/* Internship intro banner */}
+              <div
+                style={{
+                  padding: "18px 22px",
+                  borderRadius: 14,
+                  background: "linear-gradient(135deg, rgba(16,185,129,0.08), rgba(34,211,238,0.04))",
+                  border: "1px solid rgba(16,185,129,0.25)",
+                  marginBottom: 20,
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: 14,
+                }}
+              >
+                <div
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: 10,
+                    background: "var(--accent-dim)",
+                    border: "1px solid var(--accent-border)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <GraduationCap size={17} color="var(--accent)" />
+                </div>
+                <div>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: "var(--text)", marginBottom: 4 }}>
+                    Open to all experience levels — including zero
+                  </div>
+                  <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.6, margin: 0 }}>
+                    We believe learning-by-doing beats credentials. All internships are paid, fully remote, and open worldwide. If you've built something in AI, ML, or data — even just a project — apply.
+                  </p>
+                </div>
+              </div>
+
+              <div style={{ display: "grid", gap: 14 }}>
+                {openInternships.map((intern) => (
+                  <article
+                    key={intern.id}
+                    style={{
+                      border: "1px solid var(--ss-line)",
+                      borderRadius: 16,
+                      padding: "clamp(18px,2vw,26px) clamp(18px,2vw,26px)",
+                      background: "var(--bg2)",
+                      transition: "border-color 0.2s ease, transform 0.2s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.borderColor = "var(--accent-border)";
+                      (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.borderColor = "var(--ss-line)";
+                      (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+                    }}
+                  >
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 20, alignItems: "start" }} className="intern-row">
+                      <div>
+                        <div style={{ display: "flex", gap: 7, alignItems: "center", marginBottom: 10, flexWrap: "wrap" }}>
                           <span
-                            key={t}
                             style={{
-                              fontSize: 11.5,
-                              color: "var(--text-muted)",
-                              padding: "3px 9px",
+                              fontSize: 10,
+                              textTransform: "uppercase",
+                              letterSpacing: "0.1em",
+                              color: "#22d3ee",
+                              fontWeight: 700,
+                              padding: "3px 8px",
                               borderRadius: 6,
-                              background: "var(--bg)",
-                              border: "1px solid var(--ss-line)",
-                              fontWeight: 500,
+                              background: "rgba(34,211,238,0.10)",
+                              border: "1px solid rgba(34,211,238,0.25)",
                             }}
                           >
-                            {t}
+                            {intern.domain}
                           </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 8, fontSize: 13 }}>
-                    <span style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "var(--text-muted)" }}>
-                      <MapPin size={13} color="var(--accent)" /> {job.location}
-                    </span>
-                    <span style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "var(--text)", fontWeight: 600 }}>
-                      <DollarSign size={13} color="var(--accent)" /> {job.salary}
-                    </span>
-                    <span style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "var(--text-subtle)" }}>
-                      <CheckCircle2 size={13} color="var(--accent)" /> {job.type}
-                    </span>
-                  </div>
-                  <a href={applyLink(job.title)} className="ss-btn ss-btn-primary" style={{ whiteSpace: "nowrap" }}>
-                    Apply <ArrowRight size={14} />
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
+                          <span style={{ fontSize: 10, color: "var(--accent)", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", display: "inline-flex", alignItems: "center", gap: 4 }}>
+                            <GraduationCap size={10} /> Internship
+                          </span>
+                        </div>
+                        <h3 style={{ fontSize: "clamp(16px,1.8vw,20px)", fontWeight: 700, color: "var(--text)", marginBottom: 8, letterSpacing: "-0.015em" }}>
+                          {intern.title}
+                        </h3>
+                        <p style={{ fontSize: 13.5, color: "var(--text-muted)", lineHeight: 1.65, marginBottom: 14, maxWidth: 580 }}>
+                          {intern.description}
+                        </p>
 
-          <div style={{ marginTop: 24, padding: "20px 24px", borderRadius: 14, border: "1px dashed var(--ss-line)", textAlign: "center", color: "var(--text-muted)", fontSize: 14 }}>
+                        {/* Tags */}
+                        {intern.tags && (
+                          <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: 16 }}>
+                            {intern.tags.map((t) => (
+                              <span key={t} style={{ fontSize: 11.5, color: "var(--text-muted)", padding: "3px 9px", borderRadius: 6, background: "var(--bg)", border: "1px solid var(--ss-line)", fontWeight: 500 }}>
+                                {t}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+
+                        {/* Meta row */}
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 18, fontSize: 13 }}>
+                          <span style={{ display: "inline-flex", alignItems: "center", gap: 7, color: "var(--text-muted)" }}>
+                            <MapPin size={13} color="var(--accent)" /> {intern.location}
+                          </span>
+                          <span style={{ display: "inline-flex", alignItems: "center", gap: 7, color: "var(--text)", fontWeight: 600 }}>
+                            <DollarSign size={13} color="var(--accent)" /> {intern.stipend}
+                          </span>
+                          <span style={{ display: "inline-flex", alignItems: "center", gap: 7, color: "var(--text-muted)" }}>
+                            <Clock size={13} color="var(--accent)" /> {intern.duration}
+                          </span>
+                          <span style={{ display: "inline-flex", alignItems: "center", gap: 7, color: "#10b981", fontSize: 12, fontWeight: 600 }}>
+                            <CheckCircle2 size={12} /> {intern.level}
+                          </span>
+                        </div>
+                      </div>
+
+                      <a href={applyLink(intern.title)} className="ss-btn ss-btn-primary" style={{ whiteSpace: "nowrap", flexShrink: 0 }}>
+                        Apply <ArrowRight size={14} />
+                      </a>
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              <div style={{ marginTop: 20, padding: "16px 20px", borderRadius: 12, border: "1px dashed var(--ss-line)", textAlign: "center", color: "var(--text-muted)", fontSize: 14 }}>
+                Want a longer engagement?{" "}
+                <a href="/fellowship" style={{ color: "var(--accent)", fontWeight: 600 }}>
+                  Check out the ScreenSentinel Fellowship
+                </a>
+                {" "}— 6 months, $2,000/mo, fully mentored.
+              </div>
+            </div>
+          )}
+
+          <div style={{ marginTop: 20, padding: "18px 22px", borderRadius: 14, border: "1px dashed var(--ss-line)", textAlign: "center", color: "var(--text-muted)", fontSize: 14 }}>
             Don't see your role?{" "}
             <a href="mailto:hello@screensentinel.me?subject=Open%20application" style={{ color: "var(--accent)", fontWeight: 600 }}>
               Send an open application
@@ -271,17 +435,11 @@ export default function Careers() {
               Set up to do your best work
             </h2>
           </div>
-
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }} className="ss-three-col">
             {benefits.map(({ Icon, title, desc }) => (
               <div
                 key={title}
-                style={{
-                  padding: "20px 22px",
-                  borderRadius: 14,
-                  border: "1px solid var(--ss-line)",
-                  background: "var(--bg)",
-                }}
+                style={{ padding: "20px 22px", borderRadius: 14, border: "1px solid var(--ss-line)", background: "var(--bg)" }}
               >
                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
                   <div style={{ width: 30, height: 30, borderRadius: 8, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--accent)" }}>
@@ -298,27 +456,31 @@ export default function Careers() {
 
       {/* CTA */}
       <section style={{ padding: "clamp(48px,5vw,88px) 0", background: "var(--bg)", borderTop: "1px solid var(--ss-line)", position: "relative", overflow: "hidden" }}>
-        <div
-          aria-hidden
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "radial-gradient(600px circle at 50% 0%, rgba(16,185,129,0.10), transparent 60%)",
-            pointerEvents: "none",
-          }}
-        />
+        <div aria-hidden style={{ position: "absolute", inset: 0, background: "radial-gradient(600px circle at 50% 0%, rgba(16,185,129,0.10), transparent 60%)", pointerEvents: "none" }} />
         <div className="ss-hero-wrap" style={{ position: "relative", zIndex: 1, textAlign: "center", maxWidth: 640, margin: "0 auto" }}>
           <h2 style={{ fontSize: "clamp(28px, 3.4vw, 40px)", fontWeight: 800, letterSpacing: "-0.035em", color: "var(--text)", marginBottom: 14, lineHeight: 1.1 }}>
-            Don't see your role?
+            We hire for what you can build.
           </h2>
           <p style={{ fontSize: 15.5, color: "var(--text-muted)", lineHeight: 1.7, marginBottom: 24 }}>
-            We hire for portfolios over CVs. Tell us what you've built, what you'd want to build here, and why.
+            No degree required. No minimum experience. Tell us what you've built, what excites you about this problem, and why.
           </p>
-          <a href="mailto:hello@screensentinel.me?subject=Open%20application" className="ss-btn ss-btn-primary">
-            hello@screensentinel.me <ArrowRight size={14} />
-          </a>
+          <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+            <a href="mailto:hello@screensentinel.me?subject=Open%20application" className="ss-btn ss-btn-primary">
+              <Send size={14} /> hello@screensentinel.me
+            </a>
+            <a href="/fellowship" className="ss-btn ss-btn-ghost">
+              Explore Fellowship <ArrowRight size={14} />
+            </a>
+          </div>
         </div>
       </section>
+
+      <style>{`
+        @media (max-width: 767px) {
+          .intern-row { grid-template-columns: 1fr !important; }
+          .intern-row a { width: 100% !important; justify-content: center; }
+        }
+      `}</style>
     </div>
   );
 }
