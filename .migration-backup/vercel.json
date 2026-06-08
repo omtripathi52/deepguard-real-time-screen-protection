@@ -1,15 +1,8 @@
 {
-  "redirects": [
-    {
-      "source": "/security",
-      "destination": "/privacy",
-      "permanent": true
-    },
-    {
-      "source": "/security/:path*",
-      "destination": "/privacy",
-      "permanent": true
-    }
-  ],
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "buildCommand": "pnpm --filter @workspace/screensentinel run build",
+  "outputDirectory": "artifacts/screensentinel/dist",
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
