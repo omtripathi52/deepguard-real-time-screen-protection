@@ -65,8 +65,8 @@ export default function Events() {
           <div className="ss-three-col">
             {highlights.map(({ Icon, title, desc }) => (
               <div key={title} className="ss-card" style={{ padding: "28px 24px", textAlign: "center" }}>
-                <div style={{ width: 48, height: 48, borderRadius: 14, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 18px" }}>
-                  <Icon size={20} color="var(--accent)" />
+                <div style={{ width: 48, height: 48, borderRadius: 14, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "grid", placeItems: "center", margin: "0 auto 18px", fontSize: 0 }}>
+                  <Icon size={20} color="var(--accent)" style={{ display: "block" }} />
                 </div>
                 <h3 style={{ fontWeight: 700, fontSize: 15, color: "var(--text)", marginBottom: 8 }}>{title}</h3>
                 <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.65 }}>{desc}</p>

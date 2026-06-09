@@ -10,8 +10,8 @@ export default function Technology() {
       <div style={{ maxWidth: 900, margin: "0 auto", padding: "72px 24px 120px" }}>
 
         <div style={{ marginBottom: 56, textAlign: "center" }}>
-          <div style={{ width: 64, height: 64, borderRadius: 18, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px", color: "var(--accent)" }}>
-            <Layers size={28} strokeWidth={1.75} />
+          <div style={{ width: 64, height: 64, borderRadius: 18, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "grid", placeItems: "center", margin: "0 auto 20px", fontSize: 0 }}>
+            <Layers size={28} strokeWidth={1.75} color="var(--accent)" style={{ display: "block" }} />
           </div>
           <h1 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 800, color: "var(--text)", marginBottom: 12, letterSpacing: "-0.03em" }}>
             How ScreenSentinel works
@@ -23,8 +23,8 @@ export default function Technology() {
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 48 }} className="ss-two-col">
           <div style={{ background: "var(--bg2)", border: "1px solid var(--ss-line)", padding: "28px 26px", borderRadius: 18 }}>
-            <div style={{ width: 44, height: 44, borderRadius: 12, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--accent)", marginBottom: 16, lineHeight: 0 }}>
-              <Cpu size={20} strokeWidth={1.75} />
+            <div style={{ width: 44, height: 44, borderRadius: 12, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "grid", placeItems: "center", marginBottom: 16, fontSize: 0 }}>
+              <Cpu size={20} strokeWidth={1.75} color="var(--accent)" style={{ display: "block" }} />
             </div>
             <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--text)", marginBottom: 10, letterSpacing: "-0.02em" }}>Runs locally and safely</h3>
             <p style={{ color: "var(--text-muted)", fontSize: 14, lineHeight: 1.75 }}>
@@ -32,8 +32,8 @@ export default function Technology() {
             </p>
           </div>
           <div style={{ background: "var(--bg2)", border: "1px solid var(--ss-line)", padding: "28px 26px", borderRadius: 18 }}>
-            <div style={{ width: 44, height: 44, borderRadius: 12, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--accent)", marginBottom: 16, lineHeight: 0 }}>
-              <Zap size={20} strokeWidth={1.75} />
+            <div style={{ width: 44, height: 44, borderRadius: 12, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "grid", placeItems: "center", marginBottom: 16, fontSize: 0 }}>
+              <Zap size={20} strokeWidth={1.75} color="var(--accent)" style={{ display: "block" }} />
             </div>
             <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--text)", marginBottom: 10, letterSpacing: "-0.02em" }}>Stable, sensible alerts</h3>
             <p style={{ color: "var(--text-muted)", fontSize: 14, lineHeight: 1.75 }}>

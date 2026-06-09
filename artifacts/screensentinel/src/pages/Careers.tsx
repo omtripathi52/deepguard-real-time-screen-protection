@@ -431,8 +431,8 @@ export default function Careers() {
                 style={{ padding: "20px 22px", borderRadius: 14, border: "1px solid var(--ss-line)", background: "var(--bg)" }}
               >
                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
-                  <div style={{ width: 30, height: 30, borderRadius: 8, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--accent)" }}>
-                    <Icon size={14} />
+                  <div style={{ width: 30, height: 30, borderRadius: 8, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "grid", placeItems: "center", fontSize: 0 }}>
+                    <Icon size={14} color="var(--accent)" style={{ display: "block" }} />
                   </div>
                   <div style={{ fontSize: 14, fontWeight: 700, color: "var(--text)" }}>{title}</div>
                 </div>

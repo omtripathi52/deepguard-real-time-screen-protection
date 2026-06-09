@@ -107,8 +107,8 @@ export default function AboutPage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 14 }} className="ss-two-col">
             {principles.map(({ Icon, title, desc }) => (
               <div key={title} className="ss-card" style={{ padding: "28px 28px" }}>
-                <div style={{ width: 44, height: 44, borderRadius: 12, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18 }}>
-                  <Icon size={18} color="var(--accent)" />
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "grid", placeItems: "center", marginBottom: 18, fontSize: 0 }}>
+                  <Icon size={18} color="var(--accent)" style={{ display: "block" }} />
                 </div>
                 <h3 style={{ fontWeight: 700, fontSize: 17, color: "var(--text)", marginBottom: 10, letterSpacing: "-0.01em" }}>{title}</h3>
                 <p style={{ color: "var(--text-muted)", fontSize: 14, lineHeight: 1.7 }}>{desc}</p>

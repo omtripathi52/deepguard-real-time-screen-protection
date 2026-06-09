@@ -57,8 +57,8 @@ export default function Contact() {
         {/* Contact cards */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 40 }} className="ss-two-col">
           <div style={{ display: "flex", alignItems: "center", gap: 14, padding: "18px 20px", background: "var(--bg2)", border: "1px solid var(--ss-line)", borderRadius: 14 }}>
-            <div style={{ width: 40, height: 40, borderRadius: 10, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-              <Mail size={17} color="var(--accent)" />
+            <div style={{ width: 40, height: 40, borderRadius: 10, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "grid", placeItems: "center", flexShrink: 0, fontSize: 0 }}>
+              <Mail size={17} color="var(--accent)" style={{ display: "block" }} />
             </div>
             <div>
               <div style={{ fontSize: 11, color: "var(--text-muted)", marginBottom: 3, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.06em" }}>Email</div>
@@ -69,8 +69,8 @@ export default function Contact() {
           </div>
 
           <div style={{ display: "flex", alignItems: "center", gap: 14, padding: "18px 20px", background: "var(--bg2)", border: "1px solid var(--ss-line)", borderRadius: 14 }}>
-            <div style={{ width: 40, height: 40, borderRadius: 10, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-              <Clock size={17} color="var(--accent)" />
+            <div style={{ width: 40, height: 40, borderRadius: 10, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "grid", placeItems: "center", flexShrink: 0, fontSize: 0 }}>
+              <Clock size={17} color="var(--accent)" style={{ display: "block" }} />
             </div>
             <div>
               <div style={{ fontSize: 11, color: "var(--text-muted)", marginBottom: 3, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.06em" }}>Response time</div>

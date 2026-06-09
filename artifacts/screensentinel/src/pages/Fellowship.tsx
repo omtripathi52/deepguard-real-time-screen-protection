@@ -145,7 +145,7 @@ export default function Fellowship() {
                 { n: "04", label: "Earn certificate", detail: "Verified, shareable, yours forever" },
               ].map((s) => (
                 <div key={s.n} style={{ display: "flex", alignItems: "center", gap: 16, padding: "14px 18px", borderRadius: 12, border: "1px solid var(--ss-line)", background: "var(--bg)" }}>
-                  <div style={{ width: 40, height: 40, borderRadius: 10, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, lineHeight: 0 }}>
+                  <div style={{ width: 40, height: 40, borderRadius: 10, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "grid", placeItems: "center", flexShrink: 0, fontSize: 0 }}>
                     <span style={{ fontSize: 12, fontWeight: 800, color: "var(--accent)", lineHeight: 1, display: "block" }}>{s.n}</span>
                   </div>
                   <div>
@@ -184,8 +184,8 @@ export default function Fellowship() {
                 <div style={{ position: "relative" }}>
                   {/* Icon — centered */}
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
-                    <div style={{ width: 52, height: 52, borderRadius: 14, background: `linear-gradient(135deg, ${t.accent}22, ${t.accent}08)`, border: `1px solid ${t.accent}40`, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: `0 8px 24px -6px ${t.accent}40`, flexShrink: 0, lineHeight: 0 }}>
-                      <t.icon size={26} color={t.accent} strokeWidth={1.6} />
+                    <div style={{ width: 52, height: 52, borderRadius: 14, background: `linear-gradient(135deg, ${t.accent}22, ${t.accent}08)`, border: `1px solid ${t.accent}40`, display: "grid", placeItems: "center", boxShadow: `0 8px 24px -6px ${t.accent}40`, flexShrink: 0, fontSize: 0 }}>
+                      <t.icon size={26} color={t.accent} strokeWidth={1.6} style={{ display: "block" }} />
                     </div>
                     <span style={{ fontSize: 11, fontWeight: 700, color: t.accent, letterSpacing: "0.1em", textTransform: "uppercase" }}>{t.label}</span>
                   </div>
@@ -271,8 +271,8 @@ export default function Fellowship() {
                 onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--accent-border)")}
                 onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--ss-line)")}
               >
-                <div style={{ width: 40, height: 40, borderRadius: 11, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--accent)", marginBottom: 14 }}>
-                  <Icon size={17} />
+                <div style={{ width: 40, height: 40, borderRadius: 11, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "grid", placeItems: "center", marginBottom: 14, fontSize: 0 }}>
+                  <Icon size={17} color="var(--accent)" style={{ display: "block" }} />
                 </div>
                 <div style={{ fontSize: 15, fontWeight: 700, color: "var(--text)", marginBottom: 6 }}>{title}</div>
                 <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.65 }}>{desc}</p>

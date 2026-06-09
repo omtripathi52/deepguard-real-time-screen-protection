@@ -392,15 +392,15 @@ export default function Product() {
                     borderRadius: 20,
                     background: `linear-gradient(135deg, ${s.accent}22, ${s.accent}08)`,
                     border: `1px solid ${s.accent}40`,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
+                    display: "grid",
+                    placeItems: "center",
                     margin: "0 auto 20px",
                     position: "relative",
                     boxShadow: `0 12px 32px -8px ${s.accent}40, inset 0 1px 0 rgba(255,255,255,0.06)`,
+                    fontSize: 0,
                   }}
                 >
-                  <s.icon size={24} color={s.accent} strokeWidth={1.6} />
+                  <s.icon size={24} color={s.accent} strokeWidth={1.6} style={{ display: "block" }} />
                 </div>
                 <div
                   className="pipeline-card"
@@ -572,8 +572,8 @@ export default function Product() {
                 ))}
               </div>
               <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-                <div style={{ width: 36, height: 36, borderRadius: 10, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Active.icon size={16} color="var(--accent)" />
+                <div style={{ width: 36, height: 36, borderRadius: 10, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "grid", placeItems: "center", fontSize: 0 }}>
+                  <Active.icon size={16} color="var(--accent)" style={{ display: "block" }} />
                 </div>
                 <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.65 }}>{Active.desc}</p>
               </div>
