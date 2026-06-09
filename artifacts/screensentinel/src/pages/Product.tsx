@@ -82,8 +82,8 @@ export default function Product() {
   const { data: release } = useGitHubRelease();
   const exeLink = release?.exeUrl || "https://github.com/omtripathi52/ScreenSentinel/releases/latest";
   const version = release?.version || "v2.0.0";
-  const [activeFeature, setActiveFeature] = useState(0);
-  const Active = features[activeFeature];
+  const [activeFeature, setActiveFeature] = useState<number | null>(null);
+  const Active = features[activeFeature ?? 0];
 
   return (
     <div className="ss-mobile-page ss-product-page">
@@ -469,7 +469,7 @@ export default function Product() {
                     <button
                       onMouseEnter={() => setActiveFeature(i)}
                       onFocus={() => setActiveFeature(i)}
-                      onClick={() => setActiveFeature(i)}
+                      onClick={() => setActiveFeature(prev => prev === i ? null : i)}
                       style={{
                         width: "100%",
                         textAlign: "left",
@@ -618,7 +618,7 @@ export default function Product() {
         /* Hide desktop panel + show mobile previews on mobile */
         @media (max-width: 767px) {
           .feat-desktop-panel { display: none !important; }
-          .feat-mobile-preview { display: block !important; }
+          .feat-mobile-preview { display: block; }
           .feat-grid { grid-template-columns: 1fr !important; }
           .pipeline-grid { grid-template-columns: repeat(2,1fr) !important; gap: 12px !important; }
           .pipeline-rail { display: none !important; }
