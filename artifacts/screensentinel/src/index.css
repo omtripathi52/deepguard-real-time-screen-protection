@@ -799,18 +799,27 @@ div[style*="display: flex"][style*="align-items: center"][style*="justify-conten
 
   .pipeline-grid > div {
     padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
   }
 
   .pipeline-grid > div > div:first-child {
-    width: 54px !important;
-    height: 54px !important;
-    margin: 0 0 10px !important;
+    width: 56px !important;
+    height: 56px !important;
+    margin: 0 auto 12px !important;
     border-radius: 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
   }
 
   .pipeline-grid > div > div:last-child {
     padding: 16px !important;
     border-radius: 16px !important;
+    width: 100% !important;
   }
 
   .feat-grid > div:first-child {
@@ -1062,22 +1071,25 @@ div[style*="display: flex"][style*="align-items: center"][style*="justify-conten
   }
 
   .ss-product-page .pipeline-step {
-    display: grid !important;
-    grid-template-columns: 44px minmax(0, 1fr) !important;
-    gap: 12px !important;
-    align-items: start !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
   }
 
   .ss-product-page .pipeline-icon {
-    width: 44px !important;
-    height: 44px !important;
-    margin: 0 !important;
+    width: 56px !important;
+    height: 56px !important;
+    margin: 0 auto 14px !important;
     flex-shrink: 0 !important;
-    align-self: start !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .ss-product-page .pipeline-card {
     padding: 13px 14px !important;
+    width: 100% !important;
   }
 
   .ss-product-page .feat-mobile-preview {
