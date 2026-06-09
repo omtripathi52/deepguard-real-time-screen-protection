@@ -145,8 +145,8 @@ export default function Fellowship() {
                 { n: "04", label: "Earn certificate", detail: "Verified, shareable, yours forever" },
               ].map((s) => (
                 <div key={s.n} style={{ display: "flex", alignItems: "center", gap: 16, padding: "14px 18px", borderRadius: 12, border: "1px solid var(--ss-line)", background: "var(--bg)" }}>
-                  <div style={{ width: 36, height: 36, borderRadius: 10, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                    <span style={{ fontSize: 11, fontWeight: 800, color: "var(--accent)", fontVariantNumeric: "tabular-nums" }}>{s.n}</span>
+                  <div style={{ width: 40, height: 40, borderRadius: 10, background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, lineHeight: 0 }}>
+                    <span style={{ fontSize: 12, fontWeight: 800, color: "var(--accent)", lineHeight: 1, display: "block" }}>{s.n}</span>
                   </div>
                   <div>
                     <div style={{ fontSize: 14, fontWeight: 700, color: "var(--text)", marginBottom: 2 }}>{s.label}</div>
@@ -184,8 +184,8 @@ export default function Fellowship() {
                 <div style={{ position: "relative" }}>
                   {/* Icon — centered */}
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
-                    <div style={{ width: 52, height: 52, borderRadius: 14, background: `linear-gradient(135deg, ${t.accent}22, ${t.accent}08)`, border: `1px solid ${t.accent}40`, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: `0 8px 24px -6px ${t.accent}40`, flexShrink: 0 }}>
-                      <t.icon size={24} color={t.accent} strokeWidth={1.6} />
+                    <div style={{ width: 52, height: 52, borderRadius: 14, background: `linear-gradient(135deg, ${t.accent}22, ${t.accent}08)`, border: `1px solid ${t.accent}40`, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: `0 8px 24px -6px ${t.accent}40`, flexShrink: 0, lineHeight: 0 }}>
+                      <t.icon size={26} color={t.accent} strokeWidth={1.6} />
                     </div>
                     <span style={{ fontSize: 11, fontWeight: 700, color: t.accent, letterSpacing: "0.1em", textTransform: "uppercase" }}>{t.label}</span>
                   </div>
