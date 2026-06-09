@@ -47,8 +47,8 @@ export default function Privacy() {
       <Section title="Contact">
         <p>
           Questions? Email us at{" "}
-          <a href="mailto:hello@screensentinel.me" style={{ color: "var(--accent)", textDecoration: "underline" }}>
-            hello@screensentinel.me
+          <a href="mailto:screensentinel.ai@gmail.com" style={{ color: "var(--accent)", textDecoration: "underline" }}>
+            screensentinel.ai@gmail.com
           </a>
         </p>
       </Section>

@@ -35,7 +35,7 @@ export default function Contact() {
     const body = encodeURIComponent(
       `Name: ${form.firstName} ${form.lastName}\nEmail: ${form.email}\n\n${form.message}`
     );
-    window.location.href = `mailto:hello@screensentinel.me?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:screensentinel.ai@gmail.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -62,8 +62,8 @@ export default function Contact() {
             </div>
             <div>
               <div style={{ fontSize: 11, color: "var(--text-muted)", marginBottom: 3, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.06em" }}>Email</div>
-              <a href="mailto:hello@screensentinel.me" style={{ fontSize: 14, color: "var(--accent)", fontWeight: 600, textDecoration: "none" }}>
-                hello@screensentinel.me
+              <a href="mailto:screensentinel.ai@gmail.com" style={{ fontSize: 14, color: "var(--accent)", fontWeight: 600, textDecoration: "none" }}>
+                screensentinel.ai@gmail.com
               </a>
             </div>
           </div>
@@ -119,7 +119,7 @@ export default function Contact() {
                   Send message <ArrowRight size={15} />
                 </button>
                 <p style={{ fontSize: 12, color: "var(--text-subtle)", lineHeight: 1.5 }}>
-                  This opens your email client with a pre-filled message to hello@screensentinel.me
+                  This opens your email client with a pre-filled message to screensentinel.ai@gmail.com
                 </p>
               </form>
             </>

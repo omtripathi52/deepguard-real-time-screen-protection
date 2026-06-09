@@ -382,7 +382,7 @@ export default function Product() {
               <div
                 key={s.n}
                 className="pipeline-step"
-                style={{ padding: "0 clamp(8px,1.5vw,18px)", position: "relative", display: "flex", flexDirection: "column" }}
+                style={{ padding: "0 clamp(8px,1.5vw,18px)", position: "relative", display: "flex", flexDirection: "column", alignItems: "center" }}
               >
                 <div
                   className="pipeline-icon"

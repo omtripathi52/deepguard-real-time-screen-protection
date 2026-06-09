@@ -35,7 +35,7 @@ const benefits = [
 ];
 
 const applyLink = (title: string) =>
-  `mailto:hello@screensentinel.me?subject=${encodeURIComponent(`Application: ${title}`)}`;
+  `mailto:screensentinel.ai@gmail.com?subject=${encodeURIComponent(`Application: ${title}`)}`;
 
 type Tab = "jobs" | "internships";
 
@@ -70,7 +70,7 @@ export default function Careers() {
                 <a href="#roles" className="ss-btn ss-btn-primary">
                   See open roles <ArrowRight size={14} />
                 </a>
-                <a href="mailto:hello@screensentinel.me?subject=Open%20application" className="ss-btn ss-btn-ghost">
+                <a href="mailto:screensentinel.ai@gmail.com?subject=Open%20application" className="ss-btn ss-btn-ghost">
                   <Send size={13} /> Open application
                 </a>
               </div>
@@ -87,46 +87,35 @@ export default function Careers() {
               </div>
             </div>
 
-            {/* Globe visual */}
-            <div className="careers-globe" style={{ position: "relative", aspectRatio: "1 / 0.85" }}>
-              <div
-                aria-hidden
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  borderRadius: 22,
-                  border: "1px solid var(--ss-line)",
-                  background:
-                    "radial-gradient(circle at 50% 50%, rgba(16,185,129,0.06), transparent 70%), var(--bg2)",
-                  overflow: "hidden",
-                }}
-              >
-                <svg viewBox="0 0 400 340" width="100%" height="100%" style={{ display: "block" }} aria-hidden>
-                  <defs>
-                    <radialGradient id="ring" cx="50%" cy="50%" r="50%">
-                      <stop offset="60%" stopColor="rgba(16,185,129,0)" />
-                      <stop offset="100%" stopColor="rgba(16,185,129,0.25)" />
-                    </radialGradient>
-                  </defs>
-                  {[60, 110, 160].map((r) => (
-                    <circle key={r} cx="200" cy="170" r={r} fill="none" stroke="rgba(255,255,255,0.06)" strokeDasharray="3 5" />
-                  ))}
-                  <circle cx="200" cy="170" r="160" fill="url(#ring)" />
-                  {[[60, 90], [340, 80], [80, 260], [330, 250], [200, 40], [200, 300], [40, 170], [360, 170]].map(([x, y], i) => (
-                    <line key={i} x1="200" y1="170" x2={x} y2={y} stroke="rgba(16,185,129,0.18)" strokeWidth="1" />
-                  ))}
-                  {[[60, 90], [340, 80], [80, 260], [330, 250], [200, 40], [200, 300], [40, 170], [360, 170]].map(([x, y], i) => (
-                    <g key={i}>
-                      <circle cx={x} cy={y} r="5" fill="rgba(16,185,129,0.9)" />
-                      <circle cx={x} cy={y} r="11" fill="rgba(16,185,129,0.15)">
-                        <animate attributeName="r" values="6;14;6" dur="3s" repeatCount="indefinite" begin={`${i * 0.3}s`} />
-                        <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite" begin={`${i * 0.3}s`} />
-                      </circle>
-                    </g>
-                  ))}
-                  <circle cx="200" cy="170" r="14" fill="var(--bg)" stroke="rgba(16,185,129,0.9)" strokeWidth="1.5" />
-                  <circle cx="200" cy="170" r="5" fill="rgba(16,185,129,0.9)" />
-                </svg>
+            {/* Team facts visual */}
+            <div className="careers-globe" style={{ position: "relative" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                {[
+                  { value: "30+", label: "Countries represented", accent: "#10b981", sub: "on the team" },
+                  { value: "<200ms", label: "Detection speed", accent: "#22d3ee", sub: "on-device" },
+                  { value: "0 bytes", label: "Data sent to servers", accent: "#a78bfa", sub: "ever" },
+                  { value: "100%", label: "Remote & async-first", accent: "#f59e0b", sub: "no office required" },
+                ].map((s) => (
+                  <div
+                    key={s.label}
+                    style={{
+                      padding: "22px 20px",
+                      borderRadius: 16,
+                      border: `1px solid ${s.accent}28`,
+                      background: "var(--bg2)",
+                      position: "relative",
+                      overflow: "hidden",
+                      transition: "border-color 0.2s, transform 0.2s",
+                    }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = `${s.accent}55`; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = `${s.accent}28`; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
+                  >
+                    <div aria-hidden style={{ position: "absolute", top: -20, right: -20, width: 90, height: 90, borderRadius: "50%", background: `radial-gradient(circle, ${s.accent}18, transparent 70%)`, pointerEvents: "none" }} />
+                    <div style={{ fontSize: "clamp(22px,3vw,30px)", fontWeight: 900, color: s.accent, letterSpacing: "-0.04em", lineHeight: 1, marginBottom: 6 }}>{s.value}</div>
+                    <div style={{ fontSize: 13, fontWeight: 600, color: "var(--text)", marginBottom: 2 }}>{s.label}</div>
+                    <div style={{ fontSize: 11.5, color: "var(--text-subtle)" }}>{s.sub}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -418,7 +407,7 @@ export default function Careers() {
 
           <div style={{ marginTop: 20, padding: "18px 22px", borderRadius: 14, border: "1px dashed var(--ss-line)", textAlign: "center", color: "var(--text-muted)", fontSize: 14 }}>
             Don't see your role?{" "}
-            <a href="mailto:hello@screensentinel.me?subject=Open%20application" style={{ color: "var(--accent)", fontWeight: 600 }}>
+            <a href="mailto:screensentinel.ai@gmail.com?subject=Open%20application" style={{ color: "var(--accent)", fontWeight: 600 }}>
               Send an open application
             </a>
             {" "}— we read every one.
@@ -465,8 +454,8 @@ export default function Careers() {
             No degree required. No minimum experience. Tell us what you've built, what excites you about this problem, and why.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="mailto:hello@screensentinel.me?subject=Open%20application" className="ss-btn ss-btn-primary">
-              <Send size={14} /> hello@screensentinel.me
+            <a href="mailto:screensentinel.ai@gmail.com?subject=Open%20application" className="ss-btn ss-btn-primary">
+              <Send size={14} /> screensentinel.ai@gmail.com
             </a>
             <a href="/fellowship" className="ss-btn ss-btn-ghost">
               Explore Fellowship <ArrowRight size={14} />

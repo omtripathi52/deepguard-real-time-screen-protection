@@ -48,8 +48,8 @@ export default function Terms() {
       <Section title="6. Contact">
         <p>
           Questions about these terms? Contact us at{" "}
-          <a href="mailto:hello@screensentinel.me" style={{ color: "var(--accent)", textDecoration: "underline" }}>
-            hello@screensentinel.me
+          <a href="mailto:screensentinel.ai@gmail.com" style={{ color: "var(--accent)", textDecoration: "underline" }}>
+            screensentinel.ai@gmail.com
           </a>
         </p>
       </Section>
