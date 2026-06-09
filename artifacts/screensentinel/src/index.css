@@ -1072,30 +1072,25 @@ div[style*="display: flex"][style*="align-items: center"][style*="justify-conten
   }
 
   .ss-product-page .pipeline-step {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+    display: grid !important;
+    grid-template-columns: 56px minmax(0, 1fr) !important;
+    gap: 12px !important;
+    align-items: start !important;
   }
 
   .ss-product-page .pipeline-icon {
     width: 56px !important;
     height: 56px !important;
-    margin: 0 auto 14px !important;
+    margin: 0 !important;
     flex-shrink: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    line-height: 0 !important;
+    display: grid !important;
+    place-items: center !important;
+    font-size: 0 !important;
   }
 
   .ss-product-page .pipeline-card {
     padding: 13px 14px !important;
-    width: 100% !important;
     text-align: left !important;
-  }
-
-  .ss-product-page .feat-mobile-preview {
-    display: none !important;
   }
 
   .ss-product-page .feat-grid button {

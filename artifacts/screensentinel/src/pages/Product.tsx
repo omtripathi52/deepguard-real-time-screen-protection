@@ -513,7 +513,7 @@ export default function Product() {
                         style={{ flexShrink: 0, marginTop: 4, transform: active ? "rotate(90deg)" : "translateX(0)", transition: "all 0.2s ease" }}
                       />
                     </button>
-                    {/* Mobile inline preview */}
+                    {/* Mobile inline preview — only shown when this feature is active */}
                     <div
                       className="feat-mobile-preview"
                       style={{
@@ -523,6 +523,7 @@ export default function Product() {
                         borderTop: "1px solid rgba(16,185,129,0.12)",
                         borderRadius: "0 0 14px 14px",
                         marginTop: -1,
+                        display: active ? undefined : "none",
                       }}
                     >
                       <p style={{ fontSize: 10, letterSpacing: "0.14em", color: "var(--text-subtle)", textTransform: "uppercase", marginBottom: 6, fontWeight: 600 }}>
